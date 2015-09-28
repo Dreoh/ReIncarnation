@@ -1,0 +1,160 @@
+	//=================================================================================================================
+	// whirlwind
+	//=================================================================================================================
+	"customability_whirlwind"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "juggernaut_blade_fury"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET" 
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0 0 0 0"
+		
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30.0 28.0 26.0 24.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80"		
+		
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_whirlwind_aura"
+			}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"sounds.lua"
+				"Function"				"WhirlwindBegin"
+			}
+		}
+
+		"Modifiers"
+		{		
+			"modifier_whirlwind_aura"
+			{
+				//"IsHidden"				"1"
+				"Aura"					"modifier_whirlwind_aura_effect"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_ApplyToCaster"	"0"
+				"Duration"				"%duration"
+				
+				"ThinkInterval"			".1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"spin.lua"
+						"Function"				"Spin"
+					}
+				}			
+				"OnCreated"
+				{
+					//"AttachEffect"
+					//{
+					//	"Target"			"CASTER"
+					//	"EffectName"		"particles/whirlwind_a_glow.vpcf"
+					//	"EffectAttachType"	"follow_origin"
+					//}
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/whirlwind_blur.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_c.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/whirlwind_ground.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+					//"FireSound"
+					//{
+					//	"EffectName"		"Hero_Juggernaut.BladeFuryStart"
+					//	"Target"			"CASTER"
+					//}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"sounds.lua"
+						"Function"				"WhirlwindEnd"
+					}
+				}
+			}
+				
+
+			"modifier_whirlwind_aura_effect"
+			{
+				"EffectName"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_tgt.vpcf"
+				"EffectAttachType"      		"attach_hitloc"
+				
+				"IsDebuff"              "1"
+				"ThinkInterval"			"%damage_tick"
+				
+				"OnIntervalThink"
+				{
+					//"Damage"
+					//{
+					//	"Target" 				"TARGET"
+					//	"Type"					"DAMAGE_TYPE_MAGICAL"
+					//	"Damage"				"%damage"
+					//}
+					"RunScript"
+					{
+						"Target"				"TARGET"
+						"ScriptFile"			"customability_whirlwind.lua"
+						"Function"				"Whirlwind"
+						"damage"				"%damageatkperc"
+					}
+				}
+			}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_tick"				"0.2"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"250"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"5.0 5.0 5.0 5.0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damageatkperc"				"5 10 15 20"
+			}
+		}
+	}

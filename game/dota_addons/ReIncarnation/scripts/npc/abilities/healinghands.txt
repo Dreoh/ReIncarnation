@@ -1,0 +1,65 @@
+	//=================================================================================================================
+	// Healing Hands
+	//=================================================================================================================
+	"customability_healinghands"
+	{
+	
+		"precache"
+		{
+			//"particle"				"particles/fireball.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "omniknight_purification"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "600"
+		"AbilityCastPoint"						"1.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "16.0 12.0 8.0 4.0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "50"
+
+		"OnSpellStart"
+		{
+			"AttachEffect"
+			{
+				"EffectName"            "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+				"EffectAttachType"      "follow_origin"
+				"Target"                "TARGET"
+			}
+			"Heal"
+			{
+				"Target"				"TARGET"
+				"HealAmount"			"%heal"
+			}
+			"FireSound"
+			{
+				"Target"						"TARGET"
+				"EffectName"                    "Hero_Omniknight.Purification"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"heal"                              	"125 150 175 200"
+			}
+		}
+	}

@@ -1,0 +1,95 @@
+	//=================================================================================================================
+	// Survival Instincts
+	//=================================================================================================================
+	"customability_survivalinstincts"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "riki_permanent_invisibility"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "30.0 25.0 20.0 15.0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "25"
+
+		"OnSpellStart"
+		{
+			//"Knockback"
+			//{
+			//	"Target" "CASTER"
+			//	"Center" "POINT"
+			//	"Distance"	"-400"
+			//	"Height"	"5"
+			//	"Duration"	".25"
+			//}
+			
+			"ApplyModifier"
+			{
+				"Target"        "CASTER"
+				"Duration"      "%duration"
+				"ModifierName"  "modifier_rune_invis"
+			}
+					
+			//"ApplyModifier"
+			//{
+			//	"Target" "CASTER"
+			//	"ModifierName" "modifier_invisibility"
+			//}
+			//"ApplyModifier"
+			//{
+			//	"Target" "CASTER"
+			//	"ModifierName" "modifier_restrict"
+			//}
+		}
+
+		"Modifiers"
+		{
+			"modifier_invisibility"
+			{
+				"Duration"		"%duration"
+				"IsDebuff"		"0"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE" "MODIFIER_STATE_VALUE_ENABLED"
+				}  
+			}
+			
+			"modifier_restrict"
+			{
+				"Duration"		".25"
+				"IsDebuff"		"0"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+				}  
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                             "3 5 7 9"
+					//"duration"                             "2 2.5 3 3.5"
+					//"duration"                              "10"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"distance"                             "400"
+			}
+		}
+	}

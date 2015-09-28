@@ -1,0 +1,178 @@
+//Wetboy backstab/critical strike passive
+
+	//=================================================================================================================
+	// Physiology
+	//=================================================================================================================
+	"customability_physiology"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "pudge_flesh_heap"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "0"
+		"AbilityCastPoint"						"0"
+		
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                       "20.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "65"
+
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_bash"
+				"Duration"		"5"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_physiology"
+			{
+				"Passive"               "1"
+				"IsHidden"				"1"
+
+				"OnAttackStart"
+				{
+					"Random"
+					{
+						"Chance" "%crit_chance"
+						"PseudoRandom" "DOTA_PSEUDO_RANDOM_JUGG_CRIT"
+						"OnSuccess"
+						{
+							"ApplyModifier"
+							{
+								"ModifierName" "physiology_crit"
+								"Target"	   "CASTER"	
+							}	
+								
+						}
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"Target"		"TARGET"
+						"ScriptFile"	"customability_physiology.lua"
+						"Function"		"Backstab"
+						"bonus"			"%backstab"
+						"damage"		"%attack_damage"
+					}
+				}
+			}
+				
+
+			"physiology_crit"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"   "%crit_bonus"
+				}
+				
+				"OnAttackLanded"
+				{
+					//"FireEffect"
+					//{
+					//	"EffectName"		 "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+					//	"EffectAttachType"	 "follow_origin"
+					//	"Target"			 "TARGET"
+					//}	
+					//"CleaveAttack"
+					//{
+					//	"CleavePercent"		"%crit_cleave_damage"
+					//	"CleaveRadius"      "%crit_radius"
+					//}
+					"RemoveModifier"
+					{
+						"ModifierName"		"physiology_crit"
+						"Target"			"CASTER"	
+					}
+				}
+			}
+			
+			"modifier_bash"
+			{				
+				"IsDebuff"	"0"
+				
+				"OnAttackLanded"
+				{
+					//"FireEffect"
+					//{
+					//	"EffectName"		 "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+					//	"EffectAttachType"	 "follow_origin"
+					//	"Target"			 "TARGET"
+					//}	
+					"ApplyModifier"
+					{
+						"Target"			"TARGET"
+						"ModifierName"      "modifier_bash_stun"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"		"modifier_bash"
+						"Target"			"CASTER"	
+					}
+				}
+			}
+			
+			"modifier_bash_stun"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"IsStunDebuff"	"1"
+				"Duration"		"%duration"
+				
+				"EffectName"		"particles/physiology_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				
+				"OnDestroy"
+				{
+					"States"
+					{
+						"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_DISABLED"
+					}
+				}
+			}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"crit_chance"			"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"backstab"				"150"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"crit_bonus"			"200 215 230 245"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5"
+			}
+		}
+	}

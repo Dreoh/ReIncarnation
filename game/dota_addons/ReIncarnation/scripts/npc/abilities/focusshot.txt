@@ -1,0 +1,115 @@
+	//=================================================================================================================
+	// Focus Shot
+	//=================================================================================================================
+	"customability_focusshot"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "windrunner_powershot"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "800"
+		"AbilityCastPoint"						"1.75"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "15.0 12.0 10.0 8.0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "60"
+
+		"OnSpellStart"
+		{
+			"LinearProjectile"
+			{
+				"Target"                        "POINT"
+				"EffectName"                  	"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+				"MoveSpeed"                     "%speed"
+				"StartRadius"                   "%radius"
+				"EndRadius"                     "%radius"
+				"TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"TargetFlags"                   "DOTA_UNIT_TARGET_FLAG_NONE"
+				"HasFrontalCone"                "0"
+				"ProvidesVision"                "1"
+				"VisionRadius"                  "400"
+				"FixedDistance"					"%range"
+				"DeleteOnHit"                   "0"
+			}
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Ability.Powershot"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"                           "0"
+
+			"RunScript"
+			{
+				"Target"				"TARGET"
+				"ScriptFile"			"customability_focusshot.lua"
+				"Function"				"Focusshot"
+				"damage"				"%damageagiperc"
+			}
+			//"Damage"
+			//{
+			//	"Target" 				"TARGET"
+			//	"Type"					"DAMAGE_TYPE_MAGICAL"
+			//	"Damage"				"%damage"
+			//}
+			"FireSound"
+			{
+				//"EffectName"            "hero_jakiro.projectileImpact"
+			}
+		}
+		
+		"Modifiers"
+		{
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageagiperc"                         "250 325 400 475"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_INTEGER"
+					"radius"                  				"60"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_INTEGER"
+					"speed"                  				"1200"
+			}
+			"04"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"delay"                  				"1.75"
+			}
+			"05"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"range"                  				"900"
+			}
+		}
+	}

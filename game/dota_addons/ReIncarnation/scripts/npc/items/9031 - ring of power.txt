@@ -1,0 +1,65 @@
+	//=================================================================================================================
+	// Ring of Regen
+	//=================================================================================================================
+	"item_custom_ring_power"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"9031"
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"			"item_ring_of_basilius_active"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1500"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"0"
+		"ItemShopTags"					"passive"
+		"ItemQuality"					"passive"
+		"ItemAliases"					"Ring of Regen"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"0"
+		"ItemDroppable"					"1"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"Modifiers"
+		{
+			"modifier_item_ring_power"
+			{
+				"Passive"				"1"
+				"IsDebuff"              "0"
+				"IsHidden"				"1"
+				"Attributes"     		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%hp_per_tick"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%mp_perc"
+				}
+			}
+		}
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_per_tick"			"4"  
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mp_perc"				"75"  
+			}
+		}
+	}

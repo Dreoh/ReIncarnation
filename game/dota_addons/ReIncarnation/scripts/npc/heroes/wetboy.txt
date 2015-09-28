@@ -1,0 +1,73 @@
+	//Assassin
+	//=================================================================================================================
+	// HERO: Wetboy
+	//=================================================================================================================
+	"npc_dota_hero_wetboy"
+	{
+	
+		"precache"
+		{
+			//"particle"				"particles/hw_rosh_fireball.vpcf"
+			"particle"				"particles/physiology_stunned.vpcf"
+			//"particle"				"particles/generic.vpcf"
+			"particle"				"particles/daggers.vpcf"
+			"particle"				"particles/daggers_slow.vpcf"
+			"particle"				"particles/daggers_frailty.vpcf"
+			"particle"				"particles/daggers_damage.vpcf"
+			"particle"				"particles/herbalism_slow_drips.vpcf"
+			"particle"				"particles/herbalism_frailty_drips.vpcf"
+			"particle"				"particles/herbalism_damage_drips.vpcf"
+			"particle"				"particles/herbalism_damage_debuff_drips.vpcf"
+			"particle"				"particles/herbalism_frailty_debuff_drips.vpcf"
+			"particle"				"particles/herbalism_slow_debuff_drips.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_riki"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"5"
+		"Ability1"					"customability_shadowwalk"			// Ability 1.
+		"Ability2"					"customability_killerinstinct"			// Ability 2
+		"Ability3"					"customability_physiology"			// Ability 3
+		"Ability4"					"customability_herbalism"				// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		"Ability6"					"customability_herbalism_empty1"		// Ability 6
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"30"									// Damage range min.
+		"AttackDamageMax"			"35"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"5"										// Base strength
+		"AttributeStrengthGain"		".6"									// Strength bonus per level.
+		"AttributeBaseAgility"		"20"									// Base agility
+		"AttributeAgilityGain"		"2.2"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"10"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.2"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}

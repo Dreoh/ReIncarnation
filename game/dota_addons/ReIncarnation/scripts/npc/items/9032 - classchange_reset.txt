@@ -1,0 +1,51 @@
+	//=================================================================================================================
+	// Class Change: Devout
+	//=================================================================================================================
+	"item_classchange_reset"
+	{
+
+		"precache"
+		{
+			"model"				"models/props_items/necronomicon.vmdl"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"9032"
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"Model"							"models\props_items\necronomicon.mdl"
+		"AbilityTextureName"			"item_recipe_scroll"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1"
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"500"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemAliases"					"classchange_reset"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemDroppable"					"1"
+		"SideShop"						"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"Caster"        "CASTER"
+				"Target"		"CASTER"
+				"ScriptFile"  	"classchange.lua"
+				"Function"      "Reset"
+			}
+		}
+	}

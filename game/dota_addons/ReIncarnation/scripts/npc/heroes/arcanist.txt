@@ -1,0 +1,62 @@
+	//Arcane mage
+	//=================================================================================================================
+	// HERO: Arcanist
+	//=================================================================================================================
+	"npc_dota_hero_arcanist"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/fireball.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_crystal_maiden"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_empty1"			// Ability 1.
+		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"25"									// Damage range min.
+		"AttackDamageMax"			"30"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"350"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"9"									// Base strength
+		"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
+		"AttributeBaseAgility"		"9"									// Base agility
+		"AttributeAgilityGain"		"1.0"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"17"									// Base intelligence
+		"AttributeIntelligenceGain"	"2.0"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}

@@ -1,0 +1,161 @@
+	//=================================================================================================================
+	// Pyredge
+	//=================================================================================================================
+	"customability_pyredge"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
+			"particle"				"particles/pyredge.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "ember_spirit_flame_guard"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "5"
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"Target"                        "CASTER"
+				"ModifierName"					"modifier_pyredge"
+			}
+			"RunScript"
+			{
+				"Target"					"CASTER"
+				"ScriptFile"				"customability_spellmastery.lua"
+				"Function"					"PyreToggleOn"
+			}
+		}
+		
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"Target" 						"CASTER"
+				"ModifierName"					"modifier_pyredge"
+			}
+			"RunScript"
+			{
+				"Target"					"CASTER"
+				"ScriptFile"				"customability_spellmastery.lua"
+				"Function"					"PyreToggleOff"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_pyredge"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target" "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_attack1"
+						}
+						"EffectName"			"particles/pyredge.vpcf"
+						"EffectAttachType"		"start_at_customorigin"
+					}
+				}
+
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"customability_spellmastery.lua"
+						"Function"				"Pyredge"
+					}
+				}
+				
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"  				"TARGET"
+						"ModifierName"			"modifier_pyredge_effect"
+					}
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"popup.lua"
+						"Function"				"FireDamage"
+						"damage"				"%burst"
+					}
+				}
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%burst"
+				}		
+			}
+			
+			"modifier_pyredge_effect"
+			{
+				"IsDebuff"              "1"
+				"Duration"      		"%duration"
+				"ThinkInterval"			".5"
+				"EffectName"            "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
+				"EffectAttachType"      "attach_hitloc"
+				
+				"OnIntervalThink"
+				{
+					//"Damage"
+					//{
+					//	"Target" 				"TARGET"
+					//	"Type"					"DAMAGE_TYPE_MAGICAL"
+					//	"Damage"				"%burn"
+					//}
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"customability_fireball.lua"
+						"Function"				"Burn"
+						"burn"				"%burnintperc"
+					}
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"attackcost"                            "5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                           	"5"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"burnintperc"                           "15 20 25 30"
+			}
+			"04"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"burst"                           		"10 20 30 40"
+			}
+		}
+	}

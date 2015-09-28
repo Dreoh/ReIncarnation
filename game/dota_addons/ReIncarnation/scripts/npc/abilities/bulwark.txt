@@ -1,0 +1,95 @@
+	//=================================================================================================================
+	// Bulwark
+	//=================================================================================================================
+	"customability_bulwark"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_dazzle/dazzle_armor_friend_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_cast.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_spiral02.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_shell.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_end.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "medusa_mana_shield"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"						"0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                       "20.0 18.0 16.0 14.0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                    	"60"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"      "modifier_bulwark"
+			}
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Hero_Medusa.ManaShield.On"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_bulwark"
+			{
+				"IsDebuff"		"0"
+				"IsPurgable"	"false"
+				"Duration"		"%duration"
+				"EffectAttachType"		"follow_origin"
+				"EffectName"            "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"            "particles/units/heroes/hero_dazzle/dazzle_armor_friend_shield.vpcf"
+						"EffectAttachType"		"follow_overhead"
+						"Target"                "CASTER"
+						"Duration"				"%duration"	
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%block"
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"block"                              	"-20 -30 -30 -40"
+			}
+			"02"
+			{
+					"var_type"								"FIELD_FLOAT"
+					"duration"								"8 10 12 14"
+			}
+		}
+	}

@@ -1,0 +1,139 @@
+	//=================================================================================================================
+	// Modifiers
+	//=================================================================================================================
+	"item_apply_modifiers"
+	{
+		"precache"
+		{
+			"particle"				"particles/daggers.vpcf"
+			"particle"				"particles/daggers_slow.vpcf"
+			"particle"				"particles/daggers_frailty.vpcf"
+			"particle"				"particles/daggers_damage.vpcf"
+			"particle"				"particles/herbalism_damage_debuff_drips.vpcf"
+			"particle"				"particles/herbalism_frailty_debuff_drips.vpcf"
+			"particle"				"particles/herbalism_slow_debuff_drips.vpcf"
+		}
+		
+		"ID"							"2028"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"doom_bringer_empty1"
+		"AbilityCastRange"				"Global"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+		"ItemCost"						"0"
+		"ItemInitialCharges"			"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemRequiresCharges"			"0"
+		"ItemPurchasable"				"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"Modifiers"
+		{
+			"modifier_slow"
+			{
+				"IsDebuff"              "1"
+				"Duration"      		"%duration"
+				
+				"EffectName"            "particles/herbalism_slow_debuff_drips.vpcf"
+				"EffectAttachType"      "attach_hitloc"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-25"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-25"
+				}
+			}
+			"modifier_frailty"
+			{
+				"IsDebuff"              "1"
+				"Duration"      		"%duration"
+				
+				"EffectName"            "particles/herbalism_frailty_debuff_drips.vpcf"
+				"EffectAttachType"      "attach_hitloc"
+				
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"Target"		"TARGET"
+						"ScriptFile"	"customability_herbalism.lua"
+						"Function"		"FrailtyApply"
+						"frailty"		"%decrease"
+					}
+				}
+				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"		"TARGET"
+						"ScriptFile"	"customability_herbalism.lua"
+						"Function"		"FrailtyRemove"
+						"frailty"		"%decrease"
+					}
+				}
+				
+				//"Properties"
+				//{
+				//	"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%decrease"
+				//}	
+			}
+			"modifier_damage"
+			{
+				"IsDebuff"              "1"
+				"ThinkInterval"			".5"
+				"Duration"				"%duration"
+				"EffectName"            "particles/herbalism_damage_debuff_drips.vpcf"
+				"EffectAttachType"      "attach_hitloc"
+				
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target" 				"TARGET"
+						"ScriptFile"			"customability_herbalism.lua"
+						"Function"				"DamagePoison"
+						"damageperc"			"%poisonatkperc"
+						"poison"				"%poisonintperc"
+					}
+				}
+			}
+		}
+		
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"slow"                            		"-25"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"atk_slow"                            	"-25"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                           	"5"
+			}
+			"04"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"poisonintperc"                         "20"	//percentage of intelligence that scales to poison
+			}
+			"05"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"decrease"                         		"20"
+			}
+			"06"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"poisonatkperc"                         "5"	//percentage of intelligence that scales to poison
+			}
+		}
+	}							

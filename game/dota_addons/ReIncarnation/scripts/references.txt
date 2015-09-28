@@ -1,0 +1,28 @@
+
+//-------------------------------------------------------------------
+SendOverheadEventMessage	
+//-------------------------------------------------------------------
+
+void SendOverheadEventMessage(handle handle_1, int int_2, handle handle_3, int int_4, handle handle_5)
+
+( DOTAPlayer sendToPlayer, int iMessageType, Entity targetEntity, int iValue, DOTAPlayer sourcePlayer )
+sendToPlayer and sourcePlayer can be nil - iMessageType is one of OVERHEAD_ALERT_*
+
+SendOverheadEventMessage( handle_1, int_2, handle_3, int_4, handle_5 )
+
+OVERHEAD_ALERT_BLOCK: 8
+OVERHEAD_ALERT_BONUS_POISON_DAMAGE: 9
+OVERHEAD_ALERT_BONUS_SPELL_DAMAGE: 4
+OVERHEAD_ALERT_CRITICAL: 2
+OVERHEAD_ALERT_DAMAGE: 6
+OVERHEAD_ALERT_DENY: 1
+OVERHEAD_ALERT_EVADE: 7
+OVERHEAD_ALERT_GOLD: 0
+OVERHEAD_ALERT_HEAL: 10
+OVERHEAD_ALERT_LAST_HIT_CLOSE: 14
+OVERHEAD_ALERT_LAST_HIT_EARLY: 13
+OVERHEAD_ALERT_LAST_HIT_MISS: 15
+OVERHEAD_ALERT_MANA_ADD: 11
+OVERHEAD_ALERT_MANA_LOSS: 12
+OVERHEAD_ALERT_MISS: 5
+OVERHEAD_ALERT_XP: 3

@@ -1,0 +1,66 @@
+	//=================================================================================================================
+	// HERO: Ranger
+	//=================================================================================================================
+	"npc_dota_hero_ranger"
+	{
+		
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model"			"models\heroes\broodmother\spiderling.mdl"
+			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+			"particle"				"particles/poison_arrow.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_windrunner"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_focusshot"			// Ability 1.
+		"Ability2"					"customability_poisontipped"			// Ability 2
+		"Ability3"					"customability_beastally"			// Ability 3
+		"Ability4"					"customability_survivalinstincts"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"15"									// Damage range min.
+		"AttackDamageMax"			"20"									// Damage range max.
+		"AttackRate"				"1.5"									// Speed of attack.
+		"AttackAnimationPoint"		"0.4"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"									// Range within a target can be acquired.
+		"AttackRange"				"450"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"				// Particle system model for projectile.
+		"ProjectileSpeed"			"1250"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"5"									// Base strength
+		"AttributeStrengthGain"		"1.1"									// Strength bonus per level.
+		"AttributeBaseAgility"		"7.5"									// Base agility
+		"AttributeAgilityGain"		"1.2"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"5"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.0"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}

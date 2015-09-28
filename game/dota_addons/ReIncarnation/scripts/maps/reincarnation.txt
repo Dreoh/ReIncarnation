@@ -1,0 +1,418 @@
+"dota_rpg"
+{	
+	"ItemDrops"
+	{
+		"HealingSalve"
+		{
+			"Item"					"item_custom_minor_potion"
+			"Chance"				"6"
+		}
+		"Clarity"
+		{
+			"Item"					"item_custom_minor_clarity"
+			"Chance"				"6"
+		}
+		"GreaterSalve"
+		{
+			"Item"					"item_custom_greater_potion"
+			"Chance"				"2"
+		}
+		"Bracer"
+		{
+			"Item"					"item_custom_bracer"
+			"Chance"				"1"
+		}
+		"Talisman"
+		{
+			"Item"					"item_custom_null_talisman"
+			"Chance"				"1"
+		}
+		"Wraith"
+		{
+			"Item"					"item_custom_wraith_band"
+			"Chance"				"1"
+		}
+	}
+
+	"spawn_info"
+	{
+		"noob_spawns"
+		{
+			"1"
+			{
+				"SpawnerName"			"noob_spawner_1"
+				"SpawnMax"				"2"
+			}
+			"2"
+			{
+				"SpawnerName"			"noob_spawner_2"
+				"SpawnMax"				"2"
+			}
+			"3"
+			{
+				"SpawnerName"			"noob_spawner_3"
+				"SpawnMax"				"3"
+			}
+			"4"
+			{
+				"SpawnerName"			"noob_spawner_4"
+				"SpawnMax"				"3"
+			}
+			"5"
+			{
+				"SpawnerName"			"noob_spawner_5"
+				"SpawnMax"				"3"
+			}
+			"6"
+			{
+				"SpawnerName"			"noob_spawner_6"
+				"SpawnMax"				"3"
+			}
+			"7"
+			{
+				"SpawnerName"			"noob_spawner_7"
+				"SpawnMax"				"3"
+			}
+			"8"
+			{
+				"SpawnerName"			"noob_spawner_8"
+				"SpawnMax"				"3"
+			}
+			"9"
+			{
+				"SpawnerName"			"noob_spawner_9"
+				"SpawnMax"				"3"
+			}
+		}
+
+		"novice_spawns"
+		{
+			"1"
+			{
+				"SpawnerName"			"novice_spawner_1"
+				"SpawnMax"			"3"
+			}
+			"2"
+			{
+				"SpawnerName"			"novice_spawner_2"
+				"SpawnMax"			"3"
+			}
+			"3"
+			{
+				"SpawnerName"			"novice_spawner_3"
+				"SpawnMax"			"4"
+			}
+			"4"
+			{
+				"SpawnerName"			"novice_spawner_4"
+				"SpawnMax"			"3"
+			}
+			"5"
+			{
+				"SpawnerName"			"novice_spawner_5"
+				"SpawnMax"			"3"
+			}
+			"6"
+			{
+				"SpawnerName"			"novice_spawner_6"
+				"SpawnMax"			"4"
+			}
+			"7"
+			{
+				"SpawnerName"			"novice_spawner_7"
+				"SpawnMax"			"3"
+			}
+			"8"
+			{
+				"SpawnerName"			"novice_spawner_8"
+				"SpawnMax"			"3"
+			}
+		}
+
+		"medium_spawns"
+		{
+			"1"
+			{
+				"SpawnerName"			"medium_spawner_1"
+				"SpawnMax"			"4"
+			}
+			"2"
+			{
+				"SpawnerName"			"medium_spawner_2"
+				"SpawnMax"			"2"
+			}
+			"3"
+			{
+				"SpawnerName"			"medium_spawner_3"
+				"SpawnMax"			"3"
+			}
+			"4"
+			{
+				"SpawnerName"			"medium_spawner_4"
+				"SpawnMax"			"3"
+			}
+			"5"
+			{
+				"SpawnerName"			"medium_spawner_5"
+				"SpawnMax"			"4"
+			}
+			"6"
+			{
+				"SpawnerName"			"medium_spawner_6"
+				"SpawnMax"			"3"
+			}
+			"7"
+			{
+				"SpawnerName"			"medium_spawner_7"
+				"SpawnMax"			"4"
+			}
+			"8"
+			{
+				"SpawnerName"			"medium_spawner_8"
+				"SpawnMax"			"4"
+			}
+			"9"
+			{
+				"SpawnerName"			"medium_spawner_9"
+				"SpawnMax"			"3"
+			}
+			"10"
+			{
+				"SpawnerName"			"medium_spawner_10"
+				"SpawnMax"			"3"
+			}
+			"11"
+			{
+				"SpawnerName"			"medium_spawner_11"
+				"SpawnMax"			"4"
+			}
+			"12"
+			{
+				"SpawnerName"			"medium_spawner_12"
+				"SpawnMax"			"3"
+			}
+			"13"
+			{
+				"SpawnerName"			"medium_spawner_13"
+				"SpawnMax"			"4"
+			}
+			"14"
+			{
+				"SpawnerName"			"medium_spawner_14"
+				"SpawnMax"			"2"
+			}
+			
+		}
+		
+		"hard_spawns"
+		{
+			"1"
+			{
+				"SpawnerName"			"hard_spawner_1"
+				"SpawnMax"			"1"
+			}
+			"2"
+			{
+				"SpawnerName"			"hard_spawner_2"
+				"SpawnMax"			"2"
+			}
+			"3"
+			{
+				"SpawnerName"			"hard_spawner_3"
+				"SpawnMax"			"3"
+			}
+			"4"
+			{
+				"SpawnerName"			"hard_spawner_4"
+				"SpawnMax"			"4"
+			}
+			"5"
+			{
+				"SpawnerName"			"hard_spawner_5"
+				"SpawnMax"			"3"
+			}
+			"6"
+			{
+				"SpawnerName"			"hard_spawner_6"
+				"SpawnMax"			"4"
+			}
+			"7"
+			{
+				"SpawnerName"			"hard_spawner_7"
+				"SpawnMax"			"4"
+			}
+			"8"
+			{
+				"SpawnerName"			"hard_spawner_8"
+				"SpawnMax"			"3"
+			}
+			"9"
+			{
+				"SpawnerName"			"hard_spawner_9"
+				"SpawnMax"			"4"
+			}
+			"10"
+			{
+				"SpawnerName"			"hard_spawner_10"
+				"SpawnMax"			"3"
+			}
+			
+		}
+		
+		"novice_boss"
+		{
+			"1"
+			{
+				"SpawnerName"			"novice_spawner_boss"
+				"SpawnMax"				"1"
+			}
+		}
+		
+		"hard_boss"
+		{
+			"1"
+			{
+				"SpawnerName"			"hard_spawner_boss"
+				"SpawnMax"				"1"
+			}
+		}
+		
+		"expert_boss"
+		{
+			"1"
+			{
+				"SpawnerName"			"expert_spawner_boss"
+				"SpawnMax"				"1"
+			}
+		}
+		
+		//Tables of NPCs belonging to the different difficulties
+		"noob_npcs"
+		{
+			"1"
+			{
+				"npc"				"npc_dota_creature_kobold_tunneler"
+			}
+			"2"
+			{
+				"npc"				"npc_dota_creature_kobold_tunneler"
+			}
+			"3"
+			{
+				"npc"				"npc_dota_creature_kobold_tunneler"
+			}
+			"4"
+			{
+				"npc"				"npc_dota_creature_kobold_tunneler"
+			}
+			"5"
+			{
+				"npc"				"npc_dota_creature_kobold_tunneler"
+			}
+			"6"
+			{
+				"npc"				"npc_dota_creature_gnoll_assassin"
+			}
+			"7"
+			{
+				"npc"				"npc_dota_creature_gnoll_assassin"
+			}
+			"8"
+			{
+				"npc"				"npc_dota_creature_troll_healer"
+			}
+		}
+		
+		"novice_npcs"
+		{
+			"1"
+			{
+				"npc"				"npc_dota_creature_basic_zombie"
+			}
+			"2"
+			{
+				"npc"				"npc_dota_creature_basic_zombie"
+			}
+			"3"
+			{
+				"npc"				"npc_dota_creature_basic_zombie"
+			}
+			"4"
+			{
+				"npc"				"npc_dota_creature_basic_zombie_exploding"
+			}
+			"5"
+			{
+				"npc"				"npc_dota_creature_berserk_zombie"
+			}
+		}
+		
+		"medium_npcs"
+		{
+			"1"
+			{
+				"npc"				"npc_dota_small_wolf"
+			}
+			"2"
+			{
+				"npc"				"npc_dota_small_wolf"
+			}
+			"3"
+			{
+				"npc"				"npc_dota_small_wolf"
+			}
+			"4"
+			{
+				"npc"				"npc_dota_small_wolf"
+			}
+			"5"
+			{
+				"npc"				"npc_dota_large_wolf"
+			}
+			"6"
+			{
+				"npc"				"npc_dota_large_wolf"
+			}
+		}
+		
+		"hard_npcs"
+		{
+			"1"
+			{
+				"npc"				"npc_dota_creature_small_spirit_bear"
+			}
+			"2"
+			{
+				"npc"				"npc_dota_creature_small_spirit_bear"
+			}
+			"3"
+			{
+				"npc"				"npc_dota_creature_large_spirit_bear"
+			}
+		}
+		
+		"novice_boss_npcs"
+		{
+			"1"
+			{
+				"npc"				"npc_dota_creature_corpselord"
+			}
+		}
+		
+		"hard_boss_npcs"
+		{
+			"1"
+			{
+				"npc"				"npc_dota_creature_king_treant"
+			}
+		}
+		
+		"expert_boss_npcs"
+		{
+			"1"
+			{
+				"npc"				"npc_dota_creature_ice_lord"
+			}
+		}
+	}
+}

@@ -1,0 +1,172 @@
+	//=================================================================================================================
+	// Fireball
+	//=================================================================================================================
+	"customability_fireball"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/fireball.vpcf"
+			"particle"				"particles/hw_rosh_fireball.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "ogre_magi_fireblast"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "800"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "15.0 12.0 10.0 8.0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "45 60 75 90"
+
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"			"TARGET"
+				"Dodgeable"			"true"
+				"ProvidesVision"	"true"
+				"VisionRadius"		"300"
+				"EffectName"		"particles/hw_rosh_fireball.vpcf"
+				"MoveSpeed"			"400"
+				"TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"TargetFlags"                   "DOTA_UNIT_TARGET_FLAG_NONE"
+				//projectile eminates from here
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_HITLOCATION"
+			}
+		
+			//"LinearProjectile"
+			//{
+			//	"Target"                        "POINT"
+			//	"EffectName"                  	"particles/fireball.vpcf"
+			//	"MoveSpeed"                     "%speed"
+			//	"StartRadius"                   "%radius"
+			//	"EndRadius"                     "%radius"
+			//	"TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			//	"TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+			//	"TargetFlags"                   "DOTA_UNIT_TARGET_FLAG_NONE"
+			//	"HasFrontalCone"                "0"
+			//	"ProvidesVision"                "1"
+			//	"VisionRadius"                  "400"
+			//	"FixedDistance"					"900"
+			//	"DeleteOnHit"                   "1"
+			//}
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Hero_Jakiro.LiquidFire"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"                           "0"
+
+			"RunScript"
+			{
+				"Target"				"TARGET"
+				"ScriptFile"			"customability_fireball.lua"
+				"Function"				"Fireball"
+				"damage"				"%damageintperc"
+			}
+			//"RunScript"
+			//{
+			//	"Target"				"TARGET"
+			//	"ScriptFile"			"popup.lua"
+			//	"Function"				"FireDamage"
+			//	"damage"				"%damage"
+			//}
+			//"Damage"
+			//{
+			//	"Target" 				"TARGET"
+			//	"Type"					"DAMAGE_TYPE_MAGICAL"
+			//	"Damage"				"%damage"
+			//}
+			"ApplyModifier"
+			{
+				"Target"				"TARGET"
+				"ModifierName"			"modifier_fireball"
+			}
+			"FireSound"
+			{
+				"Target"				"TARGET"
+				"EffectName"            "hero_jakiro.projectileImpact"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_fireball"
+			{
+				"IsDebuff"              "1"
+				"ThinkInterval"			".5"
+				"Duration"      		"%duration"
+				
+				"EffectName"            "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
+				"EffectAttachType"      "attach_hitloc"
+				
+				"OnIntervalThink"
+				{
+					//"Damage"
+					//{
+					//	"Target" 				"TARGET"
+					//	"Type"					"DAMAGE_TYPE_MAGICAL"
+					//	"damage"				"%burn"
+					//}
+					"RunScript"
+					{
+						"Target"				"TARGET"
+						"ScriptFile"			"customability_fireball.lua"
+						"Function"				"Burn"
+						"burn"					"%burnintperc"
+					}
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "300 350 400 450"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_INTEGER"
+					"radius"                  				"75"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_INTEGER"
+					"speed"                  				"1200"
+			}
+			"04"
+			{
+					"var_type"								"FIELD_INTEGER"
+					"burnintperc"							"15 20 25 30"
+			}
+			"05"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                              "5"
+			}
+		}
+	}

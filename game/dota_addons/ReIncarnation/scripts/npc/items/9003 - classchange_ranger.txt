@@ -1,0 +1,51 @@
+	//=================================================================================================================
+	// Class Change: Ranger
+	//=================================================================================================================
+	"item_classchange_ranger"
+	{
+
+		"precache"
+		{
+			"model"				"models/props_items/necronomicon.vmdl"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"9003"
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"Model"							"models\props_items\necronomicon.mdl"
+		"AbilityTextureName"			"classchange_ranger"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1"
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemAliases"					"classchange_ranger"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemDroppable"					"1"
+		"SideShop"						"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"Caster"        "CASTER"
+				"Target"		"CASTER"
+				"ScriptFile"  	"classchange.lua"
+				"Function"      "Ranger"
+			}
+		}
+	}

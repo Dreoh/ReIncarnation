@@ -1,0 +1,130 @@
+//Evasion passive
+
+	//=================================================================================================================
+	// Killer Instinct
+	//=================================================================================================================
+	"customability_killerinstinct"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "spectre_reality"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "0"
+		"AbilityCastPoint"						"0"
+		
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                       "5.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "50 55 60 65"
+		
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"customability_killerinstinct.lua"
+				"Function"		"Daggers"
+				"radius"		"%radius"
+				
+				"FixedDistance"                                     "1200"
+				//"EffectName"                    "particles/daggers.vpcf"
+				"MoveSpeed"                             "1000"
+				//"StartRadius"                   "16"
+				//"EndRadius"                             "16"
+				"TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"HasFrontalCone"                "0"
+				"ProvidesVision"                "0"
+				"VisionRadius"                  "0"
+			}
+			"FireSound"
+			{
+					"EffectName"                    "Hero_Silencer.GlaivesOfWisdom"
+			}
+		}
+		
+		"OnProjectileHitUnit"
+		{
+				"FireSound"
+				{
+					//"EffectName"                    "Hero_Silencer.GlaivesOfWisdom.Damage"
+				}
+				
+				"RunScript"
+				{
+					"ScriptFile"        "customability_killerinstinct.lua"
+					"Function"          "DaggerHit"
+					"Target"            "TARGET"
+					//"Type"			"DAMAGE_TYPE_PHYSICAL"
+					"damage"			"%damageagiperc"
+				}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_killerinstinct_passive"
+			{
+				"Passive"               "1"
+				"IsHidden"				"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%evade"
+				}
+			}
+				
+
+			//"modifier_bash"
+			//{				
+			//	"IsDebuff"	"0"
+			//	
+			//	"OnAttackLanded"
+			//	{
+			//		//"FireEffect"
+			//		//{
+			//		//	"EffectName"		 "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+			//		//	"EffectAttachType"	 "follow_origin"
+			//		//	"Target"			 "TARGET"
+			//		//}	
+			//		"ApplyModifier"
+			//		{
+			//			"Target"			"TARGET"
+			//			"ModifierName"      "modifier_bash_stun"
+			//		}
+			//		"RemoveModifier"
+			//		{
+			//			"ModifierName"		"modifier_bash"
+			//			"Target"			"CASTER"	
+			//		}
+			//	}
+			//}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"evade"					"5 8 12 15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"350 400 450 500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damageagiperc"			"100 110 120 130"
+			}
+		}
+	}

@@ -1,0 +1,122 @@
+	//=================================================================================================================
+	// Shockpoint
+	//=================================================================================================================
+	"customability_shockpoint"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/shockpoint.vpcf"
+			"particle"				"particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "storm_spirit_electric_vortex"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "5"
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"Target"                        "CASTER"
+				"ModifierName"					"modifier_shockpoint"
+			}
+			"RunScript"
+			{
+				"Target"					"CASTER"
+				"ScriptFile"				"customability_spellmastery.lua"
+				"Function"					"PyreToggleOn"
+			}
+		}
+		
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"Target" 						"CASTER"
+				"ModifierName"					"modifier_shockpoint"
+			}
+			"RunScript"
+			{
+				"Target"					"CASTER"
+				"ScriptFile"				"customability_spellmastery.lua"
+				"Function"					"PyreToggleOff"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_shockpoint"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target" "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_attack1"
+						}
+						"EffectName"			"particles/shockpoint.vpcf"
+						"EffectAttachType"		"start_at_customorigin"
+					}
+				}
+
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"customability_spellmastery.lua"
+						"Function"				"Shockpoint"
+					}
+				}
+				
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"Target"				"TARGET"
+						"dmg" 					"%attack_damage"
+						"shockperc"				"%shock"
+						"maxjumps"				"%jumps"
+						"ScriptFile"			"chainlightning.lua"
+						"Function"				"Chainlightning"
+					}
+				}		
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"attackcost"                            "5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"shock"                           		"20 25 30 35"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"jumps"                           		"3 4 5 6"
+			}
+		}
+	}

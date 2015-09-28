@@ -1,0 +1,92 @@
+	//=================================================================================================================
+	// Resolve
+	//=================================================================================================================
+	"customability_resolve"
+	{
+	
+		"precache"
+		{
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "chen_hand_of_god"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0 0.0 0.0 0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "1"
+
+		//"OnSpellStart"
+		//{
+		//	"ApplyModifier"
+		//	{
+		//		"Target"		"CASTER"
+		//		"ModifierName"	"modifier_resolve_passive"
+		//	}
+		//}
+		
+		"Modifiers"
+		{
+			"modifier_resolve_passive"
+			{
+				"Passive"				"1"
+				"IsDebuff"              "0"
+				"IsHidden"				"1"
+				
+				"OnTakeDamage"
+				{
+					"ApplyModifier"
+					{
+						"Target"		"CASTER"
+						"ModifierName"	"modifier_resolve_regen"
+					}
+				}
+			}
+			
+			"modifier_resolve_regen"
+			{
+				"IsPassive"             "1"
+				"IsDebuff"              "0"
+				"Duration"				"%duration"	
+				"EffectName"			"particles/items2_fx/urn_of_shadows_heal_glow.vpcf"
+				"EffectAttachType"		"follow_overhead"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"            "particles/econ/items/wraith_king/wraith_king_relic_weapon/wraith_king_relic_weapon_glow.vpcf"
+						"EffectAttachType"		"follow_origin"
+						"Target"                "CASTER"
+						"Duration"				"%duration"	
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%hp_regen"
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"hp_regen"                  			"3 4 5 6"
+			}
+			"02"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"duration"                  			"5"
+			}
+		}
+	}

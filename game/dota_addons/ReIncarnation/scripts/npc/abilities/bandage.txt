@@ -1,0 +1,95 @@
+	//=================================================================================================================
+	// Bandage
+	//=================================================================================================================
+	"customability_bandage"
+	{
+	
+		"precache"
+		{
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+			"particle"						"particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration_heal.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "bandage"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0 0.0 0.0 0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "1"
+		"AbilityChannelTime"							"20.0"
+		"AbilityCastAnimation"							"ACT_DOTA_TELEPORT"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "15"
+		"AbilityChannelledManaCostPerSecond"			"5"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"                        "CASTER"
+				"ModifierName"					"modifier_bandage"
+			}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"sounds.lua"
+				"Function"				"BandageBegin"
+			}
+		}
+		
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"			"modifier_bandage"
+			}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"sounds.lua"
+				"Function"				"BandageEnd"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_bandage"
+			{
+                "IsPassive"             "1"
+				"IsDebuff"              "0"
+				
+				"EffectName"	"particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration_heal.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%hp_regen"
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"hp_regen"                  		"15 20 25 30"
+			}
+			"02"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"mp_per_second"                  		"5"
+			}
+		}
+	}

@@ -1,0 +1,137 @@
+	//=================================================================================================================
+	// Coldsteel
+	//=================================================================================================================
+	"customability_coldsteel"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/coldsteel.vpcf"
+			"particle"				"particles/coldsteel2.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "crystal_maiden_crystal_nova_icecowl"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "5"
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"Target"                        "CASTER"
+				"ModifierName"					"modifier_coldsteel"
+			}
+			"RunScript"
+			{
+				"Target"					"CASTER"
+				"ScriptFile"				"customability_spellmastery.lua"
+				"Function"					"ColdToggleOn"
+			}
+		}
+		
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"Target" 						"CASTER"
+				"ModifierName"					"modifier_coldsteel"
+			}
+			"RunScript"
+			{
+				"Target"					"CASTER"
+				"ScriptFile"				"customability_spellmastery.lua"
+				"Function"					"ColdToggleOff"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_coldsteel"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target" "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_attack1"
+						}
+						"EffectName"			"particles/coldsteel.vpcf"
+						"EffectAttachType"		"start_at_customorigin"
+					}
+				}
+
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"customability_spellmastery.lua"
+						"Function"				"Coldsteel"
+					}
+				}
+				
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"  				"TARGET"
+						"ModifierName"			"modifier_coldsteel_effect"
+					}
+				}
+			}
+			"modifier_coldsteel_effect"
+			{
+				"IsDebuff"              "1"
+				"Duration"      		"%duration"
+				
+				"EffectName"            "particles/coldsteel2.vpcf"
+				"EffectAttachType"      "follow_overhead"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%atk_slow"
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"attackcost"                            "5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                           	"5"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"slow"                           		"-15 -20 -25 -30"
+			}
+			"04"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"atk_slow"                           	"-20 -30 -40 -50"
+			}
+		}
+	}

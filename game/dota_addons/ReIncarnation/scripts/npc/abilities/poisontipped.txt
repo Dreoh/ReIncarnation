@@ -1,0 +1,120 @@
+	//=================================================================================================================
+	// Poisontipped
+	//=================================================================================================================
+	"customability_poisontipped"
+	{
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"gnoll_assassin_envenomed_weapon"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"450"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0 0.0 0.0 0.0"
+		//"AbilityDuration"				"0.25 0.5 0.75 1.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0 0 0 0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"5"
+
+		// Data-Driven
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"modifier_poisontipped_arrow_owner"
+			{
+				"Passive"               "1"
+				"IsHidden"				"1"
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/poison_arrow.vpcf"
+					"CastAttack"		"1"
+				}
+
+				"OnOrbFire"
+				{
+					"SpendMana"
+					{
+						"Mana"			"%AbilityManaCost"
+					}
+					"FireSound"
+					{
+						"EffectName"			"Hero_DrowRanger.FrostArrows"
+						"Target"				"CASTER"
+					}
+				}
+
+				"OnOrbImpact"
+				{					
+					"ApplyModifier"
+					{
+						"Target"			"TARGET"
+						"ModifierName"		"modifier_poisontipped_arrows_poison"
+						"Duration"			"%poison_duration"
+					}
+				}
+			}
+			
+			"modifier_poisontipped_arrows_poison"
+			{
+				"IsDebuff"              "1"
+				"ThinkInterval"			".5"
+				
+				//"EffectName"            "particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
+				//"EffectAttachType"      "attach_hitloc"
+				
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target"				"TARGET"
+						"ScriptFile"			"customability_poisontipped.lua"
+						"Function"				"Damage"
+						"damageperc"			"%poisonatkperc"
+						"poison"				"%poisonintperc"
+					}
+				}
+			}
+		}
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"0.1"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"poison_duration"				"3"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"poisonintperc"					"10 15 20 25"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"poisonatkperc"					"5"
+			}
+		}
+	}

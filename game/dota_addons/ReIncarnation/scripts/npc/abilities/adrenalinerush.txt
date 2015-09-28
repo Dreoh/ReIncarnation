@@ -1,0 +1,75 @@
+	//=================================================================================================================
+	// Adrenaline Rush
+	//=================================================================================================================
+	"customability_adrenalinerush"
+	{
+	
+		"precache"
+		{
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+			"particle"						"particles/items2_fx/satanic_buff.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "axe_berserkers_call"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "22.0 22.0 22.0 22.0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"                        "CASTER"
+				"ModifierName"					"modifier_adrenalinerush"
+			}
+			"FireSound"
+			{
+				"EffectName"                    "Hero_Axe.Berserkers_Call"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_adrenalinerush"
+			{
+				"IsDebuff"              "0"
+				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Duration"      "%duration"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_bonus"
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                              "5.0 6.75 8.25 10.0"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_INTEGER"
+					"attack_bonus"                  		"100 117 133 150"
+			}
+		}
+	}

@@ -1,0 +1,120 @@
+	//=================================================================================================================
+	// Leechblade
+	//=================================================================================================================
+	"customability_leechblade"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/leechblade.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "pugna_life_drain"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "5"
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"Target"                        "CASTER"
+				"ModifierName"					"modifier_leechblade"
+			}
+			"RunScript"
+			{
+				"Target"					"CASTER"
+				"ScriptFile"				"customability_spellmastery.lua"
+				"Function"					"LeechToggleOn"
+			}
+		}
+		
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"Target" 						"CASTER"
+				"ModifierName"					"modifier_leechblade"
+			}
+			"RunScript"
+			{
+				"Target"					"CASTER"
+				"ScriptFile"				"customability_spellmastery.lua"
+				"Function"					"LeechToggleOff"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_leechblade"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target" "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_attack1"
+						}
+						"EffectName"			"particles/leechblade.vpcf"
+						"EffectAttachType"		"start_at_customorigin"
+					}
+				}
+
+				//"OnAttackStart"
+				//{
+				//	"RunScript"
+				//	{
+				//		"Target"				"CASTER"
+				//		"ScriptFile"			"customability_spellmastery.lua"
+				//		"Function"				"Leechblade"
+				//	}
+				//}
+				
+				"OnAttackLanded"
+				{
+					//"Heal"
+					//{
+					//	"Target"  				"CASTER"
+					//	"HealAmount"			"%leech"
+					//}
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"damage" 				"%attack_damage"
+						"ScriptFile"			"customability_spellmastery.lua"
+						"Function"				"Leechblade"
+						"leechperc"				"%leech"
+					}
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"attackcost"                            "5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"leech"                           		"10 15 20 25"
+			}
+		}
+	}

@@ -1,0 +1,78 @@
+//=================================================================================================================
+// Venom Enchant
+//=================================================================================================================
+"item_custom_orb_of_venom_enchant"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"ID"							"9034"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+	"BaseClass"						"item_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	// Item Info
+	//-------------------------------------------------------------------------------------------------------------
+	"ItemCost"						"350"
+	"ItemSellable"					"1"
+	"ItemPurchasable"				"1"
+	"ItemShopTags"					"passive"
+	"ItemQuality"					"passive"
+	"ItemStackable"					"0"
+	"ItemPermanent"					"0"
+	"ItemQuality"					"component"
+	"ItemAliases"					"Venom Enchant"
+	"ItemDroppable"					"0"
+	"AbilityTextureName"			"item_orb_of_venom"
+	"SecretShop"					"1"
+
+	"Modifiers"
+	{
+		"modifier_orb_venom_enchant"
+		{
+			"Passive"				"1"
+			"Orb"
+			{
+				"Priority"				"DOTA_ORB_PRIORITY_ITEM"
+			}
+			"OnOrbImpact"
+			{
+				"ApplyModifier"
+				{	
+					"Target"			"TARGET"
+					"ModifierName"		"modifier_orb_venom_enchant_poison"
+					"Duration"			"%poison_duration"
+				}
+			}
+		}
+		"modifier_orb_venom_enchant_poison"
+		{
+			"IsDebuff"              "1"
+			"ThinkInterval"			".5"
+			
+			"OnIntervalThink"
+			{
+				"Damage"
+				{
+					"Target" 				"TARGET"
+					"Type"					"DAMAGE_TYPE_MAGICAL"
+					"Damage"				"%poison_damage"
+				}
+			}
+		}
+	}
+
+	// Special	
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"poison_damage"			"3.0"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"poison_duration"		"4.0"
+		}			
+	}
+}

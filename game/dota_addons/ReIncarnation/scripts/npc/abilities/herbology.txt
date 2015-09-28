@@ -1,0 +1,81 @@
+//Poisons - maybe cycle through list of poisons?
+//Slow poison
+//Damage poison
+//Frailty poison
+
+	//=================================================================================================================
+	// Herbalism
+	//=================================================================================================================
+	"customability_herbalism"
+	{
+	
+		"precache"
+		{
+			//"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+			//"particle"						"particles/items2_fx/satanic_buff.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "herbalism"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"RequiredLevel"         				"4"
+		"LevelsBetweenUpgrades"     			"2"
+		"MaxLevel" 								"3"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "0"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"Target"						"CASTER"
+				"ScriptFile"					"customability_herbalism.lua"
+				"Function"						"Herbalism"
+			}
+			//"FireSound"
+			//{
+			//	"EffectName"                    "Hero_Axe.Berserkers_Call"
+			//}
+		}
+
+		"Modifiers"
+		{
+			"modifier_soothe"
+			{
+				"IsDebuff"              "1"
+				"Duration"      		"%duration"
+				
+				"EffectName"            "particles/herbalism_frailty_debuff_drips.vpcf"
+				"EffectAttachType"      "attach_hitloc"
+				
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%hp_regen"
+				}	
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"hp_regen"                              ".1 .2 .3"
+			}
+		}
+	}

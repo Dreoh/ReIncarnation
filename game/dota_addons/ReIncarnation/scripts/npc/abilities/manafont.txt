@@ -1,0 +1,76 @@
+	//=================================================================================================================
+	// Manafont
+	//=================================================================================================================
+	"customability_manafont"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "crystal_maiden_brilliance_aura"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"				"TARGET"
+				"ModifierName"			"modifier_holdout_arcane_aura_buff"
+			}
+
+			
+			"FireSound"
+			{
+			}
+		}
+
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"modifier_manafont_aura"
+			{
+				"Passive"               "1"
+				"IsHidden"				"1"
+				"Aura"					"modifier_manafont_aura_effect"
+				"Aura_Radius"			"450"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_ApplyToCaster"	"1"
+			}
+				
+
+			"modifier_manafont_aura_effect"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"					"particles/manafont.vpcf"
+						"EffectAttachType"				"follow_origin"
+						"Target"						"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%mp_regen"
+				}
+			}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mp_regen"			".2 .4 .6 .8"
+			}
+		}
+	}

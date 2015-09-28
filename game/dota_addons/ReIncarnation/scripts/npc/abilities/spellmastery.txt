@@ -1,0 +1,93 @@
+	//=================================================================================================================
+	// Spell Mastery
+	//=================================================================================================================
+	"customability_spellmastery"
+	{
+	
+		"precache"
+		{
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "troll_warlord_fervor"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"RequiredLevel"         				"6"
+		"LevelsBetweenUpgrades"     			"3"
+		"MaxLevel" 								"3"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0 0.0 0.0 0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "0"
+
+		//"OnSpellStart"
+		//{
+		//	"ApplyModifier"
+		//	{
+		//		"Target"		"CASTER"
+		//		"ModifierName"	"modifier_resolve_passive"
+		//	}
+		//}
+		
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"customability_spellmastery.lua"
+				"Function"				"Update"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_spellmastery_passive"
+			{
+				"Passive"				"1"
+				"IsDebuff"              "0"
+				"IsHidden"				"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"customability_spellmastery.lua"
+						"Function"				"Update"
+					}
+				}
+				
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			"customability_spellmastery.lua"
+						"Function"				"Mana"
+						"mana"					"%manaonatk"
+					}
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"active_spells"                  		"2 3 4"
+			}
+			"02"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"manaonatk"                  			"6"
+			}
+		}
+	}

@@ -1,0 +1,108 @@
+	//=================================================================================================================
+	// Spellsword
+	//=================================================================================================================
+	"customability_spellsword"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/spellsword.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "silencer_glaives_of_wisdom"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "5"
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"Target"                        "CASTER"
+				"ModifierName"					"modifier_spellsword"
+			}
+		}
+		
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"Target" 		"CASTER"
+				"ModifierName"	"modifier_spellsword"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_spellsword"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target" "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"		"attach_attack1"
+						}
+						"EffectName"		"particles/spellsword.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+					}
+				}
+
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"Target"		"CASTER"
+						"ScriptFile"	"customability_spellsword.lua"
+						"Function"		"Spellsword"
+					}
+				}
+				
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"Target"		"TARGET"
+						"ScriptFile"	"customability_spellsword.lua"
+						"Function"		"DamageNumbers"
+						"damage"		"%damage"
+					}
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%damage"
+				}			
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damage"                              	"5 10 15 20"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"attackcost"                            "5"
+			}
+		}
+	}

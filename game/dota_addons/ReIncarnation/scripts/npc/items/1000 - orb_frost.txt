@@ -1,0 +1,60 @@
+    //=================================================================================================================
+	// Orb of frost
+	//=================================================================================================================
+	"item_orb_frost"
+	{
+		"ID"							"1000"
+		"AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                 	"item_datadriven"
+		"AbilityTextureName"			"item_rapier"
+		"ItemSellable"					"1"
+		"ItemPurchaseable"				"1"
+		"ItemCost"						"500"
+		"ItemShopTags"					"unique"
+		"ItemQuality"					"rare"
+				
+		"Modifiers"
+		{
+			"modifier_orb_frost"
+			{
+				"Passive"				"1"
+				"Orb"
+				{
+					"Priority"				"DOTA_ORB_PRIORITY_ITEM"
+				}
+				"OnOrbImpact"
+				{
+					"ApplyModifier"
+					{	
+						"Target"			"TARGET"
+						"ModifierName"		"modifier_orb_frost_slow"
+						"Duration"			"%cold_duration"
+					}
+				}
+			}
+			"modifier_orb_frost_slow"
+			{
+				"IsDebuff"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%cold_movement_speed"
+				}
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_movement_speed"	"-10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_duration"			"4"
+			}
+		}
+	}

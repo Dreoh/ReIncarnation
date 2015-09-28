@@ -1,0 +1,247 @@
+// Dota Heroes File
+// NOTE: This is not for creating new heroes, this is for taking a currently existing hero as a template and overriding
+// the specified key-value combinations.  Use override_hero <hero_to_override> for this.
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// HERO: Hero
+	//=================================================================================================================
+	"npc_dota_hero_novice_protagonist"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_kunkka"			// Hero to override
+		"Model"						"models\creeps\lane_creeps\creep_good_melee\creep_good_melee.mdl"
+		//"Portrait"					"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"PickSound"					"axe_axe_spawn_01"
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+		"UnitLabel"			        "Ser_Derp"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"customability_adrenalinerush"				// Ability 1.
+		"Ability2"					"customability_bandage"						// Ability 2
+		"Ability3"					"rubick_empty1"			// Ability 3
+		"Ability4"					"rubick_empty2"			// Ability 4
+		"Ability5"					"doom_bringer_empty1"			// Ability 5
+		"Ability6"					"doom_bringer_empty2"			// Ability 6
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"10"										// Damage range min.
+		"AttackDamageMax"			"15"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAnimationPoint"		"0.5"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"5"									// Base strength
+		"AttributeStrengthGain"		"1"									// Strength bonus per level.
+		"AttributeBaseAgility"		"5"									// Base agility
+		"AttributeAgilityGain"		"1"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"5"									// Base intelligence
+		"AttributeIntelligenceGain"	"1"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+		"ItemSlots" {}
+	}
+	
+	//=================================================================================================================
+	// HERO: Devout
+	//=================================================================================================================
+	"npc_dota_hero_devout"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_invoker"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".75"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					""				// Ability 1.
+		"Ability2"					""						// Ability 2
+		"Ability3"					"rubick_empty1"			// Ability 3
+		"Ability4"					"rubick_empty2"			// Ability 4
+		"Ability5"					"doom_bringer_empty1"			// Ability 5
+		"Ability6"					"doom_bringer_empty2"			// Ability 6
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"13"									// Damage range min.
+		"AttackDamageMax"			"19"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAnimationPoint"		"0.4"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"350"									// Range within a target can be attacked.
+		"ProjectileModel"			"invoker_base_attack"					// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"5"									// Base strength
+		"AttributeStrengthGain"		"1"									// Strength bonus per level.
+		"AttributeBaseAgility"		"5"									// Base agility
+		"AttributeAgilityGain"		"1"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"7.5"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.2"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+		"ItemSlots" {}
+	}
+	
+	//=================================================================================================================
+	// HERO: Warrior
+	//=================================================================================================================
+	"npc_dota_hero_warrior"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_dragon_knight"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					""			// Ability 1.
+		"Ability2"					""			// Ability 2
+		"Ability3"					"rubick_empty1"			// Ability 3
+		"Ability4"					"rubick_empty2"			// Ability 4
+		"Ability5"					"doom_bringer_empty1"			// Ability 5
+		"Ability6"					"doom_bringer_empty2"			// Ability 6
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"10"									// Damage range min.
+		"AttackDamageMax"			"18"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAnimationPoint"		"0.5"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		"ProjectileModel"			""										// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"7.5"									// Base strength
+		"AttributeStrengthGain"		"1.2"									// Strength bonus per level.
+		"AttributeBaseAgility"		"5"									// Base agility
+		"AttributeAgilityGain"		"1"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"5"									// Base intelligence
+		"AttributeIntelligenceGain"	"1"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+		"ItemSlots" {}
+	}
+	
+	//=================================================================================================================
+	// HERO: Ranger
+	//=================================================================================================================
+	"npc_dota_hero_ranger"
+	{
+		
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model"			"models\heroes\broodmother\spiderling.mdl"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_windrunner"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"customability_beastally"			// Ability 1.
+		"Ability2"					""			// Ability 2
+		"Ability3"					"rubick_empty1"			// Ability 3
+		"Ability4"					"rubick_empty2"			// Ability 4
+		"Ability5"					"doom_bringer_empty1"			// Ability 5
+		"Ability6"					"doom_bringer_empty2"			// Ability 6
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"15"									// Damage range min.
+		"AttackDamageMax"			"20"									// Damage range max.
+		"AttackRate"				"1.5"									// Speed of attack.
+		"AttackAnimationPoint"		"0.4"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"									// Range within a target can be acquired.
+		"AttackRange"				"450"									// Range within a target can be attacked.
+		"ProjectileModel"			"windrunner_base_attack"				// Particle system model for projectile.
+		"ProjectileSpeed"			"1250"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"5"									// Base strength
+		"AttributeStrengthGain"		"1"									// Strength bonus per level.
+		"AttributeBaseAgility"		"7.5"									// Base agility
+		"AttributeAgilityGain"		"1.2"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"5"									// Base intelligence
+		"AttributeIntelligenceGain"	"1"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+		"ItemSlots" {}
+	}
+}

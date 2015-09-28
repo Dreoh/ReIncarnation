@@ -5,6 +5,16 @@
 	//=================================================================================================================
 	"customability_killerinstinct"
 	{
+
+		"precache"
+		{
+		    "soundfile" "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
+		    "particle" "particles/daggers.vpcf"
+		    "particle" "particles/daggers_slow.vpcf"
+		    "particle" "particles/daggers_frailty.vpcf"
+		    "particle" "particles/daggers_damage.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                             "ability_datadriven"

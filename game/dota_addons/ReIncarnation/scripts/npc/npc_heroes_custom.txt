@@ -1,905 +1,849 @@
-//Generated using Dota Custom KVScript Files Merger by cris9696
-// Dota Heroes File
-// NOTE: This is not for creating new heroes, this is for taking a currently existing hero as a template and overriding
-// the specified key-value combinations.  Use override_hero <hero_to_override> for this.
 "DOTAHeroes"
 {
-
-
-	//Start of file Arcanist.txt
-		//Arcane mage
-		//=================================================================================================================
-		// HERO: Arcanist
-		//=================================================================================================================
-		"npc_dota_hero_arcanist"
-		{
-		
-			"precache"
-			{
-				"particle"				"particles/fireball.vpcf"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_crystal_maiden"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"4"
-			"Ability1"					"customability_empty1"			// Ability 1.
-			"Ability2"					"customability_empty2"			// Ability 2
-			"Ability3"					"customability_empty3"			// Ability 3
-			"Ability4"					"customability_empty4"			// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-			"AttackDamageMin"			"25"									// Damage range min.
-			"AttackDamageMax"			"30"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"350"									// Range within a target can be attacked.
-			"ProjectileModel"			"particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"					// Particle system model for projectile.
-			"ProjectileSpeed"			"900"									// Speed of projectile.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
-			"AttributeBaseStrength"		"9"									// Base strength
-			"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
-			"AttributeBaseAgility"		"9"									// Base agility
-			"AttributeAgilityGain"		"1.0"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"17"									// Base intelligence
-			"AttributeIntelligenceGain"	"2.0"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
-		}
-	//End of file Arcanist.txt
-
-
-	//Start of file Cultist.txt
-		//Priest
-		//=================================================================================================================
-		// HERO: Cultist
-		//=================================================================================================================
-		"npc_dota_hero_cultist"
-		{
-		
-			"precache"
-			{
-				"particle"				"particles/fireball.vpcf"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_dazzle"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"4"
-			"Ability1"					"customability_empty1"			// Ability 1.
-			"Ability2"					"customability_empty2"			// Ability 2
-			"Ability3"					"customability_empty3"			// Ability 3
-			"Ability4"					"customability_empty4"			// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-			"AttackDamageMin"			"22"									// Damage range min.
-			"AttackDamageMax"			"27"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"350"									// Range within a target can be attacked.
-			"ProjectileModel"			"particles/units/heroes/hero_dazzle/dazzle_base_attack.vpcf"					// Particle system model for projectile.
-			"ProjectileSpeed"			"900"									// Speed of projectile.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
-			"AttributeBaseStrength"		"10"									// Base strength
-			"AttributeStrengthGain"		"1.1"									// Strength bonus per level.
-			"AttributeBaseAgility"		"10"									// Base agility
-			"AttributeAgilityGain"		"1.1"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"15"									// Base intelligence
-			"AttributeIntelligenceGain"	"1.8"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
+	//Arcane mage
+	//=================================================================================================================
+	// HERO: Arcanist
+	//=================================================================================================================
+	"npc_dota_hero_arcanist"
+	{
 	
-		}
-	//End of file Cultist.txt
-
-
-	//Start of file Devout.txt
-		//=================================================================================================================
-		// HERO: Devout
-		//=================================================================================================================
-		"npc_dota_hero_devout"
+		"precache"
 		{
-		
-			"precache"
-			{
-				"particle"				"particles/fireball.vpcf"
-				"particle"				"particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
-				"particle"				"particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
-				"particle"				"particles/manafont.vpcf"
-				"particle"				"particles/imposingwill.vpcf"
-				"particle"				"particles/hw_rosh_fireball.vpcf"			
-				"particle"				"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_invoker"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".6"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"Ability1"					"customability_fireball"				// Ability 1.
-			"Ability2"					"customability_healinghands"						// Ability 2
-			"Ability3"					"customability_manafont"			// Ability 3
-			"Ability4"					"customability_imposingwill"	// Ability 4
-			"Ability5"					"attribute_bonus"			// Ability 5
-			"Ability6"					"customability_empty2"			// Ability 6
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-			"AttackDamageMin"			"13"									// Damage range min.
-			"AttackDamageMax"			"19"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"350"									// Range within a target can be attacked.
-			"ProjectileModel"			"particles/units/heroes/hero_invoker/invoker_base_attack.vpcf"					// Particle system model for projectile.
-			"ProjectileSpeed"			"900"									// Speed of projectile.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
-			"AttributeBaseStrength"		"5"									// Base strength
-			"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
-			"AttributeBaseAgility"		"5"									// Base agility
-			"AttributeAgilityGain"		"1.1"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"7.5"									// Base intelligence
-			"AttributeIntelligenceGain"	"1.2"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
+			"particle"				"particles/fireball.vpcf"
 		}
-	//End of file Devout.txt
-
-
-	//Start of file Elementalist.txt
-		//Elementalist
-		//=================================================================================================================
-		// HERO: Elementalist
-		//=================================================================================================================
-		"npc_dota_hero_elementalist"
-		{
-		
-			"precache"
-			{
-				"particle"				"particles/fireball.vpcf"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_storm_spirit"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"4"
-			"Ability1"					"customability_empty1"			// Ability 1.
-			"Ability2"					"customability_empty2"			// Ability 2
-			"Ability3"					"customability_empty3"			// Ability 3
-			"Ability4"					"customability_empty4"			// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-			"AttackDamageMin"			"27"									// Damage range min.
-			"AttackDamageMax"			"32"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"350"									// Range within a target can be attacked.
-			"ProjectileModel"			"particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"					// Particle system model for projectile.
-			"ProjectileSpeed"			"900"									// Speed of projectile.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
-			"AttributeBaseStrength"		"10"									// Base strength
-			"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
-			"AttributeBaseAgility"		"8"									// Base agility
-			"AttributeAgilityGain"		".9"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"17"									// Base intelligence
-			"AttributeIntelligenceGain"	"2.1"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
-		}
-	//End of file Elementalist.txt
-
-
-	//Start of file Exiled.txt
-		//Druid
-		//=================================================================================================================
-		// HERO: Exile
-		//=================================================================================================================
-		"npc_dota_hero_exile"
-		{
-		
-			"precache"
-			{
-				"particle"				"particles/fireball.vpcf"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_furion"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"4"
-			"Ability1"					"customability_empty1"			// Ability 1.
-			"Ability2"					"customability_empty2"			// Ability 2
-			"Ability3"					"customability_empty3"			// Ability 3
-			"Ability4"					"customability_empty4"			// Ability 4
-			"Ability5"					"attribute_bonus"				// Ability 5
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-			"AttackDamageMin"			"27"									// Damage range min.
-			"AttackDamageMax"			"32"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"350"									// Range within a target can be attacked.
-			"ProjectileModel"			"particles/units/heroes/hero_furion/furion_base_attack.vpcf"					// Particle system model for projectile.
-			"ProjectileSpeed"			"900"									// Speed of projectile.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
-			"AttributeBaseStrength"		"10"									// Base strength
-			"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
-			"AttributeBaseAgility"		"13"									// Base agility
-			"AttributeAgilityGain"		"1.5"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"12"									// Base intelligence
-			"AttributeIntelligenceGain"	"1.5"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
-		}
-	//End of file Exiled.txt
-
-
-	//Start of file Gunslinger.txt
-		//Gunner
-		//=================================================================================================================
-		// HERO: Gunslinger
-		//=================================================================================================================
-		"npc_dota_hero_gunslinger"
-		{
-		
-			"precache"
-			{
-				"particle"				"particles/fireball.vpcf"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_sniper"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"4"
-			"Ability1"					"customability_empty1"			// Ability 1.
-			"Ability2"					"customability_empty2"			// Ability 2
-			"Ability3"					"customability_empty3"			// Ability 3
-			"Ability4"					"customability_empty4"			// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-			"AttackDamageMin"			"27"									// Damage range min.
-			"AttackDamageMax"			"32"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"350"									// Range within a target can be attacked.
-			"ProjectileModel"			"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"					// Particle system model for projectile.
-			"ProjectileSpeed"			"900"									// Speed of projectile.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
-			"AttributeBaseStrength"		"8"									// Base strength
-			"AttributeStrengthGain"		".7"									// Strength bonus per level.
-			"AttributeBaseAgility"		"16"									// Base agility
-			"AttributeAgilityGain"		"1.9"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"11"									// Base intelligence
-			"AttributeIntelligenceGain"	"1.4"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
-		}
-	//End of file Gunslinger.txt
-
-
-	//Start of file Hero.txt
-		//=================================================================================================================
-		// HERO: Hero
-		//=================================================================================================================
-		"npc_dota_hero_novice_protagonist"
-		{
-			"precache"
-			{
-				"particle"				"particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration_heal.vpcf"
-				"soundfile"				"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
-				"soundfile"				"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_kunkka"			// Hero to override
-			"Model"						"models\creeps\lane_creeps\creep_radiant_melee\radiant_melee.mdl"
-			//"Portrait"					"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"PickSound"					"axe_axe_spawn_01"
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			"UnitLabel"			        "Ser_Derp"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"2"
-			"Ability1"					"customability_adrenalinerush"				// Ability 1.
-			"Ability2"					"customability_bandage"						// Ability 2
-			"Ability3"					"rubick_empty1"			// Ability 3
-			"Ability4"					"rubick_empty2"			// Ability 4
-			"Ability5"					"attribute_bonus"			// Ability 5
-			"Ability6"					"doom_bringer_empty2"			// Ability 6
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-			"AttackDamageMin"			"10"										// Damage range min.
-			"AttackDamageMax"			"15"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAnimationPoint"		"0.5"									// Normalized time in animation cycle to attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"128"									// Range within a target can be attacked.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
-			"AttributeBaseStrength"		"5"									// Base strength
-			"AttributeStrengthGain"		"1"									// Strength bonus per level.
-			"AttributeBaseAgility"		"5"									// Base agility
-			"AttributeAgilityGain"		"1"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"5"									// Base intelligence
-			"AttributeIntelligenceGain"	"1"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
-			"ItemSlots" {}
-		}
-	//End of file Hero.txt
-
-
-	//Start of file Monk.txt
-		//Fistfighter
-		//=================================================================================================================
-		// HERO: Monk
-		//=================================================================================================================
-		"npc_dota_hero_monk"
-		{
-		
-			"precache"
-			{
-				"particle"				"particles/fireball.vpcf"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_lone_druid"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"4"
-			"Ability1"					"customability_empty1"			// Ability 1.
-			"Ability2"					"customability_empty2"			// Ability 2
-			"Ability3"					"customability_empty3"			// Ability 3
-			"Ability4"					"customability_empty4"			// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-			"AttackDamageMin"			"30"									// Damage range min.
-			"AttackDamageMax"			"35"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"128"									// Range within a target can be attacked.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
-			"AttributeBaseStrength"		"16"										// Base strength
-			"AttributeStrengthGain"		"1.8"									// Strength bonus per level.
-			"AttributeBaseAgility"		"9"									// Base agility
-			"AttributeAgilityGain"		"1.0"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"10"									// Base intelligence
-			"AttributeIntelligenceGain"	"1.2"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
-		}
-	//End of file Monk.txt
-
-
-	//Start of file Ranger.txt
-		//=================================================================================================================
-		// HERO: Ranger
-		//=================================================================================================================
-		"npc_dota_hero_ranger"
-		{
-			
-			// Precache
-			//-------------------------------------------------------------------------------------------------------------
-			"precache"
-			{
-				"model"			"models\heroes\broodmother\spiderling.mdl"
-				"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
-				"particle"				"particles/poison_arrow.vpcf"
-			}
-			
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_windrunner"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"4"
-			"Ability1"					"customability_focusshot"			// Ability 1.
-			"Ability2"					"customability_poisontipped"			// Ability 2
-			"Ability3"					"customability_beastally"			// Ability 3
-			"Ability4"					"customability_survivalinstincts"			// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-			"AttackDamageMin"			"15"									// Damage range min.
-			"AttackDamageMax"			"20"									// Damage range max.
-			"AttackRate"				"1.5"									// Speed of attack.
-			"AttackAnimationPoint"		"0.4"									// Normalized time in animation cycle to attack.
-			"AttackAcquisitionRange"	"500"									// Range within a target can be acquired.
-			"AttackRange"				"450"									// Range within a target can be attacked.
-			"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"				// Particle system model for projectile.
-			"ProjectileSpeed"			"1250"									// Speed of projectile.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
-			"AttributeBaseStrength"		"5"									// Base strength
-			"AttributeStrengthGain"		"1.1"									// Strength bonus per level.
-			"AttributeBaseAgility"		"7.5"									// Base agility
-			"AttributeAgilityGain"		"1.2"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"5"									// Base intelligence
-			"AttributeIntelligenceGain"	"1.0"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
-		}
-	//End of file Ranger.txt
-
-
-	//Start of file Spellblade.txt
-		//Spellblade
 	
-		//passive that allows for multiple spells active depending on level
-		//=================================================================================================================
-		// HERO: Spellblade
-		//=================================================================================================================
-		"npc_dota_hero_spellblade"
-		{
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_crystal_maiden"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
 		
-			"precache"
-			{
-				"particle"				"particles/coldsteel.vpcf"
-				"particle"				"particles/coldsteel2.vpcf"
-				"particle"				"particles/leechblade.vpcf"
-				"particle"				"particles/pyredge.vpcf"
-				"particle"				"particles/shockpoint.vpcf"
-				"particle"				"particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
-				"particle"				"particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
-			}
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_empty1"			// Ability 1.
+		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
 		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_silencer"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"5"
-			"Ability1"					"customability_spellmastery"			// Ability 1.
-			"Ability2"					"customability_leechblade"			// Ability 2
-			"Ability3"					"customability_coldsteel"			// Ability 3
-			"Ability4"					"customability_pyredge"			// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			"Ability6"					"customability_shockpoint"			// Ability 6
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-			"AttackDamageMin"			"25"									// Damage range min.
-			"AttackDamageMax"			"30"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"128"									// Range within a target can be attacked.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
-			"AttributeBaseStrength"		"15"										// Base strength
-			"AttributeStrengthGain"		"1.8"									// Strength bonus per level.
-			"AttributeBaseAgility"		"7"									// Base agility
-			"AttributeAgilityGain"		".7"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"13"									// Base intelligence
-			"AttributeIntelligenceGain"	"1.5"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"25"									// Damage range min.
+		"AttackDamageMax"			"30"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"350"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"9"									// Base strength
+		"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
+		"AttributeBaseAgility"		"9"									// Base agility
+		"AttributeAgilityGain"		"1.0"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"17"									// Base intelligence
+		"AttributeIntelligenceGain"	"2.0"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
+	//Priest
+	//=================================================================================================================
+	// HERO: Cultist
+	//=================================================================================================================
+	"npc_dota_hero_cultist"
+	{
 	
-		}
-	//End of file Spellblade.txt
-
-
-	//Start of file Warrior.txt
-		//=================================================================================================================
-		// HERO: Warrior
-		//=================================================================================================================
-		"npc_dota_hero_warrior"
+		"precache"
 		{
-		
-			"precache"
-			{
-				"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
-				"particle"				"particles/units/heroes/hero_dazzle/dazzle_armor_friend_shield.vpcf"
-				"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_cast.vpcf"
-				"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_spiral02.vpcf"
-				"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight.vpcf"
-				"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_shell.vpcf"
-				"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval.vpcf"
-				"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval2.vpcf"
-				"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight2.vpcf"
-				"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_end.vpcf"
-				"particle"				"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_c.vpcf"
-				"particle"				"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_tgt_flash.vpcf"
-				"particle"				"particles/whirlwind_blur.vpcf"
-				"particle"				"particles/whirlwind_ground.vpcf"
-				"particle"				"particles/econ/items/wraith_king/wraith_king_relic_weapon/wraith_king_relic_weapon.vpcf"
-				"soundfile"				"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
-			}
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_dragon_knight"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".7"
-			
-			// Abilities5555
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"4"
-			"Ability1"					"customability_bulwark"			// Ability 1.
-			"Ability2"					"customability_resolve"			// Ability 2
-			"Ability3"					"customability_spellsword"			// Ability 3
-			"Ability4"					"customability_whirlwind"			// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-			"AttackDamageMin"			"10"									// Damage range min.
-			"AttackDamageMax"			"18"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"128"									// Range within a target can be attacked.
-			"ProjectileModel"			""										// Particle system model for projectile.
-			"ProjectileSpeed"			"900"									// Speed of projectile.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
-			"AttributeBaseStrength"		"7.5"									// Base strength
-			"AttributeStrengthGain"		"1.2"									// Strength bonus per level.
-			"AttributeBaseAgility"		"5"									// Base agility
-			"AttributeAgilityGain"		"1.1"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"5"									// Base intelligence
-			"AttributeIntelligenceGain"	"1.0"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
+			"particle"				"particles/fireball.vpcf"
 		}
-	//End of file Warrior.txt
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_dazzle"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_empty1"			// Ability 1.
+		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"22"									// Damage range min.
+		"AttackDamageMax"			"27"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"350"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_dazzle/dazzle_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"10"									// Base strength
+		"AttributeStrengthGain"		"1.1"									// Strength bonus per level.
+		"AttributeBaseAgility"		"10"									// Base agility
+		"AttributeAgilityGain"		"1.1"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"15"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.8"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
 
-
-	//Start of file Wetboy.txt
-		//Assassin
-		//=================================================================================================================
-		// HERO: Wetboy
-		//=================================================================================================================
-		"npc_dota_hero_wetboy"
+	}
+	//=================================================================================================================
+	// HERO: Devout
+	//=================================================================================================================
+	"npc_dota_hero_devout"
+	{
+	
+		"precache"
 		{
-		
-			"precache"
-			{
-				//"particle"				"particles/hw_rosh_fireball.vpcf"
-				"particle"				"particles/physiology_stunned.vpcf"
-				//"particle"				"particles/generic.vpcf"
-				"particle"				"particles/daggers.vpcf"
-				"particle"				"particles/daggers_slow.vpcf"
-				"particle"				"particles/daggers_frailty.vpcf"
-				"particle"				"particles/daggers_damage.vpcf"
-				"particle"				"particles/herbalism_slow_drips.vpcf"
-				"particle"				"particles/herbalism_frailty_drips.vpcf"
-				"particle"				"particles/herbalism_damage_drips.vpcf"
-				"particle"				"particles/herbalism_damage_debuff_drips.vpcf"
-				"particle"				"particles/herbalism_frailty_debuff_drips.vpcf"
-				"particle"				"particles/herbalism_slow_debuff_drips.vpcf"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_riki"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"5"
-			"Ability1"					"customability_shadowwalk"			// Ability 1.
-			"Ability2"					"customability_killerinstinct"			// Ability 2
-			"Ability3"					"customability_physiology"			// Ability 3
-			"Ability4"					"customability_herbalism"				// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			"Ability6"					"customability_herbalism_empty1"		// Ability 6
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-			"AttackDamageMin"			"30"									// Damage range min.
-			"AttackDamageMax"			"35"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"128"									// Range within a target can be attacked.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
-			"AttributeBaseStrength"		"5"										// Base strength
-			"AttributeStrengthGain"		".6"									// Strength bonus per level.
-			"AttributeBaseAgility"		"20"									// Base agility
-			"AttributeAgilityGain"		"2.2"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"10"									// Base intelligence
-			"AttributeIntelligenceGain"	"1.2"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
+			"particle"				"particles/fireball.vpcf"
+			"particle"				"particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
+			"particle"				"particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+			"particle"				"particles/manafont.vpcf"
+			"particle"				"particles/imposingwill.vpcf"
+			"particle"				"particles/hw_rosh_fireball.vpcf"			
+			"particle"				"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
 		}
-	//End of file Wetboy.txt
-
-
-	//Start of file Zerker.txt
-		//Berserker - 2Hander
-		//=================================================================================================================
-		// HERO: Zerker
-		//=================================================================================================================
-		"npc_dota_hero_zerker"
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_invoker"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".6"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"customability_fireball"				// Ability 1.
+		"Ability2"					"customability_healinghands"						// Ability 2
+		"Ability3"					"customability_manafont"			// Ability 3
+		"Ability4"					"customability_imposingwill"	// Ability 4
+		"Ability5"					"attribute_bonus"			// Ability 5
+		"Ability6"					"customability_empty2"			// Ability 6
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"13"									// Damage range min.
+		"AttackDamageMax"			"19"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"350"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_invoker/invoker_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"5"									// Base strength
+		"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
+		"AttributeBaseAgility"		"5"									// Base agility
+		"AttributeAgilityGain"		"1.1"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"7.5"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.2"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
+	//Elementalist
+	//=================================================================================================================
+	// HERO: Elementalist
+	//=================================================================================================================
+	"npc_dota_hero_elementalist"
+	{
+	
+		"precache"
 		{
-		
-			"precache"
-			{
-				"particle"				"particles/fireball.vpcf"
-			}
-		
-			// General
-			//-------------------------------------------------------------------------------------------------------------	
-			"override_hero"				"npc_dota_hero_sven"			// Hero to override
-			//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-			"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-			"ModelScale"				".8"
-			
-			// Abilities
-			//-------------------------------------------------------------------------------------------------------------
-			"AbilityLayout"    			"4"
-			"Ability1"					"customability_empty1"			// Ability 1.
-			"Ability2"					"customability_empty2"			// Ability 2
-			"Ability3"					"customability_empty3"			// Ability 3
-			"Ability4"					"customability_empty4"			// Ability 4
-			"Ability5"					"attribute_bonus"						// Ability 5
-			
-			// Attack
-			//----------------------------------------------------------------	
-			"DamageGain"				"1"
-			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-			"AttackDamageMin"			"30"									// Damage range min.
-			"AttackDamageMax"			"35"									// Damage range max.
-			"AttackRate"				"1.7"									// Speed of attack.
-			"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-			"AttackRange"				"128"									// Range within a target can be attacked.
-			
-			// Attributes
-			//-------------------------------------------------------------------------------------------------------------
-			"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
-			"AttributeBaseStrength"		"22"										// Base strength
-			"AttributeStrengthGain"		"2.7"									// Strength bonus per level.
-			"AttributeBaseAgility"		"5"									// Base agility
-			"AttributeAgilityGain"		".5"									// Agility bonus per level.
-			"AttributeBaseIntelligence"	"8"									// Base intelligence
-			"AttributeIntelligenceGain"	".8"									// Intelligence bonus per level.
-			
-			"MovementSpeed"				"275"									// Speed.
-			"MovementTurnRate"			"0.6"									// Turning rate.
-			
-			// Status
-			//----------------------------------------------------------------
-			//----------------------------------------------------------------
-			"StatusHealth"				"225"		// Base health.
-			"HPGain"					"5"
-			"StatusMana"				"50"
-			"MPGain"					"0"
-			
+			"particle"				"particles/fireball.vpcf"
 		}
-	//End of file Zerker.txt
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_storm_spirit"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_empty1"			// Ability 1.
+		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"27"									// Damage range min.
+		"AttackDamageMax"			"32"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"350"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"10"									// Base strength
+		"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
+		"AttributeBaseAgility"		"8"									// Base agility
+		"AttributeAgilityGain"		".9"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"17"									// Base intelligence
+		"AttributeIntelligenceGain"	"2.1"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
+	//Druid
+	//=================================================================================================================
+	// HERO: Exile
+	//=================================================================================================================
+	"npc_dota_hero_exile"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/fireball.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_furion"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_empty1"			// Ability 1.
+		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability5"					"attribute_bonus"				// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"27"									// Damage range min.
+		"AttackDamageMax"			"32"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"350"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_furion/furion_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"10"									// Base strength
+		"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
+		"AttributeBaseAgility"		"13"									// Base agility
+		"AttributeAgilityGain"		"1.5"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"12"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.5"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
+	//Gunner
+	//=================================================================================================================
+	// HERO: Gunslinger
+	//=================================================================================================================
+	"npc_dota_hero_gunslinger"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/fireball.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_sniper"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_empty1"			// Ability 1.
+		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"27"									// Damage range min.
+		"AttackDamageMax"			"32"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"350"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"8"									// Base strength
+		"AttributeStrengthGain"		".7"									// Strength bonus per level.
+		"AttributeBaseAgility"		"16"									// Base agility
+		"AttributeAgilityGain"		"1.9"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"11"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.4"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
+	//=================================================================================================================
+	// HERO: Hero
+	//=================================================================================================================
+	"npc_dota_hero_novice_protagonist"
+	{
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration_heal.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_kunkka"			// Hero to override
+		"Model"						"models\creeps\lane_creeps\creep_radiant_melee\radiant_melee.mdl"
+		//"Portrait"					"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"PickSound"					"axe_axe_spawn_01"
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		"UnitLabel"			        "Ser_Derp"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"2"
+		"Ability1"					"customability_adrenalinerush"				// Ability 1.
+		"Ability2"					"customability_bandage"						// Ability 2
+		"Ability3"					"rubick_empty1"			// Ability 3
+		"Ability4"					"rubick_empty2"			// Ability 4
+		"Ability5"					"attribute_bonus"			// Ability 5
+		"Ability6"					"doom_bringer_empty2"			// Ability 6
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"10"										// Damage range min.
+		"AttackDamageMax"			"15"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAnimationPoint"		"0.5"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"5"									// Base strength
+		"AttributeStrengthGain"		"1"									// Strength bonus per level.
+		"AttributeBaseAgility"		"5"									// Base agility
+		"AttributeAgilityGain"		"1"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"5"									// Base intelligence
+		"AttributeIntelligenceGain"	"1"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+		"ItemSlots" {}
+	}
+	//Fistfighter
+	//=================================================================================================================
+	// HERO: Monk
+	//=================================================================================================================
+	"npc_dota_hero_monk"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/fireball.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_lone_druid"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_empty1"			// Ability 1.
+		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"30"									// Damage range min.
+		"AttackDamageMax"			"35"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"16"										// Base strength
+		"AttributeStrengthGain"		"1.8"									// Strength bonus per level.
+		"AttributeBaseAgility"		"9"									// Base agility
+		"AttributeAgilityGain"		"1.0"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"10"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.2"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
+	//=================================================================================================================
+	// HERO: Ranger
+	//=================================================================================================================
+	"npc_dota_hero_ranger"
+	{
+		
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model"			"models\heroes\broodmother\spiderling.mdl"
+			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+			"particle"				"particles/poison_arrow.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_windrunner"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_focusshot"			// Ability 1.
+		"Ability2"					"customability_poisontipped"			// Ability 2
+		"Ability3"					"customability_beastally"			// Ability 3
+		"Ability4"					"customability_survivalinstincts"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"15"									// Damage range min.
+		"AttackDamageMax"			"20"									// Damage range max.
+		"AttackRate"				"1.5"									// Speed of attack.
+		"AttackAnimationPoint"		"0.4"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"									// Range within a target can be acquired.
+		"AttackRange"				"450"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"				// Particle system model for projectile.
+		"ProjectileSpeed"			"1250"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"5"									// Base strength
+		"AttributeStrengthGain"		"1.1"									// Strength bonus per level.
+		"AttributeBaseAgility"		"7.5"									// Base agility
+		"AttributeAgilityGain"		"1.2"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"5"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.0"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
+	//Spellblade
+
+	//passive that allows for multiple spells active depending on level
+	//=================================================================================================================
+	// HERO: Spellblade
+	//=================================================================================================================
+	"npc_dota_hero_spellblade"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/coldsteel.vpcf"
+			"particle"				"particles/coldsteel2.vpcf"
+			"particle"				"particles/leechblade.vpcf"
+			"particle"				"particles/pyredge.vpcf"
+			"particle"				"particles/shockpoint.vpcf"
+			"particle"				"particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+			"particle"				"particles/units/heroes/hero_invoker/invoker_chaos_meteor_burn_debuff.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_silencer"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"5"
+		"Ability1"					"customability_spellmastery"			// Ability 1.
+		"Ability2"					"customability_leechblade"			// Ability 2
+		"Ability3"					"customability_coldsteel"			// Ability 3
+		"Ability4"					"customability_pyredge"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		"Ability6"					"customability_shockpoint"			// Ability 6
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"25"									// Damage range min.
+		"AttackDamageMax"			"30"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"15"										// Base strength
+		"AttributeStrengthGain"		"1.8"									// Strength bonus per level.
+		"AttributeBaseAgility"		"7"									// Base agility
+		"AttributeAgilityGain"		".7"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"13"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.5"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+
+	}
+	//=================================================================================================================
+	// HERO: Warrior
+	//=================================================================================================================
+	"npc_dota_hero_warrior"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_dazzle/dazzle_armor_friend_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_cast.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_spiral02.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_shell.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_end.vpcf"
+			"particle"				"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_c.vpcf"
+			"particle"				"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_tgt_flash.vpcf"
+			"particle"				"particles/whirlwind_blur.vpcf"
+			"particle"				"particles/whirlwind_ground.vpcf"
+			"particle"				"particles/econ/items/wraith_king/wraith_king_relic_weapon/wraith_king_relic_weapon.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+		}
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_dragon_knight"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".7"
+		
+		// Abilities5555
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_bulwark"			// Ability 1.
+		"Ability2"					"customability_resolve"			// Ability 2
+		"Ability3"					"customability_spellsword"			// Ability 3
+		"Ability4"					"customability_whirlwind"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"10"									// Damage range min.
+		"AttackDamageMax"			"18"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		"ProjectileModel"			""										// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"7.5"									// Base strength
+		"AttributeStrengthGain"		"1.2"									// Strength bonus per level.
+		"AttributeBaseAgility"		"5"									// Base agility
+		"AttributeAgilityGain"		"1.1"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"5"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.0"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
+	//Assassin
+	//=================================================================================================================
+	// HERO: Wetboy
+	//=================================================================================================================
+	"npc_dota_hero_wetboy"
+	{
+	
+		"precache"
+		{
+			//"particle"				"particles/hw_rosh_fireball.vpcf"
+			"particle"				"particles/physiology_stunned.vpcf"
+			//"particle"				"particles/generic.vpcf"
+			"particle"				"particles/daggers.vpcf"
+			"particle"				"particles/daggers_slow.vpcf"
+			"particle"				"particles/daggers_frailty.vpcf"
+			"particle"				"particles/daggers_damage.vpcf"
+			"particle"				"particles/herbalism_slow_drips.vpcf"
+			"particle"				"particles/herbalism_frailty_drips.vpcf"
+			"particle"				"particles/herbalism_damage_drips.vpcf"
+			"particle"				"particles/herbalism_damage_debuff_drips.vpcf"
+			"particle"				"particles/herbalism_frailty_debuff_drips.vpcf"
+			"particle"				"particles/herbalism_slow_debuff_drips.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_riki"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"5"
+		"Ability1"					"customability_shadowwalk"			// Ability 1.
+		"Ability2"					"customability_killerinstinct"			// Ability 2
+		"Ability3"					"customability_physiology"			// Ability 3
+		"Ability4"					"customability_herbalism"				// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		"Ability6"					"customability_herbalism_empty1"		// Ability 6
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"30"									// Damage range min.
+		"AttackDamageMax"			"35"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"5"										// Base strength
+		"AttributeStrengthGain"		".6"									// Strength bonus per level.
+		"AttributeBaseAgility"		"20"									// Base agility
+		"AttributeAgilityGain"		"2.2"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"10"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.2"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
+	//Berserker - 2Hander
+	//=================================================================================================================
+	// HERO: Zerker
+	//=================================================================================================================
+	"npc_dota_hero_zerker"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/fireball.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_sven"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_empty1"			// Ability 1.
+		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"30"									// Damage range min.
+		"AttackDamageMax"			"35"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"22"										// Base strength
+		"AttributeStrengthGain"		"2.7"									// Strength bonus per level.
+		"AttributeBaseAgility"		"5"									// Base agility
+		"AttributeAgilityGain"		".5"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"8"									// Base intelligence
+		"AttributeIntelligenceGain"	".8"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
+	}
 }

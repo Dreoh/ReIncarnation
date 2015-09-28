@@ -54,11 +54,13 @@
 		{
 			"modifier_soothe"
 			{
-				"IsDebuff"              "1"
-				"Duration"      		"%duration"
+				"IsDebuff"              "0"
+				"Passive"          		"1"
+				"IsHidden"        		"0"
+    			"IsPurgable"       		"0" 
 				
-				"EffectName"            "particles/herbalism_frailty_debuff_drips.vpcf"
-				"EffectAttachType"      "attach_hitloc"
+				//"EffectName"            "particles/herbalism_frailty_debuff_drips.vpcf"
+				//"EffectAttachType"      "attach_hitloc"
 				
 				
 				"Properties"

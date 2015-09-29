@@ -2505,6 +2505,11 @@
 	//=================================================================================================================
 	"customability_manafont"
 	{
+		"precache"
+		{
+			"particle"				"particles/items_fx/aura_shivas.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                             "ability_datadriven"
@@ -2555,7 +2560,7 @@
 				{
 					"AttachEffect"
 					{
-						"EffectName"					"particles/manafont.vpcf"
+						"EffectName"					"particles/items_fx/aura_shivas.vpcf"
 						"EffectAttachType"				"follow_origin"
 						"Target"						"TARGET"
 					}
@@ -2583,6 +2588,11 @@
 		//=================================================================================================================
 		"customability_physiology"
 		{
+			"precache"
+			{
+				"particle"				"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+			}
+	
 			// General
 			//-------------------------------------------------------------------------------------------------------------
 			"BaseClass"                             "ability_datadriven"
@@ -2712,7 +2722,7 @@
 					"IsStunDebuff"	"1"
 					"Duration"		"%duration"
 					
-					"EffectName"		"particles/physiology_stunned.vpcf"
+					"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
 					"EffectAttachType"	"follow_overhead"
 					
 					"States"
@@ -2760,6 +2770,12 @@
 	"customability_poisontipped"
 	{
 	
+		"precache"
+		{
+			"particle"				"particles/poison_arrow.vpcf"
+		}
+
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
@@ -3708,6 +3724,12 @@
 	//=================================================================================================================
 	"customability_whirlwind"
 	{
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_blur.vpcf"
+			"particle"			"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_c.vpcf"
+			"particle"			"particles/whirlwind_base.vpcf"
+		}
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                             "ability_datadriven"
@@ -3779,7 +3801,7 @@
 					"AttachEffect"
 					{
 						"Target"			"CASTER"
-						"EffectName"		"particles/whirlwind_blur.vpcf"
+						"EffectName"		"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_blur.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 					"AttachEffect"
@@ -3791,7 +3813,7 @@
 					"AttachEffect"
 					{
 						"Target"			"CASTER"
-						"EffectName"		"particles/whirlwind_ground.vpcf"
+						"EffectName"		"particles/whirlwind_base.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 					//"FireSound"

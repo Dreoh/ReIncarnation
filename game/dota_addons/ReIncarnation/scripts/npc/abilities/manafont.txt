@@ -3,6 +3,11 @@
 	//=================================================================================================================
 	"customability_manafont"
 	{
+		"precache"
+		{
+			"particle"				"particles/items_fx/aura_shivas.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                             "ability_datadriven"
@@ -53,7 +58,7 @@
 				{
 					"AttachEffect"
 					{
-						"EffectName"					"particles/manafont.vpcf"
+						"EffectName"					"particles/items_fx/aura_shivas.vpcf"
 						"EffectAttachType"				"follow_origin"
 						"Target"						"TARGET"
 					}

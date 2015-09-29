@@ -1,0 +1,840 @@
+﻿"lang"
+{
+	"Language"		"English"
+	"Tokens"
+	{		
+		"addon_game_name"							"ReIncarnation - RPG by Dreoh"
+		"npc_dota_hero_novice_protagonist"        	"Hero"
+		"npc_dota_hero_kunkka"						"Hero"
+		"npc_dota_hero_invoker"						"Devout"
+		"npc_dota_hero_dragon_knight"				"Warrior"
+		"npc_dota_hero_crystal_maiden"				"Arcanist"
+		"npc_dota_hero_dazzle"						"Cultist"
+		"npc_dota_hero_storm_spirit"				"Elementalist"
+		"npc_dota_hero_furion"						"Exiled"
+		"npc_dota_hero_sniper"						"Gunslinger"
+		"npc_dota_hero_lone_druid"					"Monk"
+		"npc_dota_hero_silencer"					"Spellblade"
+		"npc_dota_hero_riki"						"Wetboy"
+		"npc_dota_hero_sven"						"Zerker"
+		
+		"npc_dota_creature_basic_zombie"			"Zombie"
+		"npc_dota_creature_basic_zombie_exploding"	"Volatile Zombie"
+		"npc_dota_creature_basic_zombie_bomb"		"Destroyer Zombie"
+		"npc_dota_creature_berserk_zombie"			"Summoned Berserker"
+		"npc_dota_creature_lesser_nightcrawler"		"Shadeshore Pouncer"
+		"npc_dota_creature_missile_launcher"		"Goblin M.Launcher"
+		"npc_dota_creature_rattletrap"				"Disassembler"
+		"npc_dota_creature_broodking"				"Broodqueen"
+		"npc_dota_creature_broodmother_egg"			"Egg"
+		"npc_dota_creature_broodmother"				"Broodmotherling"
+		"npc_dota_creature_spiderling"				"Spiderling"
+		"npc_dota_creature_corpselord"				"Corpse Lord"
+		"npc_dota_creature_slithereen"				"Slarbasher"
+		"npc_dota_creature_kobold_tunneler"			"Kobold"
+		"npc_dota_creature_gnoll_assassin"			"Gnoll"
+		"npc_dota_creature_troll_healer"			"Troll Healer"
+		"npc_dota_creature_mini_roshan"				"Flame Ancient"
+		"npc_dota_creature_tormented_soul"			"Shrack"
+		"npc_dota_splitter_a"						"Crumbling Golem"
+		"npc_dota_splitter_b"						"Golem Chunk"
+		"npc_dota_splitter_c"						"Golem Splinter"
+		"npc_dota_creature_ogre_melee"				"Ogre Grunt"
+		"npc_dota_creature_ogre_magi"				"Ogre Shaman"
+		"npc_dota_creature_ogre_tank"				"Ogre Commander"
+		"npc_dota_creature_boss_pudge"				"Pudge's Offspring"
+		"npc_dota_creature_king_treant"				"Aged Treant"
+		"npc_dota_creature_forest_prophet"			"Forest Prophet"
+		"npc_dota_creature_hellbear"				"Hell Bear"
+		"npc_dota_creature_small_spirit_bear"		"Small Spirit Bear"
+		"npc_dota_creature_large_spirit_bear"		"Large Spirit Bear"
+		"npc_dota_creature_bear_chieftain"			"Bear Chieftan"
+		"npc_dota_creature_big_bear"				"Enraged Bear"
+		"npc_dota_creature_ancient_apparition"		"Ice Apparition"
+		"npc_dota_creature_snow_creep_melee"		"Snow Satyr"
+		"npc_dota_creature_minor_lich"				"Minor Frost Lich"
+		"npc_dota_venomancer_scourge_ward_1"		"Scourge Ward"
+		"npc_dota_venomancer_scourge_ward_2"		"Scourge Ward"
+		"npc_dota_venomancer_scourge_ward_3"		"Scourge Ward"
+		"npc_dota_venomancer_scourge_ward_4"		"Scourge Ward"
+		"npc_dota_summoned_guardian_angel"			"Guardian Angel"
+		"npc_dota_creature_treant"					"Treant"
+		"npc_dota_creature_buff_witch"				"Empowering Wraith"
+		
+		"DOTA_Tooltip_Ability_creature_aura_health_regen"					"Healing Aura"
+		"DOTA_Tooltip_ability_creature_aura_health_regen_Description"		"Regenerates health around the caster."
+		"DOTA_Tooltip_Ability_creature_acid_spray"							"Burst"
+		"DOTA_Tooltip_ability_creature_acid_spray_Description"				"Zombie explodes on death damaging everyone around it.  Leaves a pool of acid that damages enemies."
+		"DOTA_Tooltip_Ability_creature_summon_undead"						"Summon Zombies"
+		"DOTA_Tooltip_ability_creature_summon_undead_Description"			"Summons a horde of zombies."
+		"DOTA_Tooltip_Ability_creature_zombie_berserk"						"Berserk"
+		"DOTA_Tooltip_ability_creature_zombie_berserk_Description"			"Enrages the zombie giving bonus attack and movement speed."
+		"DOTA_Tooltip_Ability_custom_ogre_magi_bloodlust"					"Carnal Bloodlust"
+		"DOTA_Tooltip_ability_custom_ogre_magi_bloodlust_Description"		"Incites a frenzy in a friendly unit, increasing its movement speed and attack speed."
+		"DOTA_Tooltip_Ability_creature_melee_smash"							"Smash"
+		"DOTA_Tooltip_ability_creature_melee_smash_Description"				"Smashes targets in front of the ogre into the ground."
+		"DOTA_Tooltip_Ability_lesser_nightcrawler_pounce"					"Pounce"
+		"DOTA_Tooltip_ability_lesser_nightcrawler_pounce_Description"		"Leaps towards a target and damages any targets encountered along its path."
+		"DOTA_Tooltip_Ability_creature_sprint"								"Sprint"
+		"DOTA_Tooltip_ability_creature_sprint_Description"					"Bonus movement speed when activated."
+		"DOTA_Tooltip_Ability_creature_slithereen_crush"					"Bash"
+		"DOTA_Tooltip_ability_creature_slithereen_crush_Description"		"Enemies around the Slarbasher are stunned.  Only occurs when two or more heroes are near."
+		"DOTA_Tooltip_Ability_creature_force_of_nature"						"Summon Treant"
+		"DOTA_Tooltip_ability_creature_force_of_nature_Description"			"Summons a treant to fight for the caster.  Requires a tree to convert."
+		"DOTA_Tooltip_Ability_creature_spin_web"							"Spin Web"
+		"DOTA_Tooltip_ability_creature_spin_web_Description"				"A sticky web is spun."
+		"DOTA_Tooltip_Ability_creature_spawn_broodmother_eggs"				"Lay Eggs"
+		"DOTA_Tooltip_ability_creature_spawn_broodmother_eggs_Description"	"Lays several eggs."
+		"DOTA_Tooltip_Ability_creature_self_haste"							"Haste"
+		"DOTA_Tooltip_ability_creature_self_haste_Description"				"Passive movement speed bonus."
+		"DOTA_Tooltip_Ability_creature_hatch_broodmother"					"Hatch"
+		"DOTA_Tooltip_ability_creature_hatch_broodmother_Description"		"Likely something undesirable."
+		"DOTA_Tooltip_Ability_creature_spawn_spider"						"Spawn Spiderlings"
+		"DOTA_Tooltip_ability_creature_spawn_spider_Description"			"Spawns several spiderlings to attack nearby targets."
+		"DOTA_Tooltip_Ability_creature_fire_breath"							"Breathe Fire"
+		"DOTA_Tooltip_ability_creature_fire_breath_Description"				"A column of fire spews forth sweeping in an arc across the front of the caster.  Cannot be interrupted."
+		"DOTA_Tooltip_Ability_creature_aoe_spikes"							"Split Earth"
+		"DOTA_Tooltip_ability_creature_aoe_spikes_Description"				"The earth splits and spikes upwards in an area around the target location."
+		"DOTA_Tooltip_Ability_creature_split_a"								"Crumble"
+		"DOTA_Tooltip_ability_creature_split_a_Description"					"The spirit from the golem is transferred into the pieces of his shattered body."
+		"DOTA_Tooltip_Ability_creature_split_b"								"Crumble"
+		"DOTA_Tooltip_ability_creature_split_b_Description"					"The spirit from the golem is transferred into the pieces of his shattered body."
+		"DOTA_Tooltip_Ability_creature_meat_hook"							"Giant Meat Hook"
+		"DOTA_Tooltip_ability_creature_meat_hook_Description"				"Get over here!"
+		"DOTA_Tooltip_Ability_creature_dismember"							"Dismember"
+		"DOTA_Tooltip_ability_creature_dismember_Description"				"Dismembers a target over time causing damage and holding them in place."
+		"DOTA_Tooltip_Ability_holdout_gyrocopter_homing_missile"			"Launch Missile"
+		"DOTA_Tooltip_ability_holdout_gyrocopter_homing_missile_Description"	"Launches a homing missile at a target."
+		"DOTA_Tooltip_Ability_holdout_ancient_apparition_ice_blast"			"Ice Blast"
+		"DOTA_Tooltip_ability_holdout_ancient_apparition_ice_blast_Description"			"An explosive ball of icy hail that can be used to strike targets anywhere on the map."
+		"DOTA_Tooltip_Ability_creature_minor_chain_frost"					"Chain Frost"
+		"DOTA_Tooltip_ability_creature_minor_chain_frost_Description"		"Releases an orb of frost that bounces between heroes."
+		"DOTA_Tooltip_modifier_holdout_gods_strength"						"Gods Strength"
+		"DOTA_Tooltip_ability_holdout_gods_strength_Description"			"Base damage increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%, strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%, and cooldowns reduced when making a kill."
+		"DOTA_Tooltip_aura_health_regen"									"Healing Aura"
+		"DOTA_Tooltip_witch_buff"											"Attack Speed Bonus"
+		
+		"DOTA_Tooltip_ice_blast_slow"										"Ice Blast Slow"
+		
+		"DOTA_Tooltip_tower_fortification_modifier"							"Fortification"
+		"DOTA_Tooltip_creature_slithereen_crush_slow"						"Stunned"
+		
+		
+		
+		"DOTA_Tooltip_ability_item_custom_minor_potion"							"Minor Potion"
+		"DOTA_Tooltip_ability_item_custom_minor_potion_Description"								"Use: Regenerate - Restores HP over time"
+		"DOTA_Tooltip_ability_item_custom_minor_potion_Lore"										"A magical salve that can quickly mend even the deepest of wounds."
+		"DOTA_Tooltip_ability_item_custom_minor_potion_Note0"										"Minor Potion is shareable."
+		"DOTA_Tooltip_ability_item_custom_minor_potion_total_hp"								"HEALTH RESTORED:"
+		"DOTA_Tooltip_ability_item_custom_minor_potion_buff_duration"								"DURATION:"
+		
+		"DOTA_Tooltip_ability_item_custom_greater_potion"							"Greater Potion"
+		"DOTA_Tooltip_ability_item_custom_greater_potion_Description"								"Use: Regenerate - Restores HP over time"
+		"DOTA_Tooltip_ability_item_custom_greater_potion_Lore"										"A magical salve that can quickly mend even the deepest of wounds."
+		"DOTA_Tooltip_ability_item_custom_greater_potion_Note0"									"Minor Potion is shareable."
+		"DOTA_Tooltip_ability_item_custom_greater_potion_total_hp"								"HEALTH RESTORED:"
+		"DOTA_Tooltip_ability_item_custom_greater_potion_buff_duration"							"DURATION:"
+		
+		"DOTA_Tooltip_ability_item_custom_minor_clarity"							"Minor Clarity"
+		"DOTA_Tooltip_ability_item_custom_minor_clarity_Description"								"Use: Regenerate - Restores MP over time"
+		"DOTA_Tooltip_ability_item_custom_minor_clarity_Lore"										"A magical salve that can quickly regenerate your energy reserves."
+		"DOTA_Tooltip_ability_item_custom_minor_clarity_Note0"										"Minor Clarity is shareable."
+		"DOTA_Tooltip_ability_item_custom_minor_clarity_total_mana"								"MANA RESTORED:"
+		"DOTA_Tooltip_ability_item_custom_minor_clarity_buff_duration"								"DURATION:"
+		
+		"DOTA_Tooltip_ability_item_custom_wraith_band"							"Wraith Band"
+		"DOTA_Tooltip_ability_item_custom_wraith_band_Description"							"Grants bonuses to Strength, Agility and Intelligence"
+		"DOTA_Tooltip_ability_item_custom_wraith_band_Lore"									""
+		"DOTA_Tooltip_ability_item_custom_wraith_band_Note0"								""
+		"DOTA_Tooltip_ability_item_custom_wraith_band_bonus_strength"						"STRENGTH:"
+		"DOTA_Tooltip_ability_item_custom_wraith_band_bonus_agility"						"AGILITY:"
+		"DOTA_Tooltip_ability_item_custom_wraith_band_bonus_intellect"						"INTELLIGENCE:"
+		
+		"DOTA_Tooltip_ability_item_custom_null_talisman"							"Null Talisman"
+		"DOTA_Tooltip_ability_item_custom_null_talisman_Description"						"Grants bonuses to Strength, Agility and Intelligence"
+		"DOTA_Tooltip_ability_item_custom_null_talisman_Lore"								""
+		"DOTA_Tooltip_ability_item_custom_null_talisman_Note0"								""
+		"DOTA_Tooltip_ability_item_custom_null_talisman_bonus_strength"						"STRENGTH:"
+		"DOTA_Tooltip_ability_item_custom_null_talisman_bonus_agility"						"AGILITY:"
+		"DOTA_Tooltip_ability_item_custom_null_talisman_bonus_intellect"					"INTELLIGENCE:"
+		
+		"DOTA_Tooltip_ability_item_custom_bracer"								"Bracer"
+		"DOTA_Tooltip_ability_item_custom_bracer_Description"								"Grants bonuses to Strength, Agility and Intelligence"
+		"DOTA_Tooltip_ability_item_custom_bracer_Lore"										""
+		"DOTA_Tooltip_ability_item_custom_bracer_Note0"										""
+		"DOTA_Tooltip_ability_item_custom_bracer_bonus_strength"							"STRENGTH:"
+		"DOTA_Tooltip_ability_item_custom_bracer_bonus_agility"								"AGILITY:"
+		"DOTA_Tooltip_ability_item_custom_bracer_bonus_intellect"							"INTELLIGENCE:"
+		
+		"DOTA_Tooltip_ability_item_custom_reaver"								"Reaver"
+		"DOTA_Tooltip_ability_item_custom_reaver_Description"								"Grants bonus to Strength"
+		"DOTA_Tooltip_ability_item_custom_reaver_Lore"										""
+		"DOTA_Tooltip_ability_item_custom_reaver_Note0"										""
+		"DOTA_Tooltip_ability_item_custom_reaver_bonus_strength"							"STRENGTH:"
+		
+		"DOTA_Tooltip_ability_item_custom_mystic_staff"							"Mystic Staff"
+		"DOTA_Tooltip_ability_item_custom_mystic_staff_Description"							"Grants bonus to Intelligence"
+		"DOTA_Tooltip_ability_item_custom_mystic_staff_Lore"								""
+		"DOTA_Tooltip_ability_item_custom_mystic_staff_Note0"								""
+		"DOTA_Tooltip_ability_item_custom_mystic_staff_bonus_intellect"						"INTELLIGENCE:"
+		
+		"DOTA_Tooltip_ability_item_custom_eagle"									"Eagle"
+		"DOTA_Tooltip_ability_item_custom_eagle_Description"								"Grants bonus to Agility"
+		"DOTA_Tooltip_ability_item_custom_eagle_Lore"										""
+		"DOTA_Tooltip_ability_item_custom_eagle_Note0"										""
+		"DOTA_Tooltip_ability_item_custom_eagle_bonus_agility"								"AGILITY:"
+		
+		"DOTA_Tooltip_ability_item_custom_demon_edge"								"Demon Edge"
+		"DOTA_Tooltip_ability_item_custom_demon_edge_Description"								"Grants bonus to Damage"
+		"DOTA_Tooltip_ability_item_custom_demon_edge_Lore"										""
+		"DOTA_Tooltip_ability_item_custom_demon_edge_Note0"										""
+		"DOTA_Tooltip_ability_item_custom_demon_edge_bonus_damage"								"DAMAGE:"
+		
+		"DOTA_Tooltip_ability_item_custom_chainmail"								"Chainmail"
+		"DOTA_Tooltip_ability_item_custom_chainmail_Description"								"Grants bonus to Armor\nUnique: Does not stack with items of the same name"
+		"DOTA_Tooltip_ability_item_custom_chainmail_Lore"										"I heard you should forward it..."
+		"DOTA_Tooltip_ability_item_custom_chainmail_Note0"										""
+		"DOTA_Tooltip_ability_item_custom_chainmail_bonus_armor"								"ARMOR:"
+		
+		"DOTA_Tooltip_ability_item_custom_platemail"								"Platemail"
+		"DOTA_Tooltip_ability_item_custom_platemail_Description"								"Grants bonus to Armor\nUnique: Does not stack with items of the same name"
+		"DOTA_Tooltip_ability_item_custom_platemail_Lore"										""
+		"DOTA_Tooltip_ability_item_custom_platemail_Note0"										""
+		"DOTA_Tooltip_ability_item_custom_platemail_bonus_armor"								"ARMOR:"
+		
+		"DOTA_Tooltip_ability_item_custom_ring_regen"								"Ring of Regen"
+		"DOTA_Tooltip_ability_item_custom_ring_regen_Description"								"Regenerate - Restores HP over time"
+		"DOTA_Tooltip_ability_item_custom_ring_regen_Lore"										"A magical ring that can mend even the deepest of wounds."
+		"DOTA_Tooltip_ability_item_custom_ring_regen_Note0"										""
+		"DOTA_Tooltip_ability_item_custom_ring_regen_hp_per_tick"								"HEALTH RESTORED:"
+		
+		"DOTA_Tooltip_ability_item_custom_ring_focus"								"Ring of Focus"
+		"DOTA_Tooltip_ability_item_custom_ring_focus_Description"								"Regenerate - Restores MP over time"
+		"DOTA_Tooltip_ability_item_custom_ring_focus_Lore"										"A magical ring that can mend even the deepest of mental wounds."
+		"DOTA_Tooltip_ability_item_custom_ring_focus_Note0"										""
+		"DOTA_Tooltip_ability_item_custom_ring_focus_mp_perc"									"%MANA REGEN BONUS:"
+		
+		"DOTA_Tooltip_ability_item_custom_recipe_ring_power"						"Ring of Power Recipe"
+		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_Description"						"Regenerate - Restores HP and MP over time"
+		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_Lore"								"A magical ring that can mend even the deepest of physical and mental wounds."
+		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_Note0"								""
+		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_mp_perc"							"%MANA REGEN BONUS:"
+		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_hp_per_tick"						"HEALTH RESTORED:"
+
+		"DOTA_Tooltip_ability_item_custom_ring_power"								"Ring of Power"
+		"DOTA_Tooltip_ability_item_custom_ring_power_Description"						"Regenerate - Restores HP and MP over time"
+		"DOTA_Tooltip_ability_item_custom_ring_power_Lore"								"A magical ring that can mend even the deepest of physical and mental wounds."
+		"DOTA_Tooltip_ability_item_custom_ring_power_Note0"								""
+		"DOTA_Tooltip_ability_item_custom_ring_power_mp_perc"							"%MANA REGEN BONUS:"
+		"DOTA_Tooltip_ability_item_custom_ring_power_hp_per_tick"						"HEALTH RESTORED:"
+
+		"DOTA_Tooltip_ability_item_custom_orb_of_venom_enchant"						"Venom Enchant"
+		"DOTA_Tooltip_ability_item_custom_orb_of_venom_enchant_Description"						"Enchant your weapon of choice with the venom of snakes common to the region\nPoison Tipped is a unique attack modifier\nVenom Enchant can not be dropped, only sold"
+		"DOTA_Tooltip_ability_item_custom_orb_of_venom_enchant_Lore"							"handle with care"
+		"DOTA_Tooltip_ability_item_custom_orb_of_venom_enchant_poison_damage"					"DAMAGE:"
+		"DOTA_Tooltip_ability_item_custom_orb_of_venom_enchant_poison_duration"					"DURATION:"
+		
+		"DOTA_Tooltip_ability_item_classchange_warrior"							"Classchange: T1: Warrior"
+		"DOTA_Tooltip_ability_item_classchange_warrior_Description"							"Change your profession to one of physical prowess, durability and strength"
+		"DOTA_Tooltip_ability_item_classchange_warrior_Lore"								"Requires Level 5, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_warrior_Note0"								""
+		
+		"DOTA_Tooltip_ability_item_classchange_monk"							"Classchange: T2: Monk"
+		"DOTA_Tooltip_ability_item_classchange_monk_Description"							"(currently only 0 abilities) Change your profession to one of physical alacrity"
+		"DOTA_Tooltip_ability_item_classchange_monk_Lore"									"Requires Level 20 Warrior, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_monk_Note0"									""
+		
+		"DOTA_Tooltip_ability_item_classchange_zerker"							"Classchange: T2: Zerker"
+		"DOTA_Tooltip_ability_item_classchange_zerker_Description"							"(currently only 0 abilities) Change your profession to one of physical ferocity"
+		"DOTA_Tooltip_ability_item_classchange_zerker_Lore"									"Requires Level 20 Warrior, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_zerker_Note0"								""
+		
+		"DOTA_Tooltip_ability_item_classchange_spellblade"						"Classchange: T2: Spellblade"
+		"DOTA_Tooltip_ability_item_classchange_spellblade_Description"						"Change your profession to one who brings the elegant destruction of magic to the world of the physical"
+		"DOTA_Tooltip_ability_item_classchange_spellblade_Lore"								"Requires Level 20 Warrior, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_spellblade_Note0"							""
+		
+		"DOTA_Tooltip_ability_item_classchange_devout"							"Classchange: T1: Devout"
+		"DOTA_Tooltip_ability_item_classchange_devout_Description"							"Change your profession to one of spiritual and magical wisdom"
+		"DOTA_Tooltip_ability_item_classchange_devout_Lore"									"Requires Level 5, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_devout_Note0"								""
+		
+		"DOTA_Tooltip_ability_item_classchange_elementalist"					"Classchange: T2: Elementalist"
+		"DOTA_Tooltip_ability_item_classchange_elementalist_Description"					"(currently only 0 abilities) Change your profession to one with the fury of the elements"
+		"DOTA_Tooltip_ability_item_classchange_elementalist_Lore"							"Requires Level 20 Devout, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_elementalist_Note0"							""
+		
+		"DOTA_Tooltip_ability_item_classchange_arcanist"						"Classchange: T2: Arcanist"
+		"DOTA_Tooltip_ability_item_classchange_arcanist_Description"						"(currently only 0 abilities) Change your profession to one proficient with raw magic"
+		"DOTA_Tooltip_ability_item_classchange_arcanist_Lore"								"Requires Level 20 Devout, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_arcanist_Note0"								""
+		
+		"DOTA_Tooltip_ability_item_classchange_cultist"							"Classchange: T2: Cultist"
+		"DOTA_Tooltip_ability_item_classchange_cultist_Description"							"(currently only 0 abilities) Change your profession to a servant of a higher power, dealing blessings and plagues alike"
+		"DOTA_Tooltip_ability_item_classchange_cultist_Lore"								"Requires Level 20 Devout, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_cultist_Note0"								""
+		
+		"DOTA_Tooltip_ability_item_classchange_ranger"							"Classchange: T1: Ranger"
+		"DOTA_Tooltip_ability_item_classchange_ranger_Description"							"Change your profession to one skilled in the ways of the wilds"
+		"DOTA_Tooltip_ability_item_classchange_ranger_Lore"									"Requires Level 5, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_ranger_Note0"								""
+		
+		"DOTA_Tooltip_ability_item_classchange_wetboy"							"Classchange: T2: Wetboy"
+		"DOTA_Tooltip_ability_item_classchange_wetboy_Description"							"Change your profession to one of stealth and subjugation"
+		"DOTA_Tooltip_ability_item_classchange_wetboy_Lore"									"Requires Level 20 Ranger, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_wetboy_Note0"								""
+		
+		"DOTA_Tooltip_ability_item_classchange_gunslinger"						"Classchange: T2: Gunslinger"
+		"DOTA_Tooltip_ability_item_classchange_gunslinger_Description"						"(currently only 0 abilities) Change your profession to one of gunpowder and scopes"
+		"DOTA_Tooltip_ability_item_classchange_gunslinger_Lore"								"Requires Level 20 Ranger, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_gunslinger_Note0"							""
+		
+		"DOTA_Tooltip_ability_item_classchange_exile"							"Classchange: T2: Exile"
+		"DOTA_Tooltip_ability_item_classchange_exile_Description"							"(currently only 0 abilities) Change your profession to one who has been shunned from civilization and has become one with the wild"
+		"DOTA_Tooltip_ability_item_classchange_exile_Lore"									"Requires Level 20 Ranger, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_exile_Note0"									""
+		
+		"DOTA_Tooltip_ability_item_classchange_reset"							"Reset Scroll"
+		"DOTA_Tooltip_ability_item_classchange_reset_Description"							"Returns you to your roots, allowing you to forge a new path"
+		"DOTA_Tooltip_ability_item_classchange_reset_Lore"									"Wait... what am I doing?"
+		"DOTA_Tooltip_ability_item_classchange_reset_Note0"									""
+		
+		"DOTA_Tooltip_ability_item_custom_tome_int"								"Tome: Intelligence"
+		"DOTA_Tooltip_ability_item_custom_tome_int_Description"								"Grants a permanent bonus to Intelligence on use"
+		"DOTA_Tooltip_ability_item_custom_tome_int_Lore"									"Knowledge!"
+		"DOTA_Tooltip_ability_item_custom_tome_int_Note0"									""
+		"DOTA_Tooltip_ability_item_custom_tome_int_int"										"BONUS INTELLIGENCE:"
+			
+		"DOTA_Tooltip_ability_item_custom_tome_agi"								"Tome: Agility"
+		"DOTA_Tooltip_ability_item_custom_tome_agi_Description"								"Grants a permanent bonus to agility on use"
+		"DOTA_Tooltip_ability_item_custom_tome_agi_Lore"									"Knowledge!"
+		"DOTA_Tooltip_ability_item_custom_tome_agi_Note0"									""
+		"DOTA_Tooltip_ability_item_custom_tome_agi_agi"										"BONUS AGILITY:"
+		
+		"DOTA_Tooltip_ability_item_custom_tome_str"								"Tome: Strength"
+		"DOTA_Tooltip_ability_item_custom_tome_str_Description"								"Grants a permanent bonus to strength on use"
+		"DOTA_Tooltip_ability_item_custom_tome_str_Lore"									"Knowledge!"
+		"DOTA_Tooltip_ability_item_custom_tome_str_Note0"									""
+		"DOTA_Tooltip_ability_item_custom_tome_str_str"										"BONUS STRENGTH:"
+		
+		"DOTA_Tooltip_ability_customability_adrenalinerush"								"Adrenaline Rush"
+		"DOTA_Tooltip_ability_customability_adrenalinerush_Description"					"When one's life is at risk, the body is capable of immense feats of strength"
+		"DOTA_Tooltip_ability_customability_adrenalinerush_Note0"						"Adrenaline Rush increases attack speed immensely briefly"
+		"DOTA_Tooltip_ability_customability_adrenalinerush_Lore"						"Adrenaline is a hell of a drug"
+		"DOTA_Tooltip_ability_customability_adrenalinerush_attack_bonus"				"BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_customability_adrenalinerush_duration"					"DURATION:"
+		
+		"DOTA_Tooltip_ability_customability_bandage"						"Bandage"
+		"DOTA_Tooltip_ability_customability_bandage_Description"						"Take scraps of cloth and tend to your wounds"
+		"DOTA_Tooltip_ability_customability_bandage_Note0"								"Bandage wounds heals you in return for mana"
+		"DOTA_Tooltip_ability_customability_bandage_Lore"								"Like magic"
+		"DOTA_Tooltip_ability_customability_bandage_hp_regen"							"BONUS REGEN:"
+		"DOTA_Tooltip_ability_customability_bandage_mp_per_second"						"MANA PER SEC:"
+		
+		"DOTA_Tooltip_ability_customability_beastally"						"Beast Ally"
+		"DOTA_Tooltip_ability_customability_beastally_Description"						"Call your friend from the wilds to aid you in battle\nYour Ally's stats scale off of your own stats depending on the level of Beast Ally (Except max health)"
+		"DOTA_Tooltip_ability_customability_beastally_Note0"							""
+		"DOTA_Tooltip_ability_customability_beastally_Lore"								"A friend in need is a friend indeed"
+		
+		"DOTA_Tooltip_ability_customability_fireball"						"Fireball"
+		"DOTA_Tooltip_ability_customability_fireball_Description"							"Summon a flame to strike a foe, then burns them every half second\nDamage scales off of Intelligence"
+		"DOTA_Tooltip_ability_customability_fireball_Lore"									"The first and most simple spell one masters in the arcane arts"
+		"DOTA_Tooltip_ability_customability_fireball_damageintperc"								"%PERCENT INTELLIGENCE DAMAGE:"
+		"DOTA_Tooltip_ability_customability_fireball_range"									"RANGE:"
+		"DOTA_Tooltip_ability_customability_fireball_burnintperc"									"%PERCENT INTELLIGENCE BURN:"
+		"DOTA_Tooltip_ability_customability_fireball_duration"								"DURATION:"
+		
+		"DOTA_Tooltip_ability_customability_healinghands"					"Healing Hands"
+		"DOTA_Tooltip_ability_customability_healinghands_Description"							"Summon a healing beacon to restore health to an ally"
+		"DOTA_Tooltip_ability_customability_healinghands_Lore"									"The first and most simple spell one masters in the blessed arts"
+		"DOTA_Tooltip_ability_customability_healinghands_heal"									"HEAL:"
+		
+		"DOTA_Tooltip_ability_customability_bulwark"						"Bulwark"
+		"DOTA_Tooltip_ability_customability_bulwark_Description"							"Steel yourself for battle, mitigating enemy blows"
+		"DOTA_Tooltip_ability_customability_bulwark_Lore"									"When one strives for melee combat, one must expect to be hit"
+		"DOTA_Tooltip_ability_customability_bulwark_duration"								"DURATION:"
+		"DOTA_Tooltip_ability_customability_bulwark_block"									"%DAMAGE MITIGATION:"
+		
+		"DOTA_Tooltip_ability_customability_resolve"						"Resolve"
+		"DOTA_Tooltip_ability_customability_resolve_Description"							"See your pain, and know that it is nothing, gaining temporary bonus regen after taking damage"
+		"DOTA_Tooltip_ability_customability_resolve_Lore"									"When one strives for melee combat, one must expect to be hit"
+		"DOTA_Tooltip_ability_customability_resolve_hp_regen"								"BONUS REGEN:"
+		"DOTA_Tooltip_ability_customability_resolve_duration"								"DURATION:"
+		
+		"DOTA_Tooltip_ability_customability_focusshot"						"Focus shot"
+		"DOTA_Tooltip_ability_customability_focusshot_Description"							"The Ranger draws her bow and focuses for a piercing shot\nDamage scales off of Agility"
+		"DOTA_Tooltip_ability_customability_focusshot_Lore"									"Defying physics"
+		"DOTA_Tooltip_ability_customability_focusshot_damageagiperc"						"%PERCENT AGILITY:"
+		"DOTA_Tooltip_ability_customability_focusshot_range"								"RANGE:"
+		"DOTA_Tooltip_ability_customability_focusshot_delay"								"DELAY TIME:"
+		
+		"DOTA_Tooltip_ability_customability_manafont"							"Manafont"
+		"DOTA_Tooltip_ability_customability_manafont_Description"							"By studying the magics coursing within your flesh, you learn to see it with the naked eye, and manipulate it's flow"
+		"DOTA_Tooltip_ability_customability_manafont_Lore"									"Everyone has magic in them, some more than others, but all are equals in this respect - Anonymous Scholar"
+		"DOTA_Tooltip_ability_customability_manafont_mp_regen"								"MANA REGEN BONUS:"
+		
+		"DOTA_Tooltip_ability_customability_survivalinstincts"					"Survival Instincts"
+		"DOTA_Tooltip_ability_customability_survivalinstincts_Description"					"The Ranger crouches into concealing shadows, temporarily escaping danger"
+		"DOTA_Tooltip_ability_customability_survivalinstincts_Lore"							"A good Ranger knows how to handle herself in the wilds, a great ranger knows how to handle herself in the grip of fear"
+		"DOTA_Tooltip_ability_customability_survivalinstincts_duration"						"INVISIBILITY DURATION:"
+		//"DOTA_Tooltip_ability_customability_survivalinstincts_distance"						"DASH DISTANCE:"
+		
+		"DOTA_Tooltip_ability_customability_spellsword"							"Spellsword"
+		"DOTA_Tooltip_ability_customability_spellsword_Description"							"The Warrior enchants his sword with raw magic to deal greater damage"
+		"DOTA_Tooltip_ability_customability_spellsword_Lore"								"The most basic of sword enchants, pitiful comparably"
+		"DOTA_Tooltip_ability_customability_spellsword_damage"								"DAMAGE:"
+		"DOTA_Tooltip_ability_customability_spellsword_attackcost"							"MANA COST PER ATTACK:"
+		
+		"DOTA_Tooltip_ability_customability_imposingwill"						"Imposing Will"
+		"DOTA_Tooltip_ability_customability_imposingwill_Description"						"Impose your spiritual will to demoralise the enemy, decreasing their move and attack speeds"
+		"DOTA_Tooltip_ability_customability_imposingwill_Lore"								"A strong mind is all one needs"
+		"DOTA_Tooltip_ability_customability_imposingwill_move_speed"						"MOVE SPEED:"
+		"DOTA_Tooltip_ability_customability_imposingwill_atk_speed"							"ATTACK SPEED:"
+		
+		"DOTA_Tooltip_ability_customability_poisontipped"						"Poison Tipped"
+		"DOTA_Tooltip_ability_customability_poisontipped_Description"						"Tip your arrows in damaging poison, causing attacks to deal damage over time\nDamage scales off of Intelligence and Attack Damage\nPoison Tipped is a unique attack modifier"
+		"DOTA_Tooltip_ability_customability_poisontipped_Lore"								"handle with care"
+		"DOTA_Tooltip_ability_customability_poisontipped_poison_duration"					"DURATION:"
+		"DOTA_Tooltip_ability_customability_poisontipped_poisonintperc"						"%PERCENT INTELLIGENCE:"
+		"DOTA_Tooltip_ability_customability_poisontipped_poisonatkperc"						"%PERCENT ATTACK:"
+		
+		"DOTA_Tooltip_ability_customability_whirlwind"							"Whirlwind"
+		"DOTA_Tooltip_ability_customability_whirlwind_Description"							"Spin with your sword to create a deadly tornado of destruction, damaging nearby enemies\nDamage scales off of Attack Damage"
+		"DOTA_Tooltip_ability_customability_whirlwind_Lore"									"Spin to win"
+		"DOTA_Tooltip_ability_customability_whirlwind_duration"								"DURATION:"
+		"DOTA_Tooltip_ability_customability_whirlwind_damage_tick"							"DAMAGE TICK:"
+		"DOTA_Tooltip_ability_customability_whirlwind_damageatkperc"						"%PERCENT ATTACK DAMAGE PER TICK:"
+		"DOTA_Tooltip_ability_customability_whirlwind_radius"								"RADIUS:"
+		
+		"DOTA_Tooltip_ability_customability_spellmastery"						"Spell Mastery"
+		"DOTA_Tooltip_ability_customability_spellmastery_Description"						"It takes great concentration to keep a blade enchant active, one must be truly skilled to keep multiple up at once\nIf no blade enchants are active, the Spellblade gains mana with each attack"
+		"DOTA_Tooltip_ability_customability_spellmastery_Lore"								"It glows!"
+		"DOTA_Tooltip_ability_customability_spellmastery_active_spells"						"MAX ACTIVE SPELLS:"
+		"DOTA_Tooltip_ability_customability_spellmastery_manaonatk"							"MANA GAINED:"
+		
+		"DOTA_Tooltip_ability_customability_leechblade"							"Leechblade"
+		"DOTA_Tooltip_ability_customability_leechblade_Description"							"Enchant your blade with the ability to return a portion of damage done as health"
+		"DOTA_Tooltip_ability_customability_leechblade_Lore"								"Green!"
+		"DOTA_Tooltip_ability_customability_leechblade_attackcost"							"MANA COST PER ATTACK:"
+		"DOTA_Tooltip_ability_customability_leechblade_leech"								"%LIFE LEECHED:"
+		
+		"DOTA_Tooltip_ability_customability_coldsteel"							"Coldsteel"
+		"DOTA_Tooltip_ability_customability_coldsteel_Description"							"Enchant your blade with freezing winds, slowing foes that are struck"
+		"DOTA_Tooltip_ability_customability_coldsteel_Lore"									"White!"
+		"DOTA_Tooltip_ability_customability_coldsteel_attackcost"							"MANA COST PER ATTACK:"
+		"DOTA_Tooltip_ability_customability_coldsteel_slow"									"%MOVE SLOW:"
+		"DOTA_Tooltip_ability_customability_coldsteel_atk_slow"								"ATTACK SLOW:"
+		
+		"DOTA_Tooltip_ability_customability_pyredge"							"Pyredge"
+		"DOTA_Tooltip_ability_customability_pyredge_Description"							"Enchant your blade with the controlled chaos of magical flame, causing struck foes to sear and burn\nBurn damage scales off of Intelligence"
+		"DOTA_Tooltip_ability_customability_pyredge_Lore"									"Red!"
+		"DOTA_Tooltip_ability_customability_pyredge_attackcost"								"MANA COST PER ATTACK:"
+		"DOTA_Tooltip_ability_customability_pyredge_burst"									"BURST DAMAGE:"
+		"DOTA_Tooltip_ability_customability_pyredge_burnintperc"									"%PERCENT INTELLIGENCE BURN PER TICK:"
+		"DOTA_Tooltip_ability_customability_pyredge_duration"								"BURN DAMAGE DURATION:"
+		
+		"DOTA_Tooltip_ability_customability_shockpoint"							"Shockpoint"
+		"DOTA_Tooltip_ability_customability_shockpoint_Description"							"Enchant your blade with the uncontrolled chaos of electricity, shocking nearby enemies for a percentage of your attack"
+		"DOTA_Tooltip_ability_customability_shockpoint_Lore"								"Blue!"
+		"DOTA_Tooltip_ability_customability_shockpoint_attackcost"							"MANA COST PER ATTACK:"
+		"DOTA_Tooltip_ability_customability_shockpoint_shock"								"%SHOCK DAMAGE:"
+		"DOTA_Tooltip_ability_customability_shockpoint_jumps"								"MAX JUMPS:"
+		
+		"DOTA_Tooltip_ability_customability_herbalism"							"Herbalism"
+		"DOTA_Tooltip_ability_customability_herbalism_Description"							"Your knowledge of herbs gives you the ability to treat your wounds, passively giving health regen\nCoat your blades in liquid made from your knowledge of herbs and medicine. Use Herbalism to cycle through available poisons depending on the level of Herbalism\n   Level 1: Slow Poison\n   Level 2: Frailty Poison\n   Level 3: Damage Poison"
+		"DOTA_Tooltip_ability_customability_herbalism_Lore"									"Nature can be a killers greatest ally!"
+		"DOTA_Tooltip_ability_customability_herbalism_hp_regen"								"%HEALTH REGEN"
+		
+		"DOTA_Tooltip_ability_customability_herbalism_slow"						"Slow Poison"
+		"DOTA_Tooltip_ability_customability_herbalism_slow_Description"						"Coat your blades in a poison that infects the mind and causes opponents reactions to become sluggish"
+		"DOTA_Tooltip_ability_customability_herbalism_slow_Lore"							"Do you feel it yet?"
+		"DOTA_Tooltip_ability_customability_herbalism_slow_duration"						"DURATION:"
+		"DOTA_Tooltip_ability_customability_herbalism_slow_slow"							"%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_customability_herbalism_slow_atk_slow"						"ATTACK SLOW:"
+		
+		"DOTA_Tooltip_ability_customability_herbalism_frailty"					"Frailty Poison"
+		"DOTA_Tooltip_ability_customability_herbalism_frailty_Description"					"Coat your blades in a poison that enters the muscles, causing them to become significantly weaker"
+		"DOTA_Tooltip_ability_customability_herbalism_frailty_duration"						"DURATION:"
+		"DOTA_Tooltip_ability_customability_herbalism_frailty_decrease"						"%DAMAGE DECREASE:"
+		
+		"DOTA_Tooltip_ability_customability_herbalism_damage"					"Damage Poison"
+		"DOTA_Tooltip_ability_customability_herbalism_damage_Description"					"Coat your blades in a poison that enters the bloodstream and attacks the nervous system to cause unbearable pain\nDamage scales off of Intelligence and Attack Damage"
+		"DOTA_Tooltip_ability_customability_herbalism_damage_Lore"							"You're not looking so good..."
+		"DOTA_Tooltip_ability_customability_herbalism_damage_duration"						"DURATION:"
+		"DOTA_Tooltip_ability_customability_herbalism_damage_poisonintperc"					"%PERCENT INTELLIGENCE:"
+		"DOTA_Tooltip_ability_customability_herbalism_damage_poisonatkperc"					"%PERCENT ATTACK:"
+		
+		"DOTA_Tooltip_ability_customability_shadowwalk"							"Shadow Walk"
+		"DOTA_Tooltip_ability_customability_shadowwalk_Description"							"Meld with the shadows to conceal movement\nAttacking out of Shadow Walk is a guaranteed crit"
+		"DOTA_Tooltip_ability_customability_shadowwalk_Lore"								"Sometimes there ARE things in the dark"
+		"DOTA_Tooltip_ability_customability_shadowwalk_duration"							"DURATION:"
+		"DOTA_Tooltip_ability_customability_shadowwalk_slow"								"%MOVE SLOW:"
+		"DOTA_Tooltip_ability_customability_shadowwalk_crit_bonus"							"%CRIT BONUS:"
+		
+		"DOTA_Tooltip_ability_customability_physiology"							"Physiology"
+		"DOTA_Tooltip_ability_customability_physiology_Description"							"A killer needs to know anatomy more than anyone, for one must know where to strike to inflict the greatest damage. Activate to briefly stun on your next attack"
+		"DOTA_Tooltip_ability_customability_physiology_Lore"								"We're all just flesh and bone"
+		"DOTA_Tooltip_ability_customability_physiology_crit_chance"							"%CRIT CHANCE:"
+		"DOTA_Tooltip_ability_customability_physiology_crit_bonus"							"%CRIT BONUS:"
+		"DOTA_Tooltip_ability_customability_physiology_backstab"							"%BACKSTAB DAMAGE:"
+		"DOTA_Tooltip_ability_customability_physiology_duration"							"STUN DURATION:"
+		
+		"DOTA_Tooltip_ability_customability_killerinstinct"						"Killer Instinct"
+		"DOTA_Tooltip_ability_customability_killerinstinct_Description"						"Wetboys have an eye for danger. They know how to avoid danger and turn the tables on their foe. Activate to throw daggers at nearby enemies, damaging and applying the active poison to them\nDagger damage scales off Agility"
+		"DOTA_Tooltip_ability_customability_killerinstinct_Lore"							"What? You dodged!?"
+		"DOTA_Tooltip_ability_customability_killerinstinct_evade"							"%PASSIVE EVADE CHANCE:"
+		"DOTA_Tooltip_ability_customability_killerinstinct_radius"							"RADIUS:"
+		"DOTA_Tooltip_ability_customability_killerinstinct_damageagiperc"					"%PERCENT AGILITY:"
+
+				// DOTA 2 MODKIT GENERATED TOOLTIPS FOR: rpg
+		// Keys already defined in addon_english.txt are not listed, nor are Modifiers with the property "IsHidden" "1".
+
+		// ******************** HEROES ********************
+		"npc_dota_hero_windrunner"                                                        "Npc Dota Hero Ranger"
+
+		// ******************** UNITS ********************
+		"npc_dota_creature_beastally_spiderling1"                                         "Dota Creature Beastally Spiderling1"
+		"npc_dota_creature_beastally_spiderling2"                                         "Dota Creature Beastally Spiderling2"
+		"npc_dota_creature_beastally_spiderling3"                                         "Dota Creature Beastally Spiderling3"
+		"npc_dota_creature_beastally_spiderling4"                                         "Dota Creature Beastally Spiderling4"
+		"npc_dota_creature_berserk_zombie_summon"                                         "Dota Creature Berserk Zombie Summon"
+		"npc_dota_creature_ice_lord"                                                      "Dota Creature Ice Lord"
+		"npc_dota_large_wolf"                                                             "Dota Large Wolf"
+		"npc_dota_small_wolf"                                                             "Dota Small Wolf"
+		"npc_dota_hero_arcanist"                                                          "Dota Hero Arcanist"
+		"npc_dota_hero_cultist"                                                           "Dota Hero Cultist"
+		"npc_dota_hero_devout"                                                            "Dota Hero Devout"
+		"npc_dota_hero_elementalist"                                                      "Dota Hero Elementalist"
+		"npc_dota_hero_exile"                                                             "Dota Hero Exile"
+		"npc_dota_hero_gunslinger"                                                        "Dota Hero Gunslinger"
+		"npc_dota_hero_monk"                                                              "Dota Hero Monk"
+		"npc_dota_hero_ranger"                                                            "Dota Hero Ranger"
+		"npc_dota_hero_spellblade"                                                        "Dota Hero Spellblade"
+		"npc_dota_hero_warrior"                                                           "Dota Hero Warrior"
+		"npc_dota_hero_wetboy"                                                            "Dota Hero Wetboy"
+		"npc_dota_hero_zerker"                                                            "Dota Hero Zerker"
+
+		// ******************** ABILITY MODIFIERS ********************
+		"DOTA_Tooltip_modifier_adrenalinerush"                                            "Adrenalinerush"
+		"DOTA_Tooltip_modifier_adrenalinerush_Description"                                ""
+
+		"DOTA_Tooltip_modifier_bandage"                                                   "Bandage"
+		"DOTA_Tooltip_modifier_bandage_Description"                                       ""
+
+		"DOTA_Tooltip_modifier_bulwark"                                                   "Bulwark"
+		"DOTA_Tooltip_modifier_bulwark_Description"                                       ""
+
+		"DOTA_Tooltip_modifier_coldsteel"                                                 "Coldsteel"
+		"DOTA_Tooltip_modifier_coldsteel_Description"                                     ""
+
+		"DOTA_Tooltip_modifier_coldsteel_effect"                                          "Coldsteel Effect"
+		"DOTA_Tooltip_modifier_coldsteel_effect_Description"                              ""
+
+		"DOTA_Tooltip_creature_acid_spray_thinker"                                        "Creature Acid Spray Thinker"
+		"DOTA_Tooltip_creature_acid_spray_thinker_Description"                            ""
+
+		"DOTA_Tooltip_create_acid_spray_armor_reduction_aura"                             "Create Acid Spray Armor Reduction Aura"
+		"DOTA_Tooltip_create_acid_spray_armor_reduction_aura_Description"                 ""
+
+		"DOTA_Tooltip_zombie_berserk"                                                     "Zombie Berserk"
+		"DOTA_Tooltip_zombie_berserk_Description"                                         ""
+
+		"DOTA_Tooltip_health_regen"                                                       "Health Regen"
+		"DOTA_Tooltip_health_regen_Description"                                           ""
+
+		"DOTA_Tooltip_channel_started"                                                    "Channel Started"
+		"DOTA_Tooltip_channel_started_Description"                                        ""
+
+		"DOTA_Tooltip_summoned_units"                                                     "Summoned Units"
+		"DOTA_Tooltip_summoned_units_Description"                                         ""
+
+		"DOTA_Tooltip_modifier_fireball"                                                  "Fireball"
+		"DOTA_Tooltip_modifier_fireball_Description"                                      ""
+
+		"DOTA_Tooltip_modifier_soothe"                                                    "Soothe"
+		"DOTA_Tooltip_modifier_soothe_Description"                                        ""
+
+		"DOTA_Tooltip_modifier_herbalism_damage"                                          "Herbalism Damage"
+		"DOTA_Tooltip_modifier_herbalism_damage_Description"                              ""
+
+		"DOTA_Tooltip_modifier_damage"                                                    "Damage"
+		"DOTA_Tooltip_modifier_damage_Description"                                        ""
+
+		"DOTA_Tooltip_modifier_herbalism_frailty"                                         "Herbalism Frailty"
+		"DOTA_Tooltip_modifier_herbalism_frailty_Description"                             ""
+
+		"DOTA_Tooltip_modifier_frailty"                                                   "Frailty"
+		"DOTA_Tooltip_modifier_frailty_Description"                                       ""
+
+		"DOTA_Tooltip_modifier_herbalism_slow"                                            "Herbalism Slow"
+		"DOTA_Tooltip_modifier_herbalism_slow_Description"                                ""
+
+		"DOTA_Tooltip_modifier_slow"                                                      "Slow"
+		"DOTA_Tooltip_modifier_slow_Description"                                          ""
+
+		"DOTA_Tooltip_ice_vortex_slow"                                                    "Ice Vortex Slow"
+		"DOTA_Tooltip_ice_vortex_slow_Description"                                        ""
+
+		"DOTA_Tooltip_ice_vortex_thinker"                                                 "Ice Vortex Thinker"
+		"DOTA_Tooltip_ice_vortex_thinker_Description"                                     ""
+
+		"DOTA_Tooltip_imposingwill_thinker"                                               "Imposingwill Thinker"
+		"DOTA_Tooltip_imposingwill_thinker_Description"                                   ""
+
+		"DOTA_Tooltip_imposingwill_aura"                                                  "Imposingwill Aura"
+		"DOTA_Tooltip_imposingwill_aura_Description"                                      ""
+
+		"DOTA_Tooltip_modifier_leechblade"                                                "Leechblade"
+		"DOTA_Tooltip_modifier_leechblade_Description"                                    ""
+
+		"DOTA_Tooltip_modifier_manafont_aura_effect"                                      "Manafont Aura Effect"
+		"DOTA_Tooltip_modifier_manafont_aura_effect_Description"                          ""
+
+		"DOTA_Tooltip_physiology_crit"                                                    "Physiology Crit"
+		"DOTA_Tooltip_physiology_crit_Description"                                        ""
+
+		"DOTA_Tooltip_modifier_bash"                                                      "Bash"
+		"DOTA_Tooltip_modifier_bash_Description"                                          ""
+
+		"DOTA_Tooltip_modifier_bash_stun"                                                 "Bash Stun"
+		"DOTA_Tooltip_modifier_bash_stun_Description"                                     ""
+
+		"DOTA_Tooltip_modifier_poisontipped_arrows_poison"                                "Poisontipped Arrows Poison"
+		"DOTA_Tooltip_modifier_poisontipped_arrows_poison_Description"                    ""
+
+		"DOTA_Tooltip_modifier_pyredge"                                                   "Pyredge"
+		"DOTA_Tooltip_modifier_pyredge_Description"                                       ""
+
+		"DOTA_Tooltip_modifier_pyredge_effect"                                            "Pyredge Effect"
+		"DOTA_Tooltip_modifier_pyredge_effect_Description"                                ""
+
+		"DOTA_Tooltip_modifier_resolve_regen"                                             "Resolve Regen"
+		"DOTA_Tooltip_modifier_resolve_regen_Description"                                 ""
+
+		"DOTA_Tooltip_modifier_invisibility"                                              "Invisibility"
+		"DOTA_Tooltip_modifier_invisibility_Description"                                  ""
+
+		"DOTA_Tooltip_shadowwalk_crit"                                                    "Shadowwalk Crit"
+		"DOTA_Tooltip_shadowwalk_crit_Description"                                        ""
+
+		"DOTA_Tooltip_modifier_shockpoint"                                                "Shockpoint"
+		"DOTA_Tooltip_modifier_shockpoint_Description"                                    ""
+
+		"DOTA_Tooltip_modifier_spellsword"                                                "Spellsword"
+		"DOTA_Tooltip_modifier_spellsword_Description"                                    ""
+
+		"DOTA_Tooltip_modifier_restrict"                                                  "Restrict"
+		"DOTA_Tooltip_modifier_restrict_Description"                                      ""
+
+		"DOTA_Tooltip_modifier_whirlwind_aura"                                            "Whirlwind Aura"
+		"DOTA_Tooltip_modifier_whirlwind_aura_Description"                                ""
+
+		"DOTA_Tooltip_modifier_whirlwind_aura_effect"                                     "Whirlwind Aura Effect"
+		"DOTA_Tooltip_modifier_whirlwind_aura_effect_Description"                         ""
+
+
+		// ******************** ITEM MODIFIERS ********************
+		"DOTA_Tooltip_modifier_orb_frost"                                                 "Orb Frost"
+		"DOTA_Tooltip_modifier_orb_frost_Description"                                     ""
+
+		"DOTA_Tooltip_modifier_orb_frost_slow"                                            "Orb Frost Slow"
+		"DOTA_Tooltip_modifier_orb_frost_slow_Description"                                ""
+
+		"DOTA_Tooltip_modifier_item_minor_potion"                                         "Item Minor Potion"
+		"DOTA_Tooltip_modifier_item_minor_potion_Description"                             ""
+
+		"DOTA_Tooltip_modifier_item_minor_clarity"                                        "Item Minor Clarity"
+		"DOTA_Tooltip_modifier_item_minor_clarity_Description"                            ""
+
+		"DOTA_Tooltip_modifier_item_greater_potion"                                       "Item Greater Potion"
+		"DOTA_Tooltip_modifier_item_greater_potion_Description"                           ""
+
+		"DOTA_Tooltip_modifier_slow"                                                      "Slow"
+		"DOTA_Tooltip_modifier_slow_Description"                                          ""
+
+		"DOTA_Tooltip_modifier_frailty"                                                   "Frailty"
+		"DOTA_Tooltip_modifier_frailty_Description"                                       ""
+
+		"DOTA_Tooltip_modifier_damage"                                                    "Damage"
+		"DOTA_Tooltip_modifier_damage_Description"                                        ""
+
+		"DOTA_Tooltip_modifier_health_mod_1"                                              "Health Mod 1"
+		"DOTA_Tooltip_modifier_health_mod_1_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_health_mod_2"                                              "Health Mod 2"
+		"DOTA_Tooltip_modifier_health_mod_2_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_health_mod_4"                                              "Health Mod 4"
+		"DOTA_Tooltip_modifier_health_mod_4_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_health_mod_8"                                              "Health Mod 8"
+		"DOTA_Tooltip_modifier_health_mod_8_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_health_mod_16"                                             "Health Mod 16"
+		"DOTA_Tooltip_modifier_health_mod_16_Description"                                 ""
+
+		"DOTA_Tooltip_modifier_health_mod_32"                                             "Health Mod 32"
+		"DOTA_Tooltip_modifier_health_mod_32_Description"                                 ""
+
+		"DOTA_Tooltip_modifier_health_mod_64"                                             "Health Mod 64"
+		"DOTA_Tooltip_modifier_health_mod_64_Description"                                 ""
+
+		"DOTA_Tooltip_modifier_health_mod_128"                                            "Health Mod 128"
+		"DOTA_Tooltip_modifier_health_mod_128_Description"                                ""
+
+		"DOTA_Tooltip_modifier_health_mod_256"                                            "Health Mod 256"
+		"DOTA_Tooltip_modifier_health_mod_256_Description"                                ""
+
+		"DOTA_Tooltip_modifier_health_mod_512"                                            "Health Mod 512"
+		"DOTA_Tooltip_modifier_health_mod_512_Description"                                ""
+
+		"DOTA_Tooltip_modifier_orb_venom_enchant"                                         "Orb Venom Enchant"
+		"DOTA_Tooltip_modifier_orb_venom_enchant_Description"                             ""
+
+		"DOTA_Tooltip_modifier_orb_venom_enchant_poison"                                  "Orb Venom Enchant Poison"
+		"DOTA_Tooltip_modifier_orb_venom_enchant_poison_Description"                      ""
+
+
+		// ******************** ABILITIES ********************
+		"DOTA_Tooltip_ability_customability_beastally_beast_hpperc"                       "BEAST HPPERC:"
+		"DOTA_Tooltip_ability_customability_beastally_beast_regenperc"                    "BEAST REGENPERC:"
+		"DOTA_Tooltip_ability_customability_beastally_beast_armorperc"                    "BEAST ARMORPERC:"
+		"DOTA_Tooltip_ability_customability_beastally_beast_damageperc"                   "BEAST DAMAGEPERC:"
+		"DOTA_Tooltip_ability_customability_beastally_beast_magicarmorperc"               "BEAST MAGICARMORPERC:"
+		"DOTA_Tooltip_ability_customability_beastally_beast_moveperc"                     "BEAST MOVEPERC:"
+
+		"DOTA_Tooltip_ability_customability_coldsteel_duration"                           "DURATION:"
+
+		"DOTA_Tooltip_ability_creature_acid_spray_radius"                                 "RADIUS:"
+		"DOTA_Tooltip_ability_creature_acid_spray_duration"                               "DURATION:"
+		"DOTA_Tooltip_ability_creature_acid_spray_damage"                                 "DAMAGE:"
+		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"                        "ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_creature_acid_spray_tick_rate"                              "TICK RATE:"
+		"DOTA_Tooltip_ability_creature_acid_spray_damage_explode"                         "DAMAGE EXPLODE:"
+
+		"DOTA_Tooltip_ability_creature_zombie_berserk_berserk_bonus_attack_speed"         "BERSERK BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_creature_zombie_berserk_berserk_bonus_movement_speed"       "BERSERK BONUS MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_creature_zombie_berserk_berserk_duration"                   "BERSERK DURATION:"
+
+		"DOTA_Tooltip_ability_creature_aura_health_regen_health_radius"                   "HEALTH RADIUS:"
+		"DOTA_Tooltip_ability_creature_aura_health_regen_health_regen_amount"             "HEALTH REGEN AMOUNT:"
+		"DOTA_Tooltip_ability_creature_aura_health_regen_armor_buff"                      "ARMOR BUFF:"
+
+		"DOTA_Tooltip_ability_creature_summon_undead_number_of_zombies"                   "NUMBER OF ZOMBIES:"
+
+		"DOTA_Tooltip_ability_customability_empty1"                                       "Customability Empty1"
+		"DOTA_Tooltip_ability_customability_empty1_Description"                           ""
+
+		"DOTA_Tooltip_ability_customability_empty1_visible"                               "Customability Empty1 Visible"
+		"DOTA_Tooltip_ability_customability_empty1_visible_Description"                   ""
+
+		"DOTA_Tooltip_ability_customability_empty2"                                       "Customability Empty2"
+		"DOTA_Tooltip_ability_customability_empty2_Description"                           ""
+
+		"DOTA_Tooltip_ability_customability_empty2_visible"                               "Customability Empty2 Visible"
+		"DOTA_Tooltip_ability_customability_empty2_visible_Description"                   ""
+
+		"DOTA_Tooltip_ability_customability_empty3"                                       "Customability Empty3"
+		"DOTA_Tooltip_ability_customability_empty3_Description"                           ""
+
+		"DOTA_Tooltip_ability_customability_empty3_visible"                               "Customability Empty3 Visible"
+		"DOTA_Tooltip_ability_customability_empty3_visible_Description"                   ""
+
+		"DOTA_Tooltip_ability_customability_empty4"                                       "Customability Empty4"
+		"DOTA_Tooltip_ability_customability_empty4_Description"                           ""
+
+		"DOTA_Tooltip_ability_customability_empty4_visible"                               "Customability Empty4 Visible"
+		"DOTA_Tooltip_ability_customability_empty4_visible_Description"                   ""
+
+		"DOTA_Tooltip_ability_customability_empty5"                                       "Customability Empty5"
+		"DOTA_Tooltip_ability_customability_empty5_Description"                           ""
+
+		"DOTA_Tooltip_ability_customability_empty5_visible"                               "Customability Empty5 Visible"
+		"DOTA_Tooltip_ability_customability_empty5_visible_Description"                   ""
+
+		"DOTA_Tooltip_ability_customability_fireball_radius"                              "RADIUS:"
+		"DOTA_Tooltip_ability_customability_fireball_speed"                               "SPEED:"
+
+		"DOTA_Tooltip_ability_customability_focusshot_radius"                             "RADIUS:"
+		"DOTA_Tooltip_ability_customability_focusshot_speed"                              "SPEED:"
+
+		"DOTA_Tooltip_ability_customability_herbalism_empty1"                             "Customability Herbalism Empty1"
+		"DOTA_Tooltip_ability_customability_herbalism_empty1_Description"                 ""
+
+		"DOTA_Tooltip_ability_customability_herbalism_damage_attackcost"                  "ATTACKCOST:"
+
+		"DOTA_Tooltip_ability_customability_herbalism_frailty_attackcost"                 "ATTACKCOST:"
+
+		"DOTA_Tooltip_ability_customability_herbalism_slow_attackcost"                    "ATTACKCOST:"
+
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast"                                     "Rpg Ice Lord Ice Blast"
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_Description"                         ""
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_damage"                              "DAMAGE:"
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_explosion_radius"                    "EXPLOSION RADIUS:"
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_collision_radius"                    "COLLISION RADIUS:"
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_speed"                               "SPEED:"
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_slow_duration"                       "SLOW DURATION:"
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_slow_amount"                         "SLOW AMOUNT:"
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_vortex_slow_amount"                  "VORTEX SLOW AMOUNT:"
+		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_vortex_duration"                     "VORTEX DURATION:"
+
+		"DOTA_Tooltip_ability_customability_imposingwill_radius"                          "RADIUS:"
+		"DOTA_Tooltip_ability_customability_imposingwill_duration"                        "DURATION:"
+
+		"DOTA_Tooltip_ability_customability_poisontipped_duration"                        "DURATION:"
+
+		"DOTA_Tooltip_ability_customability_survivalinstincts_distance"                   "DISTANCE:"
+
+
+		// ******************** ITEMS ********************
+		"DOTA_Tooltip_ability_item_orb_frost"                                             "Orb Frost"
+		"DOTA_Tooltip_ability_item_orb_frost_Description"                                 ""
+		"DOTA_Tooltip_ability_item_orb_frost_cold_movement_speed"                         "COLD MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_item_orb_frost_cold_duration"                               "COLD DURATION:"
+
+		"DOTA_Tooltip_ability_item_custom_minor_potion_hp_per_tick"                       "HP PER TICK:"
+
+		"DOTA_Tooltip_ability_item_custom_minor_clarity_mana_per_tick"                    "MANA PER TICK:"
+
+		"DOTA_Tooltip_ability_item_custom_greater_potion_hp_per_tick"                     "HP PER TICK:"
+
+		"DOTA_Tooltip_ability_item_apply_modifiers"                                       "Apply Modifiers"
+		"DOTA_Tooltip_ability_item_apply_modifiers_Description"                           ""
+		"DOTA_Tooltip_ability_item_apply_modifiers_slow"                                  "SLOW:"
+		"DOTA_Tooltip_ability_item_apply_modifiers_atk_slow"                              "ATK SLOW:"
+		"DOTA_Tooltip_ability_item_apply_modifiers_duration"                              "DURATION:"
+		"DOTA_Tooltip_ability_item_apply_modifiers_poisonintperc"                         "POISONINTPERC:"
+		"DOTA_Tooltip_ability_item_apply_modifiers_decrease"                              "DECREASE:"
+		"DOTA_Tooltip_ability_item_apply_modifiers_poisonatkperc"                         "POISONATKPERC:"
+
+		"DOTA_Tooltip_ability_item_apply_modifiers_stats"                                 "Apply Modifiers Stats"
+		"DOTA_Tooltip_ability_item_apply_modifiers_stats_Description"                     ""
+
+		"DOTA_Tooltip_ability_item_wraith_band"                                           "Wraith Band"
+		"DOTA_Tooltip_ability_item_wraith_band_Description"                               ""
+		"DOTA_Tooltip_ability_item_wraith_band_bonus_strength"                            "BONUS STRENGTH:"
+		"DOTA_Tooltip_ability_item_wraith_band_bonus_agility"                             "BONUS AGILITY:"
+		"DOTA_Tooltip_ability_item_wraith_band_bonus_intellect"                           "BONUS INTELLECT:"
+		"DOTA_Tooltip_ability_item_wraith_band_bonus_damage"                              "BONUS DAMAGE:"
+
+		"DOTA_Tooltip_ability_item_null_talisman"                                         "Null Talisman"
+		"DOTA_Tooltip_ability_item_null_talisman_Description"                             ""
+		"DOTA_Tooltip_ability_item_null_talisman_bonus_strength"                          "BONUS STRENGTH:"
+		"DOTA_Tooltip_ability_item_null_talisman_bonus_agility"                           "BONUS AGILITY:"
+		"DOTA_Tooltip_ability_item_null_talisman_bonus_intellect"                         "BONUS INTELLECT:"
+		"DOTA_Tooltip_ability_item_null_talisman_bonus_damage"                            "BONUS DAMAGE:"
+
+		"DOTA_Tooltip_ability_item_bracer"                                                "Bracer"
+		"DOTA_Tooltip_ability_item_bracer_Description"                                    ""
+		"DOTA_Tooltip_ability_item_bracer_bonus_strength"                                 "BONUS STRENGTH:"
+		"DOTA_Tooltip_ability_item_bracer_bonus_agility"                                  "BONUS AGILITY:"
+		"DOTA_Tooltip_ability_item_bracer_bonus_intellect"                                "BONUS INTELLECT:"
+		"DOTA_Tooltip_ability_item_bracer_bonus_damage"                                   "BONUS DAMAGE:"
+		
+		"popup_title_beginning"					"Prologue"
+		"popup_body_beginning"					"In a sudden rush of blinding light and energy you awaken to find yourself in a small grove cemetery which doesn't seem to have been visited in a long time"
+
+		"popup_title_reincarnate"				"Rebirth"
+		"popup_body_reincarnate"				"You read the tome.\nIt's words describe the life of one who took a different path.\nUpon finishing the worn pages, you close your eyes, reminiscing on the words so freshly absorbed into your mind, and their meaninig.\nYou wish to walk in their life and experience what could have been.\n\nWhen you finally open your eyes, you wonder at the strange dream you just had. How silly you had looked in the dream"
+	}
+}

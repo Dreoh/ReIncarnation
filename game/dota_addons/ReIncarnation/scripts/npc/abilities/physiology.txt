@@ -5,6 +5,11 @@
 	//=================================================================================================================
 	"customability_physiology"
 	{
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+		}
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                             "ability_datadriven"
@@ -134,7 +139,7 @@
 				"IsStunDebuff"	"1"
 				"Duration"		"%duration"
 				
-				"EffectName"		"particles/physiology_stunned.vpcf"
+				"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				
 				"States"

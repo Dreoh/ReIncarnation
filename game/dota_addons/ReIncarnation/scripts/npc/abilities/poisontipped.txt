@@ -4,6 +4,12 @@
 	"customability_poisontipped"
 	{
 	
+		"precache"
+		{
+			"particle"				"particles/poison_arrow.vpcf"
+		}
+
+
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"

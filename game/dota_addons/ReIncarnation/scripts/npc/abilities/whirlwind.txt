@@ -3,6 +3,12 @@
 	//=================================================================================================================
 	"customability_whirlwind"
 	{
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_blur.vpcf"
+			"particle"			"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_c.vpcf"
+			"particle"			"particles/whirlwind_base.vpcf"
+		}
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                             "ability_datadriven"
@@ -74,7 +80,7 @@
 					"AttachEffect"
 					{
 						"Target"			"CASTER"
-						"EffectName"		"particles/whirlwind_blur.vpcf"
+						"EffectName"		"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_blur.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 					"AttachEffect"
@@ -86,7 +92,7 @@
 					"AttachEffect"
 					{
 						"Target"			"CASTER"
-						"EffectName"		"particles/whirlwind_ground.vpcf"
+						"EffectName"		"particles/whirlwind_base.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 					//"FireSound"

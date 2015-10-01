@@ -30,6 +30,18 @@ function ShockDamageManual(target, amount)
 	PopupNumbers(Target, "damage", Vector(37, 150, 241), 3, dmg, 1, 4)	--Magic damage
 end
 
+function WaterDamage(keys)
+    local Target = keys.target
+    local dmg = round(keys.damage)
+    PopupNumbers(Target, "damage", Vector(0, 0, 204), 3, dmg, 1, 4)  --Magic damage
+end
+
+function WaterDamageManual(target, amount)
+    local Target = target
+    local dmg = round(amount)
+    PopupNumbers(Target, "damage", Vector(0, 0, 204), 3, dmg, 1, 4)  --Magic damage
+end
+
 function ArcaneDamage(keys)
 	local Target = keys.target
 	local dmg = round(keys.damage)

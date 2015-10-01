@@ -1,0 +1,116 @@
+	//=================================================================================================================
+	// Ebb
+	//=================================================================================================================
+	"customability_ebb"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/ebb.vpcf"
+			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "kunkka_torrent"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "800"
+		"AbilityCastPoint"						".2"
+		"AbilityChannelTime"      				"1"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "45 55 65 75"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+			    "ModifierName" 	"modifier_ebb_thinker"
+			    "Target" 		"CASTER"
+			}
+			//runscript to spawn dummy unit
+			//"RunScript"
+    		//{
+		    //    "ScriptFile"    "customability_ebb.lua"
+		    //    "Function"   		"EbbBarrageStart"
+		    //    "Target"     	"POINT"
+		    //}  
+		}
+
+		OnProjectileHitUnit
+		{
+			"RunScript"
+		    {
+		        "ScriptFile"    	"customability_ebb.lua"
+		        "Function"   		"EbbDamageCalculate"
+		        "Target"			"TARGET"
+		        "damage"			"%damageintperc"
+		    }
+		}
+
+		"OnChannelFinish"
+		{
+		    //"RunScript"
+		    //{
+		    //    "ScriptFile"    	"customability_ebb.lua"
+		    //    "Function"   		"EbbBarrageEnd"
+		    //} 
+
+		    "RemoveModifier"
+		    {
+		        "ModifierName" 	 	"modifier_ebb_thinker"
+		        "Target"       		"CASTER"
+		    } 
+		}
+
+		"Modifiers"
+		{
+			"modifier_ebb_thinker"
+			{
+				"IsHidden"          "1"
+				"ThinkInterval"     ".1"
+				"OnIntervalThink"
+		        {
+		            "RunScript"
+		    		{
+				        "ScriptFile"    "customability_ebb.lua"
+				        "Function"   	"Ebb"
+				        "Target"     	"POINT"
+				        "damage"		"%damageintperc"
+				        "radius"		"%radius"
+				        "distance"		"%distance"
+				        "speed"			"%speed"
+				    }  
+		        }
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"damageintperc"                         "20 25 30 35"
+			}
+			"02"
+			{
+				"var_type"                              "FIELD_INTEGER"
+				"distance"                  			"800"
+			}
+		}
+	}

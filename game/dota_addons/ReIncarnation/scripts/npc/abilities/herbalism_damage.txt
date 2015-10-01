@@ -1,0 +1,119 @@
+	//=================================================================================================================
+	// Damage Poison
+	//=================================================================================================================
+	"customability_herbalism_damage"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/herbalism_damage_drips.vpcf"
+			"particle"				"particles/herbalism_damage_debuff_drips.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "venomancer_poison_sting"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"								"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "0"
+		
+		
+		"Modifiers"
+		{
+			"modifier_herbalism_damage"
+			{
+				"Passive"               "1"
+				"IsHidden"				"0"
+			
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target" "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_attack1"
+						}
+						"EffectName"			"particles/herbalism_damage_drips.vpcf"
+						"EffectAttachType"		"start_at_customorigin"
+					}
+					"AttachEffect"
+					{
+						"Target" "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"			"attach_attack2"
+						}
+						"EffectName"			"particles/herbalism_damage_drips.vpcf"
+						"EffectAttachType"		"start_at_customorigin"
+					}
+				}
+
+				
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"  				"TARGET"
+						"ModifierName"			"modifier_damage"
+					}
+				}
+			}
+			"modifier_damage"
+			{
+				"IsDebuff"              "1"
+				"ThinkInterval"			".5"
+				"Duration"				"%duration"
+				"EffectName"            "particles/herbalism_damage_debuff_drips.vpcf"
+				"EffectAttachType"      "attach_hitloc"
+				
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target" 				"TARGET"
+						"ScriptFile"			"customability_herbalism.lua"
+						"Function"				"DamagePoison"
+						"damageperc"			"%poisonatkperc"
+						"poison"				"%poisonintperc"
+					}
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"attackcost"                            "0"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                           	"5"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"poisonintperc"                         "20"	//percentage of intelligence that scales to poison
+			}
+			"04"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"poisonatkperc"                         "5"	//percentage of attack that scales to poison
+			}
+		}
+	}

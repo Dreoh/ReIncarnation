@@ -517,6 +517,85 @@
 		}
 	}
 	//=================================================================================================================
+	// Combust
+	//=================================================================================================================
+	"customability_combust"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"particle"				"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "jakiro_liquid_fire"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                       "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "45 55 65 75"
+		"AOERadius"								"%radius"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"				"TARGET"
+				"EffectName"			"Hero_Invoker.ForgeSpirit"
+			}
+			"RunScript"
+			{
+				"Target"				"POINT"
+				"ScriptFile"			"customability_combust.lua"
+				"Function"				"Combust"
+				"damage"				"%damageintperc"
+				"radius"				"%radius"
+			}
+			//"FireEffect"
+	        //{
+	        //    "EffectName" 			"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+	        //    "Target" 				"POINT"
+	        //    "EffectAttachType" 		"follow_origin"
+	        //}
+		}
+		
+		"Modifiers"
+		{
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "40 50 60 70"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_INTEGER"
+					"radius"                  				"150 200 250 300"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Creature: Acid Spray
 	//=================================================================================================================
 	"creature_acid_spray"
@@ -998,6 +1077,149 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"number_of_zombies"		"8"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Dummy Passive Vulnerable
+	//=================================================================================================================
+	"dummy_passive_vulnerable"
+	{
+	    "BaseClass"       "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "Modifiers"
+	    {
+	        "dummy_modifier"
+	        {
+	            "Passive" "1"
+	            "States"
+	            {
+	                "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_NO_TEAM_MOVE_TO"    "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_NO_TEAM_SELECT"     "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_ATTACK_IMMUNE"      "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_NOT_ON_MINIMAP"     "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_UNSELECTABLE"       "MODIFIER_STATE_VALUE_ENABLED"
+	                "MODIFIER_STATE_NO_HEALTH_BAR"      "MODIFIER_STATE_VALUE_ENABLED" 
+	            }
+	        }
+	    }
+	}
+	//=================================================================================================================
+	// Ebb
+	//=================================================================================================================
+	"customability_ebb"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/ebb.vpcf"
+			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "kunkka_torrent"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "800"
+		"AbilityCastPoint"						".2"
+		"AbilityChannelTime"      				"1"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "10"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "45 55 65 75"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+			    "ModifierName" 	"modifier_ebb_thinker"
+			    "Target" 		"CASTER"
+			}
+			//runscript to spawn dummy unit
+			//"RunScript"
+    		//{
+		    //    "ScriptFile"    "customability_ebb.lua"
+		    //    "Function"   		"EbbBarrageStart"
+		    //    "Target"     	"POINT"
+		    //}  
+		}
+
+		OnProjectileHitUnit
+		{
+			"RunScript"
+		    {
+		        "ScriptFile"    	"customability_ebb.lua"
+		        "Function"   		"EbbDamageCalculate"
+		        "Target"			"TARGET"
+		        "damage"			"%damageintperc"
+		    }
+		}
+
+		"OnChannelFinish"
+		{
+		    //"RunScript"
+		    //{
+		    //    "ScriptFile"    	"customability_ebb.lua"
+		    //    "Function"   		"EbbBarrageEnd"
+		    //} 
+
+		    "RemoveModifier"
+		    {
+		        "ModifierName" 	 	"modifier_ebb_thinker"
+		        "Target"       		"CASTER"
+		    } 
+		}
+
+		"Modifiers"
+		{
+			"modifier_ebb_thinker"
+			{
+				"IsHidden"          "1"
+				"ThinkInterval"     ".1"
+				"OnIntervalThink"
+		        {
+		            "RunScript"
+		    		{
+				        "ScriptFile"    "customability_ebb.lua"
+				        "Function"   	"Ebb"
+				        "Target"     	"POINT"
+				        "damage"		"%damageintperc"
+				        "radius"		"%radius"
+				        "distance"		"%distance"
+				        "speed"			"%speed"
+				    }  
+		        }
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"damageintperc"                         "20 25 30 35"
+			}
+			"02"
+			{
+				"var_type"                              "FIELD_INTEGER"
+				"distance"                  			"800"
 			}
 		}
 	}
@@ -1552,18 +1774,6 @@
 			}
 		}
 	//=================================================================================================================
-	// Empty1
-	//=================================================================================================================
-	"customability_herbalism_empty1"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"                             "ability_datadriven"
-		"AbilityTextureName"                    "rubick_empty1"
-		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"MaxLevel"								"0"
-	}
-	//=================================================================================================================
 	// Damage Poison
 	//=================================================================================================================
 	"customability_herbalism_damage"
@@ -1681,6 +1891,18 @@
 					"poisonatkperc"                         "5"	//percentage of attack that scales to poison
 			}
 		}
+	}
+	//=================================================================================================================
+	// Empty1
+	//=================================================================================================================
+	"customability_herbalism_empty1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "rubick_empty1"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"								"0"
 	}
 	//=================================================================================================================
 	// Frailty Poison

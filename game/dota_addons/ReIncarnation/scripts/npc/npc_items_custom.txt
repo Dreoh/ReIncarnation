@@ -1108,8 +1108,8 @@
 		
 		"OnSpellStart"
 		{
-			//"SpendCharge"
-			//{}
+			"SpendCharge"
+			{}
 			"RunScript"
 			{
 				"Target"		"CASTER"

@@ -20,11 +20,11 @@
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityLayout"    			"4"
-		"Ability1"					"customability_empty1"			// Ability 1.
-		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability1"					"customability_combust"			// Ability 1
+		"Ability2"					"customability_ebb"				// Ability 2
 		"Ability3"					"customability_empty3"			// Ability 3
 		"Ability4"					"customability_empty4"			// Ability 4
-		"Ability5"					"attribute_bonus"						// Ability 5
+		"Ability5"					"attribute_bonus"				// Ability 5
 		
 		// Attack
 		//----------------------------------------------------------------	

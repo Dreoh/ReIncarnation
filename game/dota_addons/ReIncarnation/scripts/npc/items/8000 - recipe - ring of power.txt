@@ -22,7 +22,7 @@
 		"ItemStackable"					"0"
 		"ItemPermanent"					"0"
 		"ItemAliases"					"Ring of Power"
-		"SecretShop"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------

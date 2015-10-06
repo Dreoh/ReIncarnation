@@ -88,7 +88,7 @@
 					"RunScript"
 					{
 						"Target"				"TARGET"
-						"ScriptFile"			"customability_poisontipped.lua"
+						"ScriptFile"			"Abilities/customability_poisontipped.lua"
 						"Function"				"Damage"
 						"damageperc"			"%poisonatkperc"
 						"poison"				"%poisonintperc"

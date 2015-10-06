@@ -1,4 +1,6 @@
 require("popup")
+require("sounds")
+require("Abilities/customability_spellcraft")
 
 --[[function EbbBarrageStart( keys )
 	-- Variables
@@ -25,7 +27,7 @@ function Ebb(keys)
 	local 	distance = keys.distance + 50
 	local   ability = keys.ability
 	local 	speed  = 2500
-	local 	radius = 50
+	local 	radius = 35
 
 	
 	dmg = Caster:GetIntellect() * damage		--Get Intelligence scaled
@@ -65,8 +67,18 @@ function Ebb(keys)
 
     -- Launch the projectile
     local EbbMissile = ProjectileManager:CreateLinearProjectile( projectileTable )
+    --EbbSound(Caster)
 	-----------------------------------------------
+
 	
+end
+
+function Attunement(keys)
+	print("Attunement called")
+	local Caster = keys.caster
+	local ability = keys.ability
+	RemoveAttunement(Caster)
+	ability:ApplyDataDrivenModifier(Caster, Caster, ("modifier_attunement_water"), nil)
 end
 
 function EbbDamageCalculate(keys)

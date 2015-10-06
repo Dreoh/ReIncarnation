@@ -41,7 +41,7 @@
 			"RunScript"
 			{
 				"Target"						"CASTER"
-				"ScriptFile"					"customability_herbalism.lua"
+				"ScriptFile"					"Abilities/customability_herbalism.lua"
 				"Function"						"Herbalism"
 			}
 			//"FireSound"

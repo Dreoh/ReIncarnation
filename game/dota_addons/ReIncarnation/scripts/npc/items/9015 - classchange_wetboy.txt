@@ -35,6 +35,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -44,7 +45,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Wetboy"
 			}
 		}

@@ -118,6 +118,27 @@
 		
 		"DOTA_Tooltip_tower_fortification_modifier"							"Fortification"
 		"DOTA_Tooltip_creature_slithereen_crush_slow"						"Stunned"
+
+		"DOTA_Tooltip_modifier_fortify"                                                   "Fortify"
+		"DOTA_Tooltip_modifier_fortify_Description"                                       "Blocks one attack"
+
+		"DOTA_Tooltip_modifier_fortify_check"                                             "Fortify Check"
+		"DOTA_Tooltip_modifier_fortify_check_Description"                                 ""
+
+		"DOTA_Tooltip_ability_customability_spellcraft"                                   "Customability Spellcraft"
+		"DOTA_Tooltip_ability_customability_spellcraft_Description"                       ""
+
+		"DOTA_Tooltip_modifier_attunement_fire"                                           "Attunement Fire"
+		"DOTA_Tooltip_modifier_attunement_fire_Description"                               ""
+
+		"DOTA_Tooltip_modifier_attunement_water"                                          "Attunement Water"
+		"DOTA_Tooltip_modifier_attunement_water_Description"                              ""
+
+		"DOTA_Tooltip_modifier_attunement_earth"                                          "Attunement Earth"
+		"DOTA_Tooltip_modifier_attunement_earth_Description"                              ""
+
+		"DOTA_Tooltip_modifier_attunement_wind"                                           "Attunement Wind"
+		"DOTA_Tooltip_modifier_attunement_wind_Description"                               ""
 		
 		
 		// ******************** HEROES ********************
@@ -425,7 +446,7 @@
 
 		"DOTA_Tooltip_ability_customability_combust"                                      "Combust"
 		"DOTA_Tooltip_ability_customability_combust_Description"                          "Ignite the air to deal fire damage to all consumed in it's flames"
-		"DOTA_Tooltip_ability_customability_combust_damageintperc"                        "%INTELLIGENCE DAMAGE:"
+		"DOTA_Tooltip_ability_customability_combust_damageintperc"                        "%PERCENT INTELLIGENCE DAMAGE:"
 		"DOTA_Tooltip_ability_customability_combust_radius"                               "RADIUS:"
 		"DOTA_Tooltip_ability_customability_combust_Lore"								  "Sometimes all it takes is a spark..."
 
@@ -433,13 +454,10 @@
 		"DOTA_Tooltip_ability_dummy_passive_vulnerable_Description"                       ""
 
 		"DOTA_Tooltip_ability_customability_ebb"                                          "Ebb"
-		"DOTA_Tooltip_ability_customability_ebb_Description"                              "Release a stream of high speed water to pummel your foes.\nHits multiple times.\n1 second channel time"
-		"DOTA_Tooltip_ability_customability_ebb_damageintperc"                            "%INTELLIGENCE DAMAGE PER HIT:"
-		"DOTA_Tooltip_ability_customability_ebb_radius"                                   ""
+		"DOTA_Tooltip_ability_customability_ebb_Description"                              "Release a stream of high speed water to pummel your foes\nHits multiple times\n1 second channel time"
+		"DOTA_Tooltip_ability_customability_ebb_damageintperc"                            "%PERCENT INTELLIGENCE PER HIT:"
 		"DOTA_Tooltip_ability_customability_ebb_distance"                                 "RANGE:"
-		"DOTA_Tooltip_ability_customability_ebb_thinkinterval"                            ""
-		"DOTA_Tooltip_ability_customability_ebb_speed"                                    ""
-		"DOTA_Tooltip_ability_customability_combust_Lore"								  "Ha! A glorified squirtgun?! Preposterous!"
+		"DOTA_Tooltip_ability_customability_ebb_Lore"								  "Ha! A glorified squirtgun?! Preposterous!"
 
 		"DOTA_Tooltip_ability_customability_bandage"						"Bandage"
 		"DOTA_Tooltip_ability_customability_bandage_Description"						"Take scraps of cloth and tend to your wounds"
@@ -603,6 +621,17 @@
 		"DOTA_Tooltip_ability_customability_killerinstinct_radius"							"RADIUS:"
 		"DOTA_Tooltip_ability_customability_killerinstinct_damageagiperc"					"%PERCENT AGILITY:"
 
+		"DOTA_Tooltip_ability_customability_fortify"                            "Fortify"
+		"DOTA_Tooltip_ability_customability_fortify_Lore"								  "Build on a solid foundation"
+		"DOTA_Tooltip_ability_customability_fortify_Description"                          "Earth personifies structure. With this in mind the Elementalist adds to his defenses by creating an outer shell of rock\nBlocks one attack per stack"
+		"DOTA_Tooltip_ability_customability_fortify_duration"                             "DURATION:"
+
+		"DOTA_Tooltip_ability_customability_gust"                               "Gust"
+		"DOTA_Tooltip_ability_customability_gust_Description"                             "A good Elementalist knows not to endorse close quarters combat, and by harnessing the fierce power of wind, he can keep his distance\nFires a blast of wind to push enemies away"
+		"DOTA_Tooltip_ability_customability_gust_Lore"                             		  "Let go your earthly tether. Enter the void. Empty and become wind. - Guru Laghima"
+		"DOTA_Tooltip_ability_customability_gust_damageintperc"                           "%PERCENT INTELLIGENCE DAMAGE:"
+		"DOTA_Tooltip_ability_customability_gust_force"                                   "FORCE:"
+
 
 		// ******************** ITEMS ********************
 
@@ -722,62 +751,62 @@
 		
 		"DOTA_Tooltip_ability_item_classchange_warrior"							"Classchange: T1: Warrior"
 		"DOTA_Tooltip_ability_item_classchange_warrior_Description"							"Change your profession to one of physical prowess, durability and strength"
-		"DOTA_Tooltip_ability_item_classchange_warrior_Lore"								"Requires Level 5, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_warrior_Lore"								"Requires Level 5"
 		"DOTA_Tooltip_ability_item_classchange_warrior_Note0"								""
 		
 		"DOTA_Tooltip_ability_item_classchange_monk"							"Classchange: T2: Monk"
 		"DOTA_Tooltip_ability_item_classchange_monk_Description"							"(currently only 0 abilities) Change your profession to one of physical alacrity"
-		"DOTA_Tooltip_ability_item_classchange_monk_Lore"									"Requires Level 20 Warrior, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_monk_Lore"									"Requires Level 20 Warrior"
 		"DOTA_Tooltip_ability_item_classchange_monk_Note0"									""
 		
 		"DOTA_Tooltip_ability_item_classchange_zerker"							"Classchange: T2: Zerker"
 		"DOTA_Tooltip_ability_item_classchange_zerker_Description"							"(currently only 0 abilities) Change your profession to one of physical ferocity"
-		"DOTA_Tooltip_ability_item_classchange_zerker_Lore"									"Requires Level 20 Warrior, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_zerker_Lore"									"Requires Level 20 Warrior"
 		"DOTA_Tooltip_ability_item_classchange_zerker_Note0"								""
 		
 		"DOTA_Tooltip_ability_item_classchange_spellblade"						"Classchange: T2: Spellblade"
 		"DOTA_Tooltip_ability_item_classchange_spellblade_Description"						"Change your profession to one who brings the elegant destruction of magic to the world of the physical"
-		"DOTA_Tooltip_ability_item_classchange_spellblade_Lore"								"Requires Level 20 Warrior, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_spellblade_Lore"								"Requires Level 20 Warrior"
 		"DOTA_Tooltip_ability_item_classchange_spellblade_Note0"							""
 		
 		"DOTA_Tooltip_ability_item_classchange_devout"							"Classchange: T1: Devout"
 		"DOTA_Tooltip_ability_item_classchange_devout_Description"							"Change your profession to one of spiritual and magical wisdom"
-		"DOTA_Tooltip_ability_item_classchange_devout_Lore"									"Requires Level 5, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_devout_Lore"									"Requires Level 5"
 		"DOTA_Tooltip_ability_item_classchange_devout_Note0"								""
 		
 		"DOTA_Tooltip_ability_item_classchange_elementalist"					"Classchange: T2: Elementalist"
-		"DOTA_Tooltip_ability_item_classchange_elementalist_Description"					"(currently only 0 abilities) Change your profession to one with the fury of the elements"
-		"DOTA_Tooltip_ability_item_classchange_elementalist_Lore"							"Requires Level 20 Devout, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_elementalist_Description"					"(Roughly 25percent complete)(currently only 4 abilities) Change your profession to one with the fury of the elements"
+		"DOTA_Tooltip_ability_item_classchange_elementalist_Lore"							"Requires Level 20 Devout"
 		"DOTA_Tooltip_ability_item_classchange_elementalist_Note0"							""
 		
 		"DOTA_Tooltip_ability_item_classchange_arcanist"						"Classchange: T2: Arcanist"
 		"DOTA_Tooltip_ability_item_classchange_arcanist_Description"						"(currently only 0 abilities) Change your profession to one proficient with raw magic"
-		"DOTA_Tooltip_ability_item_classchange_arcanist_Lore"								"Requires Level 20 Devout, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_arcanist_Lore"								"Requires Level 20 Devout"
 		"DOTA_Tooltip_ability_item_classchange_arcanist_Note0"								""
 		
 		"DOTA_Tooltip_ability_item_classchange_cultist"							"Classchange: T2: Cultist"
 		"DOTA_Tooltip_ability_item_classchange_cultist_Description"							"(currently only 0 abilities) Change your profession to a servant of a higher power, dealing blessings and plagues alike"
-		"DOTA_Tooltip_ability_item_classchange_cultist_Lore"								"Requires Level 20 Devout, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_cultist_Lore"								"Requires Level 20 Devout"
 		"DOTA_Tooltip_ability_item_classchange_cultist_Note0"								""
 		
 		"DOTA_Tooltip_ability_item_classchange_ranger"							"Classchange: T1: Ranger"
 		"DOTA_Tooltip_ability_item_classchange_ranger_Description"							"Change your profession to one skilled in the ways of the wilds"
-		"DOTA_Tooltip_ability_item_classchange_ranger_Lore"									"Requires Level 5, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_ranger_Lore"									"Requires Level 5"
 		"DOTA_Tooltip_ability_item_classchange_ranger_Note0"								""
 		
 		"DOTA_Tooltip_ability_item_classchange_wetboy"							"Classchange: T2: Wetboy"
 		"DOTA_Tooltip_ability_item_classchange_wetboy_Description"							"Change your profession to one of stealth and subjugation"
-		"DOTA_Tooltip_ability_item_classchange_wetboy_Lore"									"Requires Level 20 Ranger, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_wetboy_Lore"									"Requires Level 20 Ranger"
 		"DOTA_Tooltip_ability_item_classchange_wetboy_Note0"								""
 		
 		"DOTA_Tooltip_ability_item_classchange_gunslinger"						"Classchange: T2: Gunslinger"
 		"DOTA_Tooltip_ability_item_classchange_gunslinger_Description"						"(currently only 0 abilities) Change your profession to one of gunpowder and scopes"
-		"DOTA_Tooltip_ability_item_classchange_gunslinger_Lore"								"Requires Level 20 Ranger, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_gunslinger_Lore"								"Requires Level 20 Ranger"
 		"DOTA_Tooltip_ability_item_classchange_gunslinger_Note0"							""
 		
 		"DOTA_Tooltip_ability_item_classchange_exile"							"Classchange: T2: Exile"
 		"DOTA_Tooltip_ability_item_classchange_exile_Description"							"(currently only 0 abilities) Change your profession to one who has been shunned from civilization and has become one with the wild"
-		"DOTA_Tooltip_ability_item_classchange_exile_Lore"									"Requires Level 20 Ranger, and is permanent"
+		"DOTA_Tooltip_ability_item_classchange_exile_Lore"									"Requires Level 20 Ranger"
 		"DOTA_Tooltip_ability_item_classchange_exile_Note0"									""
 		
 		"DOTA_Tooltip_ability_item_classchange_reset"							"Reset Scroll"

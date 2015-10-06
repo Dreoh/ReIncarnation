@@ -36,29 +36,39 @@
 
 		"OnSpellStart"
 		{
+			"RunScript"
+    		{
+		        "ScriptFile"    		"Abilities/customability_combust.lua"
+		        "Function"   			"Attunement"
+		    }  
 			"FireSound"
 			{
-				"Target"				"TARGET"
+				"Target"				"POINT"
 				"EffectName"			"Hero_Invoker.ForgeSpirit"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_attunement_fire"
 			}
 			"RunScript"
 			{
 				"Target"				"POINT"
-				"ScriptFile"			"customability_combust.lua"
+				"ScriptFile"			"Abilities/customability_combust.lua"
 				"Function"				"Combust"
 				"damage"				"%damageintperc"
 				"radius"				"%radius"
 			}
-			//"FireEffect"
-	        //{
-	        //    "EffectName" 			"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-	        //    "Target" 				"POINT"
-	        //    "EffectAttachType" 		"follow_origin"
-	        //}
 		}
 		
 		"Modifiers"
 		{
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+			}
 		}
 	   
 		// Special     

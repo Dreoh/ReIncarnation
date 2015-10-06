@@ -84,7 +84,7 @@
 		"ItemStackable"					"0"
 		"ItemPermanent"					"0"
 		"ItemAliases"					"Ring of Power"
-		"SecretShop"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -234,6 +234,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -243,7 +244,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Devout"
 			}
 		}
@@ -285,6 +286,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -294,7 +296,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Ranger"
 			}
 		}
@@ -336,6 +338,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -345,7 +348,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Warrior"
 			}
 		}
@@ -466,6 +469,7 @@
 		"ItemPermanent"					"0"
 		"ItemDroppable"					"1"
 		"SecretShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -525,6 +529,7 @@
 		"ItemPermanent"					"0"
 		"ItemDroppable"					"1"
 		"SecretShop"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -591,6 +596,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -600,7 +606,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Arcanist"
 			}
 		}
@@ -641,6 +647,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -650,7 +657,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Elementalist"
 			}
 		}
@@ -691,6 +698,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -700,7 +708,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Exile"
 			}
 		}
@@ -741,6 +749,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -750,7 +759,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Gunslinger"
 			}
 		}
@@ -792,6 +801,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -801,7 +811,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Monk"
 			}
 		}
@@ -843,6 +853,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -852,7 +863,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Spellblade"
 			}
 		}
@@ -894,6 +905,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -903,7 +915,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Cultist"
 			}
 		}
@@ -945,6 +957,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -954,7 +967,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Wetboy"
 			}
 		}
@@ -996,6 +1009,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1005,7 +1019,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Zerker"
 			}
 		}
@@ -1051,7 +1065,7 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"tome.lua"
+				"ScriptFile"	"Items/tome.lua"
 				"Function"		"Int"
 			}
 			"SpendCharge"
@@ -1113,7 +1127,7 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"tome.lua"
+				"ScriptFile"	"Items/tome.lua"
 				"Function"		"Str"
 			}
 		}
@@ -1170,7 +1184,7 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"tome.lua"
+				"ScriptFile"	"Items/tome.lua"
 				"Function"		"Agi"
 			}
 			"SpendCharge"
@@ -1263,6 +1277,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"eaglesong"
 		"ItemDroppable"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		"Modifiers"
 		{
@@ -1312,6 +1327,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"mystic staff"
 		"ItemDroppable"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		"Modifiers"
 		{
@@ -1361,6 +1377,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"reaver"
 		"ItemDroppable"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		"Modifiers"
 		{
@@ -1498,6 +1515,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"wraith band"
 		"ItemDroppable"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		"Modifiers"
 		{
@@ -1559,6 +1577,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"null talisman"
 		"ItemDroppable"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		"Modifiers"
 		{
@@ -1620,6 +1639,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"bracer"
 		"ItemDroppable"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		"Modifiers"
 		{
@@ -1690,6 +1710,29 @@
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"Modifiers"
 		{
+			"modifier_swamp"
+			{
+				"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+   	 			"BaseClass"             "item_datadriven"
+				"IsDebuff"				"0"
+				"TextureName"			"enigma_demonic_conversion"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-98"
+				}
+			}
+			"modifier_god_mode"
+			{
+				"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+   	 			"BaseClass"             "item_datadriven"
+				"IsDebuff"				"0"
+				"IsHidden"				"1"
+				"TextureName"			"enigma_demonic_conversion"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_slow"
 			{
 				"IsDebuff"              "1"
@@ -1717,7 +1760,7 @@
 					"RunScript"
 					{
 						"Target"		"TARGET"
-						"ScriptFile"	"customability_herbalism.lua"
+						"ScriptFile"	"Abilities/customability_herbalism.lua"
 						"Function"		"FrailtyApply"
 						"frailty"		"%decrease"
 					}
@@ -1728,7 +1771,7 @@
 					"RunScript"
 					{
 						"Target"		"TARGET"
-						"ScriptFile"	"customability_herbalism.lua"
+						"ScriptFile"	"Abilities/customability_herbalism.lua"
 						"Function"		"FrailtyRemove"
 						"frailty"		"%decrease"
 					}
@@ -1752,7 +1795,7 @@
 					"RunScript"
 					{
 						"Target" 				"TARGET"
-						"ScriptFile"			"customability_herbalism.lua"
+						"ScriptFile"			"Abilities/customability_herbalism.lua"
 						"Function"				"DamagePoison"
 						"damageperc"			"%poisonatkperc"
 						"poison"				"%poisonintperc"
@@ -1820,6 +1863,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"chainmail"
 		"ItemDroppable"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		"Modifiers"
 		{
@@ -1868,6 +1912,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"platemail"
 		"ItemDroppable"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		"Modifiers"
 		{
@@ -1922,6 +1967,7 @@
 		"ItemPermanent"					"0"
 		"ItemDroppable"					"1"
 		"SecretShop"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1995,6 +2041,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemDroppable"					"1"
 		"SideShop"						"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -2004,7 +2051,7 @@
 			{
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
-				"ScriptFile"  	"classchange.lua"
+				"ScriptFile"  	"Items/classchange.lua"
 				"Function"      "Reset"
 			}
 		}
@@ -2144,84 +2191,6 @@
 		"ID"							"9034"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"                 	"item_datadriven"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"350"
-		"ItemSellable"					"1"
-		"ItemPurchasable"				"1"
-		"ItemShopTags"					"passive"
-		"ItemQuality"					"passive"
-		"ItemStackable"					"0"
-		"ItemPermanent"					"0"
-		"ItemQuality"					"component"
-		"ItemAliases"					"Venom Enchant"
-		"ItemDroppable"					"1"
-		"AbilityTextureName"			"item_orb_of_venom"
-		"SecretShop"					"1"
-	
-		"Modifiers"
-		{
-			"modifier_orb_venom_enchant"
-			{
-				"Passive"				"1"
-				"Orb"
-				{
-					"Priority"				"DOTA_ORB_PRIORITY_ITEM"
-				}
-				"OnOrbImpact"
-				{
-					"ApplyModifier"
-					{	
-						"Target"			"TARGET"
-						"ModifierName"		"modifier_orb_venom_enchant_poison"
-						"Duration"			"%poison_duration"
-					}
-				}
-			}
-			"modifier_orb_venom_enchant_poison"
-			{
-				"IsDebuff"              "1"
-				"ThinkInterval"			".5"
-				
-				"OnIntervalThink"
-				{
-					"Damage"
-					{
-						"Target" 				"TARGET"
-						"Type"					"DAMAGE_TYPE_MAGICAL"
-						"Damage"				"%poison_damage"
-					}
-				}
-			}
-		}
-	
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"poison_damage"			"3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"poison_duration"		"4.0"
-			}			
-		}
-	}
-	//=================================================================================================================
-	// Venom Enchant
-	//=================================================================================================================
-	"item_custom_orb_of_venom_enchant"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"9034"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------

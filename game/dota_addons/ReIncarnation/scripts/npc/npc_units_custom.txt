@@ -1225,7 +1225,7 @@
 			"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
 			"VoiceFile"					"soundevents/voscripts/game_sounds_vo_ancient_apparition.vsndevts"
 	
-			"vscripts"					"rpg_ai_ice_lord.lua"
+			"vscripts"					"AI/rpg_ai_ice_lord.lua"
 		}
 	//=================================================================================
 	// Creature: King Treant

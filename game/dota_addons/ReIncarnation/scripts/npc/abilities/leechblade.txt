@@ -35,7 +35,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"LeechToggleOn"
 			}
 		}
@@ -50,7 +50,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"LeechToggleOff"
 			}
 		}
@@ -78,7 +78,7 @@
 				//	"RunScript"
 				//	{
 				//		"Target"				"CASTER"
-				//		"ScriptFile"			"customability_spellmastery.lua"
+				//		"ScriptFile"			"Abilities/customability_spellmastery.lua"
 				//		"Function"				"Leechblade"
 				//	}
 				//}
@@ -94,7 +94,7 @@
 					{
 						"Target"				"CASTER"
 						"damage" 				"%attack_damage"
-						"ScriptFile"			"customability_spellmastery.lua"
+						"ScriptFile"			"Abilities/customability_spellmastery.lua"
 						"Function"				"Leechblade"
 						"leechperc"				"%leech"
 					}

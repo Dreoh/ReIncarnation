@@ -28,7 +28,7 @@
 			{
 				
 				"Target"				"POINT"
-				"ScriptFile"			"customability_beastally.lua"
+				"ScriptFile"			"Abilities/customability_beastally.lua"
 				"Function"				"BeastAlly"
 			}
 			"RunScript"
@@ -63,7 +63,7 @@
 					"RunScript"
 					{
 						"Target"		"CASTER"
-						"ScriptFile"	"customability_beastally.lua"
+						"ScriptFile"	"Abilities/customability_beastally.lua"
 						"Function"		"Update"
 						"hpperc"		"%beast_hpperc"
 						"regenperc"		"%beast_regenperc"

@@ -21,6 +21,7 @@
 		"ItemQuality"					"common"
 		"ItemAliases"					"platemail"
 		"ItemDroppable"					"1"
+		"ItemShareability" 				"ITEM_FULLY_SHAREABLE"
 
 		"Modifiers"
 		{

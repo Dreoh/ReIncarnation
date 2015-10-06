@@ -6,6 +6,7 @@
 	
 		"precache"
 		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
 			"particle"				"particles/ebb.vpcf"
 			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
 		}
@@ -38,37 +39,44 @@
 		{
 			"ApplyModifier"
 			{
-			    "ModifierName" 	"modifier_ebb_thinker"
-			    "Target" 		"CASTER"
+			    "ModifierName" 		"modifier_ebb_thinker"
+			    "Target" 			"CASTER"
 			}
-			//runscript to spawn dummy unit
-			//"RunScript"
-    		//{
-		    //    "ScriptFile"    "customability_ebb.lua"
-		    //    "Function"   		"EbbBarrageStart"
-		    //    "Target"     	"POINT"
-		    //}  
+			"ApplyModifier"
+			{
+			    "ModifierName" 		"modifier_attunement_water"
+			    "Target" 			"CASTER"
+			}
+			"FireSound"
+		    {
+		    	"Target"			"Caster"
+		    	"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
+		    }
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_ebb.lua"
+		        "Function"   		"Attunement"
+		    }  
 		}
 
 		OnProjectileHitUnit
 		{
 			"RunScript"
 		    {
-		        "ScriptFile"    	"customability_ebb.lua"
+		        "ScriptFile"    	"Abilities/customability_ebb.lua"
 		        "Function"   		"EbbDamageCalculate"
 		        "Target"			"TARGET"
 		        "damage"			"%damageintperc"
+		    }
+		    "FireSound"
+		    {
+		    	"Target"			"TARGET"
+		    	"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
 		    }
 		}
 
 		"OnChannelFinish"
 		{
-		    //"RunScript"
-		    //{
-		    //    "ScriptFile"    	"customability_ebb.lua"
-		    //    "Function"   		"EbbBarrageEnd"
-		    //} 
-
 		    "RemoveModifier"
 		    {
 		        "ModifierName" 	 	"modifier_ebb_thinker"
@@ -78,6 +86,13 @@
 
 		"Modifiers"
 		{
+		    "modifier_ebb_channelling"
+		    {
+		        "IsHidden"          "1"
+		        "OverrideAnimation" "ACT_DOTA_KINETIC_FIELD"
+		        "Duration"			"1"
+		    }
+
 			"modifier_ebb_thinker"
 			{
 				"IsHidden"          "1"
@@ -86,7 +101,7 @@
 		        {
 		            "RunScript"
 		    		{
-				        "ScriptFile"    "customability_ebb.lua"
+				        "ScriptFile"    "Abilities/customability_ebb.lua"
 				        "Function"   	"Ebb"
 				        "Target"     	"POINT"
 				        "damage"		"%damageintperc"
@@ -95,6 +110,12 @@
 				        "speed"			"%speed"
 				    }  
 		        }
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
 			}
 		}
 	   
@@ -105,7 +126,7 @@
 			"01"
 			{
 				"var_type"                              "FIELD_FLOAT"
-				"damageintperc"                         "20 25 30 35"
+				"damageintperc"                         "15 20 25 30"
 			}
 			"02"
 			{

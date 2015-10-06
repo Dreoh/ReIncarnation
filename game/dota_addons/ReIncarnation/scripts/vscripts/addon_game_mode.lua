@@ -243,7 +243,7 @@ function CReIncarnationGameMode:OnThink()
 	self:CheckNPCRespawns()
 	
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		print( "ReIncarnation script is running: " .. GameRules:GetGameTime() )
+		--print( "ReIncarnation script is running: " .. GameRules:GetGameTime() )
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
 	end

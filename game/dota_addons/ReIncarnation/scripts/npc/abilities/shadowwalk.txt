@@ -77,7 +77,7 @@
 					"RunScript"
 					{
 						"Target"		"CASTER"
-						"ScriptFile"	"customability_shadowwalk.lua"
+						"ScriptFile"	"Abilities/customability_shadowwalk.lua"
 						"Function"		"Shadowwalk"
 					}
 				}

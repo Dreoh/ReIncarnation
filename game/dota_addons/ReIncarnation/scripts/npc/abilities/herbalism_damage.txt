@@ -82,7 +82,7 @@
 					"RunScript"
 					{
 						"Target" 				"TARGET"
-						"ScriptFile"			"customability_herbalism.lua"
+						"ScriptFile"			"Abilities/customability_herbalism.lua"
 						"Function"				"DamagePoison"
 						"damageperc"			"%poisonatkperc"
 						"poison"				"%poisonintperc"

@@ -1,5 +1,5 @@
 print ('[BAREBONES] barebones.lua' )
-_Version = "0.1.3n"
+_Version = "0.1.4d"
 
 ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
@@ -191,7 +191,17 @@ function CReIncarnationGameMode:OnGameInProgress()
   Timers:CreateTimer(30, -- Start this timer 30 game-time seconds later
   function()
     print("This function is called 30 seconds after the game begins, and every 30 seconds thereafter")
+    GameRules:SendCustomMessage("use -suicide if you get stuck. Requires above 75% hp", 0, 0)
     return 30.0 -- Rerun this timer every 30 game-time seconds 
+  end)
+
+  Timers:CreateTimer(500, -- Start this timer 30 game-time seconds later
+  function()
+    print("This function is called 500 seconds after the game begins, and every 500 seconds thereafter")
+    GameRules:SendCustomMessage("If you get the error message (Item not allowed for this hero),", 0, 0)
+    GameRules:SendCustomMessage("you have too many items in play", 0, 0)
+    GameRules:SendCustomMessage("I am working on a fix for this", 0, 0)
+    return 500.0 -- Rerun this timer every 30 game-time seconds 
   end)
 end
 
@@ -289,14 +299,14 @@ function CReIncarnationGameMode:HideWearables(keys)
 	keys.hiddenWearables = {} -- Keep every wearable handle in a table to show them later
 	local model = keys:FirstMoveChild()
 	while model ~= nil do
-		print("Getting rid of model ")
-		PrintTable(model)
-        if model:GetClassname() == "dota_item_wearable" then
-        	print("model is wearable")
-            model:AddEffects(EF_NODRAW) -- Set model hidden
-            table.insert(keys.hiddenWearables, model)
-        end
-        model = model:NextMovePeer()
+		--print("Getting rid of model ")
+		--PrintTable(model)
+      if model:GetClassname() == "dota_item_wearable" then
+      	--print("model is wearable")
+          model:AddEffects(EF_NODRAW) -- Set model hidden
+          --table.insert(keys.hiddenWearables, model)
+      end
+      model = model:NextMovePeer()
 	end
 
 end
@@ -576,11 +586,12 @@ function CReIncarnationGameMode:InitGameMode()
   --ListenToGameEvent('dota_combatlog', Dynamic_Wrap(CReIncarnationGameMode, 'OnCombatLogEvent'), self)
   --ListenToGameEvent('dota_player_killed', Dynamic_Wrap(CReIncarnationGameMode, 'OnPlayerKilled'), self)
   --ListenToGameEvent('player_team', Dynamic_Wrap(CReIncarnationGameMode, 'OnPlayerTeam'), self)
+  ListenToGameEvent('player_chat', Dynamic_Wrap(CReIncarnationGameMode, 'OnPlayerChat'), self)
 
 
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
-  Convars:RegisterCommand( "command_example", Dynamic_Wrap(CReIncarnationGameMode, 'ExampleConsoleCommand'), "A console command example", 0 )
+  Convars:RegisterCommand( "suicide", Dynamic_Wrap(CReIncarnationGameMode, 'Suicide'), "Suicide", 0 )
   
   -- Fill server with fake clients
   -- Fake clients don't use the default bot AI for buying items or moving down lanes and are sometimes necessary for debugging
@@ -640,6 +651,11 @@ function CReIncarnationGameMode:InitGameMode()
   self.nDireKills = 0
 
   self.bSeenWaitForPlayers = false
+
+  --GameMode:SetExecuteOrderFilter( Dynamic_Wrap( CReIncarnationGameMode, "FilterExecuteOrder" ), self )
+  GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( CReIncarnationGameMode, "FilterDamage" ), self )
+
+  GameRules.APPLIER = CreateItem("item_apply_modifiers", nil, nil)
 
   print('[BAREBONES] Done loading Barebones CReIncarnationGameMode!\n\n')
 end
@@ -714,6 +730,8 @@ function CReIncarnationGameMode:OnConnectFull(keys)
 
   -- Update the Steam ID table
   self.vSteamIds[PlayerResource:GetSteamAccountID(playerID)] = ply
+
+
   
   -- If the player is a broadcaster flag it in the Broadcasters table
   if PlayerResource:IsBroadcaster(playerID) then
@@ -723,18 +741,123 @@ function CReIncarnationGameMode:OnConnectFull(keys)
 end
 
 -- This is an example console command
-function CReIncarnationGameMode:ExampleConsoleCommand()
+function CReIncarnationGameMode:Suicide()
   print( '******* Example Console Command ***************' )
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
     local playerID = cmdPlayer:GetPlayerID()
     if playerID ~= nil and playerID ~= -1 then
       -- Do something here for the player who called this command
-      PlayerResource:ReplaceHeroWith(playerID, "npc_dota_hero_viper", 1000, 1000)
+      PlayerResource:GetAssignedHero():ForceKill(0)
     end
   end
 
   print( '*********************************************' )
+end
+
+function CReIncarnationGameMode:FilterDamage( filterTable )
+  --[[
+  [   VScript              ]: damage: 20
+  [   VScript              ]: damagetype_const: 1
+  [   VScript              ]: entindex_attacker_const: 347
+  [   VScript              ]: entindex_inflictor_const: 359
+  [   VScript              ]: entindex_victim_const: 395
+]]
+  --print("FilterDamage Called")
+
+  local attacker = filterTable.entindex_attacker_const
+  if attacker ~= nil then
+    attacker = EntIndexToHScript(attacker)
+  else
+    print("Attacker was nil")
+    return true
+  end
+  local victim = filterTable.entindex_victim_const  
+  local defender = EntIndexToHScript(victim)
+  local damage = filterTable.damage
+
+  if attacker.IsFriendlyHero and attacker:IsFriendlyHero(victim) then
+    return false
+  end
+
+  if defender:HasModifier("modifier_fortify") then
+    print("---Defender has Fortify, Reducing Damage")
+    filterTable.damage = 0
+    defender:RemoveModifierByName("modifier_fortify")
+    print("---removed Fortify")
+    if defender:HasModifier("modifier_fortify") == 0 then
+        defender:RemoveModifierByName("modifier_fortify_check")
+        print("---Fortify was 0 stacks, removed check")
+    end
+    return true
+  end
+
+  return true
+end
+
+CHEAT_CODES = {
+    --["greedisgood"] = function(...) PMP:GreedIsGood(...) end,  -- Gives X gold and lumber
+}
+
+PLAYER_COMMANDS = {
+    ["suicide"]       = function(...) CReIncarnationGameMode:Suicide(...) end,
+    ["db"]       = function(...) CReIncarnationGameMode:Debug(...) end,
+    ["GM"]       = function(...) CReIncarnationGameMode:GodMode(...) end,
+}
+
+-- A player has typed something into the chat
+function CReIncarnationGameMode:OnPlayerChat(keys)
+    local text = keys.text
+    local userID = keys.userid
+    local playerID = self.vUserIds[keys.userid]:GetPlayerID()
+
+    -- Handle '-command'
+    if StringStartsWith(text, "-") then
+        text = string.sub(text, 2, string.len(text))
+    end
+
+    local input = split(text)
+    local command = input[1]
+    if CHEAT_CODES[command] and Convars:GetBool('developer') then
+        --print('Command:',command, "Player:",playerID, "Parameters",input[2], input[3], input[4])
+        CHEAT_CODES[command](playerID, input[2], input[3], input[4])
+    
+    elseif PLAYER_COMMANDS[command] then
+        PLAYER_COMMANDS[command](playerID)
+    end
+end
+
+function CReIncarnationGameMode:Suicide(pID)
+    local player = PlayerResource:GetPlayer(pID)
+    local hero = player:GetAssignedHero()
+    local herohealthcheck = hero:GetMaxHealth() * 0.75
+    print("Suicide")
+    if player and hero:GetHealth() > herohealthcheck then
+      hero:ForceKill(true)
+    end
+end
+
+function CReIncarnationGameMode:Debug(pID)
+    local player = PlayerResource:GetPlayer(pID)
+    local hero = player:GetAssignedHero()
+    print("Debug")
+    if player then
+      PlayerResource:SetGold(pID, 99999, false)
+      for i=1,21 do
+        hero:HeroLevelUp(false)
+      end
+    end
+end
+
+function CReIncarnationGameMode:GodMode(pID)
+    local player = PlayerResource:GetPlayer(pID)
+    local hero = player:GetAssignedHero()
+    print("God Mode")
+    if player and hero:HasModifier("modifier_god_mode") == false then
+      ApplyModifier(hero, "modifier_god_mode")
+    elseif player and hero:HasModifier("modifier_god_mode") == true then
+      hero:RemoveModifierByName("modifier_god_mode")
+    end
 end
 
 --require('eventtest')

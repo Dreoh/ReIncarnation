@@ -21,3 +21,9 @@ function BandageEnd(keys)
 
 	StopSoundEvent("Hero_WitchDoctor.Voodoo_Restoration", Caster)
 end
+
+function EbbSound(keys)
+	local Caster = keys.Caster
+	print("emitting sound")
+	EmitSoundOn("Hero_Kunkka.Tidebringer.Attack", Caster)
+end

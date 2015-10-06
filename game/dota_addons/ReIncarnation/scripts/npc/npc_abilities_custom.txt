@@ -200,7 +200,7 @@
 			{
 				
 				"Target"				"POINT"
-				"ScriptFile"			"customability_beastally.lua"
+				"ScriptFile"			"Abilities/customability_beastally.lua"
 				"Function"				"BeastAlly"
 			}
 			"RunScript"
@@ -235,7 +235,7 @@
 					"RunScript"
 					{
 						"Target"		"CASTER"
-						"ScriptFile"	"customability_beastally.lua"
+						"ScriptFile"	"Abilities/customability_beastally.lua"
 						"Function"		"Update"
 						"hpperc"		"%beast_hpperc"
 						"regenperc"		"%beast_regenperc"
@@ -417,7 +417,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"ColdToggleOn"
 			}
 		}
@@ -554,29 +554,39 @@
 
 		"OnSpellStart"
 		{
+			"RunScript"
+    		{
+		        "ScriptFile"    		"Abilities/customability_combust.lua"
+		        "Function"   			"Attunement"
+		    }  
 			"FireSound"
 			{
-				"Target"				"TARGET"
+				"Target"				"POINT"
 				"EffectName"			"Hero_Invoker.ForgeSpirit"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_attunement_fire"
 			}
 			"RunScript"
 			{
 				"Target"				"POINT"
-				"ScriptFile"			"customability_combust.lua"
+				"ScriptFile"			"Abilities/customability_combust.lua"
 				"Function"				"Combust"
 				"damage"				"%damageintperc"
 				"radius"				"%radius"
 			}
-			//"FireEffect"
-	        //{
-	        //    "EffectName" 			"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-	        //    "Target" 				"POINT"
-	        //    "EffectAttachType" 		"follow_origin"
-	        //}
 		}
 		
 		"Modifiers"
 		{
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+			}
 		}
 	   
 		// Special     
@@ -1115,6 +1125,7 @@
 	
 		"precache"
 		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
 			"particle"				"particles/ebb.vpcf"
 			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
 		}
@@ -1137,7 +1148,7 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "10"
+		"AbilityCooldown"                               "3"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -1147,37 +1158,44 @@
 		{
 			"ApplyModifier"
 			{
-			    "ModifierName" 	"modifier_ebb_thinker"
-			    "Target" 		"CASTER"
+			    "ModifierName" 		"modifier_ebb_thinker"
+			    "Target" 			"CASTER"
 			}
-			//runscript to spawn dummy unit
-			//"RunScript"
-    		//{
-		    //    "ScriptFile"    "customability_ebb.lua"
-		    //    "Function"   		"EbbBarrageStart"
-		    //    "Target"     	"POINT"
-		    //}  
+			"ApplyModifier"
+			{
+			    "ModifierName" 		"modifier_attunement_water"
+			    "Target" 			"CASTER"
+			}
+			"FireSound"
+		    {
+		    	"Target"			"Caster"
+		    	"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
+		    }
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_ebb.lua"
+		        "Function"   		"Attunement"
+		    }  
 		}
 
 		OnProjectileHitUnit
 		{
 			"RunScript"
 		    {
-		        "ScriptFile"    	"customability_ebb.lua"
+		        "ScriptFile"    	"Abilities/customability_ebb.lua"
 		        "Function"   		"EbbDamageCalculate"
 		        "Target"			"TARGET"
 		        "damage"			"%damageintperc"
+		    }
+		    "FireSound"
+		    {
+		    	"Target"			"TARGET"
+		    	"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
 		    }
 		}
 
 		"OnChannelFinish"
 		{
-		    //"RunScript"
-		    //{
-		    //    "ScriptFile"    	"customability_ebb.lua"
-		    //    "Function"   		"EbbBarrageEnd"
-		    //} 
-
 		    "RemoveModifier"
 		    {
 		        "ModifierName" 	 	"modifier_ebb_thinker"
@@ -1187,6 +1205,13 @@
 
 		"Modifiers"
 		{
+		    "modifier_ebb_channelling"
+		    {
+		        "IsHidden"          "1"
+		        "OverrideAnimation" "ACT_DOTA_KINETIC_FIELD"
+		        "Duration"			"1"
+		    }
+
 			"modifier_ebb_thinker"
 			{
 				"IsHidden"          "1"
@@ -1195,7 +1220,7 @@
 		        {
 		            "RunScript"
 		    		{
-				        "ScriptFile"    "customability_ebb.lua"
+				        "ScriptFile"    "Abilities/customability_ebb.lua"
 				        "Function"   	"Ebb"
 				        "Target"     	"POINT"
 				        "damage"		"%damageintperc"
@@ -1204,6 +1229,12 @@
 				        "speed"			"%speed"
 				    }  
 		        }
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
 			}
 		}
 	   
@@ -1214,7 +1245,7 @@
 			"01"
 			{
 				"var_type"                              "FIELD_FLOAT"
-				"damageintperc"                         "20 25 30 35"
+				"damageintperc"                         "15 20 25 30"
 			}
 			"02"
 			{
@@ -1420,7 +1451,7 @@
 			"RunScript"
 			{
 				"Target"				"TARGET"
-				"ScriptFile"			"customability_fireball.lua"
+				"ScriptFile"			"Abilities/customability_fireball.lua"
 				"Function"				"Fireball"
 				"damage"				"%damageintperc"
 			}
@@ -1471,7 +1502,7 @@
 					"RunScript"
 					{
 						"Target"				"TARGET"
-						"ScriptFile"			"customability_fireball.lua"
+						"ScriptFile"			"Abilities/customability_fireball.lua"
 						"Function"				"Burn"
 						"burn"					"%burnintperc"
 					}
@@ -1574,7 +1605,7 @@
 			"RunScript"
 			{
 				"Target"				"TARGET"
-				"ScriptFile"			"customability_focusshot.lua"
+				"ScriptFile"			"Abilities/customability_focusshot.lua"
 				"Function"				"Focusshot"
 				"damage"				"%damageagiperc"
 			}
@@ -1622,6 +1653,211 @@
 			{
 					"var_type"                              "FIELD_FLOAT"
 					"range"                  				"900"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Fortify
+	//=================================================================================================================
+	"customability_fortify"
+	{
+	
+		"precache"
+		{
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"particle"						"particles/fortify.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "tiny_craggy_exterior"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "45 55 65 75"
+
+		"OnSpellStart"
+		{
+            "ApplyModifier"
+            {
+            	"Target"		"CASTER"
+            	"ModifierName"	"modifier_fortify"
+            }
+            "ApplyModifier"
+            {
+            	"Target"		"CASTER"
+            	"ModifierName"	"modifier_attunement_earth"
+            }
+            "RunScript"
+    		{
+		        "ScriptFile"    "Abilities/customability_fortify.lua"
+		        "Function"   		"Attunement"
+		    }  
+			"FireSound"
+			{
+				"EffectName"                    "Hero_EarthShaker.Fissure"
+			}
+		}
+
+
+		"Modifiers"
+		{
+			"modifier_fortify"
+			{
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"IsDebuff"              "0"
+				"EffectName"			"particles/fortify.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Attributes"       		"MODIFIER_ATTRIBUTE_MULTIPLE" 
+
+				"States"
+			    {
+			        //"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+			    }
+				
+			}
+			"modifier_attunement_earth"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"tiny_avalanche"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                              "5 10 15 20"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Gust
+	//=================================================================================================================
+	"customability_gust"
+	{
+	
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+			"particle"				"particles/gust.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "magnataur_shockwave"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "300"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "45 55 65 75"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_attunement_wind"
+			}
+			"LinearProjectile"
+			{
+			    "Target" 		 "POINT"
+			    "EffectName"     "particles/gust.vpcf"
+			    "MoveSpeed"      "857"
+			    "StartRadius"    "30"
+			    "EndRadius"      "200"
+			    "StartPosition"  "attach_attack1"
+			    "FixedDistance"  "300"
+			    "TargetTeams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			    "TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+			    "TargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			    "HasFrontalCone" "1"
+			    "ProvidesVision" "0"
+			    "VisionRadius"   "0"
+			}
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_gust.lua"
+		        "Function"   		"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Hero_Jakiro.LiquidFire"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"                           "0"
+
+			"RunScript"
+			{
+				"Target"				"TARGET"
+				"ScriptFile"			"Abilities/customability_gust.lua"
+				"Function"				"Gust"
+				"damage"				"%damageintperc"
+				"force"					"%force"
+			}
+			"FireSound"
+			{
+				"Target"				"TARGET"
+				"EffectName"            "hero_jakiro.projectileImpact"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_attunement_wind"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"skywrath_mage_mystic_flare"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "15 20 25 30"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"force"                         		"500 750 1000 1250"
 			}
 		}
 	}
@@ -1733,7 +1969,7 @@
 				"RunScript"
 				{
 					"Target"						"CASTER"
-					"ScriptFile"					"customability_herbalism.lua"
+					"ScriptFile"					"Abilities/customability_herbalism.lua"
 					"Function"						"Herbalism"
 				}
 				//"FireSound"
@@ -1857,7 +2093,7 @@
 					"RunScript"
 					{
 						"Target" 				"TARGET"
-						"ScriptFile"			"customability_herbalism.lua"
+						"ScriptFile"			"Abilities/customability_herbalism.lua"
 						"Function"				"DamagePoison"
 						"damageperc"			"%poisonatkperc"
 						"poison"				"%poisonintperc"
@@ -1988,7 +2224,7 @@
 					"RunScript"
 					{
 						"Target"		"TARGET"
-						"ScriptFile"	"customability_herbalism.lua"
+						"ScriptFile"	"Abilities/customability_herbalism.lua"
 						"Function"		"FrailtyApply"
 						"frailty"		"%decrease"
 					}
@@ -1999,7 +2235,7 @@
 					"RunScript"
 					{
 						"Target"		"TARGET"
-						"ScriptFile"	"customability_herbalism.lua"
+						"ScriptFile"	"Abilities/customability_herbalism.lua"
 						"Function"		"FrailtyRemove"
 						"frailty"		"%decrease"
 					}
@@ -2505,7 +2741,7 @@
 				"RunScript"
 				{
 					"Target"		"CASTER"
-					"ScriptFile"	"customability_killerinstinct.lua"
+					"ScriptFile"	"Abilities/customability_killerinstinct.lua"
 					"Function"		"Daggers"
 					"radius"		"%radius"
 					
@@ -2535,7 +2771,7 @@
 					
 					"RunScript"
 					{
-						"ScriptFile"        "customability_killerinstinct.lua"
+						"ScriptFile"        "Abilities/customability_killerinstinct.lua"
 						"Function"          "DaggerHit"
 						"Target"            "TARGET"
 						//"Type"			"DAMAGE_TYPE_PHYSICAL"
@@ -2639,7 +2875,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"LeechToggleOn"
 			}
 		}
@@ -2654,7 +2890,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"LeechToggleOff"
 			}
 		}
@@ -2682,7 +2918,7 @@
 				//	"RunScript"
 				//	{
 				//		"Target"				"CASTER"
-				//		"ScriptFile"			"customability_spellmastery.lua"
+				//		"ScriptFile"			"Abilities/customability_spellmastery.lua"
 				//		"Function"				"Leechblade"
 				//	}
 				//}
@@ -2698,7 +2934,7 @@
 					{
 						"Target"				"CASTER"
 						"damage" 				"%attack_damage"
-						"ScriptFile"			"customability_spellmastery.lua"
+						"ScriptFile"			"Abilities/customability_spellmastery.lua"
 						"Function"				"Leechblade"
 						"leechperc"				"%leech"
 					}
@@ -2875,7 +3111,7 @@
 						"RunScript"
 						{
 							"Target"		"TARGET"
-							"ScriptFile"	"customability_physiology.lua"
+							"ScriptFile"	"Abilities/customability_physiology.lua"
 							"Function"		"Backstab"
 							"bonus"			"%backstab"
 							"damage"		"%attack_damage"
@@ -3076,7 +3312,7 @@
 					"RunScript"
 					{
 						"Target"				"TARGET"
-						"ScriptFile"			"customability_poisontipped.lua"
+						"ScriptFile"			"Abilities/customability_poisontipped.lua"
 						"Function"				"Damage"
 						"damageperc"			"%poisonatkperc"
 						"poison"				"%poisonintperc"
@@ -3150,7 +3386,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"PyreToggleOn"
 			}
 		}
@@ -3165,7 +3401,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"PyreToggleOff"
 			}
 		}
@@ -3193,7 +3429,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"customability_spellmastery.lua"
+						"ScriptFile"			"Abilities/customability_spellmastery.lua"
 						"Function"				"Pyredge"
 					}
 				}
@@ -3239,7 +3475,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"customability_fireball.lua"
+						"ScriptFile"			"Abilitiescustomability_fireball.lua"
 						"Function"				"Burn"
 						"burn"				"%burnintperc"
 					}
@@ -3444,7 +3680,7 @@
 						"RunScript"
 						{
 							"Target"		"CASTER"
-							"ScriptFile"	"customability_shadowwalk.lua"
+							"ScriptFile"	"Abilities/customability_shadowwalk.lua"
 							"Function"		"Shadowwalk"
 						}
 					}
@@ -3561,7 +3797,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"PyreToggleOn"
 			}
 		}
@@ -3576,7 +3812,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"PyreToggleOff"
 			}
 		}
@@ -3604,7 +3840,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"customability_spellmastery.lua"
+						"ScriptFile"			"Abilities/customability_spellmastery.lua"
 						"Function"				"Shockpoint"
 					}
 				}
@@ -3617,7 +3853,7 @@
 						"dmg" 					"%attack_damage"
 						"shockperc"				"%shock"
 						"maxjumps"				"%jumps"
-						"ScriptFile"			"chainlightning.lua"
+						"ScriptFile"			"Abilities/chainlightning.lua"
 						"Function"				"Chainlightning"
 					}
 				}		
@@ -3643,6 +3879,66 @@
 					"var_type"                              "FIELD_FLOAT"
 					"jumps"                           		"3 4 5 6"
 			}
+		}
+	}
+	//=================================================================================================================
+	// Spellcraft
+	//=================================================================================================================
+	"customability_spellcraft"
+	{
+	
+		"precache"
+		{
+			//"soundfile"                     	"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+			//"particle"						"particles/items2_fx/satanic_buff.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "oracle_fates_edict"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"MaxLevel" 								"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "0"
+
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+				"Target"						"CASTER"
+				"ScriptFile"					"Abilities/customability_spellcraft.lua"
+				"Function"						"SpellcraftToggleOn"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RunScript"
+			{
+				"Target"						"CASTER"
+				"ScriptFile"					"Abilities/customability_spellcraft.lua"
+				"Function"						"SpellcraftToggleOff"
+			}
+		}
+
+		"Modifiers"
+		{
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
 		}
 	}
 	//=================================================================================================================
@@ -3687,7 +3983,7 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"customability_spellmastery.lua"
+				"ScriptFile"			"Abilities/customability_spellmastery.lua"
 				"Function"				"Update"
 			}
 		}
@@ -3704,7 +4000,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"customability_spellmastery.lua"
+						"ScriptFile"			"Abilities/customability_spellmastery.lua"
 						"Function"				"Update"
 					}
 				}
@@ -3714,7 +4010,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"customability_spellmastery.lua"
+						"ScriptFile"			"Abilities/customability_spellmastery.lua"
 						"Function"				"Mana"
 						"mana"					"%manaonatk"
 					}
@@ -3807,7 +4103,7 @@
 					"RunScript"
 					{
 						"Target"		"CASTER"
-						"ScriptFile"	"customability_spellsword.lua"
+						"ScriptFile"	"Abilities/customability_spellsword.lua"
 						"Function"		"Spellsword"
 					}
 				}
@@ -3817,7 +4113,7 @@
 					"RunScript"
 					{
 						"Target"		"TARGET"
-						"ScriptFile"	"customability_spellsword.lua"
+						"ScriptFile"	"Abilities/customability_spellsword.lua"
 						"Function"		"DamageNumbers"
 						"damage"		"%damage"
 					}
@@ -4008,7 +4304,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"spin.lua"
+						"ScriptFile"			"Abilities/spin.lua"
 						"Function"				"Spin"
 					}
 				}			
@@ -4075,7 +4371,7 @@
 					"RunScript"
 					{
 						"Target"				"TARGET"
-						"ScriptFile"			"customability_whirlwind.lua"
+						"ScriptFile"			"Abilities/customability_whirlwind.lua"
 						"Function"				"Whirlwind"
 						"damage"				"%damageatkperc"
 					}

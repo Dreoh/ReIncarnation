@@ -65,7 +65,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"spin.lua"
+						"ScriptFile"			"Abilities/spin.lua"
 						"Function"				"Spin"
 					}
 				}			
@@ -132,7 +132,7 @@
 					"RunScript"
 					{
 						"Target"				"TARGET"
-						"ScriptFile"			"customability_whirlwind.lua"
+						"ScriptFile"			"Abilities/customability_whirlwind.lua"
 						"Function"				"Whirlwind"
 						"damage"				"%damageatkperc"
 					}

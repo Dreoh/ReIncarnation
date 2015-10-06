@@ -80,7 +80,7 @@
 			"RunScript"
 			{
 				"Target"				"TARGET"
-				"ScriptFile"			"customability_fireball.lua"
+				"ScriptFile"			"Abilities/customability_fireball.lua"
 				"Function"				"Fireball"
 				"damage"				"%damageintperc"
 			}
@@ -131,7 +131,7 @@
 					"RunScript"
 					{
 						"Target"				"TARGET"
-						"ScriptFile"			"customability_fireball.lua"
+						"ScriptFile"			"Abilities/customability_fireball.lua"
 						"Function"				"Burn"
 						"burn"					"%burnintperc"
 					}

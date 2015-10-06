@@ -19,19 +19,20 @@
 		
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityLayout"    			"4"
+		"AbilityLayout"    			"5"
 		"Ability1"					"customability_combust"			// Ability 1
 		"Ability2"					"customability_ebb"				// Ability 2
-		"Ability3"					"customability_empty3"			// Ability 3
-		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability3"					"customability_fortify"			// Ability 3
+		"Ability4"					"customability_gust"			// Ability 4
 		"Ability5"					"attribute_bonus"				// Ability 5
+		"Ability6"					"customability_spellcraft"		// Ability 6
 		
 		// Attack
 		//----------------------------------------------------------------	
 		"DamageGain"				"1"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"27"									// Damage range min.
-		"AttackDamageMax"			"32"									// Damage range max.
+		"AttackDamageMin"			"5"										// Damage range min.
+		"AttackDamageMax"			"10"									// Damage range max.
 		"AttackRate"				"1.7"									// Speed of attack.
 		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
 		"AttackRange"				"350"									// Range within a target can be attacked.
@@ -54,7 +55,7 @@
 		// Status
 		//----------------------------------------------------------------
 		//----------------------------------------------------------------
-		"StatusHealth"				"225"		// Base health.
+		"StatusHealth"				"185"		// Base health.
 		"HPGain"					"5"
 		"StatusMana"				"50"
 		"MPGain"					"0"

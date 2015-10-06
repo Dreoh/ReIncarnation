@@ -62,7 +62,7 @@
 			"RunScript"
 			{
 				"Target"				"TARGET"
-				"ScriptFile"			"customability_focusshot.lua"
+				"ScriptFile"			"Abilities/customability_focusshot.lua"
 				"Function"				"Focusshot"
 				"damage"				"%damageagiperc"
 			}

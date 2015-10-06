@@ -20,7 +20,7 @@
 	"ItemPermanent"					"0"
 	"ItemQuality"					"component"
 	"ItemAliases"					"Venom Enchant"
-	"ItemDroppable"					"1"
+	"ItemDroppable"					"0"
 	"AbilityTextureName"			"item_orb_of_venom"
 	"SecretShop"					"1"
 

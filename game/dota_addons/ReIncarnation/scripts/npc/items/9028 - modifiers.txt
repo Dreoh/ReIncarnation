@@ -30,6 +30,29 @@
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"Modifiers"
 		{
+			"modifier_swamp"
+			{
+				"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+   	 			"BaseClass"             "item_datadriven"
+				"IsDebuff"				"0"
+				"TextureName"			"enigma_demonic_conversion"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-98"
+				}
+			}
+			"modifier_god_mode"
+			{
+				"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+   	 			"BaseClass"             "item_datadriven"
+				"IsDebuff"				"0"
+				"IsHidden"				"1"
+				"TextureName"			"enigma_demonic_conversion"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_slow"
 			{
 				"IsDebuff"              "1"
@@ -57,7 +80,7 @@
 					"RunScript"
 					{
 						"Target"		"TARGET"
-						"ScriptFile"	"customability_herbalism.lua"
+						"ScriptFile"	"Abilities/customability_herbalism.lua"
 						"Function"		"FrailtyApply"
 						"frailty"		"%decrease"
 					}
@@ -68,7 +91,7 @@
 					"RunScript"
 					{
 						"Target"		"TARGET"
-						"ScriptFile"	"customability_herbalism.lua"
+						"ScriptFile"	"Abilities/customability_herbalism.lua"
 						"Function"		"FrailtyRemove"
 						"frailty"		"%decrease"
 					}
@@ -92,7 +115,7 @@
 					"RunScript"
 					{
 						"Target" 				"TARGET"
-						"ScriptFile"			"customability_herbalism.lua"
+						"ScriptFile"			"Abilities/customability_herbalism.lua"
 						"Function"				"DamagePoison"
 						"damageperc"			"%poisonatkperc"
 						"poison"				"%poisonintperc"

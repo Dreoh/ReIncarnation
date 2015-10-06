@@ -1,3 +1,8 @@
--Version 0.1.4b
-
-gotta do a findunitsinradius or something for combust because target type is wrong
+-Version 0.1.4d
+-Fixed problem where items that were not in inventory upon class change could not be used after
+-Skip walls in swamp replaced with trigger entities.
+-Can now walk anywhere in swamp, but walking off the path causes minimum movement speed (it IS a swamp after all)
+-=- I am currently researching lowering minimum move speed
+-Added -suicide command
+-=- used for if hero gets stuck
+-=- Can only be used when hero is at 75% health or higher (this is to prevent abuse)

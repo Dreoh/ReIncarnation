@@ -1,0 +1,60 @@
+	//=================================================================================================================
+	// Spellcraft
+	//=================================================================================================================
+	"customability_spellcraft"
+	{
+	
+		"precache"
+		{
+			//"soundfile"                     	"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+			//"particle"						"particles/items2_fx/satanic_buff.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "oracle_fates_edict"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"MaxLevel" 								"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "0"
+
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+				"Target"						"CASTER"
+				"ScriptFile"					"Abilities/customability_spellcraft.lua"
+				"Function"						"SpellcraftToggleOn"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RunScript"
+			{
+				"Target"						"CASTER"
+				"ScriptFile"					"Abilities/customability_spellcraft.lua"
+				"Function"						"SpellcraftToggleOff"
+			}
+		}
+
+		"Modifiers"
+		{
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+		}
+	}

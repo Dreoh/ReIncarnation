@@ -206,6 +206,10 @@ function Elementalist(keys)
 			end
 		end
 		newHero:SetAbsOrigin(loc)
+		--Level up Spellcraft to level 1
+		Ability = newHero:GetAbilityByIndex(5)
+		Ability:SetLevel(1)
+
 		ShowGenericPopupToPlayer( player , "popup_title_reincarnate", "popup_body_reincarnate", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
 		--SendToConsole("dota_camera_center")
 	end

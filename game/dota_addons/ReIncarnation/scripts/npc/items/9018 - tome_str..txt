@@ -42,7 +42,7 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"tome.lua"
+				"ScriptFile"	"Items/tome.lua"
 				"Function"		"Str"
 			}
 		}

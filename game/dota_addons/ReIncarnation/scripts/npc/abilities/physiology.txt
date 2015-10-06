@@ -70,7 +70,7 @@
 					"RunScript"
 					{
 						"Target"		"TARGET"
-						"ScriptFile"	"customability_physiology.lua"
+						"ScriptFile"	"Abilities/customability_physiology.lua"
 						"Function"		"Backstab"
 						"bonus"			"%backstab"
 						"damage"		"%attack_damage"

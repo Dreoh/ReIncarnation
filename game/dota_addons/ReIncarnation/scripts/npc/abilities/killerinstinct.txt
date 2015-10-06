@@ -41,7 +41,7 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"customability_killerinstinct.lua"
+				"ScriptFile"	"Abilities/customability_killerinstinct.lua"
 				"Function"		"Daggers"
 				"radius"		"%radius"
 				
@@ -71,7 +71,7 @@
 				
 				"RunScript"
 				{
-					"ScriptFile"        "customability_killerinstinct.lua"
+					"ScriptFile"        "Abilities/customability_killerinstinct.lua"
 					"Function"          "DaggerHit"
 					"Target"            "TARGET"
 					//"Type"			"DAMAGE_TYPE_PHYSICAL"

@@ -1,0 +1,133 @@
+	//=================================================================================================================
+	// Magma
+	//=================================================================================================================
+	"customability_magma"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"particle"				"particles/magma.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "earthshaker_aftershock_egset"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+		"AOERadius"						"%radius"
+
+		"OnSpellStart"
+		{		
+			"CreateThinker"
+			{
+				"ModifierName"			"magma_thinker"
+				"Target"				"POINT"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_magma.lua"
+				"Function"				"Attunement"
+			}
+			"FireSound"
+			{
+				"Target"				"Caster"
+				"EffectName"			"Hero_Bane.FiendsGrip"
+			}
+		}
+		
+		"Modifiers"
+		{			
+			"magma_thinker"
+			{
+				"Aura"					"magma_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/magma.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			
+			"magma_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" "follow_overhead"
+				"ThinkInterval"			".5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"Abilities/customability_magma.lua"
+						"Function"			"Magma"
+						"damage"			"%damageintperc"
+					}
+				}
+			}
+			"modifier_attunement_earth"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"tiny_avalanche"
+				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damageintperc"			"5 10 15 20"
+			}
+		}
+	}

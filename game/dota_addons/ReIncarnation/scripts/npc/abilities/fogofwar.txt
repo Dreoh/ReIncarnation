@@ -1,0 +1,123 @@
+	//=================================================================================================================
+	// Fog of War
+	//=================================================================================================================
+	"customability_fogofwar"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"particle"				"particles/fogofwar.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "riki_smoke_screen"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "75 85 95 105"
+		"AOERadius"								"%radius"
+
+		"OnSpellStart"
+		{		
+			"CreateThinker"
+			{
+				"ModifierName"			"fogofwar_thinker"
+				"Target"				"POINT"
+			}
+			"FireSound"
+			{
+				"Target"				"Caster"
+				"EffectName"			"Hero_Bane.FiendsGrip"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_fogofwar.lua"
+				"Function"				"Attunement"
+			}
+		}
+		
+		"Modifiers"
+		{			
+			"fogofwar_thinker"
+			{
+				"Aura"					"fogofwar_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/fogofwar.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			
+			"fogofwar_aura"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"2"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" "follow_overhead"
+				"States"
+				{
+					"MODIFIER_STATE_BLIND"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0"
+			}
+		}
+	}

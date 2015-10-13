@@ -1,0 +1,125 @@
+	//=================================================================================================================
+	// Pebble Salvo
+	//=================================================================================================================
+	"customability_pebblesalvo"
+	{
+	
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+			"particle"				"particles/pebblesalvo.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "rattletrap_battery_assault"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "300"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_attunement_wind"
+			}
+			//"LinearProjectile"
+			//{
+			//    "Target" 		 "POINT"
+			//    "EffectName"     "particles/pebblesalvo.vpcf"
+			//    "MoveSpeed"      "857"
+			//    "StartRadius"    "30"
+			//    "EndRadius"      "200"
+			//    "StartPosition"  "attach_attack1"
+			//    "FixedDistance"  "300"
+			//    "TargetTeams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			//    "TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+			//    "TargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			//    "HasFrontalCone" "1"
+			//    "ProvidesVision" "0"
+			//    "VisionRadius"   "0"
+			//}
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_pebblesalvo.lua"
+		        "Function"   		"PebbleSalvo"
+		    }  
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Hero_Jakiro.LiquidFire"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"                           "0"
+
+			"RunScript"
+			{
+				"Target"				"TARGET"
+				"ScriptFile"			"Abilities/customability_pebblesalvo.lua"
+				"Function"				"PebbleSalvoProjectileHit"
+				"damage"				"%damageintperc"
+				"force"					"%force"
+			}
+			"FireSound"
+			{
+				"Target"				"TARGET"
+				"EffectName"            "hero_jakiro.projectileImpact"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_attunement_wind"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_earth"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"tiny_avalanche"
+				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "15 20 25 30"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"force"                         		"500 650 800 950"
+			}
+		}
+	}

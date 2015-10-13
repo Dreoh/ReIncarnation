@@ -1,0 +1,127 @@
+	//=================================================================================================================
+	// Quagmire
+	//=================================================================================================================
+	"customability_quagmire"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"particle"				"particles/quagmire.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "clinkz_wind_walk"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+		"AOERadius"						"%radius"
+
+		"OnSpellStart"
+		{		
+			"CreateThinker"
+			{
+				"ModifierName"			"quagmire_thinker"
+				"Target"				"POINT"
+			}
+			"RunScript"
+    		{
+		        "ScriptFile"    		"Abilities/customability_quagmire.lua"
+		        "Function"   			"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"				"Caster"
+				"EffectName"			"Hero_Bane.FiendsGrip"
+			}
+		}
+		
+		"Modifiers"
+		{			
+			"quagmire_thinker"
+			{
+				"Aura"					"quagmire_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/quagmire.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			
+			"quagmire_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" "follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 	"%move_speed"
+				}
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_earth"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"tiny_avalanche"
+				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"move_speed"			"-15 -20 -25 -30"
+			}
+		}
+	}

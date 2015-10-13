@@ -94,6 +94,8 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
 			}
 		}
 	   
@@ -109,7 +111,7 @@
 			"02"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"force"                         		"500 750 1000 1250"
+					"force"                         		"500 650 800 950"
 			}
 		}
 	}

@@ -18,7 +18,7 @@ function Gust(keys)
 	local direction = Caster:GetAbsOrigin() - Target:GetAbsOrigin()
 	direction = direction:Normalized() * -1
 	Physics:Unit(Target)
-	Target:SetPhysicsFriction (.1)
+	--Target:SetPhysicsFriction (.05)
 	Target:AddPhysicsVelocity((direction * force))
 
 	--RemoveAttunement(Caster)
@@ -29,7 +29,7 @@ function Attunement(keys)
 	local Caster = keys.caster
 	local ability = keys.ability
 	RemoveAttunement(Caster)
-	ApplyDataDrivenModifier(Caster,Caster, ("modifier_attunement_wind"), nil)
+	ability:ApplyDataDrivenModifier(Caster,Caster, ("modifier_attunement_wind"), nil)
 end
 
 -- a function that makes dealing damage slightly faster.

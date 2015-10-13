@@ -8,6 +8,18 @@
 		"precache"
 		{
 			"particle"				"particles/fireball.vpcf"
+			"particle"				"particles/gale.vpcf"
+			"particle"				"particles/inferno.vpcf"
+			"particle"				"particles/attunement_earth_glow.vpcf"
+			"particle"				"particles/attunement_wind_glow.vpcf"
+			"particle"				"particles/attunement_water_glow.vpcf"
+			"particle"				"particles/attunement_fire_glow.vpcf"
+			"particle"				"particles/fogofwar.vpcf"
+			"particle"				"particles/magma.vpcf"
+			"particle"				"particles/firetornado.vpcf"
+			"particle"				"particles/cloudburst_lightning.vpcf"
+			"particle"				"particles/cloudburst.vpcf"
+			"particle"				"particles/pebblesalvo.vpcf"
 		}
 	
 		// General
@@ -44,7 +56,7 @@
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"		"10"									// Base strength
 		"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
-		"AttributeBaseAgility"		"8"									// Base agility
+		"AttributeBaseAgility"		"8"										// Base agility
 		"AttributeAgilityGain"		".9"									// Agility bonus per level.
 		"AttributeBaseIntelligence"	"17"									// Base intelligence
 		"AttributeIntelligenceGain"	"2.1"									// Intelligence bonus per level.

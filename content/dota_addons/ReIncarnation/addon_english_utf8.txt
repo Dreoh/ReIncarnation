@@ -12,7 +12,7 @@
 		"npc_dota_hero_dazzle"						"Cultist"
 		"npc_dota_hero_storm_spirit"				"Elementalist"
 		"npc_dota_hero_furion"						"Exiled"
-		"npc_dota_hero_sniper"						"Gunslinger"
+		"npc_dota_hero_sniper"						"Trapper"
 		"npc_dota_hero_lone_druid"					"Monk"
 		"npc_dota_hero_silencer"					"Spellblade"
 		"npc_dota_hero_riki"						"Wetboy"
@@ -125,9 +125,6 @@
 		"DOTA_Tooltip_modifier_fortify_check"                                             "Fortify Check"
 		"DOTA_Tooltip_modifier_fortify_check_Description"                                 ""
 
-		"DOTA_Tooltip_ability_customability_spellcraft"                                   "Customability Spellcraft"
-		"DOTA_Tooltip_ability_customability_spellcraft_Description"                       ""
-
 		"DOTA_Tooltip_modifier_attunement_fire"                                           "Attunement Fire"
 		"DOTA_Tooltip_modifier_attunement_fire_Description"                               ""
 
@@ -139,6 +136,24 @@
 
 		"DOTA_Tooltip_modifier_attunement_wind"                                           "Attunement Wind"
 		"DOTA_Tooltip_modifier_attunement_wind_Description"                               ""
+
+		"DOTA_Tooltip_gale_thinker"                                                       "Gale Thinker"
+		"DOTA_Tooltip_gale_thinker_Description"                                           ""
+
+		"DOTA_Tooltip_gale_aura"                                                          "Gale Aura"
+		"DOTA_Tooltip_gale_aura_Description"                                              ""
+
+		"DOTA_Tooltip_fogofwar_thinker"                                                   "Fogofwar Thinker"
+		"DOTA_Tooltip_fogofwar_thinker_Description"                                       ""
+
+		"DOTA_Tooltip_fogofwar_aura"                                                      "Fogofwar Aura"
+		"DOTA_Tooltip_fogofwar_aura_Description"                                          ""
+
+		"DOTA_Tooltip_magma_thinker"                                                      "Magma Thinker"
+		"DOTA_Tooltip_magma_thinker_Description"                                          ""
+
+		"DOTA_Tooltip_magma_aura"                                                         "Magma Aura"
+		"DOTA_Tooltip_magma_aura_Description"                                             ""
 		
 		
 		// ******************** HEROES ********************
@@ -160,7 +175,7 @@
 		"npc_dota_hero_devout"                                                            "Dota Hero Devout"
 		"npc_dota_hero_elementalist"                                                      "Dota Hero Elementalist"
 		"npc_dota_hero_exile"                                                             "Dota Hero Exile"
-		"npc_dota_hero_gunslinger"                                                        "Dota Hero Gunslinger"
+		"npc_dota_hero_trapper"                                                        "Dota Hero Gunslinger"
 		"npc_dota_hero_monk"                                                              "Dota Hero Monk"
 		"npc_dota_hero_ranger"                                                            "Dota Hero Ranger"
 		"npc_dota_hero_spellblade"                                                        "Dota Hero Spellblade"
@@ -288,6 +303,18 @@
 		"DOTA_Tooltip_modifier_whirlwind_aura_effect"                                     "Whirlwind Aura Effect"
 		"DOTA_Tooltip_modifier_whirlwind_aura_effect_Description"                         ""
 
+		"DOTA_Tooltip_cloudburst_thinker"                                                 "Cloudburst Thinker"
+		"DOTA_Tooltip_cloudburst_thinker_Description"                                     ""
+
+		"DOTA_Tooltip_cloudburst_aura"                                                    "Cloudburst Aura"
+		"DOTA_Tooltip_cloudburst_aura_Description"                                        ""
+
+		"DOTA_Tooltip_quagmire_thinker"                                                   "Quagmire Thinker"
+		"DOTA_Tooltip_quagmire_thinker_Description"                                       ""
+
+		"DOTA_Tooltip_quagmire_aura"                                                      "Quagmire Aura"
+		"DOTA_Tooltip_quagmire_aura_Description"                                          ""
+
 
 		// ******************** ITEM MODIFIERS ********************
 		"DOTA_Tooltip_modifier_orb_frost"                                                 "Orb Frost"
@@ -352,6 +379,9 @@
 
 
 		// ******************** ITEM MODIFIERS ********************
+
+		"DOTA_Tooltip_modifier_swamp"                                                     "Swamp"
+		"DOTA_Tooltip_modifier_swamp_Description"                                         ""
 
 		// ******************** ABILITIES ********************
 		
@@ -437,14 +467,7 @@
 		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_vortex_slow_amount"                  "VORTEX SLOW AMOUNT:"
 		"DOTA_Tooltip_ability_rpg_ice_lord_ice_blast_vortex_duration"                     "VORTEX DURATION:"
 
-		"DOTA_Tooltip_ability_customability_imposingwill_radius"                          "RADIUS:"
-		"DOTA_Tooltip_ability_customability_imposingwill_duration"                        "DURATION:"
-
-		"DOTA_Tooltip_ability_customability_poisontipped_duration"                        "DURATION:"
-
-		"DOTA_Tooltip_ability_customability_survivalinstincts_distance"                   "DISTANCE:"
-
-		"DOTA_Tooltip_ability_customability_combust"                                      "Combust"
+		"DOTA_Tooltip_ability_customability_combust"                         "Combust"
 		"DOTA_Tooltip_ability_customability_combust_Description"                          "Ignite the air to deal fire damage to all consumed in it's flames"
 		"DOTA_Tooltip_ability_customability_combust_damageintperc"                        "%PERCENT INTELLIGENCE DAMAGE:"
 		"DOTA_Tooltip_ability_customability_combust_radius"                               "RADIUS:"
@@ -453,11 +476,11 @@
 		"DOTA_Tooltip_ability_dummy_passive_vulnerable"                                   "Dummy Passive Vulnerable"
 		"DOTA_Tooltip_ability_dummy_passive_vulnerable_Description"                       ""
 
-		"DOTA_Tooltip_ability_customability_ebb"                                          "Ebb"
+		"DOTA_Tooltip_ability_customability_ebb"                             "Ebb"
 		"DOTA_Tooltip_ability_customability_ebb_Description"                              "Release a stream of high speed water to pummel your foes\nHits multiple times\n1 second channel time"
 		"DOTA_Tooltip_ability_customability_ebb_damageintperc"                            "%PERCENT INTELLIGENCE PER HIT:"
 		"DOTA_Tooltip_ability_customability_ebb_distance"                                 "RANGE:"
-		"DOTA_Tooltip_ability_customability_ebb_Lore"								  "Ha! A glorified squirtgun?! Preposterous!"
+		"DOTA_Tooltip_ability_customability_ebb_Lore"								  	  "Ha! A glorified squirtgun?! Preposterous!"
 
 		"DOTA_Tooltip_ability_customability_bandage"						"Bandage"
 		"DOTA_Tooltip_ability_customability_bandage_Description"						"Take scraps of cloth and tend to your wounds"
@@ -512,7 +535,6 @@
 		"DOTA_Tooltip_ability_customability_survivalinstincts_Description"					"The Ranger crouches into concealing shadows, temporarily escaping danger"
 		"DOTA_Tooltip_ability_customability_survivalinstincts_Lore"							"A good Ranger knows how to handle herself in the wilds, a great ranger knows how to handle herself in the grip of fear"
 		"DOTA_Tooltip_ability_customability_survivalinstincts_duration"						"INVISIBILITY DURATION:"
-		//"DOTA_Tooltip_ability_customability_survivalinstincts_distance"						"DASH DISTANCE:"
 		
 		"DOTA_Tooltip_ability_customability_spellsword"							"Spellsword"
 		"DOTA_Tooltip_ability_customability_spellsword_Description"							"The Warrior enchants his sword with raw magic to deal greater damage"
@@ -525,6 +547,8 @@
 		"DOTA_Tooltip_ability_customability_imposingwill_Lore"								"A strong mind is all one needs"
 		"DOTA_Tooltip_ability_customability_imposingwill_move_speed"						"MOVE SPEED:"
 		"DOTA_Tooltip_ability_customability_imposingwill_atk_speed"							"ATTACK SPEED:"
+		"DOTA_Tooltip_ability_customability_imposingwill_radius"                          "RADIUS:"
+		"DOTA_Tooltip_ability_customability_imposingwill_duration"                        "DURATION:"
 		
 		"DOTA_Tooltip_ability_customability_poisontipped"						"Poison Tipped"
 		"DOTA_Tooltip_ability_customability_poisontipped_Description"						"Tip your arrows in damaging poison, causing attacks to deal damage over time\nDamage scales off of Intelligence and Attack Damage\nPoison Tipped is a unique attack modifier"
@@ -532,6 +556,7 @@
 		"DOTA_Tooltip_ability_customability_poisontipped_poison_duration"					"DURATION:"
 		"DOTA_Tooltip_ability_customability_poisontipped_poisonintperc"						"%PERCENT INTELLIGENCE:"
 		"DOTA_Tooltip_ability_customability_poisontipped_poisonatkperc"						"%PERCENT ATTACK:"
+		"DOTA_Tooltip_ability_customability_poisontipped_duration"                        "DURATION:"
 		
 		"DOTA_Tooltip_ability_customability_whirlwind"							"Whirlwind"
 		"DOTA_Tooltip_ability_customability_whirlwind_Description"							"Spin with your sword to create a deadly tornado of destruction, damaging nearby enemies\nDamage scales off of Attack Damage"
@@ -631,6 +656,74 @@
 		"DOTA_Tooltip_ability_customability_gust_Lore"                             		  "Let go your earthly tether. Enter the void. Empty and become wind. - Guru Laghima"
 		"DOTA_Tooltip_ability_customability_gust_damageintperc"                           "%PERCENT INTELLIGENCE DAMAGE:"
 		"DOTA_Tooltip_ability_customability_gust_force"                                   "FORCE:"
+
+		"DOTA_Tooltip_ability_customability_spellcraft"                                   "Spellcraft"
+		"DOTA_Tooltip_ability_customability_spellcraft_Lore"							  "Periodic Table? What's that?"
+		"DOTA_Tooltip_ability_customability_spellcraft_Description"                       "An expert Elementalist not only harnesses each element, but also combines them for much more varied power\nChanges available spells depending on the current attunement"
+
+		"DOTA_Tooltip_ability_customability_flow"                               "Flow"
+		"DOTA_Tooltip_ability_customability_flow_Description"                             "Release a stream of high speed water to pummel your foes\nHits multiple times\n1 second channel time\nMinor pushback"
+		"DOTA_Tooltip_ability_customability_flow_Lore"                             		  "The tide is everlasting"
+		"DOTA_Tooltip_ability_customability_flow_damageintperc"                           "%DAMAGEINTPERC:"
+		"DOTA_Tooltip_ability_customability_flow_distance"                                "DISTANCE:"
+
+		"DOTA_Tooltip_ability_customability_gale"                               "Gale"
+		"DOTA_Tooltip_ability_customability_gale_Description"                             "A great Elementalist knows to keep enemies at bay, and by harnessing the fierce power of wind, he can keep his distance\nCreates a temporary wind effect at target location, pushing enemies away from the caster"
+		"DOTA_Tooltip_ability_customability_gale_Lore"                             		  "Regaling, isn't it?"
+		"DOTA_Tooltip_ability_customability_gale_damageintperc"                           "%PERCENT INTELLIGENCE DAMAGE:"
+		"DOTA_Tooltip_ability_customability_gale_force"                                   "FORCE:"
+		"DOTA_Tooltip_ability_customability_gale_duration"                                "DURATION:"
+		"DOTA_Tooltip_ability_customability_gale_radius"                                  "RADIUS:"
+
+		"DOTA_Tooltip_ability_customability_inferno"                            "Inferno"
+		"DOTA_Tooltip_ability_customability_inferno_Description"                          "Ignite the air to deal fire damage to all consumed in it's searing flames"
+		"DOTA_Tooltip_ability_customability_inferno_Lore"                          		  "Everything burns..."
+		"DOTA_Tooltip_ability_customability_inferno_damageintperc"                        "%PERCENT INTELLIGENCE DAMAGE:"
+		"DOTA_Tooltip_ability_customability_inferno_radius"                               "RADIUS:"
+
+		"DOTA_Tooltip_ability_customability_reinforce"                          "Reinforce"
+		"DOTA_Tooltip_ability_customability_reinforce_Description"                        "Earth personifies structure. With this in mind the Elementalist adds to his defenses by creating an outer shell of rock\nBlocks one attack per stack\nApplies 2 stacks"
+		"DOTA_Tooltip_ability_customability_reinforce_Lore"						  		  "Even the sturdiest of structures need reinforcement sometimes"
+		"DOTA_Tooltip_ability_customability_reinforce_duration"                           "DURATION:"
+
+		"DOTA_Tooltip_ability_customability_fogofwar"                                     "Customability Fogofwar"
+		"DOTA_Tooltip_ability_customability_fogofwar_Description"                         "Fire and Water, eternal opposites, clash to create a blinding steam in target area"
+		"DOTA_Tooltip_ability_customability_fogofwar_Lore"                         		  "Take this steam! Punk!"
+		"DOTA_Tooltip_ability_customability_fogofwar_radius"                              "RADIUS:"
+		"DOTA_Tooltip_ability_customability_fogofwar_duration"                            "DURATION:"
+
+		"DOTA_Tooltip_ability_customability_magma"                                        "Customability Magma"
+		"DOTA_Tooltip_ability_customability_magma_Description"                            "Fire and Earth, a devistating combo, merge to create a viscuous pool of fierce magma at target location\nDeals damage over time"
+		"DOTA_Tooltip_ability_customability_magma_Lore"                            		  "Magma is the hot, coursing blood of the world"
+		"DOTA_Tooltip_ability_customability_magma_radius"                                 "RADIUS:"
+		"DOTA_Tooltip_ability_customability_magma_duration"                               "DURATION:"
+		"DOTA_Tooltip_ability_customability_magma_damageintperc"                          "%PERCENT INTELLIGENCE DAMAGE:"
+
+		"DOTA_Tooltip_ability_customability_cloudburst"                                   "Cloudburst"
+		"DOTA_Tooltip_ability_customability_cloudburst_Description"                       "Water and Wind. Both are fierce, but combined are detrimental\nCreates a storm at target area, dealing shock damage over time"
+		"DOTA_Tooltip_ability_customability_cloudburst_Lore"                       		  "Stormy weather warning!"
+		"DOTA_Tooltip_ability_customability_cloudburst_radius"                            "RADIUS:"
+		"DOTA_Tooltip_ability_customability_cloudburst_duration"                          "DURATION:"
+		"DOTA_Tooltip_ability_customability_cloudburst_damageintperc"                     "%PERCENT INTELLIGENCE DAMAGE:"
+
+		"DOTA_Tooltip_ability_customability_firetornado"                                  "Firetornado"
+		"DOTA_Tooltip_ability_customability_firetornado_Description"                      "Fire and Wind combine to create a terrifying phenomenon\nCreates a flaming tornado that deals flame damage and pushback as it travels towards target direction"
+		"DOTA_Tooltip_ability_customability_firetornado_Lore"                      		  "Fire... tornado!?!!"
+		"DOTA_Tooltip_ability_customability_firetornado_damageintperc"                    "%PERCENT INTELLIGENCE DAMAGE:"
+		"DOTA_Tooltip_ability_customability_firetornado_force"                            "FORCE:"
+
+		"DOTA_Tooltip_ability_customability_pebblesalvo"                                  "Pebblesalvo"
+		"DOTA_Tooltip_ability_customability_pebblesalvo_Description"                      "Earth and Wind, opposites. Compress wind, and explode it outwards to fire pebbles in all directions\nDeals Earth damage"
+		"DOTA_Tooltip_ability_customability_pebblesalvo_Lore"                      		  "Tango down!"
+		"DOTA_Tooltip_ability_customability_pebblesalvo_damageintperc"                    "%PERCENT INTELLIGENCE DAMAGE:"
+		"DOTA_Tooltip_ability_customability_pebblesalvo_force"                            "FORCE:"
+
+		"DOTA_Tooltip_ability_customability_quagmire"                                     "Quagmire"
+		"DOTA_Tooltip_ability_customability_quagmire_Description"                         "Water, running through Earth, unstabilizes it and causes it to lose it's structure\nSlows enemies caught in target area"
+		"DOTA_Tooltip_ability_customability_quagmire_Lore"                         		  "Quicksand!"
+		"DOTA_Tooltip_ability_customability_quagmire_radius"                              "RADIUS:"
+		"DOTA_Tooltip_ability_customability_quagmire_duration"                            "DURATION:"
+		"DOTA_Tooltip_ability_customability_quagmire_move_speed"                          "MOVE SPEED:"
 
 
 		// ******************** ITEMS ********************
@@ -799,10 +892,10 @@
 		"DOTA_Tooltip_ability_item_classchange_wetboy_Lore"									"Requires Level 20 Ranger"
 		"DOTA_Tooltip_ability_item_classchange_wetboy_Note0"								""
 		
-		"DOTA_Tooltip_ability_item_classchange_gunslinger"						"Classchange: T2: Gunslinger"
-		"DOTA_Tooltip_ability_item_classchange_gunslinger_Description"						"(currently only 0 abilities) Change your profession to one of gunpowder and scopes"
-		"DOTA_Tooltip_ability_item_classchange_gunslinger_Lore"								"Requires Level 20 Ranger"
-		"DOTA_Tooltip_ability_item_classchange_gunslinger_Note0"							""
+		"DOTA_Tooltip_ability_item_classchange_trapper"						"Classchange: T2: Gunslinger"
+		"DOTA_Tooltip_ability_item_classchange_trapper_Description"						"(currently only 0 abilities) Change your profession to one of beasts and trapping"
+		"DOTA_Tooltip_ability_item_classchange_trapper_Lore"								"Requires Level 20 Ranger"
+		"DOTA_Tooltip_ability_item_classchange_trapper_Note0"							""
 		
 		"DOTA_Tooltip_ability_item_classchange_exile"							"Classchange: T2: Exile"
 		"DOTA_Tooltip_ability_item_classchange_exile_Description"							"(currently only 0 abilities) Change your profession to one who has been shunned from civilization and has become one with the wild"

@@ -201,6 +201,18 @@
 		"precache"
 		{
 			"particle"				"particles/fireball.vpcf"
+			"particle"				"particles/gale.vpcf"
+			"particle"				"particles/inferno.vpcf"
+			"particle"				"particles/attunement_earth_glow.vpcf"
+			"particle"				"particles/attunement_wind_glow.vpcf"
+			"particle"				"particles/attunement_water_glow.vpcf"
+			"particle"				"particles/attunement_fire_glow.vpcf"
+			"particle"				"particles/fogofwar.vpcf"
+			"particle"				"particles/magma.vpcf"
+			"particle"				"particles/firetornado.vpcf"
+			"particle"				"particles/cloudburst_lightning.vpcf"
+			"particle"				"particles/cloudburst.vpcf"
+			"particle"				"particles/pebblesalvo.vpcf"
 		}
 	
 		// General
@@ -237,7 +249,7 @@
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"		"10"									// Base strength
 		"AttributeStrengthGain"		"1.0"									// Strength bonus per level.
-		"AttributeBaseAgility"		"8"									// Base agility
+		"AttributeBaseAgility"		"8"										// Base agility
 		"AttributeAgilityGain"		".9"									// Agility bonus per level.
 		"AttributeBaseIntelligence"	"17"									// Base intelligence
 		"AttributeIntelligenceGain"	"2.1"									// Intelligence bonus per level.
@@ -303,68 +315,6 @@
 		"AttributeAgilityGain"		"1.5"									// Agility bonus per level.
 		"AttributeBaseIntelligence"	"12"									// Base intelligence
 		"AttributeIntelligenceGain"	"1.5"									// Intelligence bonus per level.
-		
-		"MovementSpeed"				"275"									// Speed.
-		"MovementTurnRate"			"0.6"									// Turning rate.
-		
-		// Status
-		//----------------------------------------------------------------
-		//----------------------------------------------------------------
-		"StatusHealth"				"225"		// Base health.
-		"HPGain"					"5"
-		"StatusMana"				"50"
-		"MPGain"					"0"
-		
-	}
-	//Gunner
-	//=================================================================================================================
-	// HERO: Gunslinger
-	//=================================================================================================================
-	"npc_dota_hero_gunslinger"
-	{
-	
-		"precache"
-		{
-			"particle"				"particles/fireball.vpcf"
-		}
-	
-		// General
-		//-------------------------------------------------------------------------------------------------------------	
-		"override_hero"				"npc_dota_hero_sniper"			// Hero to override
-		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
-		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
-		"ModelScale"				".8"
-		
-		// Abilities
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityLayout"    			"4"
-		"Ability1"					"customability_empty1"			// Ability 1.
-		"Ability2"					"customability_empty2"			// Ability 2
-		"Ability3"					"customability_empty3"			// Ability 3
-		"Ability4"					"customability_empty4"			// Ability 4
-		"Ability5"					"attribute_bonus"						// Ability 5
-		
-		// Attack
-		//----------------------------------------------------------------	
-		"DamageGain"				"1"
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"27"									// Damage range min.
-		"AttackDamageMax"			"32"									// Damage range max.
-		"AttackRate"				"1.7"									// Speed of attack.
-		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
-		"AttackRange"				"350"									// Range within a target can be attacked.
-		"ProjectileModel"			"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"					// Particle system model for projectile.
-		"ProjectileSpeed"			"900"									// Speed of projectile.
-		
-		// Attributes
-		//-------------------------------------------------------------------------------------------------------------
-		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
-		"AttributeBaseStrength"		"8"									// Base strength
-		"AttributeStrengthGain"		".7"									// Strength bonus per level.
-		"AttributeBaseAgility"		"16"									// Base agility
-		"AttributeAgilityGain"		"1.9"									// Agility bonus per level.
-		"AttributeBaseIntelligence"	"11"									// Base intelligence
-		"AttributeIntelligenceGain"	"1.4"									// Intelligence bonus per level.
 		
 		"MovementSpeed"				"275"									// Speed.
 		"MovementTurnRate"			"0.6"									// Turning rate.
@@ -638,6 +588,68 @@
 		"StatusMana"				"50"
 		"MPGain"					"0"
 
+	}
+	//Gunner
+	//=================================================================================================================
+	// HERO: Trapper
+	//=================================================================================================================
+	"npc_dota_hero_trapper"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/fireball.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------	
+		"override_hero"				"npc_dota_hero_sniper"			// Hero to override
+		//"Portrait"				"vgui/hud/heroportraits/portrait_axe"		// Small image for hero selection
+		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"ModelScale"				".8"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityLayout"    			"4"
+		"Ability1"					"customability_empty1"			// Ability 1.
+		"Ability2"					"customability_empty2"			// Ability 2
+		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability4"					"customability_empty4"			// Ability 4
+		"Ability5"					"attribute_bonus"						// Ability 5
+		
+		// Attack
+		//----------------------------------------------------------------	
+		"DamageGain"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"27"									// Damage range min.
+		"AttackDamageMax"			"32"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
+		"AttackRange"				"350"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+		
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"8"									// Base strength
+		"AttributeStrengthGain"		".7"									// Strength bonus per level.
+		"AttributeBaseAgility"		"16"									// Base agility
+		"AttributeAgilityGain"		"1.9"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"11"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.4"									// Intelligence bonus per level.
+		
+		"MovementSpeed"				"275"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Status
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"StatusHealth"				"225"		// Base health.
+		"HPGain"					"5"
+		"StatusMana"				"50"
+		"MPGain"					"0"
+		
 	}
 	//=================================================================================================================
 	// HERO: Warrior

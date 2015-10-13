@@ -1,0 +1,140 @@
+	//=================================================================================================================
+	// Cloudburst
+	//=================================================================================================================
+	"customability_cloudburst"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"particle"				"particles/cloudburst.vpcf"
+			"particle"				"particles/cloudburst_lightning.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "razor_eye_of_the_storm"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+		"AOERadius"						"%radius"
+
+		"OnSpellStart"
+		{		
+			"CreateThinker"
+			{
+				"ModifierName"			"cloudburst_thinker"
+				"Target"				"POINT"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_cloudburst.lua"
+				"Function"				"Attunement"
+			}
+			"FireSound"
+			{
+				"Target"				"Caster"
+				"EffectName"			"Hero_Bane.FiendsGrip"
+			}
+		}
+		
+		"Modifiers"
+		{			
+			"cloudburst_thinker"
+			{
+				"Aura"					"cloudburst_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/cloudburst.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			
+			"cloudburst_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" "follow_overhead"
+				"ThinkInterval"			".5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"Abilities/customability_cloudburst.lua"
+						"Function"			"Cloudburst"
+						"damage"			"%damageintperc"
+					}
+					"AttachEffect"
+					{
+						"EffectName" 		"particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
+	                    "EffectAttachType" 	"follow_origin"
+	                    "Target" 			"TARGET"
+					}
+				}
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_wind"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damageintperc"			"5 10 15 20"
+			}
+		}
+	}

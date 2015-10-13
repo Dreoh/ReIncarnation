@@ -42,7 +42,5 @@
 		{
 			m_ChildRef = resource:"particles/ebb_trail_c.vpcf"
 		},
-		{
-		},
 	]
 }

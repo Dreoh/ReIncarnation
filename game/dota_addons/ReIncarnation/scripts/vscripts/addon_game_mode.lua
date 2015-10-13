@@ -652,7 +652,7 @@ function CReIncarnationGameMode:CheckForLootItemDrop( killedUnit )
 			local newItem = CreateItem( itemDropInfo.szItemName, nil, nil )
 			newItem:SetPurchaseTime( 0 )
 			if newItem:IsPermanent() and newItem:GetShareability() == ITEM_FULLY_SHAREABLE then
-				item:SetStacksWithOtherOwners( true )
+				newItem:SetStacksWithOtherOwners( true )
 			end
 			local drop = CreateItemOnPositionSync( killedUnit:GetAbsOrigin(), newItem )
 			drop.RPG_IsLootDrop = true

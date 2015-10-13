@@ -1,7 +1,7 @@
 	//=================================================================================================================
-	// Class Change: Gunslinger
+	// Class Change: Trapper
 	//=================================================================================================================
-	"item_classchange_gunslinger"
+	"item_classchange_trapper"
 	{
 
 		"precache"
@@ -45,7 +45,7 @@
 				"Caster"        "CASTER"
 				"Target"		"CASTER"
 				"ScriptFile"  	"Items/classchange.lua"
-				"Function"      "Gunslinger"
+				"Function"      "Trapper"
 			}
 		}
 	}

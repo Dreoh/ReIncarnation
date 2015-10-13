@@ -380,6 +380,146 @@
 		}
 	}
 	//=================================================================================================================
+	// Cloudburst
+	//=================================================================================================================
+	"customability_cloudburst"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"particle"				"particles/cloudburst.vpcf"
+			"particle"				"particles/cloudburst_lightning.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "razor_eye_of_the_storm"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+		"AOERadius"						"%radius"
+
+		"OnSpellStart"
+		{		
+			"CreateThinker"
+			{
+				"ModifierName"			"cloudburst_thinker"
+				"Target"				"POINT"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_cloudburst.lua"
+				"Function"				"Attunement"
+			}
+			"FireSound"
+			{
+				"Target"				"Caster"
+				"EffectName"			"Hero_Bane.FiendsGrip"
+			}
+		}
+		
+		"Modifiers"
+		{			
+			"cloudburst_thinker"
+			{
+				"Aura"					"cloudburst_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/cloudburst.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			
+			"cloudburst_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" "follow_overhead"
+				"ThinkInterval"			".5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"Abilities/customability_cloudburst.lua"
+						"Function"			"Cloudburst"
+						"damage"			"%damageintperc"
+					}
+					"AttachEffect"
+					{
+						"EffectName" 		"particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf"
+	                    "EffectAttachType" 	"follow_origin"
+	                    "Target" 			"TARGET"
+					}
+				}
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_wind"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damageintperc"			"5 10 15 20"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Coldsteel
 	//=================================================================================================================
 	"customability_coldsteel"
@@ -432,7 +572,7 @@
 			"RunScript"
 			{
 				"Target"					"CASTER"
-				"ScriptFile"				"customability_spellmastery.lua"
+				"ScriptFile"				"Abilities/customability_spellmastery.lua"
 				"Function"					"ColdToggleOff"
 			}
 		}
@@ -526,6 +666,11 @@
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 			"particle"				"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+			"particle"				"particles/fireball.vpcf"
+			"particle"				"particles/gale.vpcf"
+			"particle"				"particles/inferno.vpcf"
+			"particle"				"particles/fogofwar.vpcf"
+			"particle"				"particles/flow.vpcf"
 		}
 		
 		// General
@@ -586,6 +731,104 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "40 50 60 70"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_INTEGER"
+					"radius"                  				"150 200 250 300"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Combust
+	//=================================================================================================================
+	"customability_combust"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"particle"				"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+			"particle"				"particles/fireball.vpcf"
+			"particle"				"particles/gale.vpcf"
+			"particle"				"particles/inferno.vpcf"
+			"particle"				"particles/fogofwar.vpcf"
+			"particle"				"particles/flow.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "jakiro_liquid_fire"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                       "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "45 55 65 75"
+		"AOERadius"								"%radius"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+    		{
+		        "ScriptFile"    		"Abilities/customability_combust.lua"
+		        "Function"   			"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"				"POINT"
+				"EffectName"			"Hero_Invoker.ForgeSpirit"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_attunement_fire"
+			}
+			"RunScript"
+			{
+				"Target"				"POINT"
+				"ScriptFile"			"Abilities/customability_combust.lua"
+				"Function"				"Combust"
+				"damage"				"%damageintperc"
+				"radius"				"%radius"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
 			}
 		}
 	   
@@ -1133,7 +1376,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                             "ability_datadriven"
-		"AbilityTextureName"                    "kunkka_torrent"
+		"AbilityTextureName"                    "morphling_adaptive_strike"
 		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -1215,6 +1458,7 @@
 			"modifier_ebb_thinker"
 			{
 				"IsHidden"          "1"
+				"Duration"			"1"
 				"ThinkInterval"     ".1"
 				"OnIntervalThink"
 		        {
@@ -1235,6 +1479,8 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
 			}
 		}
 	   
@@ -1542,6 +1788,271 @@
 		}
 	}
 	//=================================================================================================================
+	// Fire Tornado
+	//=================================================================================================================
+	"customability_firetornado"
+	{
+	
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+			"particle"				"particles/firetornado.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "fire_tornado"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "300"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+
+		"OnSpellStart"
+		{
+			//"ApplyModifier"
+			//{
+			//	"Target"		"CASTER"
+			//	"ModifierName"	"modifier_attunement_wind"
+			//}
+			"LinearProjectile"
+			{
+			    "Target" 		 "POINT"
+			    "EffectName"     "particles/firetornado.vpcf"
+			    "MoveSpeed"      "125"
+			    "StartRadius"    "200"
+			    "EndRadius"      "200"
+			    "StartPosition"  "attach_attack1"
+			    "FixedDistance"  "1000"
+			    "TargetTeams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			    "TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+			    "TargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			    "HasFrontalCone" "1"
+			    "ProvidesVision" "0"
+			    "VisionRadius"   "0"
+			}
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_firetornado.lua"
+		        "Function"   		"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Hero_Jakiro.LiquidFire"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"                           "0"
+
+			"RunScript"
+			{
+				"Target"				"TARGET"
+				"ScriptFile"			"Abilities/customability_firetornado.lua"
+				"Function"				"FireTornado"
+				"damage"				"%damageintperc"
+				"force"					"%force"
+			}
+			"FireSound"
+			{
+				"Target"				"TARGET"
+				"EffectName"            "hero_jakiro.projectileImpact"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_wind"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "15 25 35 45"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"force"                         		"50"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Flow
+	//=================================================================================================================
+	"customability_flow"
+	{
+	
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+			"particle"				"particles/ebb.vpcf"
+			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "kunkka_torrent"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "800"
+		"AbilityCastPoint"						".2"
+		"AbilityChannelTime"      				"1"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+			    "ModifierName" 		"modifier_flow_thinker"
+			    "Target" 			"CASTER"
+			}
+			"ApplyModifier"
+			{
+			    "ModifierName" 		"modifier_attunement_water"
+			    "Target" 			"CASTER"
+			}
+			"FireSound"
+		    {
+		    	"Target"			"Caster"
+		    	"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
+		    }
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_flow.lua"
+		        "Function"   		"Attunement"
+		    }  
+		}
+
+		OnProjectileHitUnit
+		{
+			"RunScript"
+		    {
+		        "ScriptFile"    	"Abilities/customability_flow.lua"
+		        "Function"   		"FlowDamageCalculate"
+		        "Target"			"TARGET"
+		        "damage"			"%damageintperc"
+		    }
+		    "FireSound"
+		    {
+		    	"Target"			"TARGET"
+		    	"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
+		    }
+		}
+
+		"OnChannelFinish"
+		{
+		    "RemoveModifier"
+		    {
+		        "ModifierName" 	 	"modifier_flow_thinker"
+		        "Target"       		"CASTER"
+		    } 
+		}
+
+		"Modifiers"
+		{
+		    "modifier_flow_channelling"
+		    {
+		        "IsHidden"          "1"
+		        "OverrideAnimation" "ACT_DOTA_KINETIC_FIELD"
+		        "Duration"			"1"
+		    }
+
+			"modifier_flow_thinker"
+			{
+				"IsHidden"          "1"
+				"Duration"			"1"
+				"ThinkInterval"     ".07"
+				"OnIntervalThink"
+		        {
+		            "RunScript"
+		    		{
+				        "ScriptFile"    "Abilities/customability_flow.lua"
+				        "Function"   	"Flow"
+				        "Target"     	"POINT"
+				        "damage"		"%damageintperc"
+				        "radius"		"%radius"
+				        "distance"		"%distance"
+				        "speed"			"%speed"
+				    }  
+		        }
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"damageintperc"                         "15 20 25 30"
+			}
+			"02"
+			{
+				"var_type"                              "FIELD_INTEGER"
+				"distance"                  			"800"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Focus Shot
 	//=================================================================================================================
 	"customability_focusshot"
@@ -1657,6 +2168,129 @@
 		}
 	}
 	//=================================================================================================================
+	// Fog of War
+	//=================================================================================================================
+	"customability_fogofwar"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"particle"				"particles/fogofwar.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "riki_smoke_screen"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "75 85 95 105"
+		"AOERadius"								"%radius"
+
+		"OnSpellStart"
+		{		
+			"CreateThinker"
+			{
+				"ModifierName"			"fogofwar_thinker"
+				"Target"				"POINT"
+			}
+			"FireSound"
+			{
+				"Target"				"Caster"
+				"EffectName"			"Hero_Bane.FiendsGrip"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_fogofwar.lua"
+				"Function"				"Attunement"
+			}
+		}
+		
+		"Modifiers"
+		{			
+			"fogofwar_thinker"
+			{
+				"Aura"					"fogofwar_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/fogofwar.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			
+			"fogofwar_aura"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"2"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" "follow_overhead"
+				"States"
+				{
+					"MODIFIER_STATE_BLIND"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Fortify
 	//=================================================================================================================
 	"customability_fortify"
@@ -1732,6 +2366,8 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"tiny_avalanche"
+				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
 			}
 		}
 	   
@@ -1743,6 +2379,150 @@
 			{
 					"var_type"                              "FIELD_FLOAT"
 					"duration"                              "5 10 15 20"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Gale
+	//=================================================================================================================
+	"customability_gale"
+	{
+	
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+			"particle"				"particles/gale.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "skywrath_mage_concussive_shot"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "300"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+		"AOERadius"								"%radius"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_attunement_wind"
+			}
+			"CreateThinker"
+			{
+				"ModifierName"			"gale_thinker"
+				"Target"				"POINT"
+			}
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_gale.lua"
+		        "Function"   		"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Hero_Jakiro.LiquidFire"
+			}
+		}
+
+		"Modifiers"
+		{
+			"gale_thinker"
+			{
+				"Aura"					"gale_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/gale.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"Abilities/customability_gale.lua"
+						"Function"			"ClearDirection"
+					}
+				}				
+			}
+			"gale_aura"
+			{
+				"IsDebuff"				"1"
+				"IsPurgable"			"0"
+				//"EffectName"			"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" 		"follow_overhead"
+				"ThinkInterval"			".2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"Abilities/customability_gale.lua"
+						"Function"			"Gale"
+						"force"				"%force"
+						"damage"			"%damageintperc"
+						"target"			"POINT"
+					}
+				}
+			}
+			"modifier_attunement_wind"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "1"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"force"                         		"40 45 50 55"
+			}
+			"03"
+			{
+					"var_type"								"FIELD_FLOAT"
+					"duration"								"8.0"
+			}
+			"04"
+			{
+					"var_type"								"FIELD_FLOAT"
+					"radius"								"200 250 300 350"
 			}
 		}
 	}
@@ -1842,6 +2622,8 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
 			}
 		}
 	   
@@ -1857,7 +2639,7 @@
 			"02"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"force"                         		"500 750 1000 1250"
+					"force"                         		"500 650 800 950"
 			}
 		}
 	}
@@ -2698,6 +3480,97 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Inferno
+	//=================================================================================================================
+	"customability_inferno"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"particle"				"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "warlock_rain_of_chaos"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                       "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "75 85 95 105"
+		"AOERadius"								"%radius"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+    		{
+		        "ScriptFile"    		"Abilities/customability_inferno.lua"
+		        "Function"   			"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"				"POINT"
+				"EffectName"			"Hero_Invoker.ForgeSpirit"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_attunement_fire"
+			}
+			"RunScript"
+			{
+				"Target"				"POINT"
+				"ScriptFile"			"Abilities/customability_inferno.lua"
+				"Function"				"Inferno"
+				"damage"				"%damageintperc"
+				"radius"				"%radius"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "60 75 90 105"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_INTEGER"
+					"radius"                  				"250 300 350 400"
+			}
+		}
+	}
 	//Evasion passive
 	
 		//=================================================================================================================
@@ -2959,6 +3832,139 @@
 		}
 	}
 	//=================================================================================================================
+	// Magma
+	//=================================================================================================================
+	"customability_magma"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"particle"				"particles/magma.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "earthshaker_aftershock_egset"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+		"AOERadius"						"%radius"
+
+		"OnSpellStart"
+		{		
+			"CreateThinker"
+			{
+				"ModifierName"			"magma_thinker"
+				"Target"				"POINT"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_magma.lua"
+				"Function"				"Attunement"
+			}
+			"FireSound"
+			{
+				"Target"				"Caster"
+				"EffectName"			"Hero_Bane.FiendsGrip"
+			}
+		}
+		
+		"Modifiers"
+		{			
+			"magma_thinker"
+			{
+				"Aura"					"magma_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/magma.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			
+			"magma_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" "follow_overhead"
+				"ThinkInterval"			".5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"Abilities/customability_magma.lua"
+						"Function"			"Magma"
+						"damage"			"%damageintperc"
+					}
+				}
+			}
+			"modifier_attunement_earth"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"tiny_avalanche"
+				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damageintperc"			"5 10 15 20"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Manafont
 	//=================================================================================================================
 	"customability_manafont"
@@ -3036,6 +4042,131 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"mp_regen"			".2 .4 .6 .8"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Pebble Salvo
+	//=================================================================================================================
+	"customability_pebblesalvo"
+	{
+	
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+			"particle"				"particles/pebblesalvo.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "rattletrap_battery_assault"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "300"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_attunement_wind"
+			}
+			//"LinearProjectile"
+			//{
+			//    "Target" 		 "POINT"
+			//    "EffectName"     "particles/pebblesalvo.vpcf"
+			//    "MoveSpeed"      "857"
+			//    "StartRadius"    "30"
+			//    "EndRadius"      "200"
+			//    "StartPosition"  "attach_attack1"
+			//    "FixedDistance"  "300"
+			//    "TargetTeams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			//    "TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+			//    "TargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			//    "HasFrontalCone" "1"
+			//    "ProvidesVision" "0"
+			//    "VisionRadius"   "0"
+			//}
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_pebblesalvo.lua"
+		        "Function"   		"PebbleSalvo"
+		    }  
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Hero_Jakiro.LiquidFire"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"                           "0"
+
+			"RunScript"
+			{
+				"Target"				"TARGET"
+				"ScriptFile"			"Abilities/customability_pebblesalvo.lua"
+				"Function"				"PebbleSalvoProjectileHit"
+				"damage"				"%damageintperc"
+				"force"					"%force"
+			}
+			"FireSound"
+			{
+				"Target"				"TARGET"
+				"EffectName"            "hero_jakiro.projectileImpact"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_attunement_wind"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_earth"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"tiny_avalanche"
+				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "15 20 25 30"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"force"                         		"500 650 800 950"
 			}
 		}
 	}
@@ -3506,6 +4637,231 @@
 			{
 					"var_type"                              "FIELD_FLOAT"
 					"burst"                           		"10 20 30 40"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Quagmire
+	//=================================================================================================================
+	"customability_quagmire"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"particle"				"particles/quagmire.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "clinkz_wind_walk"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+		"AOERadius"						"%radius"
+
+		"OnSpellStart"
+		{		
+			"CreateThinker"
+			{
+				"ModifierName"			"quagmire_thinker"
+				"Target"				"POINT"
+			}
+			"RunScript"
+    		{
+		        "ScriptFile"    		"Abilities/customability_quagmire.lua"
+		        "Function"   			"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"				"Caster"
+				"EffectName"			"Hero_Bane.FiendsGrip"
+			}
+		}
+		
+		"Modifiers"
+		{			
+			"quagmire_thinker"
+			{
+				"Aura"					"quagmire_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/quagmire.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			
+			"quagmire_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" "follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 	"%move_speed"
+				}
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_earth"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"tiny_avalanche"
+				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"move_speed"			"-15 -20 -25 -30"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Reinforce
+	//=================================================================================================================
+	"customability_reinforce"
+	{
+	
+		"precache"
+		{
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"particle"						"particles/fortify.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "tiny_grow"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+
+		"OnSpellStart"
+		{
+            "ApplyModifier"
+            {
+            	"Target"		"CASTER"
+            	"ModifierName"	"modifier_fortify"
+            }
+            "ApplyModifier"
+            {
+            	"Target"		"CASTER"
+            	"ModifierName"	"modifier_fortify"
+            }
+            "ApplyModifier"
+            {
+            	"Target"		"CASTER"
+            	"ModifierName"	"modifier_attunement_earth"
+            }
+            "RunScript"
+    		{
+		        "ScriptFile"    "Abilities/customability_reinforce.lua"
+		        "Function"   		"Attunement"
+		    }  
+			"FireSound"
+			{
+				"EffectName"                    "Hero_EarthShaker.Fissure"
+			}
+		}
+
+
+		"Modifiers"
+		{
+			"modifier_fortify"
+			{
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"IsDebuff"              "0"
+				"EffectName"			"particles/fortify.vpcf"
+				"TextureName"			"tiny_craggy_exterior"
+				"EffectAttachType"		"follow_origin"
+				"Attributes"       		"MODIFIER_ATTRIBUTE_MULTIPLE" 
+
+				"States"
+			    {
+			        //"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+			    }
+				
+			}
+			"modifier_attunement_earth"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"tiny_avalanche"
+				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                              "5 10 15 20"
 			}
 		}
 	}
@@ -4229,11 +5585,6 @@
 					"duration"                             "3 5 7 9"
 					//"duration"                             "2 2.5 3 3.5"
 					//"duration"                              "10"
-			}
-			"02"
-			{
-					"var_type"                              "FIELD_FLOAT"
-					"distance"                             "400"
 			}
 		}
 	}

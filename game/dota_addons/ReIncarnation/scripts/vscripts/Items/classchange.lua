@@ -183,6 +183,9 @@ end
 function Elementalist(keys)
 
 	print("classchange_elementalist casted")
+	PrecacheResource("particle", "particles/inferno.vpcf", context )
+	PrecacheResource("particle", "particles/gale.vpcf", context )
+	PrecacheResource("particle", "particles/fogofwar.vpcf", context )
 	local items = {}
 	local Caster = keys.caster
 	for i = 0, 5 do
@@ -247,13 +250,13 @@ function Exile(keys)
 	
 end
 
-function Gunslinger(keys)
+function Trapper(keys)
 
-	print("classchange_gunslinger casted")
+	print("classchange_trapper casted")
 	local items = {}
 	local Caster = keys.caster
 	for i = 0, 5 do
-		if Caster:GetItemInSlot(i) ~= nil and Caster:GetItemInSlot(i):GetName() ~= "item_classchange_gunslinger" then
+		if Caster:GetItemInSlot(i) ~= nil and Caster:GetItemInSlot(i):GetName() ~= "item_classchange_trapper" then
 			itemCopy = CreateItem(Caster:GetItemInSlot(i):GetName(), nil, nil)
 			items[i] = itemCopy
 		end

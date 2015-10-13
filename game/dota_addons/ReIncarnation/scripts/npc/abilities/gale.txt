@@ -1,0 +1,144 @@
+	//=================================================================================================================
+	// Gale
+	//=================================================================================================================
+	"customability_gale"
+	{
+	
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+			"particle"				"particles/gale.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "skywrath_mage_concussive_shot"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "300"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+		"AOERadius"								"%radius"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_attunement_wind"
+			}
+			"CreateThinker"
+			{
+				"ModifierName"			"gale_thinker"
+				"Target"				"POINT"
+			}
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_gale.lua"
+		        "Function"   		"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Hero_Jakiro.LiquidFire"
+			}
+		}
+
+		"Modifiers"
+		{
+			"gale_thinker"
+			{
+				"Aura"					"gale_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/gale.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"Abilities/customability_gale.lua"
+						"Function"			"ClearDirection"
+					}
+				}				
+			}
+			"gale_aura"
+			{
+				"IsDebuff"				"1"
+				"IsPurgable"			"0"
+				//"EffectName"			"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" 		"follow_overhead"
+				"ThinkInterval"			".2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"Abilities/customability_gale.lua"
+						"Function"			"Gale"
+						"force"				"%force"
+						"damage"			"%damageintperc"
+						"target"			"POINT"
+					}
+				}
+			}
+			"modifier_attunement_wind"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "1"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"force"                         		"40 45 50 55"
+			}
+			"03"
+			{
+					"var_type"								"FIELD_FLOAT"
+					"duration"								"8.0"
+			}
+			"04"
+			{
+					"var_type"								"FIELD_FLOAT"
+					"radius"								"200 250 300 350"
+			}
+		}
+	}

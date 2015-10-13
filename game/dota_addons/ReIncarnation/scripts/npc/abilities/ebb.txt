@@ -14,7 +14,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                             "ability_datadriven"
-		"AbilityTextureName"                    "kunkka_torrent"
+		"AbilityTextureName"                    "morphling_adaptive_strike"
 		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -96,6 +96,7 @@
 			"modifier_ebb_thinker"
 			{
 				"IsHidden"          "1"
+				"Duration"			"1"
 				"ThinkInterval"     ".1"
 				"OnIntervalThink"
 		        {
@@ -116,6 +117,8 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
 			}
 		}
 	   

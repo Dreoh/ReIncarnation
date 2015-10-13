@@ -1,0 +1,98 @@
+	//=================================================================================================================
+	// Reinforce
+	//=================================================================================================================
+	"customability_reinforce"
+	{
+	
+		"precache"
+		{
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"particle"						"particles/fortify.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "tiny_grow"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+
+		"OnSpellStart"
+		{
+            "ApplyModifier"
+            {
+            	"Target"		"CASTER"
+            	"ModifierName"	"modifier_fortify"
+            }
+            "ApplyModifier"
+            {
+            	"Target"		"CASTER"
+            	"ModifierName"	"modifier_fortify"
+            }
+            "ApplyModifier"
+            {
+            	"Target"		"CASTER"
+            	"ModifierName"	"modifier_attunement_earth"
+            }
+            "RunScript"
+    		{
+		        "ScriptFile"    "Abilities/customability_reinforce.lua"
+		        "Function"   		"Attunement"
+		    }  
+			"FireSound"
+			{
+				"EffectName"                    "Hero_EarthShaker.Fissure"
+			}
+		}
+
+
+		"Modifiers"
+		{
+			"modifier_fortify"
+			{
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"IsDebuff"              "0"
+				"EffectName"			"particles/fortify.vpcf"
+				"TextureName"			"tiny_craggy_exterior"
+				"EffectAttachType"		"follow_origin"
+				"Attributes"       		"MODIFIER_ATTRIBUTE_MULTIPLE" 
+
+				"States"
+			    {
+			        //"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+			    }
+				
+			}
+			"modifier_attunement_earth"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"tiny_avalanche"
+				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                              "5 10 15 20"
+			}
+		}
+	}

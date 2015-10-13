@@ -1,5 +1,5 @@
 print ('[BAREBONES] barebones.lua' )
-_Version = "0.1.4d"
+_Version = "0.1.4e"
 
 ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
@@ -127,6 +127,21 @@ function CReIncarnationGameMode:PostLoadPrecache()
 	PrecacheUnitByNameASync('npc_dota_hero_dazzle', function(...) end)
 	PrecacheUnitByNameASync('npc_dota_hero_magnataur', function(...) end)
 
+  --Elementalist spells
+  PrecacheResource("particle", "particles/inferno.vpcf", context )
+  PrecacheResource("particle", "particles/gale.vpcf", context )
+  PrecacheResource("particle", "particles/fogofwar.vpcf", context )
+  PrecacheResource("particle", "particles/magma.vpcf", context )
+  PrecacheResource("particle", "particles/attunement_earth_glow.vpcf", context )
+  PrecacheResource("particle", "particles/attunement_wind_glow.vpcf", context )
+  PrecacheResource("particle", "particles/attunement_water_glow.vpcf", context )
+  PrecacheResource("particle", "particles/attunement_fire_glow.vpcf", context )
+  PrecacheResource("particle", "particles/firetornado.vpcf", context )
+  PrecacheResource("particle", "particles/items2_fx/heavens_halberd_debuff_core.vpcf", context )
+  PrecacheResource("particle", "particles/cloudburst_lightning.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", context)
+  PrecacheResource("particle", "particles/cloudburst.vpcf", context)
+  PrecacheResource("particle", "particles/pebblesalvo.vpcf", context)
 end
 
 --[[
@@ -740,21 +755,6 @@ function CReIncarnationGameMode:OnConnectFull(keys)
   end
 end
 
--- This is an example console command
-function CReIncarnationGameMode:Suicide()
-  print( '******* Example Console Command ***************' )
-  local cmdPlayer = Convars:GetCommandClient()
-  if cmdPlayer then
-    local playerID = cmdPlayer:GetPlayerID()
-    if playerID ~= nil and playerID ~= -1 then
-      -- Do something here for the player who called this command
-      PlayerResource:GetAssignedHero():ForceKill(0)
-    end
-  end
-
-  print( '*********************************************' )
-end
-
 function CReIncarnationGameMode:FilterDamage( filterTable )
   --[[
   [   VScript              ]: damage: 20
@@ -797,12 +797,14 @@ end
 
 CHEAT_CODES = {
     --["greedisgood"] = function(...) PMP:GreedIsGood(...) end,  -- Gives X gold and lumber
+    ["CC"]       = function(...) CReIncarnationGameMode:ChangeClass(...) end,
 }
 
 PLAYER_COMMANDS = {
     ["suicide"]       = function(...) CReIncarnationGameMode:Suicide(...) end,
     ["db"]       = function(...) CReIncarnationGameMode:Debug(...) end,
     ["GM"]       = function(...) CReIncarnationGameMode:GodMode(...) end,
+    
 }
 
 -- A player has typed something into the chat
@@ -837,6 +839,61 @@ function CReIncarnationGameMode:Suicide(pID)
     end
 end
 
+function CReIncarnationGameMode:ChangeClass(pID, class)
+    local player = PlayerResource:GetPlayer(pID)
+    local hero = player:GetAssignedHero()
+    local class = class
+    print("Class == " .. class)
+    if class == nil then
+          GameRules:SendCustomMessage("Class Change options:", 0, 0)
+          GameRules:SendCustomMessage("basic", 0, 0)
+          GameRules:SendCustomMessage("devout", 0, 0)
+          GameRules:SendCustomMessage("ranger", 0, 0)
+          GameRules:SendCustomMessage("warrior", 0, 0)
+          GameRules:SendCustomMessage("arcanist", 0, 0)
+          GameRules:SendCustomMessage("cultist", 0, 0)
+          GameRules:SendCustomMessage("elementalist", 0, 0)
+          GameRules:SendCustomMessage("exile", 0, 0)
+          GameRules:SendCustomMessage("trapper", 0, 0)
+          GameRules:SendCustomMessage("monk", 0, 0)
+          GameRules:SendCustomMessage("spellblade", 0, 0)
+          GameRules:SendCustomMessage("wetboy", 0, 0)
+          GameRules:SendCustomMessage("zerker", 0, 0)
+    elseif class == "basic" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_kunkka", hero:GetGold(), 0 )
+    elseif class == "devout" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_invoker", hero:GetGold(), 0 )
+    elseif class == "ranger" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_windrunner", hero:GetGold(), 0 )
+    elseif class == "warrior" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_dragon_knight", hero:GetGold(), 0 )
+    elseif class == "arcanist" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_crystal_maiden", hero:GetGold(), 0 )
+    elseif class == "cultist" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_dazzle", hero:GetGold(), 0 )
+    elseif class == "elementalist" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_storm_spirit", hero:GetGold(), 0 )
+      PrecacheResource("particle", "particles/inferno.vpcf", context )
+      PrecacheResource("particle", "particles/gale.vpcf", context )
+      PrecacheResource("particle", "particles/fogofwar.vpcf", context )
+      local newHero = player:GetAssignedHero()
+      local Ability = newHero:GetAbilityByIndex(5)
+      Ability:SetLevel(1)
+    elseif class == "exile" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_furion", hero:GetGold(), 0 )
+    elseif class == "trapper" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_sniper", hero:GetGold(), 0 )
+    elseif class == "monk" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_lone_druid", hero:GetGold(), 0 )
+    elseif class == "spellblade" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_silencer", hero:GetGold(), 0 )
+    elseif class == "wetboy"  then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_riki", hero:GetGold(), 0 )
+    elseif class == "zerker" then
+      PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_sven", hero:GetGold(), 0 )
+    end
+end
+
 function CReIncarnationGameMode:Debug(pID)
     local player = PlayerResource:GetPlayer(pID)
     local hero = player:GetAssignedHero()
@@ -846,6 +903,8 @@ function CReIncarnationGameMode:Debug(pID)
       for i=1,21 do
         hero:HeroLevelUp(false)
       end
+      hero:SetMana(hero:GetMaxMana())
+      hero:SetHealth(hero:GetMaxHealth())
     end
 end
 

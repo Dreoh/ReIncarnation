@@ -1,0 +1,91 @@
+	//=================================================================================================================
+	// Inferno
+	//=================================================================================================================
+	"customability_inferno"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"particle"				"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "warlock_rain_of_chaos"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                       "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "75 85 95 105"
+		"AOERadius"								"%radius"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+    		{
+		        "ScriptFile"    		"Abilities/customability_inferno.lua"
+		        "Function"   			"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"				"POINT"
+				"EffectName"			"Hero_Invoker.ForgeSpirit"
+			}
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_attunement_fire"
+			}
+			"RunScript"
+			{
+				"Target"				"POINT"
+				"ScriptFile"			"Abilities/customability_inferno.lua"
+				"Function"				"Inferno"
+				"damage"				"%damageintperc"
+				"radius"				"%radius"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "60 75 90 105"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_INTEGER"
+					"radius"                  				"250 300 350 400"
+			}
+		}
+	}

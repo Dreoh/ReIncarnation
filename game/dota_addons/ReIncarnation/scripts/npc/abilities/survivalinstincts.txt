@@ -86,10 +86,5 @@
 					//"duration"                             "2 2.5 3 3.5"
 					//"duration"                              "10"
 			}
-			"02"
-			{
-					"var_type"                              "FIELD_FLOAT"
-					"distance"                             "400"
-			}
 		}
 	}

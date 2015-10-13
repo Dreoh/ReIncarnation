@@ -1,0 +1,140 @@
+	//=================================================================================================================
+	// Flow
+	//=================================================================================================================
+	"customability_flow"
+	{
+	
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+			"particle"				"particles/ebb.vpcf"
+			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "kunkka_torrent"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "800"
+		"AbilityCastPoint"						".2"
+		"AbilityChannelTime"      				"1"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+			    "ModifierName" 		"modifier_flow_thinker"
+			    "Target" 			"CASTER"
+			}
+			"ApplyModifier"
+			{
+			    "ModifierName" 		"modifier_attunement_water"
+			    "Target" 			"CASTER"
+			}
+			"FireSound"
+		    {
+		    	"Target"			"Caster"
+		    	"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
+		    }
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_flow.lua"
+		        "Function"   		"Attunement"
+		    }  
+		}
+
+		OnProjectileHitUnit
+		{
+			"RunScript"
+		    {
+		        "ScriptFile"    	"Abilities/customability_flow.lua"
+		        "Function"   		"FlowDamageCalculate"
+		        "Target"			"TARGET"
+		        "damage"			"%damageintperc"
+		    }
+		    "FireSound"
+		    {
+		    	"Target"			"TARGET"
+		    	"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
+		    }
+		}
+
+		"OnChannelFinish"
+		{
+		    "RemoveModifier"
+		    {
+		        "ModifierName" 	 	"modifier_flow_thinker"
+		        "Target"       		"CASTER"
+		    } 
+		}
+
+		"Modifiers"
+		{
+		    "modifier_flow_channelling"
+		    {
+		        "IsHidden"          "1"
+		        "OverrideAnimation" "ACT_DOTA_KINETIC_FIELD"
+		        "Duration"			"1"
+		    }
+
+			"modifier_flow_thinker"
+			{
+				"IsHidden"          "1"
+				"Duration"			"1"
+				"ThinkInterval"     ".07"
+				"OnIntervalThink"
+		        {
+		            "RunScript"
+		    		{
+				        "ScriptFile"    "Abilities/customability_flow.lua"
+				        "Function"   	"Flow"
+				        "Target"     	"POINT"
+				        "damage"		"%damageintperc"
+				        "radius"		"%radius"
+				        "distance"		"%distance"
+				        "speed"			"%speed"
+				    }  
+		        }
+			}
+			"modifier_attunement_water"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"morphling_waveform"
+				"EffectName" 			"particles/attunement_water_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"damageintperc"                         "15 20 25 30"
+			}
+			"02"
+			{
+				"var_type"                              "FIELD_INTEGER"
+				"distance"                  			"800"
+			}
+		}
+	}

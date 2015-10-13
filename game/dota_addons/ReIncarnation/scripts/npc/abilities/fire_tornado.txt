@@ -1,0 +1,125 @@
+	//=================================================================================================================
+	// Fire Tornado
+	//=================================================================================================================
+	"customability_firetornado"
+	{
+	
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+			"particle"				"particles/firetornado.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "fire_tornado"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "300"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "3"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75 85 95 105"
+
+		"OnSpellStart"
+		{
+			//"ApplyModifier"
+			//{
+			//	"Target"		"CASTER"
+			//	"ModifierName"	"modifier_attunement_wind"
+			//}
+			"LinearProjectile"
+			{
+			    "Target" 		 "POINT"
+			    "EffectName"     "particles/firetornado.vpcf"
+			    "MoveSpeed"      "125"
+			    "StartRadius"    "200"
+			    "EndRadius"      "200"
+			    "StartPosition"  "attach_attack1"
+			    "FixedDistance"  "1000"
+			    "TargetTeams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			    "TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+			    "TargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			    "HasFrontalCone" "1"
+			    "ProvidesVision" "0"
+			    "VisionRadius"   "0"
+			}
+			"RunScript"
+    		{
+		        "ScriptFile"    	"Abilities/customability_firetornado.lua"
+		        "Function"   		"Attunement"
+		    }  
+			"FireSound"
+			{
+				"Target"						"CASTER"
+				"EffectName"                    "Hero_Jakiro.LiquidFire"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"                           "0"
+
+			"RunScript"
+			{
+				"Target"				"TARGET"
+				"ScriptFile"			"Abilities/customability_firetornado.lua"
+				"Function"				"FireTornado"
+				"damage"				"%damageintperc"
+				"force"					"%force"
+			}
+			"FireSound"
+			{
+				"Target"				"TARGET"
+				"EffectName"            "hero_jakiro.projectileImpact"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_attunement_fire"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"invoker_exort"
+				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+			"modifier_attunement_wind"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"TextureName"			"skywrath_mage_mystic_flare"
+				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+    			"EffectAttachType"		"follow_origin"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "15 25 35 45"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"force"                         		"50"
+			}
+		}
+	}

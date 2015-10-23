@@ -7,7 +7,7 @@
 		"precache"
 		{
 			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-			"particle"						"particles/fortify.vpcf"
+			"particle"						"particles/elementalist/fortify.vpcf"
 		}
 	
 		// General
@@ -22,11 +22,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "4"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 
 		"OnSpellStart"
 		{
@@ -64,7 +64,7 @@
 				"IsHidden"				"0"
 				"Duration"				"%duration"
 				"IsDebuff"              "0"
-				"EffectName"			"particles/fortify.vpcf"
+				"EffectName"			"particles/elementalist/fortify.vpcf"
 				"TextureName"			"tiny_craggy_exterior"
 				"EffectAttachType"		"follow_origin"
 				"Attributes"       		"MODIFIER_ATTRIBUTE_MULTIPLE" 
@@ -80,7 +80,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"tiny_avalanche"
-				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_earth_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}

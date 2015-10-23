@@ -1,5 +1,6 @@
 print ('[BAREBONES] barebones.lua' )
-_Version = "0.1.4e"
+require('popup')
+_Version = "0.1.5f"
 
 ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
@@ -128,20 +129,36 @@ function CReIncarnationGameMode:PostLoadPrecache()
 	PrecacheUnitByNameASync('npc_dota_hero_magnataur', function(...) end)
 
   --Elementalist spells
-  PrecacheResource("particle", "particles/inferno.vpcf", context )
-  PrecacheResource("particle", "particles/gale.vpcf", context )
-  PrecacheResource("particle", "particles/fogofwar.vpcf", context )
-  PrecacheResource("particle", "particles/magma.vpcf", context )
-  PrecacheResource("particle", "particles/attunement_earth_glow.vpcf", context )
-  PrecacheResource("particle", "particles/attunement_wind_glow.vpcf", context )
-  PrecacheResource("particle", "particles/attunement_water_glow.vpcf", context )
-  PrecacheResource("particle", "particles/attunement_fire_glow.vpcf", context )
-  PrecacheResource("particle", "particles/firetornado.vpcf", context )
+  PrecacheResource("particle_folder", "particles/elementalist", context)
+  PrecacheResource("particle", "particles/elementalist/inferno.vpcf", context )
+  PrecacheResource("particle", "particles/elementalist/gale.vpcf", context )
+  PrecacheResource("particle", "particles/elementalist/fogofwar.vpcf", context )
+  PrecacheResource("particle", "particles/elementalist/magma.vpcf", context )
+  PrecacheResource("particle", "particles/elementalist/attunement_earth_glow.vpcf", context )
+  PrecacheResource("particle", "particles/elementalist/attunement_wind_glow.vpcf", context )
+  PrecacheResource("particle", "particles/elementalist/attunement_water_glow.vpcf", context )
+  PrecacheResource("particle", "particles/elementalist/attunement_fire_glow.vpcf", context )
+  PrecacheResource("particle", "particles/elementalist/firetornado.vpcf", context )
   PrecacheResource("particle", "particles/items2_fx/heavens_halberd_debuff_core.vpcf", context )
-  PrecacheResource("particle", "particles/cloudburst_lightning.vpcf", context)
+  PrecacheResource("particle", "particles/elementalist/cloudburst_lightning.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", context)
-  PrecacheResource("particle", "particles/cloudburst.vpcf", context)
-  PrecacheResource("particle", "particles/pebblesalvo.vpcf", context)
+  PrecacheResource("particle", "particles/elementalist/cloudburst.vpcf", context)
+  PrecacheResource("particle", "particles/elementalist/pebblesalvo.vpcf", context)
+
+  --Cultist Spells
+  PrecacheResource("particle_folder", "particles/cultist", context)
+  PrecacheResource("particle", "particles/cultist/locustswarm.vpcf", context)
+  PrecacheResource("particle", "particles/cultist/awakenedspirit.vpcf", context)
+  PrecacheResource("particle", "particles/cultist/benediction.vpcf", context)
+  PrecacheResource("particle", "particles/cultist/anathema.vpcf", context)
+  PrecacheResource("particle", "particles/cultist/judgementday.vpcf", context)
+  PrecacheResource("particle", "particles/cultist/judgementday_pulse.vpcf", context)
+  PrecacheUnitByNameASync('npc_dota_creature_lesser_daemon', function(...) end)
+  PrecacheUnitByNameASync('npc_dota_creature_lesser_paegon', function(...) end)
+  PrecacheResource("model", "models/items/courier/dc_angel/dc_angel_flying.vmdl", context)
+  PrecacheResource("model", "models/items/courier/dc_demon/dc_demon_flying.vmdl", context)
+  PrecacheResource("particle", "particles/cultist/aura_daemon_slow.vpcf", context)
+  PrecacheResource("particle", "particles/cultist/aura_paegon_haste.vpcf", context)
 end
 
 --[[
@@ -203,11 +220,11 @@ end
 function CReIncarnationGameMode:OnGameInProgress()
   print("[BAREBONES] The game has officially begun")
 
-  Timers:CreateTimer(30, -- Start this timer 30 game-time seconds later
+  Timers:CreateTimer(240, -- Start this timer 30 game-time seconds later
   function()
-    print("This function is called 30 seconds after the game begins, and every 30 seconds thereafter")
+    print("This function is called 240 seconds after the game begins, and every 30 seconds thereafter")
     GameRules:SendCustomMessage("use -suicide if you get stuck. Requires above 75% hp", 0, 0)
-    return 30.0 -- Rerun this timer every 30 game-time seconds 
+    return 240.0 -- Rerun this timer every 30 game-time seconds 
   end)
 
   Timers:CreateTimer(500, -- Start this timer 30 game-time seconds later
@@ -514,8 +531,12 @@ function CReIncarnationGameMode:OnEntityKilled( keys )
   
 	if killedUnit:IsHero() == false and killedUnit:IsControllableByAnyPlayer() == false and killedUnit:IsSummoned() == false then
 		print( killedUnit:GetName() .. " died")
-		local respawnTime = GameRules:GetGameTime() + 180
-		print("NPC respawn time is " .. respawnTime)
+    local seconds = (150 / PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS))
+    if seconds < 30 then
+      seconds = 30
+    end
+		local respawnTime = GameRules:GetGameTime() + seconds
+		print("NPC respawn time is " .. respawnTime .. ": " .. seconds .. " seconds")
 		table.insert( self.unitsWaitingForRespawnList, {
 			szdifficulty = killedUnit.difficulty or "",
 			sz_wp = killedUnit:GetInitialGoalEntity() or "", szrespawnTime = respawnTime or ""
@@ -523,6 +544,7 @@ function CReIncarnationGameMode:OnEntityKilled( keys )
 		--table.insert( self.unitsWaitingForRespawnArea, killedUnit.difficulty )
 		--table.insert( self.unitsWaitingForRespawnSpawner, killedUnit:GetInitialGoalEntity() )
 		--table.insert( self.unitsWaitingForRespawnTime, respawnTime)
+    self:GoldShare( killedUnit, killerEntity )
 		self:CheckForLootItemDrop( killedUnit )
 	end
 	if killedUnit:IsHero() then
@@ -532,6 +554,54 @@ function CReIncarnationGameMode:OnEntityKilled( keys )
   -- Put code here to handle when an entity gets killed
 end
 
+function CReIncarnationGameMode:GoldShare( unit, killer )
+  --[[
+  [   VScript ]: ----------Killed Unit Table---------
+  [   VScript ]: __self: userdata: 0x032e7d30
+  [   VScript ]: Is not a table
+  [   VScript ]: difficulty: novice
+  [   VScript ]: BountyGoldMax - 27
+  [   VScript ]: ------------------------------------
+  ]]
+
+  print("----------Killed Unit Table---------")
+  PrintTable(unit)
+  print("BountyGoldMax - " .. unit:GetGoldBounty() )
+  print("------------------------------------")
+  local playerTable = {}
+  local check = 0
+  killer.lasthitcheck = 1
+  table.insert( playerTable, killer )
+  for _,entity in pairs (FindUnitsInRadius(killer:GetTeamNumber(), unit:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL,  0, FIND_ANY_ORDER, false) ) do
+    print("Found " .. entity:GetUnitName() .. " in death radius")
+    if entity:GetPlayerID() ~= nil then
+      for i = 0, #playerTable do
+        if playerTable[i] ~= nil then
+          if playerTable[i]:GetPlayerID() == entity:GetPlayerID() then
+            check = 1
+          end
+        end
+      end
+      if check == 0 then
+        table.insert( playerTable, entity )   
+      end
+    end
+  end
+  print("playerTable length is " .. #playerTable)
+  local bounty = unit:GetGoldBounty() / #playerTable
+  print("bounty is " .. bounty)
+  for i = 0, #playerTable do
+    if playerTable[i] ~= nil then
+      PlayerResource:SetGold(playerTable[i]:GetPlayerID(), PlayerResource:GetGold(playerTable[i]:GetPlayerID()) + bounty, false)
+      print("Adding " .. bounty .. " to player " .. playerTable[i]:GetPlayerID())
+      if playerTable[i].lasthitcheck ~= nil then
+        PlayerResource:SetGold(playerTable[i]:GetPlayerID(), PlayerResource:GetGold(playerTable[i]:GetPlayerID()) + (bounty / 5), false)
+        print("Last hit bonus bounty of " .. (bounty / 5) .. " added to player " .. playerTable[i]:GetPlayerID())
+      end
+    end
+  end
+  GoldManual(unit, killer, bounty)
+end
 
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
@@ -565,6 +635,8 @@ function CReIncarnationGameMode:InitGameMode()
   GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
   GameRules:SetCreepMinimapIconScale( MINIMAP_CREEP_ICON_SIZE )
   GameRules:SetRuneMinimapIconScale( MINIMAP_RUNE_ICON_SIZE )
+  GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
+  GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 16)
   print('[BAREBONES] GameRules set')
 
   InitLogFile( "log/barebones.txt","")
@@ -669,6 +741,7 @@ function CReIncarnationGameMode:InitGameMode()
 
   --GameMode:SetExecuteOrderFilter( Dynamic_Wrap( CReIncarnationGameMode, "FilterExecuteOrder" ), self )
   GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( CReIncarnationGameMode, "FilterDamage" ), self )
+  GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( self, "FilterModifyGold" ), self )
 
   GameRules.APPLIER = CreateItem("item_apply_modifiers", nil, nil)
 
@@ -780,6 +853,7 @@ function CReIncarnationGameMode:FilterDamage( filterTable )
     return false
   end
 
+  --Elementalist
   if defender:HasModifier("modifier_fortify") then
     print("---Defender has Fortify, Reducing Damage")
     filterTable.damage = 0
@@ -792,6 +866,74 @@ function CReIncarnationGameMode:FilterDamage( filterTable )
     return true
   end
 
+  --Cultist-----------------------------
+  --Awakened Spirit
+  if defender:HasModifier("modifier_awakenedspirit_ally") then --Ally
+    --local mod = defender:FindModifierByName("modifier_awakenedspirit_ally")
+    local armorincrease = defender.armorincrease / 100 --Convert to %
+    --Plague check
+    if defender:HasModifier("modifier_locustswarm_ally") or defender:HasModifier("modifier_anathema_ally")  or defender:HasModifier("modifier_daemon_slow_effect") then
+      armorincrease = armorincrease * 1.5
+    end
+    dmgdecrease = (damage * armorincrease)
+    damage = damage - dmgdecrease
+    AwakenedSpiritPopupManual(defender, dmgdecrease)
+    filterTable.damage = damage
+    print("Awakened Spirit reduced " .. defender:GetUnitName() .. "'s damage by " .. dmgdecrease)
+
+  elseif defender:HasModifier("modifier_awakenedspirit_foe") then --Foe
+    --local mod = defender:FindModifierByName("modifier_awakenedspirit_foe")
+    local armorincrease = defender.armorincrease / 100 --Convert to %
+    armorincrease = armorincrease * .5
+    dmgdecrease = (damage * armorincrease)
+    damage = damage - dmgdecrease
+    AwakenedSpiritPopupManual(defender, dmgdecrease)
+    filterTable.damage = damage
+    print("Awakened Spirit reduced " .. defender:GetUnitName() .. "'s damage by " .. dmgdecrease)
+  end
+  --LocustSwarm
+  if defender:HasModifier("modifier_locustswarm_ally") then --Ally
+    --local mod = defender:FindModifierByName("modifier_locustswarm_ally")
+    local armorreduction = defender.armorreduction / 100 --Convert to %
+    armorreduction = armorreduction * .5
+    dmgincrease = (damage * armorreduction)
+    damage = damage + dmgincrease
+    DarkDamageManual(defender,dmgincrease)
+    filterTable.damage = damage
+    print("Locust Swarm increased " .. defender:GetUnitName() .. "'s damage taken by " .. dmgincrease)
+
+  elseif defender:HasModifier("modifier_locustswarm_foe") then --Foe
+    --local mod = defender:FindModifierByName("modifier_awakenedspirit_ally")
+    local armorreduction = defender.armorreduction / 100 --Convert to %
+    --Blessing check
+    if defender:HasModifier("modifier_benediction_foe") or defender:HasModifier("modifier_awakenedspirit_foe") or defender:HasModifier("modifier_paegon_haste_effect") then
+      armorreduction = armorreduction * 1.5
+    end
+    dmgincrease = (damage * armorreduction)
+    damage = damage + dmgincrease
+    DarkDamageManual(defender,dmgincrease)
+    filterTable.damage = damage
+    print("Locust Swarm increased " .. defender:GetUnitName() .. "'s damage taken by " .. dmgincrease)
+  end
+
+  --BasicAttackManual(defender, filterTable.damage)
+  return true
+end
+
+function CReIncarnationGameMode:FilterModifyGold( filterTable )
+  --[[
+  [   VScript ]: gold: 25
+  [   VScript ]: player_id_const: 0
+  [   VScript ]: reason_const: 13
+  [   VScript ]: reliable: 0
+]]
+  --print("---------Gold Filter table--------")
+  --PrintTable(filterTable)
+  --print("----------------------------------")
+  if filterTable.reason_const == 13 then
+    return false
+  end
+
   return true
 end
 
@@ -802,7 +944,7 @@ CHEAT_CODES = {
 
 PLAYER_COMMANDS = {
     ["suicide"]       = function(...) CReIncarnationGameMode:Suicide(...) end,
-    ["db"]       = function(...) CReIncarnationGameMode:Debug(...) end,
+    ["sp"]       = function(...) CReIncarnationGameMode:Debug(...) end,
     ["GM"]       = function(...) CReIncarnationGameMode:GodMode(...) end,
     
 }
@@ -873,9 +1015,9 @@ function CReIncarnationGameMode:ChangeClass(pID, class)
       PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_dazzle", hero:GetGold(), 0 )
     elseif class == "elementalist" then
       PlayerResource:ReplaceHeroWith( pID, "npc_dota_hero_storm_spirit", hero:GetGold(), 0 )
-      PrecacheResource("particle", "particles/inferno.vpcf", context )
-      PrecacheResource("particle", "particles/gale.vpcf", context )
-      PrecacheResource("particle", "particles/fogofwar.vpcf", context )
+      --PrecacheResource("particle", "particles/inferno.vpcf", context )
+      --PrecacheResource("particle", "particles/gale.vpcf", context )
+      --PrecacheResource("particle", "particles/fogofwar.vpcf", context )
       local newHero = player:GetAssignedHero()
       local Ability = newHero:GetAbilityByIndex(5)
       Ability:SetLevel(1)

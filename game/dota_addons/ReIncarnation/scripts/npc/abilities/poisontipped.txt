@@ -102,22 +102,22 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
+			//"01"
+			//{
+			//	"var_type"						"FIELD_FLOAT"
+			//	"duration"						"0.1"
+			//}
 			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"0.1"
-			}
-			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"poison_duration"				"3"
 			}
-			"03"
+			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"poisonintperc"					"10 15 20 25"
 			}
-			"04"
+			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"poisonatkperc"					"5"

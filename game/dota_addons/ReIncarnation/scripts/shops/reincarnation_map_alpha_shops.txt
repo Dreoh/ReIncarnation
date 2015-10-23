@@ -34,6 +34,7 @@
 	"weapons_armor"
 	{
 		"item"			"item_custom_demon_edge"
+		"item"			"item_boots"
 		//"item"		"item_quelling_blade"
 		//"item"		"item_stout_shield"
 		//"item"		"item_blades_of_attack"
@@ -52,7 +53,6 @@
 		//"item"		"item_magic_stick"
 		//"item"		"item_sobi_mask"
 		//"item"		"item_ring_of_regen"
-		//"item"		"item_boots"
 		//"item"		"item_gloves"
 		//"item"		"item_cloak"
 		//"item"		"item_gem"

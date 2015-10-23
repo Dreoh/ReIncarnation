@@ -7,7 +7,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-			"particle"				"particles/gale.vpcf"
+			"particle"				"particles/elementalist/gale.vpcf"
 		}
 		
 		// General
@@ -27,11 +27,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 		"AOERadius"								"%radius"
 
 		"OnSpellStart"
@@ -74,7 +74,7 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"particles/gale.vpcf"
+						"EffectName"		"particles/elementalist/gale.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
@@ -111,7 +111,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
-				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_wind_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -123,7 +123,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"damageintperc"                         "1"
+					"damageintperc"                         "1 2 2 3"
 			}
 			"02"
 			{

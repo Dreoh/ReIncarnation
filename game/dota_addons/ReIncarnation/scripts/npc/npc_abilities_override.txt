@@ -64,6 +64,11 @@
 		"ItemDroppable"					"1"
 	}
 
+        "item_boots"
+        {
+                "ItemCost"                                      "2000"
+        }
+
 	"item_blink"                    "REMOVE"
         "item_blades_of_attack"                 "REMOVE"
         "item_broadsword"                       "REMOVE"
@@ -84,7 +89,7 @@
         "item_lifesteal"                        "REMOVE"
         "item_ring_of_regen"                    "REMOVE"
         "item_sobi_mask"                        "REMOVE"
-        "item_boots"                    "REMOVE"
+        //"item_boots"                    "REMOVE"
         "item_gem"                      "REMOVE"
         "item_cloak"                    "REMOVE"
         "item_talisman_of_evasion"                      "REMOVE"

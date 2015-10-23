@@ -76,6 +76,193 @@
 		}
 	}
 	//=================================================================================================================
+	// Awakened Spirit/Locust Swarm
+	//=================================================================================================================
+	"customability_awakenedspirit_locustswarm"
+	{
+	
+		"precache"
+		{
+			//"particle"				"particles/fireball.vpcf"
+			"particle"					"particles/cultist/locustswarm.vpcf"
+			"particle"					"particles/cultist/awakenedspirit.vpcf"
+			}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "awakenedspirit_locustswarm"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "600"
+		"AbilityCastPoint"						"0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "14"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			//"AttachEffect"
+			//{
+			//	"EffectName"            "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+			//	"EffectAttachType"      "follow_origin"
+			//	"Target"                "TARGET"
+			//}
+			//"Heal"
+			//{
+			//	"Target"				"TARGET"
+			//	"HealAmount"			"%heal"
+			//}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+				"Function"				"OnCast"
+				"armorincrease"			"%armorincrease"
+				"armorreduction"			"%armorreduction"
+			}
+			"FireSound"
+			{
+				"Target"						"TARGET"
+				"EffectName"                    "Hero_Omniknight.Purification"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_awakenedspirit_ally"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"awakenedspirit"
+				"EffectName" 			"particles/cultist/awakenedspirit.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+						"Function"				"AwakenedSpiritAlly"
+						"spreadradius"			"%spreadradius"
+						"armorincrease"			"%armorincrease"
+					}
+				}
+			}
+			"modifier_awakenedspirit_foe"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"awakenedspirit"
+				"EffectName" 			"particles/cultist/awakenedspirit.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+						"Function"				"AwakenedSpiritFoe"
+						"spreadradius"			"%spreadradius"
+						"armorincrease"			"%armorincrease"
+					}
+				}
+			}
+			"modifier_awakenedspirit_resistance"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration * 2"
+				"TextureName"			"awakenedspirit_resistance"
+			}
+			"modifier_locustswarm_ally"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"locustswarm"
+				"EffectName" 			"particles/cultist/locustswarm.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+						"Function"				"LocustSwarmAlly"
+						"spreadradius"			"%spreadradius"
+						"armorreduction"		"%armorreduction"
+					}
+				}
+			}
+			"modifier_locustswarm_foe"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"locustswarm"
+				"EffectName" 			"particles/cultist/locustswarm.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+						"Function"				"LocustSwarmFoe"
+						"spreadradius"			"%spreadradius"
+						"armorreduction"		"%armorreduction"
+					}
+				}
+			}
+			"modifier_locustswarm_resistance"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration * 2"
+				"TextureName"			"locustswarm_resistance"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"armorreduction"                        "5 7.5 10 12.5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"armorincrease"                         "5 7.5 10 12.5"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"spreadradius"                          "300"
+			}
+			"04"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                          	"14"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Bandage
 	//=================================================================================================================
 	"customability_bandage"
@@ -285,6 +472,191 @@
 		}
 	}
 	//=================================================================================================================
+	// Benediction/Anathema
+	//=================================================================================================================
+	"customability_benediction_anathema"
+	{
+	
+		"precache"
+		{
+			//"particle"				"particles/fireball.vpcf"
+			"particle"					"particles/cultist/benediction.vpcf"
+			"particle"					"particles/cultist/anathema.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "benediction_anathema"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "600"
+		"AbilityCastPoint"						"0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "16"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			//"AttachEffect"
+			//{
+			//	"EffectName"            "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+			//	"EffectAttachType"      "follow_origin"
+			//	"Target"                "TARGET"
+			//}
+			//"Heal"
+			//{
+			//	"Target"				"TARGET"
+			//	"HealAmount"			"%heal"
+			//}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+				"Function"				"OnCast"
+			}
+			"FireSound"
+			{
+				"Target"						"TARGET"
+				"EffectName"                    "Hero_Omniknight.Purification"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_benediction_ally"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"benediction"
+				"EffectName" 			"particles/cultist/benediction.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+						"Function"				"BenedictionAlly"
+						"heal"					"%healintperc"
+						"spreadradius"			"%spreadradius"
+					}
+				}
+			}
+			"modifier_benediction_foe"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"benediction"
+				"EffectName" 			"particles/cultist/benediction.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+						"Function"				"BenedictionFoe"
+						"heal"					"%healintperc"
+						"spreadradius"			"%spreadradius"
+					}
+				}
+			}
+			"modifier_benediction_resistance"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration * 2"
+				"TextureName"			"benediction_resistance"
+			}
+			"modifier_anathema_ally"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"anathema"
+				"EffectName" 			"particles/cultist/anathema.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+						"Function"				"AnathemaAlly"
+						"damage"				"%damageintperc"
+						"spreadradius"			"%spreadradius"
+					}
+				}
+			}
+			"modifier_anathema_foe"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"anathema"
+				"EffectName" 			"particles/cultist/anathema.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+						"Function"				"AnathemaFoe"
+						"damage"				"%damageintperc"
+						"spreadradius"			"%spreadradius"
+					}
+				}
+			}
+			"modifier_anathema_resistance"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration * 2"
+				"TextureName"			"anathema_resistance"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"healintperc"                           "5 12.5 20 27.5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "5 12.5 20 27.5"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"spreadradius"                          "300"
+			}
+			"04"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                          	"16"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Bulwark
 	//=================================================================================================================
 	"customability_bulwark"
@@ -388,8 +760,8 @@
 		"precache"
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
-			"particle"				"particles/cloudburst.vpcf"
-			"particle"				"particles/cloudburst_lightning.vpcf"
+			"particle"				"particles/elementalist/cloudburst.vpcf"
+			"particle"				"particles/elementalist/cloudburst_lightning.vpcf"
 		}
 		
 		// General
@@ -409,11 +781,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 		"AOERadius"						"%radius"
 
 		"OnSpellStart"
@@ -451,7 +823,7 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"particles/cloudburst.vpcf"
+						"EffectName"		"particles/elementalist/cloudburst.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
@@ -485,7 +857,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"morphling_waveform"
-				"EffectName" 			"particles/attunement_water_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_water_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 			"modifier_attunement_wind"
@@ -493,7 +865,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
-				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_wind_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -515,7 +887,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damageintperc"			"5 10 15 20"
+				"damageintperc"			"30 35 40 45"
 			}
 		}
 	}
@@ -666,11 +1038,15 @@
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 			"particle"				"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-			"particle"				"particles/fireball.vpcf"
-			"particle"				"particles/gale.vpcf"
-			"particle"				"particles/inferno.vpcf"
-			"particle"				"particles/fogofwar.vpcf"
-			"particle"				"particles/flow.vpcf"
+			"particle_folder"		"particles/elementalist"
+			"particle"				"particles/elementalist/gale.vpcf"
+			"particle"				"particles/elementalist/inferno.vpcf"
+			"particle"				"particles/elementalist/fogofwar.vpcf"
+			"particle"				"particles/elementalist/flow.vpcf"
+			"particle"				"particles/elementalist/cloudburst.vpcf"
+			"particle"				"particles/elementalist/pebblesalvo.vpcf"
+			"particle"				"particles/elementalist/magma.vpcf"
+			"particle"				"particles/elementalist/quagmire.vpcf"
 		}
 		
 		// General
@@ -694,7 +1070,7 @@
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                       "45 55 65 75"
+		"AbilityManaCost"                       "30 35 40 45"
 		"AOERadius"								"%radius"
 
 		"OnSpellStart"
@@ -731,103 +1107,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
-    			"EffectAttachType"		"follow_origin"
-			}
-		}
-	   
-		// Special     
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-					"var_type"                              "FIELD_FLOAT"
-					"damageintperc"                         "40 50 60 70"
-			}
-			"02"
-			{
-					"var_type"                              "FIELD_INTEGER"
-					"radius"                  				"150 200 250 300"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Combust
-	//=================================================================================================================
-	"customability_combust"
-	{
-	
-		"precache"
-		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
-			"particle"				"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-			"particle"				"particles/fireball.vpcf"
-			"particle"				"particles/gale.vpcf"
-			"particle"				"particles/inferno.vpcf"
-			"particle"				"particles/fogofwar.vpcf"
-			"particle"				"particles/flow.vpcf"
-		}
-		
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"                             "ability_datadriven"
-		"AbilityTextureName"                    "jakiro_liquid_fire"
-		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"                      "500"
-		"AbilityCastPoint"						".2"
-
-		// Time        
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                       "3"
-	   
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                       "45 55 65 75"
-		"AOERadius"								"%radius"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-    		{
-		        "ScriptFile"    		"Abilities/customability_combust.lua"
-		        "Function"   			"Attunement"
-		    }  
-			"FireSound"
-			{
-				"Target"				"POINT"
-				"EffectName"			"Hero_Invoker.ForgeSpirit"
-			}
-			"ApplyModifier"
-			{
-				"Target"				"CASTER"
-				"ModifierName"			"modifier_attunement_fire"
-			}
-			"RunScript"
-			{
-				"Target"				"POINT"
-				"ScriptFile"			"Abilities/customability_combust.lua"
-				"Function"				"Combust"
-				"damage"				"%damageintperc"
-				"radius"				"%radius"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_attunement_fire"
-			{
-				"Passive"               "0"
-				"IsHidden"				"0"
-				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_fire_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -1095,6 +1375,87 @@
 		}
 	}
 	//=================================================================================================================
+	// Daemon Slow Aura
+	//=================================================================================================================
+	"creature_daemon_slow"
+	{
+		"precache"
+		{
+			"particle"				"particles/items_fx/aura_shivas.vpcf"
+		}
+
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "crystal_maiden_brilliance_aura"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			//"ApplyModifier"
+			//{
+			//	"Target"				"TARGET"
+			//	"ModifierName"			"modifier_holdout_arcane_aura_buff"
+			//}
+
+			
+			"FireSound"
+			{
+			}
+		}
+
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"modifier_daemon_slow"
+			{
+				"Passive"               "1"
+				"IsHidden"				"1"
+				"Aura"					"modifier_daemon_slow_effect"
+				"Aura_Radius"			"300"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"	"0"
+			}
+				
+
+			"modifier_daemon_slow_effect"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"					"particles/cultist/aura_daemon_slow.vpcf"
+						"EffectAttachType"				"follow_origin"
+						"Target"						"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow"
+				}
+			}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow"				"-30"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Creature: Health Regen Passive
 	//=================================================================================================================
 	"creature_aura_health_regen"
@@ -1191,6 +1552,87 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"armor_buff"				"3 6 9 12"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Paegon Haste Aura
+	//=================================================================================================================
+	"creature_paegon_haste"
+	{
+		"precache"
+		{
+			"particle"				"particles/items_fx/aura_shivas.vpcf"
+		}
+
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "crystal_maiden_brilliance_aura"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			//"ApplyModifier"
+			//{
+			//	"Target"				"TARGET"
+			//	"ModifierName"			"modifier_holdout_arcane_aura_buff"
+			//}
+
+			
+			"FireSound"
+			{
+			}
+		}
+
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"modifier_paegon_haste"
+			{
+				"Passive"               "1"
+				"IsHidden"				"1"
+				"Aura"					"modifier_paegon_haste_effect"
+				"Aura_Radius"			"300"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"	"1"
+			}
+				
+
+			"modifier_paegon_haste_effect"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"					"particles/cultist/aura_paegon_haste.vpcf"
+						"EffectAttachType"				"follow_origin"
+						"Target"						"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%haste"
+				}
+			}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"haste"				"25"
 			}
 		}
 	}
@@ -1369,7 +1811,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
-			"particle"				"particles/ebb.vpcf"
+			"particle"				"particles/elementalist/ebb.vpcf"
 			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
 		}
 		
@@ -1395,7 +1837,7 @@
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "45 55 65 75"
+		"AbilityManaCost"                               "30 35 40 45"
 
 		"OnSpellStart"
 		{
@@ -1479,7 +1921,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"morphling_waveform"
-				"EffectName" 			"particles/attunement_water_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_water_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -1763,7 +2205,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"damageintperc"                         "300 350 400 450"
+					"damageintperc"                         "200 225 250 275"
 			}
 			"02"
 			{
@@ -1778,7 +2220,7 @@
 			"04"
 			{
 					"var_type"								"FIELD_INTEGER"
-					"burnintperc"							"15 20 25 30"
+					"burnintperc"							"10 15 20 25"
 			}
 			"05"
 			{
@@ -1796,7 +2238,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-			"particle"				"particles/firetornado.vpcf"
+			"particle"				"particles/elementalist/firetornado.vpcf"
 		}
 		
 		// General
@@ -1816,11 +2258,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 
 		"OnSpellStart"
 		{
@@ -1832,7 +2274,7 @@
 			"LinearProjectile"
 			{
 			    "Target" 		 "POINT"
-			    "EffectName"     "particles/firetornado.vpcf"
+			    "EffectName"     "particles/elementalist/firetornado.vpcf"
 			    "MoveSpeed"      "125"
 			    "StartRadius"    "200"
 			    "EndRadius"      "200"
@@ -1883,7 +2325,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_fire_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 			"modifier_attunement_wind"
@@ -1891,7 +2333,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
-				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_wind_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -1903,7 +2345,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"damageintperc"                         "15 25 35 45"
+					"damageintperc"                         "50 60 70 80"
 			}
 			"02"
 			{
@@ -1921,7 +2363,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
-			"particle"				"particles/ebb.vpcf"
+			"particle"				"particles/elementalist/flow.vpcf"
 			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
 		}
 		
@@ -1943,11 +2385,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 
 		"OnSpellStart"
 		{
@@ -2031,7 +2473,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"morphling_waveform"
-				"EffectName" 			"particles/attunement_water_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_water_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -2143,7 +2585,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"damageagiperc"                         "250 325 400 475"
+					"damageagiperc"                         "125 150 175 200"
 			}
 			"02"
 			{
@@ -2176,7 +2618,7 @@
 		"precache"
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
-			"particle"				"particles/fogofwar.vpcf"
+			"particle"				"particles/elementalist/fogofwar.vpcf"
 		}
 		
 		// General
@@ -2196,11 +2638,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                       "75 85 95 105"
+		"AbilityManaCost"                       "55 60 65 70"
 		"AOERadius"								"%radius"
 
 		"OnSpellStart"
@@ -2238,7 +2680,7 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"particles/fogofwar.vpcf"
+						"EffectName"		"particles/elementalist/fogofwar.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
@@ -2261,7 +2703,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"morphling_waveform"
-				"EffectName" 			"particles/attunement_water_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_water_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 			"modifier_attunement_fire"
@@ -2269,7 +2711,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_fire_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -2299,7 +2741,7 @@
 		"precache"
 		{
 			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-			"particle"						"particles/fortify.vpcf"
+			"particle"						"particles/elementalist/fortify.vpcf"
 		}
 	
 		// General
@@ -2318,7 +2760,7 @@
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "45 55 65 75"
+		"AbilityManaCost"                               "30 35 40 45"
 
 		"OnSpellStart"
 		{
@@ -2351,7 +2793,7 @@
 				"IsHidden"				"0"
 				"Duration"				"%duration"
 				"IsDebuff"              "0"
-				"EffectName"			"particles/fortify.vpcf"
+				"EffectName"			"particles/elementalist/fortify.vpcf"
 				"EffectAttachType"		"follow_origin"
 				"Attributes"       		"MODIFIER_ATTRIBUTE_MULTIPLE" 
 
@@ -2366,7 +2808,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"tiny_avalanche"
-				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_earth_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -2391,7 +2833,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-			"particle"				"particles/gale.vpcf"
+			"particle"				"particles/elementalist/gale.vpcf"
 		}
 		
 		// General
@@ -2411,11 +2853,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 		"AOERadius"								"%radius"
 
 		"OnSpellStart"
@@ -2458,7 +2900,7 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"particles/gale.vpcf"
+						"EffectName"		"particles/elementalist/gale.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
@@ -2495,7 +2937,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
-				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_wind_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -2507,7 +2949,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"damageintperc"                         "1"
+					"damageintperc"                         "1 2 2 3"
 			}
 			"02"
 			{
@@ -2535,7 +2977,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-			"particle"				"particles/gust.vpcf"
+			"particle"				"particles/elementalist/gust.vpcf"
 		}
 		
 		// General
@@ -2559,7 +3001,7 @@
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "45 55 65 75"
+		"AbilityManaCost"                               "30 35 40 45"
 
 		"OnSpellStart"
 		{
@@ -2571,7 +3013,7 @@
 			"LinearProjectile"
 			{
 			    "Target" 		 "POINT"
-			    "EffectName"     "particles/gust.vpcf"
+			    "EffectName"     "particles/elementalist/gust.vpcf"
 			    "MoveSpeed"      "857"
 			    "StartRadius"    "30"
 			    "EndRadius"      "200"
@@ -2622,7 +3064,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
-				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_wind_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -2685,10 +3127,16 @@
 				"EffectAttachType"      "follow_origin"
 				"Target"                "TARGET"
 			}
-			"Heal"
+			//"Heal"
+			//{
+			//	"Target"				"TARGET"
+			//	"HealAmount"			"%heal"
+			//}
+			"RunScript"
 			{
-				"Target"				"TARGET"
-				"HealAmount"			"%heal"
+				"ScriptFile"			"Abilities/customability_healinghands.lua"
+				"Function"				"HealingHands"
+				"heal"					"%healintperc"
 			}
 			"FireSound"
 			{
@@ -2704,7 +3152,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"heal"                              	"125 150 175 200"
+					"healintperc"                           "1200 1300 1400 1500"
 			}
 		}
 	}
@@ -3489,7 +3937,7 @@
 		"precache"
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
-			"particle"				"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+			"particle"				"particles/elementalist/inferno.vpcf"
 		}
 		
 		// General
@@ -3509,11 +3957,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                       "3"
+		"AbilityCooldown"                       "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                       "75 85 95 105"
+		"AbilityManaCost"                       "55 60 65 70"
 		"AOERadius"								"%radius"
 
 		"OnSpellStart"
@@ -3550,7 +3998,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_fire_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -3568,6 +4016,124 @@
 			{
 					"var_type"                              "FIELD_INTEGER"
 					"radius"                  				"250 300 350 400"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Judgement Day
+	//=================================================================================================================
+	"customability_judgementday"
+	{
+	
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"particle"				"particles/cultist/judgementday.vpcf"
+			"particle"				"particles/cultist/judgementday_pulse.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "vengefulspirit_nether_swap"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "500"
+		"AbilityCastPoint"						".2"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "20"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "70 85 100 115"
+		"AOERadius"						"%radius"
+
+		"OnSpellStart"
+		{		
+			"CreateThinker"
+			{
+				"ModifierName"			"judgementday_thinker"
+				"Target"				"POINT"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_judgementday.lua"
+				"Function"				"Attunement"
+			}
+			"FireSound"
+			{
+				"Target"				"Caster"
+				"EffectName"			"Hero_Bane.FiendsGrip"
+			}
+		}
+		
+		"Modifiers"
+		{			
+			"judgementday_thinker"
+			{
+				"Aura"					"judgementday_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/cultist/judgementday.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			
+			"judgementday_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/items2_fx/heavens_halberd_debuff_core.vpcf"
+				"EffectAttachType" "follow_overhead"
+				"ThinkInterval"			"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"Abilities/customability_judgementday.lua"
+						"Function"			"JudgementDay"
+						"damage"			"%damageintperc"
+					}
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"350"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damageintperc"			"35 45 55 65"
 			}
 		}
 	}
@@ -3840,7 +4406,7 @@
 		"precache"
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
-			"particle"				"particles/magma.vpcf"
+			"particle"				"particles/elementalist/magma.vpcf"
 		}
 		
 		// General
@@ -3860,11 +4426,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 		"AOERadius"						"%radius"
 
 		"OnSpellStart"
@@ -3902,7 +4468,7 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"particles/magma.vpcf"
+						"EffectName"		"particles/elementalist/magma.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
@@ -3930,7 +4496,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"tiny_avalanche"
-				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_earth_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 			"modifier_attunement_fire"
@@ -3938,7 +4504,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_fire_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -3960,7 +4526,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damageintperc"			"5 10 15 20"
+				"damageintperc"			"15 20 25 30"
 			}
 		}
 	}
@@ -4013,7 +4579,7 @@
 				"Aura"					"modifier_manafont_aura_effect"
 				"Aura_Radius"			"450"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_ApplyToCaster"	"1"
 			}
 				
@@ -4046,6 +4612,72 @@
 		}
 	}
 	//=================================================================================================================
+	// Paegon/Daemon Summon
+	//=================================================================================================================
+	"customability_paegon_daemon_summon"
+	{
+	
+		"precache"
+		{
+			//"particle"				"particles/fireball.vpcf"
+			"particle"					"particles/cultist/locustswarm.vpcf"
+			"particle"					"particles/cultist/awakenedspirit.vpcf"
+			"model"					"models/items/courier/dc_angel/dc_angel_flying.vmdl"
+			"model"					"models/items/courier/dc_demon/dc_demon_flying.vmdl"
+			"particle"				"particles/cultist/aura_daemon_slow.vpcf"
+			"particle"				"particles/cultist/aura_paegon_haste.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "terrorblade_conjure_image"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "600"
+		"AbilityCastPoint"						"0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "15"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"					"Abilities/customability_paegon_daemon_summon.lua"
+				"Function"						"Summon"
+				"duration"						"%duration"
+			}
+			"FireSound"
+			{
+				"Target"						"TARGET"
+				"EffectName"                    "Hero_Omniknight.Purification"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                          	"7.5 10 12.5 15"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Pebble Salvo
 	//=================================================================================================================
 	"customability_pebblesalvo"
@@ -4054,7 +4686,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-			"particle"				"particles/pebblesalvo.vpcf"
+			"particle"				"particles/elementalist/pebblesalvo.vpcf"
 		}
 		
 		// General
@@ -4074,11 +4706,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 
 		"OnSpellStart"
 		{
@@ -4090,7 +4722,7 @@
 			//"LinearProjectile"
 			//{
 			//    "Target" 		 "POINT"
-			//    "EffectName"     "particles/pebblesalvo.vpcf"
+			//    "EffectName"     "particles/elementalist/pebblesalvo.vpcf"
 			//    "MoveSpeed"      "857"
 			//    "StartRadius"    "30"
 			//    "EndRadius"      "200"
@@ -4141,7 +4773,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
-				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_wind_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 			"modifier_attunement_earth"
@@ -4149,7 +4781,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"tiny_avalanche"
-				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_earth_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -4161,12 +4793,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"damageintperc"                         "15 20 25 30"
-			}
-			"02"
-			{
-					"var_type"                              "FIELD_FLOAT"
-					"force"                         		"500 650 800 950"
+					"damageintperc"                         "30 35 40 45"
 			}
 		}
 	}
@@ -4457,22 +5084,22 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
+			//"01"
+			//{
+			//	"var_type"						"FIELD_FLOAT"
+			//	"duration"						"0.1"
+			//}
 			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"0.1"
-			}
-			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"poison_duration"				"3"
 			}
-			"03"
+			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"poisonintperc"					"10 15 20 25"
 			}
-			"04"
+			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"poisonatkperc"					"5"
@@ -4606,9 +5233,9 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"Abilitiescustomability_fireball.lua"
+						"ScriptFile"			"Abilities/customability_fireball.lua"
 						"Function"				"Burn"
-						"burn"				"%burnintperc"
+						"burn"					"%burnintperc"
 					}
 				}
 			}
@@ -4649,7 +5276,7 @@
 		"precache"
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
-			"particle"				"particles/quagmire.vpcf"
+			"particle"				"particles/elementalist/quagmire.vpcf"
 		}
 		
 		// General
@@ -4669,11 +5296,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 		"AOERadius"						"%radius"
 
 		"OnSpellStart"
@@ -4711,7 +5338,7 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"particles/quagmire.vpcf"
+						"EffectName"		"particles/elementalist/quagmire.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
@@ -4733,7 +5360,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"morphling_waveform"
-				"EffectName" 			"particles/attunement_water_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_water_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 			"modifier_attunement_earth"
@@ -4741,7 +5368,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"tiny_avalanche"
-				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_earth_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -4776,7 +5403,7 @@
 		"precache"
 		{
 			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-			"particle"						"particles/fortify.vpcf"
+			"particle"						"particles/elementalist/fortify.vpcf"
 		}
 	
 		// General
@@ -4791,11 +5418,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "4"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 
 		"OnSpellStart"
 		{
@@ -4833,7 +5460,7 @@
 				"IsHidden"				"0"
 				"Duration"				"%duration"
 				"IsDebuff"              "0"
-				"EffectName"			"particles/fortify.vpcf"
+				"EffectName"			"particles/elementalist/fortify.vpcf"
 				"TextureName"			"tiny_craggy_exterior"
 				"EffectAttachType"		"follow_origin"
 				"Attributes"       		"MODIFIER_ATTRIBUTE_MULTIPLE" 
@@ -4849,7 +5476,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"tiny_avalanche"
-				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_earth_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}

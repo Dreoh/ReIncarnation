@@ -18,10 +18,35 @@ POPUP_SYMBOL_POST_EYE = 6
 POPUP_SYMBOL_POST_SHIELD = 7
 POPUP_SYMBOL_POST_POINTFIVE = 8
 
+--For KV scripts
 function ShockDamage(keys)
-	local Target = keys.target
-	local dmg = round(keys.damage)
-	PopupNumbers(Target, "damage", Vector(37, 150, 241), 3, dmg, 1, 4)	--Magic damage
+    local Target = keys.target
+    local dmg = round(keys.damage)
+    PopupNumbers(Target, "damage", Vector(37, 150, 241), 3, dmg, 1, 4)  --Magic damage
+end
+
+function ArcaneDamage(keys)
+    local Target = keys.target
+    local dmg = round(keys.damage)
+    PopupNumbers(Target, "damage", Vector(22, 231, 225), 3, dmg, 1, 4)  --Magic damage
+end
+
+function FireDamage(keys)
+    local dmg = round(keys.damage)
+    local Target = keys.target
+    PopupNumbers(Target, "damage", Vector(255, 81, 0), 3, dmg, 1, 4)    --Magic damage
+end
+
+function PoisonDamage(keys)
+    local dmg = round(keys.damage)
+    local Target = keys.target
+    PopupNumbers(Target, "poison", Vector(215, 50, 248), 3.0, dmg, 1, 5)
+end
+
+function PhysicalDamage(keys)
+    local Target = keys.target
+    local dmg = round(keys.damage)
+    PopupNumbers(Target, "damage", Vector(255, 0, 0), 3.0, dmg, 1, 3)
 end
 
 function ShockDamageManual(target, amount)
@@ -30,10 +55,22 @@ function ShockDamageManual(target, amount)
 	PopupNumbers(Target, "damage", Vector(37, 150, 241), 3, dmg, 1, 4)	--Magic damage
 end
 
-function EarthDamage(keys)
-    local Target = keys.target
-    local dmg = round(keys.damage)
-    PopupNumbers(Target, "damage", Vector(125, 82, 0), 3, dmg, 1, 4)  --Magic damage
+function DarkDamageManual(target, amount)
+    local Target = target
+    local dmg = round(amount)
+    PopupNumbers(Target, "damage", Vector(44, 44, 44), 3, dmg, 1, 4)  --Magic damage
+end
+
+function AwakenedSpiritPopupManual(target, amount)
+    local Target = target
+    local dmg = round(amount)
+    PopupNumbers(Target, "damage", Vector(235, 237, 85), 3, dmg, nil, 7)  --Magic damage
+end
+
+function BasicAttackManual(target, amount)
+    local Target = target
+    local dmg = round(amount)
+    PopupNumbers(Target, "damage", Vector(255, 255, 255), 3, dmg, 1, nil)  --Magic damage
 end
 
 function EarthDamageManual(target, amount)
@@ -42,22 +79,10 @@ function EarthDamageManual(target, amount)
     PopupNumbers(Target, "damage", Vector(125, 82, 0), 3, dmg, 1, 4)  --Magic damage
 end
 
-function WindDamage(keys)
-    local Target = keys.target
-    local dmg = round(keys.damage)
-    PopupNumbers(Target, "damage", Vector(179, 255, 255), 3, dmg, 1, 4)  --Magic damage
-end
-
 function WindDamageManual(target, amount)
     local Target = target
     local dmg = round(amount)
     PopupNumbers(Target, "damage", Vector(179, 255, 255), 3, dmg, 1, 4)  --Magic damage
-end
-
-function WaterDamage(keys)
-    local Target = keys.target
-    local dmg = round(keys.damage)
-    PopupNumbers(Target, "damage", Vector(0, 0, 204), 3, dmg, 1, 4)  --Magic damage
 end
 
 function WaterDamageManual(target, amount)
@@ -66,22 +91,10 @@ function WaterDamageManual(target, amount)
     PopupNumbers(Target, "damage", Vector(0, 0, 204), 3, dmg, 1, 4)  --Magic damage
 end
 
-function ArcaneDamage(keys)
-	local Target = keys.target
-	local dmg = round(keys.damage)
-	PopupNumbers(Target, "damage", Vector(22, 231, 225), 3, dmg, 1, 4)	--Magic damage
-end
-
 function ArcaneDamageManual(target, amount)
 	local Target = target
 	local dmg = round(amount)
 	PopupNumbers(Target, "damage", Vector(22, 231, 225), 3, dmg, 1, 4)	--Magic damage
-end
-
-function FireDamage(keys)
-	local dmg = round(keys.damage)
-	local Target = keys.target
-	PopupNumbers(Target, "damage", Vector(255, 81, 0), 3, dmg, 1, 4)	--Magic damage
 end
 
 function FireDamageManual(target, amount)
@@ -101,11 +114,6 @@ function ManaNumbers(target, amount)
 end
 
 -- e.g. when taking damage over time from a poison type spell
-function PoisonDamage(keys)
-	local dmg = round(keys.damage)
-	local Target = keys.target
-	PopupNumbers(Target, "poison", Vector(215, 50, 248), 3.0, dmg, 1, 5)
-end
 
 function PoisonDamageManual(target, amount)
 	local dmg = round(amount)
@@ -114,11 +122,6 @@ function PoisonDamageManual(target, amount)
 end
 
 -- e.g. the popup you get when you suddenly take a large portion of your health pool in damage at once
-function PhysicalDamage(keys)
-	local Target = keys.target
-	local dmg = round(keys.damage)
-    PopupNumbers(Target, "damage", Vector(255, 0, 0), 3.0, dmg, 1, 3)
-end
 
 function PhysicalDamageManual(target, amount)
 	local dmg = round(amount)
@@ -129,6 +132,16 @@ end
 -- e.g. when dealing critical damage
 function CriticalDamage(target, amount)
     PopupNumbers(target, "crit", Vector(255, 0, 0), 3.0, round(amount), 1, 0)
+end
+
+function GoldManual(target, killer, amount)
+    local dmg = round(amount)
+    local killer = killer
+    local Target = target
+    PopupNumbers(Target, "gold", Vector(204, 204, 0), 3.0, dmg, 0, nil, killer:GetTeamNumber())
+    goldfx = ParticleManager:CreateParticle("particles/generic_gameplay/lasthit_coins.vpcf", PATTACH_ABSORIGIN_FOLLOW, Target)
+    ParticleManager:SetParticleControl(goldfx,1,Target:GetAbsOrigin())
+    StartSoundEvent("General.Coins", Target)
 end
 
 -- Customizable version.

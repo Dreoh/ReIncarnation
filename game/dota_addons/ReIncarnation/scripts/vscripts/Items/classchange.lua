@@ -1,28 +1,30 @@
 function Reset(keys)
 	print("classchange_reset casted")
-	local items = {}
 	local Caster = keys.caster
-	for i = 0, 5 do
-		if Caster:GetItemInSlot(i) ~= nil and Caster:GetItemInSlot(i):GetName() ~= "item_classchange_reset" then
-			itemCopy = CreateItem(Caster:GetItemInSlot(i):GetName(), nil, nil)
-			items[i] = itemCopy
+	if Caster:GetUnitName() ~= "npc_dota_hero_kunkka" then
+		local items = {}
+		for i = 0, 5 do
+			if Caster:GetItemInSlot(i) ~= nil and Caster:GetItemInSlot(i):GetName() ~= "item_classchange_reset" then
+				itemCopy = CreateItem(Caster:GetItemInSlot(i):GetName(), nil, nil)
+				items[i] = itemCopy
+			end
 		end
-	end
-	local player = Caster:GetPlayerOwner()
-	hero = Caster:GetUnitName()
-	print("Caster = " .. hero)
-	local heroLevel = Caster:GetLevel()
-	local loc = Caster:GetAbsOrigin()
-	PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_kunkka", Caster:GetGold(), 0 )
-	local newHero = player:GetAssignedHero()
-	for i = 0, 5 do
-		if items[i] ~= nil then
-			newHero:AddItem(items[i])
+		local player = Caster:GetPlayerOwner()
+		hero = Caster:GetUnitName()
+		print("Caster = " .. hero)
+		local heroLevel = Caster:GetLevel()
+		local loc = Caster:GetAbsOrigin()
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_kunkka", Caster:GetGold(), 0 )
+		local newHero = player:GetAssignedHero()
+		for i = 0, 5 do
+			if items[i] ~= nil then
+				newHero:AddItem(items[i])
+			end
 		end
+		newHero:SetAbsOrigin(loc)
+		ShowGenericPopupToPlayer( player , "popup_title_reincarnate", "popup_body_reincarnate", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
+		----SendToConsole("dota_camera_center")
 	end
-	newHero:SetAbsOrigin(loc)
-	ShowGenericPopupToPlayer( player , "popup_title_reincarnate", "popup_body_reincarnate", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
-	----SendToConsole("dota_camera_center")
 end
 
 function Devout(keys)
@@ -183,9 +185,9 @@ end
 function Elementalist(keys)
 
 	print("classchange_elementalist casted")
-	PrecacheResource("particle", "particles/inferno.vpcf", context )
-	PrecacheResource("particle", "particles/gale.vpcf", context )
-	PrecacheResource("particle", "particles/fogofwar.vpcf", context )
+	--PrecacheResource("particle", "particles/inferno.vpcf", context )
+	--PrecacheResource("particle", "particles/gale.vpcf", context )
+	--PrecacheResource("particle", "particles/fogofwar.vpcf", context )
 	local items = {}
 	local Caster = keys.caster
 	for i = 0, 5 do

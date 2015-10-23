@@ -7,7 +7,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-			"particle"				"particles/gust.vpcf"
+			"particle"				"particles/elementalist/gust.vpcf"
 		}
 		
 		// General
@@ -31,7 +31,7 @@
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "45 55 65 75"
+		"AbilityManaCost"                               "30 35 40 45"
 
 		"OnSpellStart"
 		{
@@ -43,7 +43,7 @@
 			"LinearProjectile"
 			{
 			    "Target" 		 "POINT"
-			    "EffectName"     "particles/gust.vpcf"
+			    "EffectName"     "particles/elementalist/gust.vpcf"
 			    "MoveSpeed"      "857"
 			    "StartRadius"    "30"
 			    "EndRadius"      "200"
@@ -94,7 +94,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
-				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_wind_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}

@@ -7,7 +7,7 @@
 		"precache"
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
-			"particle"				"particles/magma.vpcf"
+			"particle"				"particles/elementalist/magma.vpcf"
 		}
 		
 		// General
@@ -27,11 +27,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 		"AOERadius"						"%radius"
 
 		"OnSpellStart"
@@ -69,7 +69,7 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"particles/magma.vpcf"
+						"EffectName"		"particles/elementalist/magma.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
@@ -97,7 +97,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"tiny_avalanche"
-				"EffectName" 			"particles/attunement_earth_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_earth_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 			"modifier_attunement_fire"
@@ -105,7 +105,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_fire_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -127,7 +127,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damageintperc"			"5 10 15 20"
+				"damageintperc"			"15 20 25 30"
 			}
 		}
 	}

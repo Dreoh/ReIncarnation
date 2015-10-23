@@ -40,10 +40,16 @@
 				"EffectAttachType"      "follow_origin"
 				"Target"                "TARGET"
 			}
-			"Heal"
+			//"Heal"
+			//{
+			//	"Target"				"TARGET"
+			//	"HealAmount"			"%heal"
+			//}
+			"RunScript"
 			{
-				"Target"				"TARGET"
-				"HealAmount"			"%heal"
+				"ScriptFile"			"Abilities/customability_healinghands.lua"
+				"Function"				"HealingHands"
+				"heal"					"%healintperc"
 			}
 			"FireSound"
 			{
@@ -59,7 +65,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"heal"                              	"125 150 175 200"
+					"healintperc"                           "1200 1300 1400 1500"
 			}
 		}
 	}

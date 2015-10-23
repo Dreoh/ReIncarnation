@@ -8,11 +8,15 @@
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 			"particle"				"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-			"particle"				"particles/fireball.vpcf"
-			"particle"				"particles/gale.vpcf"
-			"particle"				"particles/inferno.vpcf"
-			"particle"				"particles/fogofwar.vpcf"
-			"particle"				"particles/flow.vpcf"
+			"particle_folder"		"particles/elementalist"
+			"particle"				"particles/elementalist/gale.vpcf"
+			"particle"				"particles/elementalist/inferno.vpcf"
+			"particle"				"particles/elementalist/fogofwar.vpcf"
+			"particle"				"particles/elementalist/flow.vpcf"
+			"particle"				"particles/elementalist/cloudburst.vpcf"
+			"particle"				"particles/elementalist/pebblesalvo.vpcf"
+			"particle"				"particles/elementalist/magma.vpcf"
+			"particle"				"particles/elementalist/quagmire.vpcf"
 		}
 		
 		// General
@@ -36,7 +40,7 @@
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                       "45 55 65 75"
+		"AbilityManaCost"                       "30 35 40 45"
 		"AOERadius"								"%radius"
 
 		"OnSpellStart"
@@ -73,7 +77,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_fire_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}

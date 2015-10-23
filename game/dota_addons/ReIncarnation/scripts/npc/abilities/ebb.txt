@@ -7,7 +7,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
-			"particle"				"particles/ebb.vpcf"
+			"particle"				"particles/elementalist/ebb.vpcf"
 			"particle"				"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"
 		}
 		
@@ -33,7 +33,7 @@
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "45 55 65 75"
+		"AbilityManaCost"                               "30 35 40 45"
 
 		"OnSpellStart"
 		{
@@ -117,7 +117,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"morphling_waveform"
-				"EffectName" 			"particles/attunement_water_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_water_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}

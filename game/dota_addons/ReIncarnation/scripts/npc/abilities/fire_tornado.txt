@@ -7,7 +7,7 @@
 		"precache"
 		{
 			"soundfile"             "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-			"particle"				"particles/firetornado.vpcf"
+			"particle"				"particles/elementalist/firetornado.vpcf"
 		}
 		
 		// General
@@ -27,11 +27,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                               "75 85 95 105"
+		"AbilityManaCost"                               "55 60 65 70"
 
 		"OnSpellStart"
 		{
@@ -43,7 +43,7 @@
 			"LinearProjectile"
 			{
 			    "Target" 		 "POINT"
-			    "EffectName"     "particles/firetornado.vpcf"
+			    "EffectName"     "particles/elementalist/firetornado.vpcf"
 			    "MoveSpeed"      "125"
 			    "StartRadius"    "200"
 			    "EndRadius"      "200"
@@ -94,7 +94,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_fire_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 			"modifier_attunement_wind"
@@ -102,7 +102,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"skywrath_mage_mystic_flare"
-				"EffectName" 			"particles/attunement_wind_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_wind_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}
@@ -114,7 +114,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"damageintperc"                         "15 25 35 45"
+					"damageintperc"                         "50 60 70 80"
 			}
 			"02"
 			{

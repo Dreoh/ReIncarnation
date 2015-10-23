@@ -39,7 +39,7 @@ function Flow(keys)
     	--target = point
         Ability = ability,
         --EffectName = "particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf",
-        EffectName = "particles/flow.vpcf",
+        EffectName = "particles/elementalist/flow.vpcf",
         vSpawnOrigin = Caster:GetAbsOrigin(),
         fDistance = distance,
         fStartRadius = radius,

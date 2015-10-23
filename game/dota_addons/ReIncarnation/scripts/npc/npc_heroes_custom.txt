@@ -72,6 +72,16 @@
 		"precache"
 		{
 			"particle"				"particles/fireball.vpcf"
+			"particle_folder"		"particles/cultist"
+			"particle"				"particles/cultist/locustswarm.vpcf"
+			"particle"				"particles/cultist/awakenedspirit.vpcf"
+			"particle"				"particles/cultist/benediction.vpcf"
+			"particle"				"particles/cultist/judgementday.vpcf"
+			"particle"				"particles/cultist/judgementday_pulse.vpcf"
+			"model"					"models/items/courier/dc_angel/dc_angel_flying.vmdl"
+			"model"					"models/items/courier/dc_demon/dc_demon_flying.vmdl"
+			"particle"				"particles/cultist/aura_daemon_slow.vpcf"
+			"particle"				"particles/cultist/aura_paegon_haste.vpcf"
 		}
 	
 		// General
@@ -84,11 +94,11 @@
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityLayout"    			"4"
-		"Ability1"					"customability_empty1"			// Ability 1.
-		"Ability2"					"customability_empty2"			// Ability 2
-		"Ability3"					"customability_empty3"			// Ability 3
-		"Ability4"					"customability_empty4"			// Ability 4
-		"Ability5"					"attribute_bonus"						// Ability 5
+		"Ability1"					"customability_benediction_anathema"			// Ability 1.
+		"Ability2"					"customability_awakenedspirit_locustswarm"			// Ability 2
+		"Ability3"					"customability_judgementday"			// Ability 3
+		"Ability4"					"customability_paegon_daemon_summon"			// Ability 4
+		"Ability5"					"attribute_bonus"				// Ability 5
 		
 		// Attack
 		//----------------------------------------------------------------	
@@ -200,19 +210,20 @@
 	
 		"precache"
 		{
-			"particle"				"particles/fireball.vpcf"
-			"particle"				"particles/gale.vpcf"
-			"particle"				"particles/inferno.vpcf"
-			"particle"				"particles/attunement_earth_glow.vpcf"
-			"particle"				"particles/attunement_wind_glow.vpcf"
-			"particle"				"particles/attunement_water_glow.vpcf"
-			"particle"				"particles/attunement_fire_glow.vpcf"
-			"particle"				"particles/fogofwar.vpcf"
-			"particle"				"particles/magma.vpcf"
-			"particle"				"particles/firetornado.vpcf"
-			"particle"				"particles/cloudburst_lightning.vpcf"
-			"particle"				"particles/cloudburst.vpcf"
-			"particle"				"particles/pebblesalvo.vpcf"
+			"particle_folder"		"particles/elementalist"
+			"particle"				"particles/elementalist/fireball.vpcf"
+			"particle"				"particles/elementalist/gale.vpcf"
+			"particle"				"particles/elementalist/inferno.vpcf"
+			"particle"				"particles/elementalist/attunement_earth_glow.vpcf"
+			"particle"				"particles/elementalist/attunement_wind_glow.vpcf"
+			"particle"				"particles/elementalist/attunement_water_glow.vpcf"
+			"particle"				"particles/elementalist/attunement_fire_glow.vpcf"
+			"particle"				"particles/elementalist/fogofwar.vpcf"
+			"particle"				"particles/elementalist/magma.vpcf"
+			"particle"				"particles/elementalist/firetornado.vpcf"
+			"particle"				"particles/elementalist/cloudburst_lightning.vpcf"
+			"particle"				"particles/elementalist/cloudburst.vpcf"
+			"particle"				"particles/elementalist/pebblesalvo.vpcf"
 		}
 	
 		// General
@@ -234,10 +245,10 @@
 		
 		// Attack
 		//----------------------------------------------------------------	
-		"DamageGain"				"1"
+		"DamageGain"				".3"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"5"										// Damage range min.
-		"AttackDamageMax"			"10"									// Damage range max.
+		"AttackDamageMax"			"5"										// Damage range max.
 		"AttackRate"				"1.7"									// Speed of attack.
 		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
 		"AttackRange"				"350"									// Range within a target can be attacked.
@@ -355,10 +366,10 @@
 		"AbilityLayout"    			"2"
 		"Ability1"					"customability_adrenalinerush"				// Ability 1.
 		"Ability2"					"customability_bandage"						// Ability 2
-		"Ability3"					"rubick_empty1"			// Ability 3
-		"Ability4"					"rubick_empty2"			// Ability 4
+		"Ability3"					"customability_empty1"			// Ability 3
+		"Ability4"					"customability_empty2"			// Ability 4
 		"Ability5"					"attribute_bonus"			// Ability 5
-		"Ability6"					"doom_bringer_empty2"			// Ability 6
+		"Ability6"					"customability_empty3"			// Ability 6
 		
 		// Attack
 		//----------------------------------------------------------------	

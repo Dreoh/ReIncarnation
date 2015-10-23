@@ -1,0 +1,185 @@
+	//=================================================================================================================
+	// Benediction/Anathema
+	//=================================================================================================================
+	"customability_benediction_anathema"
+	{
+	
+		"precache"
+		{
+			//"particle"				"particles/fireball.vpcf"
+			"particle"					"particles/cultist/benediction.vpcf"
+			"particle"					"particles/cultist/anathema.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "benediction_anathema"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "600"
+		"AbilityCastPoint"						"0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "16"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			//"AttachEffect"
+			//{
+			//	"EffectName"            "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+			//	"EffectAttachType"      "follow_origin"
+			//	"Target"                "TARGET"
+			//}
+			//"Heal"
+			//{
+			//	"Target"				"TARGET"
+			//	"HealAmount"			"%heal"
+			//}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+				"Function"				"OnCast"
+			}
+			"FireSound"
+			{
+				"Target"						"TARGET"
+				"EffectName"                    "Hero_Omniknight.Purification"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_benediction_ally"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"benediction"
+				"EffectName" 			"particles/cultist/benediction.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+						"Function"				"BenedictionAlly"
+						"heal"					"%healintperc"
+						"spreadradius"			"%spreadradius"
+					}
+				}
+			}
+			"modifier_benediction_foe"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"benediction"
+				"EffectName" 			"particles/cultist/benediction.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+						"Function"				"BenedictionFoe"
+						"heal"					"%healintperc"
+						"spreadradius"			"%spreadradius"
+					}
+				}
+			}
+			"modifier_benediction_resistance"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration * 2"
+				"TextureName"			"benediction_resistance"
+			}
+			"modifier_anathema_ally"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"anathema"
+				"EffectName" 			"particles/cultist/anathema.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+						"Function"				"AnathemaAlly"
+						"damage"				"%damageintperc"
+						"spreadradius"			"%spreadradius"
+					}
+				}
+			}
+			"modifier_anathema_foe"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"anathema"
+				"EffectName" 			"particles/cultist/anathema.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_benediction_anathema.lua"
+						"Function"				"AnathemaFoe"
+						"damage"				"%damageintperc"
+						"spreadradius"			"%spreadradius"
+					}
+				}
+			}
+			"modifier_anathema_resistance"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration * 2"
+				"TextureName"			"anathema_resistance"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"healintperc"                           "5 12.5 20 27.5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"damageintperc"                         "5 12.5 20 27.5"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"spreadradius"                          "300"
+			}
+			"04"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                          	"16"
+			}
+		}
+	}

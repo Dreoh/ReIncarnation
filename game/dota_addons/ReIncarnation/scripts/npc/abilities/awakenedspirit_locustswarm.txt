@@ -1,0 +1,187 @@
+	//=================================================================================================================
+	// Awakened Spirit/Locust Swarm
+	//=================================================================================================================
+	"customability_awakenedspirit_locustswarm"
+	{
+	
+		"precache"
+		{
+			//"particle"				"particles/fireball.vpcf"
+			"particle"					"particles/cultist/locustswarm.vpcf"
+			"particle"					"particles/cultist/awakenedspirit.vpcf"
+			}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "awakenedspirit_locustswarm"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "600"
+		"AbilityCastPoint"						"0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "14"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			//"AttachEffect"
+			//{
+			//	"EffectName"            "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+			//	"EffectAttachType"      "follow_origin"
+			//	"Target"                "TARGET"
+			//}
+			//"Heal"
+			//{
+			//	"Target"				"TARGET"
+			//	"HealAmount"			"%heal"
+			//}
+			"RunScript"
+			{
+				"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+				"Function"				"OnCast"
+				"armorincrease"			"%armorincrease"
+				"armorreduction"			"%armorreduction"
+			}
+			"FireSound"
+			{
+				"Target"						"TARGET"
+				"EffectName"                    "Hero_Omniknight.Purification"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_awakenedspirit_ally"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"awakenedspirit"
+				"EffectName" 			"particles/cultist/awakenedspirit.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+						"Function"				"AwakenedSpiritAlly"
+						"spreadradius"			"%spreadradius"
+						"armorincrease"			"%armorincrease"
+					}
+				}
+			}
+			"modifier_awakenedspirit_foe"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"awakenedspirit"
+				"EffectName" 			"particles/cultist/awakenedspirit.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+						"Function"				"AwakenedSpiritFoe"
+						"spreadradius"			"%spreadradius"
+						"armorincrease"			"%armorincrease"
+					}
+				}
+			}
+			"modifier_awakenedspirit_resistance"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration * 2"
+				"TextureName"			"awakenedspirit_resistance"
+			}
+			"modifier_locustswarm_ally"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"locustswarm"
+				"EffectName" 			"particles/cultist/locustswarm.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+						"Function"				"LocustSwarmAlly"
+						"spreadradius"			"%spreadradius"
+						"armorreduction"		"%armorreduction"
+					}
+				}
+			}
+			"modifier_locustswarm_foe"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"TextureName"			"locustswarm"
+				"EffectName" 			"particles/cultist/locustswarm.vpcf"
+    			"EffectAttachType"		"follow_origin"
+    			"ThinkInterval"			".5"
+    			"OnIntervalThink"
+    			{
+	    			"RunScript"
+					{
+						"ScriptFile"			"Abilities/customability_awakenedspirit_locustswarm.lua"
+						"Function"				"LocustSwarmFoe"
+						"spreadradius"			"%spreadradius"
+						"armorreduction"		"%armorreduction"
+					}
+				}
+			}
+			"modifier_locustswarm_resistance"
+			{
+				"Passive"               "0"
+				"IsHidden"				"0"
+				"Duration"				"%duration * 2"
+				"TextureName"			"locustswarm_resistance"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"armorreduction"                        "5 7.5 10 12.5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"armorincrease"                         "5 7.5 10 12.5"
+			}
+			"03"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"spreadradius"                          "300"
+			}
+			"04"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                          	"14"
+			}
+		}
+	}

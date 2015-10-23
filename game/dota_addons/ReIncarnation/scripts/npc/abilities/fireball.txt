@@ -146,7 +146,7 @@
 			"01"
 			{
 					"var_type"                              "FIELD_FLOAT"
-					"damageintperc"                         "300 350 400 450"
+					"damageintperc"                         "200 225 250 275"
 			}
 			"02"
 			{
@@ -161,7 +161,7 @@
 			"04"
 			{
 					"var_type"								"FIELD_INTEGER"
-					"burnintperc"							"15 20 25 30"
+					"burnintperc"							"10 15 20 25"
 			}
 			"05"
 			{

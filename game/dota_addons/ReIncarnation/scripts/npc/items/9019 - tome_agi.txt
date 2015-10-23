@@ -42,8 +42,8 @@
 				"ScriptFile"	"Items/tome.lua"
 				"Function"		"Agi"
 			}
-			"SpendCharge"
-			{}
+			//"SpendCharge"
+			//{}
 		}
 
 		// Special	

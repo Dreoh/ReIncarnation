@@ -10,9 +10,11 @@ function OnStartTouch(trigger)
 		end
 	end
 	if occupied == 0 then
-		trigger.activator:SetAbsOrigin(point)
-		trigger.activator:Stop()
-		SendToConsole("dota_camera_center")
+		--if trigger.activator:IsSummoned() or trigger.activator:IsHero() then
+			trigger.activator:SetAbsOrigin(point)
+			trigger.activator:Stop()
+			--SendToConsole("dota_camera_center")
+		--end
 	end
  
 end

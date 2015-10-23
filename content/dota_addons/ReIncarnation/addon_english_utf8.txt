@@ -60,6 +60,8 @@
 		"npc_dota_summoned_guardian_angel"			"Guardian Angel"
 		"npc_dota_creature_treant"					"Treant"
 		"npc_dota_creature_buff_witch"				"Empowering Wraith"
+		"npc_dota_creature_lesser_daemon"                                                 "Lesser Daemon"
+		"npc_dota_creature_lesser_paegon"                                                 "Lesser Paegon"
 		
 		"DOTA_Tooltip_Ability_creature_aura_health_regen"					"Healing Aura"
 		"DOTA_Tooltip_ability_creature_aura_health_regen_Description"		"Regenerates health around the caster."
@@ -119,43 +121,8 @@
 		"DOTA_Tooltip_tower_fortification_modifier"							"Fortification"
 		"DOTA_Tooltip_creature_slithereen_crush_slow"						"Stunned"
 
-		"DOTA_Tooltip_modifier_fortify"                                                   "Fortify"
-		"DOTA_Tooltip_modifier_fortify_Description"                                       "Blocks one attack"
 
-		"DOTA_Tooltip_modifier_fortify_check"                                             "Fortify Check"
-		"DOTA_Tooltip_modifier_fortify_check_Description"                                 ""
 
-		"DOTA_Tooltip_modifier_attunement_fire"                                           "Attunement Fire"
-		"DOTA_Tooltip_modifier_attunement_fire_Description"                               ""
-
-		"DOTA_Tooltip_modifier_attunement_water"                                          "Attunement Water"
-		"DOTA_Tooltip_modifier_attunement_water_Description"                              ""
-
-		"DOTA_Tooltip_modifier_attunement_earth"                                          "Attunement Earth"
-		"DOTA_Tooltip_modifier_attunement_earth_Description"                              ""
-
-		"DOTA_Tooltip_modifier_attunement_wind"                                           "Attunement Wind"
-		"DOTA_Tooltip_modifier_attunement_wind_Description"                               ""
-
-		"DOTA_Tooltip_gale_thinker"                                                       "Gale Thinker"
-		"DOTA_Tooltip_gale_thinker_Description"                                           ""
-
-		"DOTA_Tooltip_gale_aura"                                                          "Gale Aura"
-		"DOTA_Tooltip_gale_aura_Description"                                              ""
-
-		"DOTA_Tooltip_fogofwar_thinker"                                                   "Fogofwar Thinker"
-		"DOTA_Tooltip_fogofwar_thinker_Description"                                       ""
-
-		"DOTA_Tooltip_fogofwar_aura"                                                      "Fogofwar Aura"
-		"DOTA_Tooltip_fogofwar_aura_Description"                                          ""
-
-		"DOTA_Tooltip_magma_thinker"                                                      "Magma Thinker"
-		"DOTA_Tooltip_magma_thinker_Description"                                          ""
-
-		"DOTA_Tooltip_magma_aura"                                                         "Magma Aura"
-		"DOTA_Tooltip_magma_aura_Description"                                             ""
-		
-		
 		// ******************** HEROES ********************
 
 		"npc_dota_hero_windrunner"                                                        "Npc Dota Hero Ranger"
@@ -315,6 +282,85 @@
 		"DOTA_Tooltip_quagmire_aura"                                                      "Quagmire Aura"
 		"DOTA_Tooltip_quagmire_aura_Description"                                          ""
 
+		"DOTA_Tooltip_modifier_benediction_ally"                                          "Benediction Ally"
+		"DOTA_Tooltip_modifier_benediction_ally_Description"                              ""
+
+		"DOTA_Tooltip_modifier_benediction_foe"                                           "Benediction Foe"
+		"DOTA_Tooltip_modifier_benediction_foe_Description"                               ""
+
+		"DOTA_Tooltip_modifier_benediction_resistance"                                    "Benediction Resistance"
+		"DOTA_Tooltip_modifier_benediction_resistance_Description"                        ""
+
+		"DOTA_Tooltip_modifier_anathema_ally"                                             "Anathema Ally"
+		"DOTA_Tooltip_modifier_anathema_ally_Description"                                 ""
+
+		"DOTA_Tooltip_modifier_anathema_foe"                                              "Anathema Foe"
+		"DOTA_Tooltip_modifier_anathema_foe_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_anathema_resistance"                                       "Anathema Resistance"
+		"DOTA_Tooltip_modifier_anathema_resistance_Description"                           ""
+
+		"DOTA_Tooltip_modifier_fortify"                                                   "Fortify"
+		"DOTA_Tooltip_modifier_fortify_Description"                                       "Blocks one attack"
+
+		"DOTA_Tooltip_modifier_fortify_check"                                             "Fortify Check"
+		"DOTA_Tooltip_modifier_fortify_check_Description"                                 ""
+
+		"DOTA_Tooltip_modifier_attunement_fire"                                           "Attunement Fire"
+		"DOTA_Tooltip_modifier_attunement_fire_Description"                               ""
+
+		"DOTA_Tooltip_modifier_attunement_water"                                          "Attunement Water"
+		"DOTA_Tooltip_modifier_attunement_water_Description"                              ""
+
+		"DOTA_Tooltip_modifier_attunement_earth"                                          "Attunement Earth"
+		"DOTA_Tooltip_modifier_attunement_earth_Description"                              ""
+
+		"DOTA_Tooltip_modifier_attunement_wind"                                           "Attunement Wind"
+		"DOTA_Tooltip_modifier_attunement_wind_Description"                               ""
+
+		"DOTA_Tooltip_gale_thinker"                                                       "Gale Thinker"
+		"DOTA_Tooltip_gale_thinker_Description"                                           ""
+
+		"DOTA_Tooltip_gale_aura"                                                          "Gale Aura"
+		"DOTA_Tooltip_gale_aura_Description"                                              ""
+
+		"DOTA_Tooltip_fogofwar_thinker"                                                   "Fogofwar Thinker"
+		"DOTA_Tooltip_fogofwar_thinker_Description"                                       ""
+
+		"DOTA_Tooltip_fogofwar_aura"                                                      "Fogofwar Aura"
+		"DOTA_Tooltip_fogofwar_aura_Description"                                          ""
+
+		"DOTA_Tooltip_magma_thinker"                                                      "Magma Thinker"
+		"DOTA_Tooltip_magma_thinker_Description"                                          ""
+
+		"DOTA_Tooltip_magma_aura"                                                         "Magma Aura"
+		"DOTA_Tooltip_magma_aura_Description"                                             ""
+
+		"DOTA_Tooltip_modifier_awakenedspirit_ally"                                       "Awakenedspirit Ally"
+		"DOTA_Tooltip_modifier_awakenedspirit_ally_Description"                           ""
+
+		"DOTA_Tooltip_modifier_awakenedspirit_foe"                                        "Awakenedspirit Foe"
+		"DOTA_Tooltip_modifier_awakenedspirit_foe_Description"                            ""
+
+		"DOTA_Tooltip_modifier_awakenedspirit_resistance"                                 "Awakenedspirit Resistance"
+		"DOTA_Tooltip_modifier_awakenedspirit_resistance_Description"                     ""
+
+		"DOTA_Tooltip_modifier_locustswarm_ally"                                          "Locustswarm Ally"
+		"DOTA_Tooltip_modifier_locustswarm_ally_Description"                              ""
+
+		"DOTA_Tooltip_modifier_locustswarm_foe"                                           "Locustswarm Foe"
+		"DOTA_Tooltip_modifier_locustswarm_foe_Description"                               ""
+
+		"DOTA_Tooltip_modifier_locustswarm_resistance"                                    "Locustswarm Resistance"
+		"DOTA_Tooltip_modifier_locustswarm_resistance_Description"                        ""
+
+		"DOTA_Tooltip_judgementday_thinker"                                               "Judgementday Thinker"
+		"DOTA_Tooltip_judgementday_thinker_Description"                                   ""
+
+		"DOTA_Tooltip_judgementday_aura"                                                  "Judgementday Aura"
+		"DOTA_Tooltip_judgementday_aura_Description"                                      ""
+		
+		
 
 		// ******************** ITEM MODIFIERS ********************
 		"DOTA_Tooltip_modifier_orb_frost"                                                 "Orb Frost"
@@ -376,6 +422,12 @@
 
 		"DOTA_Tooltip_modifier_orb_venom_enchant_poison"                                  "Orb Venom Enchant Poison"
 		"DOTA_Tooltip_modifier_orb_venom_enchant_poison_Description"                      ""
+
+		"DOTA_Tooltip_modifier_daemon_slow_effect"                                        "Daemon Slow Effect"
+		"DOTA_Tooltip_modifier_daemon_slow_effect_Description"                            ""
+
+		"DOTA_Tooltip_modifier_paegon_haste_effect"                                       "Paegon Haste Effect"
+		"DOTA_Tooltip_modifier_paegon_haste_effect_Description"                           ""
 
 
 		// ******************** ITEM MODIFIERS ********************
@@ -716,7 +768,6 @@
 		"DOTA_Tooltip_ability_customability_pebblesalvo_Description"                      "Earth and Wind, opposites. Compress wind, and explode it outwards to fire pebbles in all directions\nDeals Earth damage"
 		"DOTA_Tooltip_ability_customability_pebblesalvo_Lore"                      		  "Tango down!"
 		"DOTA_Tooltip_ability_customability_pebblesalvo_damageintperc"                    "%PERCENT INTELLIGENCE DAMAGE:"
-		"DOTA_Tooltip_ability_customability_pebblesalvo_force"                            "FORCE:"
 
 		"DOTA_Tooltip_ability_customability_quagmire"                                     "Quagmire"
 		"DOTA_Tooltip_ability_customability_quagmire_Description"                         "Water, running through Earth, unstabilizes it and causes it to lose it's structure\nSlows enemies caught in target area"
@@ -724,6 +775,42 @@
 		"DOTA_Tooltip_ability_customability_quagmire_radius"                              "RADIUS:"
 		"DOTA_Tooltip_ability_customability_quagmire_duration"                            "DURATION:"
 		"DOTA_Tooltip_ability_customability_quagmire_move_speed"                          "MOVE SPEED:"
+
+		"DOTA_Tooltip_ability_customability_benediction_anathema"                         "Benediction/Anathema"
+		"DOTA_Tooltip_ability_customability_benediction_anathema_Description"             "Bless/Afflict the target with Light/Dark energies\nBecomes Benediction if cast on ally\nBecomes Anathema if cast on Foe\nSpreads to ally and foe alike, but Benediction heals foes less while Anathema damages allies less\nBenediction heals allies more if dark spell present\nAnathema damages foes more if light spell present\nAfter contraction, units can only be afflicted again through direct cast until resistance wears off"
+		"DOTA_Tooltip_ability_customability_benediction_anathema_Lore"             		  "The neutral plane is the warzone of the gods"
+		"DOTA_Tooltip_ability_customability_benediction_anathema_healintperc"             "%PERCENT INTELLIGENCE HOT:"
+		"DOTA_Tooltip_ability_customability_benediction_anathema_damageintperc"           "%PERCENT INTELLIGENCE DOT:"
+		"DOTA_Tooltip_ability_customability_benediction_anathema_spreadradius"            "SPREAD RADIUS:"
+		"DOTA_Tooltip_ability_customability_benediction_anathema_duration"                "DURATION:"
+
+		"DOTA_Tooltip_ability_customability_awakenedspirit_locustswarm"                   "Awakened Spirit/Locust Swarm"
+		"DOTA_Tooltip_ability_customability_awakenedspirit_locustswarm_Description"       "Bless/Afflict the target with spiritual presence/locust swarms that reduce/increase damage taken respectively\nBecomes Awakened Spirit if cast on ally\nBecomes Locust Swarm if cast on Foe\nSpreads to ally and foe alike, but Awakened Spirit reduces damage on foes less while Locust Swarm increases allies damage taken less\nAwakened Spirit decreases damage on allies more if dark spell present\nLocust Swarm increases damage on foes more if light spell present\nAfter contraction, units can only be afflicted again through direct cast until resistance wears off"
+		"DOTA_Tooltip_ability_customability_awakenedspirit_locustswarm_Lore"       		  "Two sides of the same coin?"
+		"DOTA_Tooltip_ability_customability_awakenedspirit_locustswarm_armorreduction"    "DAMAGE INCREASE:"
+		"DOTA_Tooltip_ability_customability_awakenedspirit_locustswarm_armorincrease"     "DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_customability_awakenedspirit_locustswarm_spreadradius"      "SPREAD RADIUS:"
+		"DOTA_Tooltip_ability_customability_awakenedspirit_locustswarm_duration"          "DURATION:"
+
+		"DOTA_Tooltip_ability_customability_judgementday"                                 "Judgement Day"
+		"DOTA_Tooltip_ability_customability_judgementday_Description"                     "Call upon the great ones to force their hand on the world\nDeals damage over time to enemies\nHeals allies over time"
+		"DOTA_Tooltip_ability_customability_judgementday_Lore"                     		  "Our fates are decided by those we cannot comprehend"
+		"DOTA_Tooltip_ability_customability_judgementday_radius"                          "RADIUS:"
+		"DOTA_Tooltip_ability_customability_judgementday_duration"                        "DURATION:"
+		"DOTA_Tooltip_ability_customability_judgementday_damageintperc"                   "%PERCENT INTELLIGENCE DAMAGE/HEAL:"
+
+		"DOTA_Tooltip_ability_creature_daemon_slow"                                       "Daemon Slow Aura"
+		"DOTA_Tooltip_ability_creature_daemon_slow_Description"                           "The Daemon indiscriminantely slows down the movement speed of all in range"
+		"DOTA_Tooltip_ability_creature_daemon_slow_slow"                                  "SLOW:"
+
+		"DOTA_Tooltip_ability_creature_paegon_haste"                                      "Paegon Haste Aura"
+		"DOTA_Tooltip_ability_creature_paegon_haste_Description"                          "The Paegon indiscriminantely speeds up the movement speed of all in range"
+		"DOTA_Tooltip_ability_creature_paegon_haste_haste"                                "HASTE:"
+
+		"DOTA_Tooltip_ability_customability_paegon_daemon_summon"                         "Paegon/Daemon Summon"
+		"DOTA_Tooltip_ability_customability_paegon_daemon_summon_Description"             "Call upon the aid of a lesser Paegon/Daemon\nThe Paegon/Daemon speeds up/slows down all in range of it\nThe aura effect counts towards Benediction/Anathema and Awakened Spirit/Locust Swarm"
+		"DOTA_Tooltip_ability_customability_paegon_daemon_summon_Lore"             		  "Mere peons of the great ones"
+		"DOTA_Tooltip_ability_customability_paegon_daemon_summon_duration"                "DURATION:"
 
 
 		// ******************** ITEMS ********************
@@ -823,7 +910,7 @@
 		"DOTA_Tooltip_ability_item_custom_ring_focus_mp_perc"									"%MANA REGEN BONUS:"
 		
 		"DOTA_Tooltip_ability_item_custom_recipe_ring_power"						"Ring of Power Recipe"
-		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_Description"						"Regenerate - Restores HP and MP over time"
+		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_Description"						"Regenerate - Restores HP and MP over time\nRequires Ring of Regen and Ring of Focus"
 		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_Lore"								"A magical ring that can mend even the deepest of physical and mental wounds."
 		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_Note0"								""
 		"DOTA_Tooltip_ability_item_custom_recipe_ring_power_mp_perc"							"%MANA REGEN BONUS:"
@@ -868,7 +955,7 @@
 		"DOTA_Tooltip_ability_item_classchange_devout_Note0"								""
 		
 		"DOTA_Tooltip_ability_item_classchange_elementalist"					"Classchange: T2: Elementalist"
-		"DOTA_Tooltip_ability_item_classchange_elementalist_Description"					"(Roughly 25percent complete)(currently only 4 abilities) Change your profession to one with the fury of the elements"
+		"DOTA_Tooltip_ability_item_classchange_elementalist_Description"					"(Roughly 95percent complete)Change your profession to one with the fury of the elements"
 		"DOTA_Tooltip_ability_item_classchange_elementalist_Lore"							"Requires Level 20 Devout"
 		"DOTA_Tooltip_ability_item_classchange_elementalist_Note0"							""
 		
@@ -878,7 +965,7 @@
 		"DOTA_Tooltip_ability_item_classchange_arcanist_Note0"								""
 		
 		"DOTA_Tooltip_ability_item_classchange_cultist"							"Classchange: T2: Cultist"
-		"DOTA_Tooltip_ability_item_classchange_cultist_Description"							"(currently only 0 abilities) Change your profession to a servant of a higher power, dealing blessings and plagues alike"
+		"DOTA_Tooltip_ability_item_classchange_cultist_Description"							"Change your profession to a servant of a higher power, dealing blessings and plagues alike"
 		"DOTA_Tooltip_ability_item_classchange_cultist_Lore"								"Requires Level 20 Devout"
 		"DOTA_Tooltip_ability_item_classchange_cultist_Note0"								""
 		
@@ -903,7 +990,7 @@
 		"DOTA_Tooltip_ability_item_classchange_exile_Note0"									""
 		
 		"DOTA_Tooltip_ability_item_classchange_reset"							"Reset Scroll"
-		"DOTA_Tooltip_ability_item_classchange_reset_Description"							"Returns you to your roots, allowing you to forge a new path"
+		"DOTA_Tooltip_ability_item_classchange_reset_Description"							"Returns you to your roots, allowing you to forge a new path\nCannot be used if your class is Basic Hero"
 		"DOTA_Tooltip_ability_item_classchange_reset_Lore"									"Wait... what am I doing?"
 		"DOTA_Tooltip_ability_item_classchange_reset_Note0"									""
 		

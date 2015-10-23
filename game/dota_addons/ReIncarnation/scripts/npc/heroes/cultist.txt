@@ -8,6 +8,16 @@
 		"precache"
 		{
 			"particle"				"particles/fireball.vpcf"
+			"particle_folder"		"particles/cultist"
+			"particle"				"particles/cultist/locustswarm.vpcf"
+			"particle"				"particles/cultist/awakenedspirit.vpcf"
+			"particle"				"particles/cultist/benediction.vpcf"
+			"particle"				"particles/cultist/judgementday.vpcf"
+			"particle"				"particles/cultist/judgementday_pulse.vpcf"
+			"model"					"models/items/courier/dc_angel/dc_angel_flying.vmdl"
+			"model"					"models/items/courier/dc_demon/dc_demon_flying.vmdl"
+			"particle"				"particles/cultist/aura_daemon_slow.vpcf"
+			"particle"				"particles/cultist/aura_paegon_haste.vpcf"
 		}
 	
 		// General
@@ -20,11 +30,11 @@
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityLayout"    			"4"
-		"Ability1"					"customability_empty1"			// Ability 1.
-		"Ability2"					"customability_empty2"			// Ability 2
-		"Ability3"					"customability_empty3"			// Ability 3
-		"Ability4"					"customability_empty4"			// Ability 4
-		"Ability5"					"attribute_bonus"						// Ability 5
+		"Ability1"					"customability_benediction_anathema"			// Ability 1.
+		"Ability2"					"customability_awakenedspirit_locustswarm"			// Ability 2
+		"Ability3"					"customability_judgementday"			// Ability 3
+		"Ability4"					"customability_paegon_daemon_summon"			// Ability 4
+		"Ability5"					"attribute_bonus"				// Ability 5
 		
 		// Attack
 		//----------------------------------------------------------------	

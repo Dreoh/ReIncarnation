@@ -13,7 +13,7 @@ function Chainlightning(keys)
 	local damageTable = {victim = Target, attacker = Caster, damage = dmg, damage_type = DAMAGE_TYPE_MAGICAL}
 	ApplyDamage(damageTable)	--Deal damage
 	ShockDamageManual(Target, dmg)
-	print("The first unit is " .. Target:GetName())
+	--print("The first unit is " .. Target:GetName())
 	table.insert( hitTable, Target)
 	lightningBolt = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_ABSORIGIN_FOLLOW, Caster)
 	ParticleManager:SetParticleControl(lightningBolt,1,Vector(Target:GetAbsOrigin().x,Target:GetAbsOrigin().y,Target:GetAbsOrigin().z+((Target:GetBoundingMaxs().z - Target:GetBoundingMins().z)/2)))
@@ -21,7 +21,7 @@ function Chainlightning(keys)
 	for i = 0, jumps do
 		for _, unit in pairs(Entities:FindAllInSphere(Target:GetAbsOrigin(), 400)) do
 			if (unit:GetClassname() == "npc_dota_creature" or unit:GetClassname() == "npc_dota_creep_neutral") and unit:GetTeamNumber() == 3 and unit:IsAlive() then
-				print("The #" .. i .. " unit found is " .. unit:GetName())
+				--print("The #" .. i .. " unit found is " .. unit:GetName())
 				local checkunit = 0 					--bool check if we hit this unit before
 				
 				for c = 0, #hitTable do					--iterate through hit units
@@ -31,7 +31,7 @@ function Chainlightning(keys)
 				end
 				
 				if checkunit == 0 then					--if unit has not been hit
-					print("Dealing " .. dmg .." to " .. unit:GetName())
+					--print("Dealing " .. dmg .." to " .. unit:GetName())
 					prevTarget = Target					--last unit is particle start point
 					Target = unit						--unit becomes new start point next iteration
 					lightningBolt = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_ABSORIGIN_FOLLOW, prevTarget)

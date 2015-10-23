@@ -1,0 +1,66 @@
+	//=================================================================================================================
+	// Paegon/Daemon Summon
+	//=================================================================================================================
+	"customability_paegon_daemon_summon"
+	{
+	
+		"precache"
+		{
+			//"particle"				"particles/fireball.vpcf"
+			"particle"					"particles/cultist/locustswarm.vpcf"
+			"particle"					"particles/cultist/awakenedspirit.vpcf"
+			"model"					"models/items/courier/dc_angel/dc_angel_flying.vmdl"
+			"model"					"models/items/courier/dc_demon/dc_demon_flying.vmdl"
+			"particle"				"particles/cultist/aura_daemon_slow.vpcf"
+			"particle"				"particles/cultist/aura_paegon_haste.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "terrorblade_conjure_image"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "600"
+		"AbilityCastPoint"						"0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "15"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"					"Abilities/customability_paegon_daemon_summon.lua"
+				"Function"						"Summon"
+				"duration"						"%duration"
+			}
+			"FireSound"
+			{
+				"Target"						"TARGET"
+				"EffectName"                    "Hero_Omniknight.Purification"
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                          	"7.5 10 12.5 15"
+			}
+		}
+	}

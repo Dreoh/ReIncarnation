@@ -7,7 +7,7 @@
 		"precache"
 		{
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
-			"particle"				"particles/fogofwar.vpcf"
+			"particle"				"particles/elementalist/fogofwar.vpcf"
 		}
 		
 		// General
@@ -27,11 +27,11 @@
 
 		// Time        
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"                               "3"
+		"AbilityCooldown"                               "6"
 	   
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                       "75 85 95 105"
+		"AbilityManaCost"                       "55 60 65 70"
 		"AOERadius"								"%radius"
 
 		"OnSpellStart"
@@ -69,7 +69,7 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"particles/fogofwar.vpcf"
+						"EffectName"		"particles/elementalist/fogofwar.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
@@ -92,7 +92,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"morphling_waveform"
-				"EffectName" 			"particles/attunement_water_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_water_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 			"modifier_attunement_fire"
@@ -100,7 +100,7 @@
 				"Passive"               "0"
 				"IsHidden"				"0"
 				"TextureName"			"invoker_exort"
-				"EffectName" 			"particles/attunement_fire_glow.vpcf"
+				"EffectName" 			"particles/elementalist/attunement_fire_glow.vpcf"
     			"EffectAttachType"		"follow_origin"
 			}
 		}

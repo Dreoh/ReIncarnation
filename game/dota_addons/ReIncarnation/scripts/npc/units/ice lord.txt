@@ -16,7 +16,7 @@
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
 		"IdleSoundLoop"				"Hero_Ancient_Apparition.IdleLoop"
 
-		"ModelScale" 				"3"
+		"ModelScale" 				"2"
 		"CanBeDominated"			"0"
 
 		// Abilities

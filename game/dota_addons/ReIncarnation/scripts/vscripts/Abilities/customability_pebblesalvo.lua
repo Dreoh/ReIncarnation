@@ -13,7 +13,7 @@ function PebbleSalvo(keys)
     	--target = point
         Ability = ability,
         --EffectName = "particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf",
-        EffectName = "particles/pebblesalvo.vpcf",
+        EffectName = "particles/elementalist/pebblesalvo.vpcf",
         vSpawnOrigin = Caster:GetAbsOrigin(),
         fDistance = distance,
         fStartRadius = radius,

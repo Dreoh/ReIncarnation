@@ -7,19 +7,20 @@
 	
 		"precache"
 		{
-			"particle"				"particles/fireball.vpcf"
-			"particle"				"particles/gale.vpcf"
-			"particle"				"particles/inferno.vpcf"
-			"particle"				"particles/attunement_earth_glow.vpcf"
-			"particle"				"particles/attunement_wind_glow.vpcf"
-			"particle"				"particles/attunement_water_glow.vpcf"
-			"particle"				"particles/attunement_fire_glow.vpcf"
-			"particle"				"particles/fogofwar.vpcf"
-			"particle"				"particles/magma.vpcf"
-			"particle"				"particles/firetornado.vpcf"
-			"particle"				"particles/cloudburst_lightning.vpcf"
-			"particle"				"particles/cloudburst.vpcf"
-			"particle"				"particles/pebblesalvo.vpcf"
+			"particle_folder"		"particles/elementalist"
+			"particle"				"particles/elementalist/fireball.vpcf"
+			"particle"				"particles/elementalist/gale.vpcf"
+			"particle"				"particles/elementalist/inferno.vpcf"
+			"particle"				"particles/elementalist/attunement_earth_glow.vpcf"
+			"particle"				"particles/elementalist/attunement_wind_glow.vpcf"
+			"particle"				"particles/elementalist/attunement_water_glow.vpcf"
+			"particle"				"particles/elementalist/attunement_fire_glow.vpcf"
+			"particle"				"particles/elementalist/fogofwar.vpcf"
+			"particle"				"particles/elementalist/magma.vpcf"
+			"particle"				"particles/elementalist/firetornado.vpcf"
+			"particle"				"particles/elementalist/cloudburst_lightning.vpcf"
+			"particle"				"particles/elementalist/cloudburst.vpcf"
+			"particle"				"particles/elementalist/pebblesalvo.vpcf"
 		}
 	
 		// General
@@ -41,10 +42,10 @@
 		
 		// Attack
 		//----------------------------------------------------------------	
-		"DamageGain"				"1"
+		"DamageGain"				".3"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"5"										// Damage range min.
-		"AttackDamageMax"			"10"									// Damage range max.
+		"AttackDamageMax"			"5"										// Damage range max.
 		"AttackRate"				"1.7"									// Speed of attack.
 		"AttackAcquisitionRange"	"400"									// Range within a target can be acquired.
 		"AttackRange"				"350"									// Range within a target can be attacked.

@@ -10,7 +10,7 @@ function Inferno(keys)
 	local   radius = keys.radius
 	local 	attunement = "fire"
 
-	InfernoFlame = ParticleManager:CreateParticle("particles/inferno.vpcf", PATTACH_ABSORIGIN, Caster)
+	InfernoFlame = ParticleManager:CreateParticle("particles/elementalist/inferno.vpcf", PATTACH_ABSORIGIN, Caster)
 	ParticleManager:SetParticleControl(InfernoFlame,0,point)
 
 	EmitSoundOnLocationWithCaster(point, "Hero_Invoker.ForgeSpirit", Caster)

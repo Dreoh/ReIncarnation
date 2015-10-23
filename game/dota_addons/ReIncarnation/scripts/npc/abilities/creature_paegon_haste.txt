@@ -1,0 +1,81 @@
+	//=================================================================================================================
+	// Paegon Haste Aura
+	//=================================================================================================================
+	"creature_paegon_haste"
+	{
+		"precache"
+		{
+			"particle"				"particles/items_fx/aura_shivas.vpcf"
+		}
+
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "crystal_maiden_brilliance_aura"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			//"ApplyModifier"
+			//{
+			//	"Target"				"TARGET"
+			//	"ModifierName"			"modifier_holdout_arcane_aura_buff"
+			//}
+
+			
+			"FireSound"
+			{
+			}
+		}
+
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"modifier_paegon_haste"
+			{
+				"Passive"               "1"
+				"IsHidden"				"1"
+				"Aura"					"modifier_paegon_haste_effect"
+				"Aura_Radius"			"300"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"	"1"
+			}
+				
+
+			"modifier_paegon_haste_effect"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"					"particles/cultist/aura_paegon_haste.vpcf"
+						"EffectAttachType"				"follow_origin"
+						"Target"						"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%haste"
+				}
+			}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"haste"				"25"
+			}
+		}
+	}

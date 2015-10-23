@@ -25,10 +25,10 @@
 		"AbilityLayout"    			"2"
 		"Ability1"					"customability_adrenalinerush"				// Ability 1.
 		"Ability2"					"customability_bandage"						// Ability 2
-		"Ability3"					"rubick_empty1"			// Ability 3
-		"Ability4"					"rubick_empty2"			// Ability 4
+		"Ability3"					"customability_empty1"			// Ability 3
+		"Ability4"					"customability_empty2"			// Ability 4
 		"Ability5"					"attribute_bonus"			// Ability 5
-		"Ability6"					"doom_bringer_empty2"			// Ability 6
+		"Ability6"					"customability_empty3"			// Ability 6
 		
 		// Attack
 		//----------------------------------------------------------------	

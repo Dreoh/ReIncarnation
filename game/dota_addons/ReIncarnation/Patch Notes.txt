@@ -1,2 +1,10 @@
 -REMEMBER TO UPDATE ADDON_GAME_LUA VERSION NUMBER
--Version 0.1.4f
+-Version 0.1.5f
+
+Added Loading Screen image
+
+Gameplay
+-Last hit gold bonus now correctly is applied to killer
+
+
+!!Add Arena!!

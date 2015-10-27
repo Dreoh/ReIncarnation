@@ -7,7 +7,16 @@
 	
 		"precache"
 		{
-			"particle"				"particles/fireball.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_dazzle/dazzle_armor_friend_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_cast.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_spiral02.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_shell.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_end.vpcf"
 		}
 	
 		// General
@@ -20,9 +29,9 @@
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityLayout"    			"4"
-		"Ability1"					"customability_empty1"			// Ability 1.
-		"Ability2"					"customability_empty2"			// Ability 2
-		"Ability3"					"customability_empty3"			// Ability 3
+		"Ability1"					"customability_shieldbash"			// Ability 1.
+		"Ability2"					"customability_holdfast"			// Ability 2
+		"Ability3"					"customability_taunt"			// Ability 3
 		"Ability4"					"customability_empty4"			// Ability 4
 		"Ability5"					"attribute_bonus"						// Ability 5
 		

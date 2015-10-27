@@ -1,10 +1,10 @@
 -REMEMBER TO UPDATE ADDON_GAME_LUA VERSION NUMBER
--Version 0.1.5f
+-Version 0.1.6c
 
-Added Loading Screen image
 
-Gameplay
--Last hit gold bonus now correctly is applied to killer
 
 
 !!Add Arena!!
+!!Fix Boss Respawn Timers!!
+!!Fix Boss Loot Drop!!
+!!Warrior -> Spellblade whirlwind sound!!

@@ -37,7 +37,7 @@
 			{
 				"Target"					"CASTER"
 				"ScriptFile"				"Abilities/customability_spellmastery.lua"
-				"Function"					"PyreToggleOn"
+				"Function"					"ShockToggleOn"
 			}
 		}
 		
@@ -52,7 +52,7 @@
 			{
 				"Target"					"CASTER"
 				"ScriptFile"				"Abilities/customability_spellmastery.lua"
-				"Function"					"PyreToggleOff"
+				"Function"					"ShockToggleOff"
 			}
 		}
 		

@@ -1,0 +1,104 @@
+	//=================================================================================================================
+	// Taunt
+	//=================================================================================================================
+	"customability_taunt"
+	{
+	
+		"precache"
+		{
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+			"particle"						"particles/items2_fx/satanic_buff.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "axe_berserkers_call"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"MaxLevel" 								"5"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "22.0 22.0 22.0 22.0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"                        "CASTER"
+				"ModifierName"					"modifier_taunt_aura"
+			}
+			"FireSound"
+			{
+				"EffectName"                    "Hero_Axe.Berserkers_Call"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_taunt_aura"
+			{
+				"Aura"					"modifier_taunt"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"1"
+
+				//"OnCreated"
+				//{
+				//	"AttachEffect"
+				//	{
+				//		"Target"			"TARGET"
+				//		"EffectName"		"particles/elementalist/quagmire.vpcf"
+				//		"EffectAttachType"	"follow_origin"
+				//	}
+				//}
+			}
+
+			"modifier_taunt"
+			{
+				"IsDebuff"              "1"
+				"EffectName"			"particles/items2_fx/satanic_buff.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Duration"      		"%duration"
+				"ThinkInterval"			".1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"Abilities/customability_taunt.lua"
+						"Function"		"Taunt"
+						"Target"		"TARGET"
+					}
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                              "1.5 2.0 2.5 3.0 3.5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"radius"                              	"300"
+			}
+		}
+	}

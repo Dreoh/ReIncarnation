@@ -28,12 +28,12 @@
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityLayout"    			"5"
-		"Ability1"					"customability_spellmastery"			// Ability 1.
-		"Ability2"					"customability_leechblade"			// Ability 2
-		"Ability3"					"customability_coldsteel"			// Ability 3
-		"Ability4"					"customability_pyredge"			// Ability 4
+		"Ability1"					"customability_leechblade"			// Ability 2
+		"Ability2"					"customability_coldsteel"			// Ability 3
+		"Ability3"					"customability_pyredge"			// Ability 4
+		"Ability4"					"customability_shockpoint"			// Ability 6
 		"Ability5"					"attribute_bonus"						// Ability 5
-		"Ability6"					"customability_shockpoint"			// Ability 6
+		"Ability6"					"customability_spellmastery"			// Ability 1.
 		
 		// Attack
 		//----------------------------------------------------------------	

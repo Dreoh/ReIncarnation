@@ -1,6 +1,6 @@
 print ('[BAREBONES] barebones.lua' )
 require('popup')
-_Version = "0.1.5f"
+_Version = "0.1.6c"
 
 ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
@@ -566,7 +566,8 @@ function CReIncarnationGameMode:GoldShare( unit, killer )
 
   print("----------Killed Unit Table---------")
   PrintTable(unit)
-  print("BountyGoldMax - " .. unit:GetGoldBounty() )
+  local bounty = unit:GetGoldBounty()
+  print("BountyGoldMax - " .. bounty )
   print("------------------------------------")
   local playerTable = {}
   local check = 0
@@ -574,10 +575,10 @@ function CReIncarnationGameMode:GoldShare( unit, killer )
   table.insert( playerTable, killer )
   for _,entity in pairs (FindUnitsInRadius(killer:GetTeamNumber(), unit:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL,  0, FIND_ANY_ORDER, false) ) do
     print("Found " .. entity:GetUnitName() .. " in death radius")
-    if entity:GetPlayerID() ~= nil then
+    if entity:GetPlayerOwnerID() ~= nil then
       for i = 0, #playerTable do
         if playerTable[i] ~= nil then
-          if playerTable[i]:GetPlayerID() == entity:GetPlayerID() then
+          if playerTable[i]:GetPlayerOwnerID() == entity:GetPlayerOwnerID() then
             check = 1
           end
         end
@@ -586,21 +587,30 @@ function CReIncarnationGameMode:GoldShare( unit, killer )
         table.insert( playerTable, entity )   
       end
     end
+    check = 0
   end
   print("playerTable length is " .. #playerTable)
-  local bounty = unit:GetGoldBounty() / #playerTable
+  print("There are " .. PlayerResource:GetPlayerCountForTeam(killer:GetTeamNumber()) .. " players on killers team")
+  bounty = ((bounty / #playerTable) * ((1 / (PlayerResource:GetPlayerCountForTeam(killer:GetTeamNumber()) + 1)) + 0.4))
   print("bounty is " .. bounty)
   for i = 0, #playerTable do
     if playerTable[i] ~= nil then
-      PlayerResource:SetGold(playerTable[i]:GetPlayerID(), PlayerResource:GetGold(playerTable[i]:GetPlayerID()) + bounty, false)
-      print("Adding " .. bounty .. " to player " .. playerTable[i]:GetPlayerID())
-      if playerTable[i].lasthitcheck ~= nil then
-        PlayerResource:SetGold(playerTable[i]:GetPlayerID(), PlayerResource:GetGold(playerTable[i]:GetPlayerID()) + (bounty / 5), false)
-        print("Last hit bonus bounty of " .. (bounty / 5) .. " added to player " .. playerTable[i]:GetPlayerID())
+      print("Killers current gold is " .. PlayerResource:GetGold(playerTable[i]:GetPlayerOwnerID()))
+      print("---playerTable---")
+      PrintTable(playerTable)
+      print("-----------------")
+      PlayerResource:ModifyGold(playerTable[i]:GetPlayerOwnerID(), bounty, false, 13)
+      print("Adding " .. bounty .. " to player " .. playerTable[i]:GetPlayerOwnerID())
+      if playerTable[i].lasthitcheck ~= nil and #playerTable ~= 1 then
+        PlayerResource:ModifyGold(playerTable[i]:GetPlayerOwnerID(), (bounty / 5), false, 13)
+        print("Last hit bonus bounty of " .. (bounty / 5) .. " added to player " .. playerTable[i]:GetPlayerOwnerID())
       end
     end
   end
   GoldManual(unit, killer, bounty)
+  for i = 0, #playerTable do
+    playerTable[i] = nil
+  end
 end
 
 -- This function initializes the game mode and is called before anyone loads into the game
@@ -930,10 +940,12 @@ function CReIncarnationGameMode:FilterModifyGold( filterTable )
   --print("---------Gold Filter table--------")
   --PrintTable(filterTable)
   --print("----------------------------------")
+  
+  print("Gold Filter modifying " .. filterTable.player_id_const .. "'s gold by " .. filterTable.gold .. " because of reason " .. filterTable.reason_const)
   if filterTable.reason_const == 13 then
     return false
   end
-
+  print("Gold Filter reason was not creep kill")
   return true
 end
 
@@ -1041,7 +1053,7 @@ function CReIncarnationGameMode:Debug(pID)
     local hero = player:GetAssignedHero()
     print("Debug")
     if player then
-      PlayerResource:SetGold(pID, 99999, false)
+      PlayerResource:SetGold(pID, 5000, false)
       for i=1,21 do
         hero:HeroLevelUp(false)
       end

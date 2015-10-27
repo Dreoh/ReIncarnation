@@ -1,0 +1,98 @@
+	//=================================================================================================================
+	// Hold Fast
+	//=================================================================================================================
+	"customability_holdfast"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_dazzle/dazzle_armor_friend_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_cast.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_spiral02.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_shell.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_end.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "medusa_mana_shield"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"MaxLevel" 								"5"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "0"
+		"AbilityCastPoint"						"0"
+		"AbilityChannelTime"      				"5"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "20"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+			    "ModifierName" 		"modifier_holdfast_buff"
+			    "Target" 			"CASTER"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+		    "RemoveModifier"
+		    {
+		        "ModifierName" 	 	"modifier_holdfast_buff"
+		        "Target"       		"CASTER"
+		    } 
+		}
+
+		"Modifiers"
+		{
+		    "modifier_holdfast_buff"
+		    {
+				"IsDebuff"		"0"
+				"IsPurgable"	"false"
+				"EffectAttachType"		"follow_origin"
+				"EffectName"            "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"            "particles/units/heroes/hero_dazzle/dazzle_armor_friend_shield.vpcf"
+						"EffectAttachType"		"follow_overhead"
+						"Target"                "CASTER"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damagemitigation"
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"damagemitigation"                      "-30 -40 -50 -60 -70"
+			}
+		}
+	}

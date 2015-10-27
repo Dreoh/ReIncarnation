@@ -1510,7 +1510,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"485"
 		"ItemSellable"					"1"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"wraith band"
@@ -1572,7 +1572,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"485"
 		"ItemSellable"					"1"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"null talisman"
@@ -1634,7 +1634,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"485"
 		"ItemSellable"					"1"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"bracer"
@@ -1719,6 +1719,18 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-98"
+				}
+			}
+			"modifier_fountain_heal"
+			{
+				"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+   	 			"BaseClass"             "item_datadriven"
+				"IsDebuff"				"0"
+				"TextureName"			"enigma_demonic_conversion"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "10"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"   "5"
 				}
 			}
 			"modifier_god_mode"

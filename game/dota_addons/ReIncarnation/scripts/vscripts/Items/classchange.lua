@@ -11,10 +11,13 @@ function Reset(keys)
 		end
 		local player = Caster:GetPlayerOwner()
 		hero = Caster:GetUnitName()
+		local gold = 0					--To fix the gold share bug
+		gold = Caster:GetGold()
+		Caster:SetGold(0, false)
 		print("Caster = " .. hero)
 		local heroLevel = Caster:GetLevel()
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_kunkka", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_kunkka", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -40,11 +43,14 @@ function Devout(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_kunkka" and Caster:GetLevel() >= 5 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_invoker", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_invoker", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -71,11 +77,14 @@ function Ranger(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_kunkka" and Caster:GetLevel() >= 5 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_windrunner", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_windrunner", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -92,6 +101,7 @@ end
 function Warrior(keys)
 
 	print("classchange_warrior casted")
+	local gold = 0
 	local items = {}
 	local Caster = keys.caster
 	for i = 0, 5 do
@@ -102,11 +112,14 @@ function Warrior(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_kunkka" and Caster:GetLevel() >= 5 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_dragon_knight", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_dragon_knight", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -133,11 +146,14 @@ function Arcanist(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_invoker" and Caster:GetLevel() >= 20 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_crystal_maiden", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_crystal_maiden", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -164,11 +180,14 @@ function Cultist(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_invoker" and Caster:GetLevel() >= 20 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_dazzle", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_dazzle", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -198,12 +217,15 @@ function Elementalist(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_invoker" and Caster:GetLevel() >= 20 then
 		print("hero and level check is good")
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_storm_spirit", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_storm_spirit", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -234,11 +256,14 @@ function Exile(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_windrunner" and Caster:GetLevel() >= 20 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_furion", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_furion", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -265,11 +290,14 @@ function Trapper(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_windrunner" and Caster:GetLevel() >= 20 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_sniper", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_sniper", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -296,11 +324,14 @@ function Monk(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_dragon_knight" and Caster:GetLevel() >= 20 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_lone_druid", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_lone_druid", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -327,11 +358,14 @@ function Spellblade(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_dragon_knight" and Caster:GetLevel() >= 20 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_silencer", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_silencer", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -358,11 +392,14 @@ function Wetboy(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_windrunner" and Caster:GetLevel() >= 20 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_riki", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_riki", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then
@@ -389,11 +426,14 @@ function Zerker(keys)
 	end
 	local player = Caster:GetPlayerOwner()
 	hero = Caster:GetUnitName()
+	local gold = 0					--To fix the gold share bug
+	gold = Caster:GetGold()
+	Caster:SetGold(0, false)
 	print("Caster = " .. hero)
 	local heroLevel = Caster:GetLevel()
 	if hero == "npc_dota_hero_dragon_knight" and Caster:GetLevel() >= 20 then
 		local loc = Caster:GetAbsOrigin()
-		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_sven", Caster:GetGold(), 0 )
+		PlayerResource:ReplaceHeroWith( Caster:GetPlayerID(), "npc_dota_hero_sven", gold, 0 )
 		local newHero = player:GetAssignedHero()
 		for i = 0, 5 do
 			if items[i] ~= nil then

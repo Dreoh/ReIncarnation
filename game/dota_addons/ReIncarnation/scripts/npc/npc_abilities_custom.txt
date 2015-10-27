@@ -3613,6 +3613,104 @@
 		}
 	}
 	//=================================================================================================================
+	// Hold Fast
+	//=================================================================================================================
+	"customability_holdfast"
+	{
+	
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_dazzle/dazzle_armor_friend_shield.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_cast.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_spiral02.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_shell.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_oval_highlight2.vpcf"
+			"particle"				"particles/units/heroes/hero_medusa/medusa_mana_shield_end.vpcf"
+		}
+		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "medusa_mana_shield"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"MaxLevel" 								"5"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "0"
+		"AbilityCastPoint"						"0"
+		"AbilityChannelTime"      				"5"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "20"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+			    "ModifierName" 		"modifier_holdfast_buff"
+			    "Target" 			"CASTER"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+		    "RemoveModifier"
+		    {
+		        "ModifierName" 	 	"modifier_holdfast_buff"
+		        "Target"       		"CASTER"
+		    } 
+		}
+
+		"Modifiers"
+		{
+		    "modifier_holdfast_buff"
+		    {
+				"IsDebuff"		"0"
+				"IsPurgable"	"false"
+				"EffectAttachType"		"follow_origin"
+				"EffectName"            "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"            "particles/units/heroes/hero_dazzle/dazzle_armor_friend_shield.vpcf"
+						"EffectAttachType"		"follow_overhead"
+						"Target"                "CASTER"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damagemitigation"
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                              "FIELD_FLOAT"
+				"damagemitigation"                      "-30 -40 -50 -60 -70"
+			}
+		}
+	}
+	//=================================================================================================================
 		// Ice Lord: Ice Blast
 		//=================================================================================================================
 		"rpg_ice_lord_ice_blast"
@@ -4976,7 +5074,7 @@
 				"04"
 				{
 					"var_type"				"FIELD_FLOAT"
-					"duration"				"5"
+					"duration"				"2"
 				}
 			}
 		}
@@ -5743,6 +5841,109 @@
 			}
 		}
 	//=================================================================================================================
+	// Shield Bash
+	//=================================================================================================================
+	"customability_shieldbash"
+	{
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "slardar_amplify_damage"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel" 								"5"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"                      "0"
+		"AbilityCastPoint"						"0"
+		
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                       "20.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                       "75"
+	
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_bash"
+				"Duration"		"5"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_bash"
+			{				
+				"IsDebuff"	"0"
+				
+				"OnAttackLanded"
+				{
+					//"FireEffect"
+					//{
+					//	"EffectName"		 "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+					//	"EffectAttachType"	 "follow_origin"
+					//	"Target"			 "TARGET"
+					//}	
+					"ApplyModifier"
+					{
+						"Target"			"TARGET"
+						"ModifierName"      "modifier_bash_stun"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"		"modifier_bash"
+						"Target"			"CASTER"	
+					}
+				}
+			}
+			
+			"modifier_bash_stun"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"IsStunDebuff"	"1"
+				"Duration"		"%duration"
+				
+				"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				
+				"OnDestroy"
+				{
+					"States"
+					{
+						"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_DISABLED"
+					}
+				}
+			}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.0 1.5 2.0 2.5 3.0"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Shockpoint
 	//=================================================================================================================
 	"customability_shockpoint"
@@ -5781,7 +5982,7 @@
 			{
 				"Target"					"CASTER"
 				"ScriptFile"				"Abilities/customability_spellmastery.lua"
-				"Function"					"PyreToggleOn"
+				"Function"					"ShockToggleOn"
 			}
 		}
 		
@@ -5796,7 +5997,7 @@
 			{
 				"Target"					"CASTER"
 				"ScriptFile"				"Abilities/customability_spellmastery.lua"
-				"Function"					"PyreToggleOff"
+				"Function"					"ShockToggleOff"
 			}
 		}
 		
@@ -6212,6 +6413,110 @@
 					"duration"                             "3 5 7 9"
 					//"duration"                             "2 2.5 3 3.5"
 					//"duration"                              "10"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Taunt
+	//=================================================================================================================
+	"customability_taunt"
+	{
+	
+		"precache"
+		{
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+			"particle"						"particles/items2_fx/satanic_buff.vpcf"
+		}
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                             "ability_datadriven"
+		"AbilityTextureName"                    "axe_berserkers_call"
+		"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"MaxLevel" 								"5"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                              "0.0"
+
+		// Time        
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                               "22.0 22.0 22.0 22.0"
+	   
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                               "75"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"                        "CASTER"
+				"ModifierName"					"modifier_taunt_aura"
+			}
+			"FireSound"
+			{
+				"EffectName"                    "Hero_Axe.Berserkers_Call"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_taunt_aura"
+			{
+				"Aura"					"modifier_taunt"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"1"
+
+				//"OnCreated"
+				//{
+				//	"AttachEffect"
+				//	{
+				//		"Target"			"TARGET"
+				//		"EffectName"		"particles/elementalist/quagmire.vpcf"
+				//		"EffectAttachType"	"follow_origin"
+				//	}
+				//}
+			}
+
+			"modifier_taunt"
+			{
+				"IsDebuff"              "1"
+				"EffectName"			"particles/items2_fx/satanic_buff.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Duration"      		"%duration"
+				"ThinkInterval"			".1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"Abilities/customability_taunt.lua"
+						"Function"		"Taunt"
+						"Target"		"TARGET"
+					}
+				}
+			}
+		}
+	   
+		// Special     
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"duration"                              "1.5 2.0 2.5 3.0 3.5"
+			}
+			"02"
+			{
+					"var_type"                              "FIELD_FLOAT"
+					"radius"                              	"300"
 			}
 		}
 	}

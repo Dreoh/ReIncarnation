@@ -1,0 +1,103 @@
+//=================================================================================================================
+// Shield Bash
+//=================================================================================================================
+"customability_shieldbash"
+{
+	"precache"
+	{
+		"particle"				"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+	}
+
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"                             "ability_datadriven"
+	"AbilityTextureName"                    "slardar_amplify_damage"
+	"AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"MaxLevel" 								"5"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"                      "0"
+	"AbilityCastPoint"						"0"
+	
+	// Time        
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"                       "20.0"
+	
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"                       "75"
+
+	// Modifiers
+	//-------------------------------------------------------------------------------------------------------------
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"		"CASTER"
+			"ModifierName"	"modifier_bash"
+			"Duration"		"5"
+		}
+	}
+	
+	"Modifiers"
+	{
+		"modifier_bash"
+		{				
+			"IsDebuff"	"0"
+			
+			"OnAttackLanded"
+			{
+				//"FireEffect"
+				//{
+				//	"EffectName"		 "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+				//	"EffectAttachType"	 "follow_origin"
+				//	"Target"			 "TARGET"
+				//}	
+				"ApplyModifier"
+				{
+					"Target"			"TARGET"
+					"ModifierName"      "modifier_bash_stun"
+				}
+				"RemoveModifier"
+				{
+					"ModifierName"		"modifier_bash"
+					"Target"			"CASTER"	
+				}
+			}
+		}
+		
+		"modifier_bash_stun"
+		{
+			"IsDebuff"		"1"
+			"IsPurgable"	"0"
+			"IsStunDebuff"	"1"
+			"Duration"		"%duration"
+			
+			"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+			"EffectAttachType"	"follow_overhead"
+			
+			"States"
+			{
+				"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+			}
+			
+			"OnDestroy"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_DISABLED"
+				}
+			}
+		}
+	}
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"duration"				"1.0 1.5 2.0 2.5 3.0"
+		}
+	}
+}

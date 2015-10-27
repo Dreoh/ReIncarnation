@@ -16,7 +16,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"485"
 		"ItemSellable"					"1"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"damage;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"wraith band"
